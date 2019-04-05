@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffe4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <GridPane alignment="CENTER" layoutX="70.0" layoutY="196.0" prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="104.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="200.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="btn00" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet00" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#00a136" GridPane.columnIndex="0" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets left="33.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn03" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet03" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#ffc600" GridPane.columnIndex="3" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets bottom="60.0" left="33.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn01" alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#invisibleAlphabet01" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#5122d3" GridPane.columnIndex="1" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets bottom="50.0" left="35.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn04" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet04" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="RED" GridPane.columnIndex="4" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets left="19.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="60.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn02" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet02" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" GridPane.columnIndex="2" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets left="60.0" top="50.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn05" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet05" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" GridPane.columnIndex="5" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets top="60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn13" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet13" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#5122d3" GridPane.columnIndex="3" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="20.0" left="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn12" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet12" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="RED" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="33.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn11" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet11" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#ffc600" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="19.0" top="50.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="60.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn10" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet10" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="RED" GridPane.columnIndex="0" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="60.0" left="60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn06" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet06" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#5122d3" GridPane.columnIndex="6" GridPane.rowIndex="0">
+               <GridPane.margin>
+                  <Insets bottom="60.0" left="33.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn21" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet21" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#5122d3" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" top="10.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn20" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet20" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" GridPane.rowIndex="2" GridPane.columnIndex="0">
+               <GridPane.margin>
+                  <Insets bottom="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn16" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet16" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#ffc600" GridPane.columnIndex="6" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets bottom="60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn15" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet15" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#00a136" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets left="33.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn14" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet14" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets top="20.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn31" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet31" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#00a136" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn26" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet26" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="RED" GridPane.columnIndex="6" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="60.0" left="33.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn25" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet25" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" GridPane.columnIndex="5" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="30.0" top="19.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="60.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn24" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet24" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#ffc600" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn23" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet23" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#00a136" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets bottom="60.0" left="60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn22" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet22" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#ffc600" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="33.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn35" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet35" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="#5122d3" GridPane.columnIndex="5" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="60.0" top="60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn34" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet34" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" GridPane.columnIndex="4" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="33.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn33" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet33" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" textFill="RED" GridPane.columnIndex="3" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets bottom="60.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="45.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn32" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet32" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="19.0" top="30.0" />
+               </GridPane.margin>
+               <font>
+                  <Font size="60.0" />
+               </font>
+            </Button>
+         </children>
+      </GridPane>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="534.0" layoutY="21.0" text="A to Z">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Label>
+      <Button fx:id="goBack" layoutX="24.0" layoutY="22.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #ffffe4; -fx-border-color: #108649; -fx-border-radius: 30; -fx-border-width: 3;" text="☜" AnchorPane.leftAnchor="20.0">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+      <Button fx:id="clickMe" layoutX="128.0" layoutY="33.0" mnemonicParsing="false" onAction="#generateRandom" text="Button" AnchorPane.leftAnchor="130.0" />
+   </children>
+</AnchorPane>
