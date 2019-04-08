@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #ffffe4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #ffffe4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
    <children>
-      <GridPane alignment="CENTER" layoutX="70.0" layoutY="196.0" prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="104.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="200.0">
+      <GridPane alignment="CENTER" layoutX="70.0" layoutY="196.0" prefHeight="500.0" prefWidth="1000.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="160.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -124,7 +124,7 @@
                   <Font size="45.0" />
                </font>
             </Button>
-            <Button fx:id="btn20" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet20" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" GridPane.rowIndex="2" GridPane.columnIndex="0">
+            <Button fx:id="btn20" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#invisibleAlphabet20" prefHeight="50.0" prefWidth="80.0" style="-fx-background-color: #ffffe4;" GridPane.columnIndex="0" GridPane.rowIndex="2">
                <GridPane.margin>
                   <Insets bottom="20.0" />
                </GridPane.margin>
@@ -238,16 +238,18 @@
             </Button>
          </children>
       </GridPane>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="534.0" layoutY="21.0" text="A to Z">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="534.0" layoutY="10.0" text="A to Z" AnchorPane.leftAnchor="534.0" AnchorPane.rightAnchor="534.0" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="45.0" />
          </font>
       </Label>
-      <Button fx:id="goBack" layoutX="24.0" layoutY="22.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #ffffe4; -fx-border-color: #108649; -fx-border-radius: 30; -fx-border-width: 3;" text="☜" AnchorPane.leftAnchor="20.0">
+      <Label fx:id="timeLabel" layoutX="945.0" layoutY="15.0" prefHeight="89.0" prefWidth="235.0" style="-fx-background-color: #ffffe4;" text="00.00" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="15.0">
          <font>
-            <Font size="21.0" />
+            <Font size="76.0" />
          </font>
-      </Button>
-      <Button fx:id="clickMe" layoutX="128.0" layoutY="33.0" mnemonicParsing="false" onAction="#generateRandom" text="Button" AnchorPane.leftAnchor="130.0" />
+      </Label>
+      <Button fx:id="newBtn" layoutX="102.0" layoutY="22.0" mnemonicParsing="false" onAction="#generateRandom" style="-fx-background-color: #ffffe4; -fx-border-radius: 30; -fx-border-color: #108649; -fx-border-width: 3;" text="New" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="20.0" />
+      <Button fx:id="pauseBtn" layoutX="961.0" layoutY="104.0" mnemonicParsing="false" onAction="#pauseButton" text="Pause" AnchorPane.topAnchor="104.0" />
+      <Button fx:id="restartBtn" layoutX="1074.0" layoutY="104.0" mnemonicParsing="false" onAction="#reStartButton" text="Restart" AnchorPane.topAnchor="104.0" />
    </children>
 </AnchorPane>
