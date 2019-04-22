@@ -1,10 +1,11 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 .button {
-    -fx-background-color: #3bb948;
+    -fx-background-color: #50AF49;
     -fx-background-radius: 30.0;
     -fx-border-radius: 30.0;
     -fx-border-width:6.0px;
-    -fx-opacity: 0.8;
+
+    -fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 6.0, 0.0 , 1.0 , 1.0 );
 }
 .button:hover{
     -fx-background-color: #108649;
@@ -12,4 +13,5 @@
     -fx-border-radius: 30.0;
     -fx-border-width:6.0px;
     -fx-opacity: 1.0;
+    -fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 0.0, 0.0 , 2.0 , 2.0 );
 }
