@@ -47,6 +47,7 @@ public class mainController implements Initializable{
 							// TODO: handle exception
 						}
 						Scene scene = new Scene(root);
+						scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 						Stage primaryStage = new Stage();
 						primaryStage.setScene(scene);
 						primaryStage.show();
