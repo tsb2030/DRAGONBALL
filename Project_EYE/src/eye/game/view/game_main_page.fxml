@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <VBox prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <Pane prefHeight="60.0" prefWidth="1280.0">
+               <children>
+      				<Text fx:id="titleText" layoutX="608.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="운동" textAlignment="CENTER" />
+                  <Line endX="792.0" endY="48.50001525878906" layoutX="-1.0" layoutY="9.0" startX="489.0" startY="48.50001525878906" stroke="#707070" strokeWidth="3.0" />
+                  <ImageView fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="image/뒤로가기.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+               <children>
+      				<ImageView fx:id="img1" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true">
+      					<image>
+      						<Image url="image/운눈_로고.png" />
+      					</image>
+      				</ImageView>
+      				<TextFlow fx:id="img1_text" layoutX="381.0" layoutY="10.0" prefHeight="180.0" prefWidth="500.0" />
+      				<ImageView fx:id="GObtn1" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="68.0" pickOnBounds="true">
+      					<image>
+      						<Image url="image/GObtn.png" />
+      					</image>
+      				</ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
+               </VBox.margin>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="1000.0" styleClass="paneBack">
+               <children>
+                  <ImageView fx:id="img2" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true">
+                     <image>
+                        <Image url="image/운눈_로고.png" />
+                     </image>
+                  </ImageView>
+                  <TextFlow fx:id="img1_text1" layoutX="386.0" layoutY="8.0" prefHeight="180.0" prefWidth="500.0" />
+                  <ImageView fx:id="GObtn2" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="68.0" pickOnBounds="true">
+                     <image>
+                        <Image url="image/GObtn.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="100.0" right="100.0" />
+               </VBox.margin>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+               <children>
+                  <ImageView fx:id="img3" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true">
+                     <image>
+                        <Image url="image/운눈_로고.png" />
+                     </image>
+                  </ImageView>
+                  <TextFlow fx:id="img1_text2" layoutX="382.0" layoutY="8.0" prefHeight="180.0" prefWidth="500.0" />
+                  <ImageView fx:id="GObtn3" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="68.0" pickOnBounds="true">
+                     <image>
+                        <Image url="image/GObtn.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" left="100.0" right="100.0" />
+               </VBox.margin>
+            </Pane>
+         </children>
+      </VBox>
+		<ScrollBar fx:id="scrollBar" layoutX="1251.0" layoutY="73.0" max="50.0" orientation="VERTICAL" prefHeight="660.0" prefWidth="30.0" unitIncrement="5.0" visibleAmount="10.0" />
+	</children>
+</AnchorPane>
