@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <Text layoutX="44.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="게임 중 팝업">
+         <font>
+            <Font size="56.0" />
+         </font>
+      </Text>
+      <Button layoutX="95.0" layoutY="204.0" mnemonicParsing="false" onAction="#exitButton" text="계속하기" />
+      <Button layoutX="223.0" layoutY="204.0" mnemonicParsing="false" onAction="#exitButton" text="뒤로가기" />
+   </children>
+</AnchorPane>

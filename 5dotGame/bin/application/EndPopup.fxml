@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171">
+	 <children>
+      <Text layoutX="44.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="게임 종료!">
+         <font>
+            <Font size="56.0" />
+         </font>
+      </Text>
+      <Button layoutX="95.0" layoutY="204.0" mnemonicParsing="false" onAction="#exitButton" text="새 게임" />
+      <Button layoutX="223.0" layoutY="204.0" mnemonicParsing="false" onAction="#exitButton" text="종료" />
+   </children>
+</AnchorPane>
