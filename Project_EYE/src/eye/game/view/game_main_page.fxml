@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="gameMainPage" fx:controller="eye.game.controller.gameMainController" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
 	<children>
       <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>
@@ -28,13 +28,13 @@
             </Pane>
             <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                <children>
-      				<ImageView fx:id="img1" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true">
+      				<ImageView fx:id="oneToFiftyImage" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true">
       					<image>
       						<Image url="image/운눈_로고.png" />
       					</image>
       				</ImageView>
       				<TextFlow fx:id="img1_text" layoutX="381.0" layoutY="10.0" prefHeight="180.0" prefWidth="500.0" />
-      				<ImageView fx:id="GObtn1" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="68.0" pickOnBounds="true">
+      				<ImageView fx:id="oneToFiftyBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="68.0" pickOnBounds="true">
       					<image>
       						<Image url="image/GObtn.png" />
       					</image>
