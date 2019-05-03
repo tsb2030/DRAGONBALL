@@ -1,5 +1,6 @@
 package application;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -11,26 +12,34 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Controller implements Initializable {
 	@FXML
-	private Button btn00, btn01, btn02, btn03, btn04, btn05, btn06, btn10, btn11, btn12, btn13, 
-	btn14, btn15, btn16, btn20, btn21, btn22, btn23, btn24, btn25, btn26, btn31, btn32, btn33, 
-	btn34, btn35;
-	
+	private Button btn00, btn01, btn02, btn03, btn04, btn05, btn06, btn10, btn11, btn12, btn13, btn14, btn15, btn16,
+			btn20, btn21, btn22, btn23, btn24, btn25, btn26, btn31, btn32, btn33, btn34, btn35;
+
 	@FXML
 	private Label timeLabel;
-
+	@FXML
+	private Button gameStart;
 	@FXML
 	private Button newBtn;
 	@FXML
 	private Button pauseBtn;
 	@FXML
 	private Button restartBtn;
+
+	@FXML
+	private Button closeBtn;
 
 	String alphabets[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
 			"S", "T", "U", "V", "W", "X", "Y", "Z" }; // 인덱스 : 0-25
@@ -46,15 +55,51 @@ public class Controller implements Initializable {
 		timeLine = new Timeline(); // timeLine 객체 초기화
 		timeLine.setCycleCount(Timeline.INDEFINITE);
 		timeLine.play();
+	}
 
+	// 게임 페이지로 전환
+	public void handlebtnGameStart(ActionEvent event) {
+		try {
+			Parent gameInfo = FXMLLoader.load(getClass().getResource("Game.fxml"));  // 불러올 페이지 지정
+			Scene scene = new Scene(gameInfo);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css 지정
+			Stage primaryStage = (Stage) gameStart.getScene().getWindow();  // 현재 윈도우 가져오기
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("A to Z");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 게임 종료시 나오는 완료창
+	public void showEndPopUp() {
+		FXMLLoader another = new FXMLLoader(Main.class.getResource("GameSuccess.fxml"));  // 불러올 팝업창 지정
+		try {
+			AnchorPane anotherPage = (AnchorPane) another.load();
+			// 다른창 띄우는 작업 .... 2
+			Scene anotherScene = new Scene(anotherPage);
+			Stage stage = new Stage();
+			stage.setScene(anotherScene);
+			stage.show();
+			// 다른창 띄우는 작업 .... 2 끝.
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	// 팝업창 닫기
+	public void closePopUp() {
+		Stage stage = (Stage) closeBtn.getScene().getWindow();  // 버튼이 있는 창을 닫는다
+		stage.close();
 	}
 
 	// 1~50 사이의 숫자를 선택하는 랜덤 메소드를 만듬.
 	// 이 메소드는 액션 이벤트가 발생할 때 작동함.
 	// Scene Builder에서 컨트롤러와 이벤트를 모두 걸어줘야 함.
 	public void generateRandom(ActionEvent event) {
-		alphabetIndex = 0;  // new 버튼을 눌렀을 때 인덱스를 초기화 시킨다.
-		
+		alphabetIndex = 0; // new 버튼을 눌렀을 때 인덱스를 초기화 시킨다.
+
 		timeLine.stop(); // 새로 시간을 측정하려면 timeLine이 초기화되야 하므로 stop()
 		time = Duration.ZERO; // time의 값도 새로 측정 할 때마다 0이되어야 함.
 		timeLabel.textProperty().bind(timeSeconds.asString()); // timeCheck 에 timeSeconds 값 대입
@@ -128,37 +173,97 @@ public class Controller implements Initializable {
 		btn33.setText(usedAlphabet[reCount++]);
 		btn34.setText(usedAlphabet[reCount++]);
 		btn35.setText(usedAlphabet[reCount++]);
-		
-		btn00.setDisable(false); btn01.setDisable(false); btn02.setDisable(false); btn03.setDisable(false);
-		btn04.setDisable(false); btn05.setDisable(false); btn06.setDisable(false); btn10.setDisable(false); 
-		btn11.setDisable(false); btn12.setDisable(false); btn13.setDisable(false); btn14.setDisable(false); 
-		btn15.setDisable(false); btn16.setDisable(false); btn20.setDisable(false); btn21.setDisable(false); 
-		btn21.setDisable(false); btn22.setDisable(false); btn23.setDisable(false); btn24.setDisable(false); 
-		btn25.setDisable(false); btn26.setDisable(false); btn31.setDisable(false); btn32.setDisable(false); 
-		btn33.setDisable(false); btn34.setDisable(false); btn35.setDisable(false); 
+
+		btn00.setDisable(false);
+		btn01.setDisable(false);
+		btn02.setDisable(false);
+		btn03.setDisable(false);
+		btn04.setDisable(false);
+		btn05.setDisable(false);
+		btn06.setDisable(false);
+		btn10.setDisable(false);
+		btn11.setDisable(false);
+		btn12.setDisable(false);
+		btn13.setDisable(false);
+		btn14.setDisable(false);
+		btn15.setDisable(false);
+		btn16.setDisable(false);
+		btn20.setDisable(false);
+		btn21.setDisable(false);
+		btn21.setDisable(false);
+		btn22.setDisable(false);
+		btn23.setDisable(false);
+		btn24.setDisable(false);
+		btn25.setDisable(false);
+		btn26.setDisable(false);
+		btn31.setDisable(false);
+		btn32.setDisable(false);
+		btn33.setDisable(false);
+		btn34.setDisable(false);
+		btn35.setDisable(false);
 	}
 
 	public void pauseButton(ActionEvent event) {
-		btn00.setDisable(true); btn01.setDisable(true); btn02.setDisable(true); btn03.setDisable(true);
-		btn04.setDisable(true); btn05.setDisable(true); btn06.setDisable(true); btn10.setDisable(true); 
-		btn11.setDisable(true); btn12.setDisable(true); btn13.setDisable(true); btn14.setDisable(true); 
-		btn15.setDisable(true); btn16.setDisable(true); btn20.setDisable(true); btn21.setDisable(true); 
-		btn21.setDisable(true); btn22.setDisable(true); btn23.setDisable(true); btn24.setDisable(true); 
-		btn25.setDisable(true); btn26.setDisable(true); btn31.setDisable(true); btn32.setDisable(true); 
-		btn33.setDisable(true); btn34.setDisable(true); btn35.setDisable(true); 
-		
+		btn00.setDisable(true);
+		btn01.setDisable(true);
+		btn02.setDisable(true);
+		btn03.setDisable(true);
+		btn04.setDisable(true);
+		btn05.setDisable(true);
+		btn06.setDisable(true);
+		btn10.setDisable(true);
+		btn11.setDisable(true);
+		btn12.setDisable(true);
+		btn13.setDisable(true);
+		btn14.setDisable(true);
+		btn15.setDisable(true);
+		btn16.setDisable(true);
+		btn20.setDisable(true);
+		btn21.setDisable(true);
+		btn21.setDisable(true);
+		btn22.setDisable(true);
+		btn23.setDisable(true);
+		btn24.setDisable(true);
+		btn25.setDisable(true);
+		btn26.setDisable(true);
+		btn31.setDisable(true);
+		btn32.setDisable(true);
+		btn33.setDisable(true);
+		btn34.setDisable(true);
+		btn35.setDisable(true);
+
 		timeLine.stop(); // timeLine멈춤
 	}
 
 	public void reStartButton(ActionEvent event) {
-		btn00.setDisable(false); btn01.setDisable(false); btn02.setDisable(false); btn03.setDisable(false);
-		btn04.setDisable(false); btn05.setDisable(false); btn06.setDisable(false); btn10.setDisable(false); 
-		btn11.setDisable(false); btn12.setDisable(false); btn13.setDisable(false); btn14.setDisable(false); 
-		btn15.setDisable(false); btn16.setDisable(false); btn20.setDisable(false); btn21.setDisable(false); 
-		btn21.setDisable(false); btn22.setDisable(false); btn23.setDisable(false); btn24.setDisable(false); 
-		btn25.setDisable(false); btn26.setDisable(false); btn31.setDisable(false); btn32.setDisable(false); 
-		btn33.setDisable(false); btn34.setDisable(false); btn35.setDisable(false); 
-		
+		btn00.setDisable(false);
+		btn01.setDisable(false);
+		btn02.setDisable(false);
+		btn03.setDisable(false);
+		btn04.setDisable(false);
+		btn05.setDisable(false);
+		btn06.setDisable(false);
+		btn10.setDisable(false);
+		btn11.setDisable(false);
+		btn12.setDisable(false);
+		btn13.setDisable(false);
+		btn14.setDisable(false);
+		btn15.setDisable(false);
+		btn16.setDisable(false);
+		btn20.setDisable(false);
+		btn21.setDisable(false);
+		btn21.setDisable(false);
+		btn22.setDisable(false);
+		btn23.setDisable(false);
+		btn24.setDisable(false);
+		btn25.setDisable(false);
+		btn26.setDisable(false);
+		btn31.setDisable(false);
+		btn32.setDisable(false);
+		btn33.setDisable(false);
+		btn34.setDisable(false);
+		btn35.setDisable(false);
+
 		timeLine.play(); // timeLine 이어서 재시작
 	}
 
@@ -171,6 +276,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -183,6 +289,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -195,6 +302,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -207,6 +315,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -219,6 +328,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -231,6 +341,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -243,6 +354,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -255,6 +367,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -267,6 +380,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -279,6 +393,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -291,6 +406,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -303,6 +419,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -315,6 +432,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -327,6 +445,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -339,6 +458,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -351,6 +471,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -363,6 +484,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -375,6 +497,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -387,6 +510,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -399,6 +523,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -411,6 +536,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -423,6 +549,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -435,6 +562,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -447,6 +575,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -459,6 +588,7 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
@@ -471,7 +601,9 @@ public class Controller implements Initializable {
 
 			if (alphabetIndex == 26) {
 				timeLine.stop();
+				showEndPopUp();
 			}
 		}
 	}
+
 }
