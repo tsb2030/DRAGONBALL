@@ -16,7 +16,7 @@
             <Font name="a소나무M" size="24.0" />
          </font>
       </Text>
-      <Button layoutX="-30.0" layoutY="-15.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="149.0" style="-fx-background-color: #FFFFe4;" text="←">
+      <Button layoutX="-30.0" layoutY="-15.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="96.0" prefWidth="149.0" style="-fx-background-color: #FFFFe4;" text="←">
          <font>
             <Font size="55.0" />
          </font>
@@ -26,7 +26,7 @@
             <Font size="31.0" />
          </font>
       </Button>
-      <Label layoutX="465.0" layoutY="7.0" text="5개의 점 게임">
+      <Label layoutX="465.0" layoutY="7.0" text="5개의 점 휴식">
          <font>
             <Font name="a소나무M" size="55.0" />
          </font>

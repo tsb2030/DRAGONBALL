@@ -16,14 +16,15 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			
-			Font.loadFont(getClass().getResourceAsStream("a소나무B.ttf"), 10);
+			 Font.loadFont(getClass().getResourceAsStream("a소나무B.ttf"), 10);
 	         Font.loadFont(getClass().getResourceAsStream("a소나무L.ttf"), 10);
 	         Font.loadFont(getClass().getResourceAsStream("a소나무M.ttf"), 10);
 	         
 			Parent root=FXMLLoader.load(getClass().getResource("StartPage.fxml"));
 			Scene scene=new Scene(root);			
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("5개의 점 게임"); 
+			primaryStage.setTitle("눈 운동"); 
 			primaryStage.setResizable(false);
 			primaryStage.show();
 			
