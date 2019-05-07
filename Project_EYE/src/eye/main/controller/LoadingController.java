@@ -15,7 +15,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/*처음 로딩화면을 설정해주기 위한 클래스
+ * loading.fxml에 연결되어있는 컨트롤러*/
 public class LoadingController implements Initializable{
+	//loading.fxml에 있는 AnchorPane의 id값인 acpane을 가져와서 정의한다.
 	@FXML
 	private AnchorPane acpane;
 
@@ -25,9 +28,11 @@ public class LoadingController implements Initializable{
 		new loadingScreen().start();
 	}
 	
+	//페이드아웃 효과와 화면 전환을 위한 클래스
 	class loadingScreen extends Thread{
 		@Override
 		public void run() {
+			//페이드아웃 부분
 			try {
 				Thread.sleep(2000);
 				FadeTransition fadeout = new FadeTransition(Duration.seconds(3),acpane);
@@ -38,6 +43,7 @@ public class LoadingController implements Initializable{
 				Thread.sleep(1500);
 				Platform.runLater(new Runnable() {
 					
+					//화면 전환부분
 					@Override
 					public void run() {
 						Parent root = null;
