@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="gamePage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFe4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GamePageController">
+   <children>
+      <Circle fx:id="circle1" fill="WHITE" layoutX="40.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #8fbc8f;" />
+      <Circle fx:id="circle2" fill="WHITE" layoutX="340.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #FFFFe4;" />
+      <Circle fx:id="circle3" fill="WHITE" layoutX="640.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #FFFFe4;" />
+      <Circle fx:id="circle4" fill="WHITE" layoutX="940.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #FFFFe4;" />
+      <Circle fx:id="circle5" fill="WHITE" layoutX="1240.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #FFFFe4;" />
+      <Text fx:id="endText" fill="DARKSEAGREEN" layoutX="541.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FINISH!" visible="false">
+         <font>
+            <Font size="57.0" />
+         </font>
+      </Text>
+      <Button layoutX="-30.0" layoutY="-15.0" mnemonicParsing="false" onAction="#exitButton" prefHeight="96.0" prefWidth="149.0" style="-fx-background-color: #FFFFe4;" text="←">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
