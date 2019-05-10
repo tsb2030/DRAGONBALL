@@ -16,7 +16,7 @@ public class Main extends Application {
         Font.loadFont(getClass().getResourceAsStream("a家唱公L.ttf"), 10);
         Font.loadFont(getClass().getResourceAsStream("a家唱公M.ttf"), 10);
 		
-		Parent root = FXMLLoader.load(getClass().getResource("design3.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage1.fxml"));
 		primaryStage.setScene(new Scene(root));
 		primaryStage.setTitle("eyetraining");
 		primaryStage.setResizable(false);

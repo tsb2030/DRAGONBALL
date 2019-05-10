@@ -49,7 +49,7 @@
                   <Pane id="shadow" layoutX="525.0" layoutY="539.0" onMouseClicked="#goPriorPage2" prefHeight="70.0" prefWidth="200.0">
                      <children>
                      <!-- "다음"버튼 디자인을 위한 Pane -->
-                        <ImageView fx:id="nextBtn" fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="nextBtn" onMouseClicked="#go2" fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@redRec.png" />
                            </image>
