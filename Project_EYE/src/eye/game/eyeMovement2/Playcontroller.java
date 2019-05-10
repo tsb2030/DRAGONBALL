@@ -8,9 +8,12 @@ import java.util.ResourceBundle;
 import javafx.animation.PathTransition;
 import javafx.animation.Animation.Status;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -29,6 +32,9 @@ import javafx.util.Duration;
 public class Playcontroller implements Initializable {
 	@FXML
 	private AnchorPane acpane;
+	
+	@FXML
+	private Button backBtn;
 
 	private PathTransition pathTransition;
 	private boolean pause_control = true; // pause버튼의 활성화조건
@@ -83,6 +89,23 @@ public class Playcontroller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		new moving().start();
+		backBtn.setOnMouseClicked(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+
+				try {
+					Parent root = FXMLLoader.load(getClass().getResource("../../game/view/game_main_page.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) acpane.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+			}
+
+		});
 	}
 
 	class moving extends Thread {
