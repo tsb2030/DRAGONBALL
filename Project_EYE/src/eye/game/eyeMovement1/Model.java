@@ -1,4 +1,4 @@
-package eye.game.eyeMovement;
+package eye.game.eyeMovement1;
 
 import javafx.scene.shape.ArcTo;
 import javafx.scene.shape.LineTo;

@@ -1,4 +1,4 @@
-package eye.game.eyeMovement;
+package eye.game.eyeMovement1;
 
 
 import java.net.URL;
