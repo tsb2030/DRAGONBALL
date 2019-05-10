@@ -26,7 +26,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-public class controller2 implements Initializable {
+public class Playcontroller implements Initializable {
 	@FXML
 	private AnchorPane acpane;
 
@@ -107,7 +107,7 @@ public class controller2 implements Initializable {
 
 			// Creating the path transition
 			pathTransition = new PathTransition();
-			pathTransition.setDuration(Duration.seconds(controller.duration));
+			pathTransition.setDuration(Duration.seconds(Explaincontroller.duration));
 			pathTransition.setNode(cir);
 
 			// Setting the path for the transition
@@ -161,7 +161,7 @@ public class controller2 implements Initializable {
 					System.out.println(count);
 				}
 
-				if (count == 20 && tmp >= controller.duration - 0.015) {
+				if (count == 20 && tmp >= Explaincontroller.duration - 0.015) {
 					showEndPopUp();
 				}
 

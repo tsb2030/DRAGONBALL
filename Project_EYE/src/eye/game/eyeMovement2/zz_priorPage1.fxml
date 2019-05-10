@@ -13,7 +13,7 @@
 
 <!-- 지그재그 게임 전 설명 페이지 -->
 
-<AnchorPane fx:id="background" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../priorPage1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="strip.test.priorPage1Controller">
+<AnchorPane fx:id="acpane" prefHeight="720.0" prefWidth="1280.0" stylesheets="@../priorPage1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.eyeMovement2.Explaincontroller">
    <children>
       <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>
@@ -46,10 +46,10 @@
                   <Label layoutX="250.0" layoutY="310.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="운동 횟수는 총 20회 이며, 모형의 색깔이 몇 번이나 바뀌는지 기억해주세요!" textAlignment="CENTER" textFill="#252525" />
                   <Label layoutX="330.0" layoutY="380.0" prefHeight="50.0" prefWidth="700.0" styleClass="fontStyleL" text="이 다음 화면에서 원하는 속도와 모형을 선택할 수 있습니다." textAlignment="CENTER" textFill="#252525" />
                   <Label layoutX="450.0" layoutY="450.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleL" text="준비 되셨다면 아래 버튼을 클릭하세요" textAlignment="CENTER" textFill="#252525" />
-                  <Pane id="shadow" layoutX="525.0" layoutY="539.0" onMouseClicked="#goPriorPage2" prefHeight="70.0" prefWidth="200.0">
+                  <Pane id="shadow" layoutX="525.0" layoutY="539.0"  prefHeight="70.0" prefWidth="200.0">
                      <children>
                      <!-- "다음"버튼 디자인을 위한 Pane -->
-                        <ImageView fx:id="nextBtn" onMouseClicked="#go2" fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="nextBtn"  fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@redRec.png" />
                            </image>
