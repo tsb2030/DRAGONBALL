@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<!-- 지그재그 실행 페이지 -->
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../mobius_main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="strip.test.Controller">
+   <children>
+      <VBox prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <HBox prefHeight="60.0" prefWidth="1280.0">
+               <children>
+                  <ImageView id="btn" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#moving" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" top="10.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@backarrow.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="시선 이동 트레이닝2" textAlignment="CENTER" wrappingWidth="359.75521087646484">
+                     <HBox.margin>
+                        <Insets left="400.0" right="70.0" top="15.0" />
+                     </HBox.margin>       
+                  </Text>
+                  <Pane prefHeight="60.0" prefWidth="430.0">
+                     <children>
+                        <Arc fill="#c6b351" layoutX="189.0" length="180.0" radiusX="201.0" radiusY="76.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Pane layoutX="120.0" layoutY="5.0" prefHeight="60.0" prefWidth="150.0" styleClass="fontStyle">
+                           <children>
+                           <!-- 첫번째 text는 횟수에서 숫자를, 두번째 text는 고정문자인 "회"를 나타냄 -->
+                              <Text layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                              <Text layoutX="55.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="회" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <Pane prefHeight="660.0" prefWidth="1280.0">
+               <children>
+               		<!-- 운동의 핵심! 공의 초기 좌표 -->
+                  <Circle fx:id="pointer" fill="#008000" layoutX="40.0" layoutY="100.0" onMouseClicked="#moving" radius="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Line endX="223.0" endY="-1.52587890625E-5" layoutX="578.0" layoutY="-1.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
+                  
+                     </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
