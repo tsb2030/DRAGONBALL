@@ -11,17 +11,17 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="gameMainPage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.controller.gameMainController">
+<AnchorPane fx:id="gameMainPage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;" stylesheets="@game_main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.controller.gameMainController">
 	<children>
       <VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;">
          <children>
             <Pane prefHeight="60.0" prefWidth="1280.0">
-               <children>
+               <children >
       				<Text fx:id="titleText" layoutX="608.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="운동" textAlignment="CENTER" />
                   <Line endX="792.0" endY="48.50001525878906" layoutX="-1.0" layoutY="9.0" startX="489.0" startY="48.50001525878906" stroke="#707070" strokeWidth="3.0" />
-                  <ImageView fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="shadow" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="image/뒤로가기.png" />
+                        <Image url="image/backarrow.png" />
                      </image>
                   </ImageView>
                </children>
@@ -32,13 +32,13 @@
                      <children>
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                  				<ImageView fx:id="oneToFiftyImage" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true">
+                  				<ImageView fx:id="oneToFiftyImage" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                   					<image>
-                  						<Image url="image/운눈_로고.png" />
+                  						<Image url="@../../../image/gameList/atoz.png" />
                   					</image>
                   				</ImageView>
-                  				<TextFlow fx:id="img1_text" layoutX="381.0" layoutY="10.0" prefHeight="180.0" prefWidth="500.0" />
-                  				<ImageView fx:id="oneToFiftyBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="68.0" pickOnBounds="true">
+                  				<TextFlow fx:id="img1_text" layoutX="381.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
+                  				<ImageView fx:id="oneToFiftyBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
                   					<image>
                   						<Image url="image/GObtn.png" />
                   					</image>
@@ -51,15 +51,15 @@
                               <Insets bottom="250.0" />
                            </padding>
                         </Pane>
-                        <Pane prefHeight="200.0" prefWidth="1000.0" styleClass="paneBack">
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ImageView fx:id="img2" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true">
+                              <ImageView fx:id="img2" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="image/운눈_로고.png" />
+                                    <Image url="@../../../image/gameList/mobius.png" />
                                  </image>
                               </ImageView>
-                              <TextFlow fx:id="img1_text1" layoutX="386.0" layoutY="8.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView fx:id="GObtn2" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="68.0" pickOnBounds="true">
+                              <TextFlow fx:id="img1_text1" layoutX="386.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
+                              <ImageView fx:id="GObtn2" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
@@ -74,13 +74,13 @@
                         </Pane>
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ImageView fx:id="img3" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="8.0" pickOnBounds="true">
+                              <ImageView fx:id="img3" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="image/운눈_로고.png" />
+                                    <Image url="@../../../image/gameList/zigzag.png" />
                                  </image>
                               </ImageView>
-                              <TextFlow fx:id="img1_text2" layoutX="382.0" layoutY="8.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView fx:id="GObtn3" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="68.0" pickOnBounds="true">
+                              <TextFlow fx:id="img1_text2" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
+                              <ImageView fx:id="GObtn3" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
@@ -92,6 +92,90 @@
                            <padding>
                               <Insets bottom="250.0" />
                            </padding>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                              <ImageView fx:id="img31" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../image/gameList/5dot.png" />
+                                 </image>
+                              </ImageView>
+                              <TextFlow fx:id="img1_text21" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
+                              <ImageView fx:id="GObtn31" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="image/GObtn.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                              <ImageView fx:id="img32" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../image/gameList/catchmole.png" />
+                                 </image>
+                              </ImageView>
+                              <TextFlow fx:id="img1_text22" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
+                              <ImageView fx:id="GObtn32" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="image/GObtn.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                              <ImageView fx:id="img33" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../image/gameList/catchball.png" />
+                                 </image>
+                              </ImageView>
+                              <TextFlow fx:id="img1_text23" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
+                              <ImageView fx:id="GObtn33" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="image/GObtn.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                              <ImageView fx:id="img34" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../image/gameList/findpicture.png" />
+                                 </image>
+                              </ImageView>
+                              <TextFlow fx:id="img1_text24" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
+                              <ImageView fx:id="GObtn34" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="image/GObtn.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" />
+                           </VBox.margin>
                         </Pane>
                      </children>
                   </VBox>
