@@ -14,7 +14,7 @@
 
 <!-- 뫼비우스띠 실행 페이지 -->
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@mobius_main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="strip.test.Controller">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@mobius_main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.eyeMovement1.Controller">
    <children>
       <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>

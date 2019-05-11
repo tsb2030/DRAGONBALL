@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,14 +8,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <!-- 뫼비우스 띠 게임 전 속도/공모양 선택 페이지 -->
 
-<AnchorPane fx:id="background" prefHeight="720.0" prefWidth="1280.0" stylesheets="@priorPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="strip.test.priorPage2Controller">
+<AnchorPane fx:id="background" prefHeight="720.0" prefWidth="1280.0" stylesheets="@priorPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.eyeMovement1.testC">
    <children>
       <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>
@@ -41,7 +44,7 @@
                <children>
                   <Line endX="223.0" layoutX="558.0" layoutY="-1.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
                   <Pane id="backBorder" layoutX="125.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" />
-                  <Pane id="shadow" layoutX="525.0" layoutY="539.0" onMouseClicked="#goMainpage" prefHeight="70.0" prefWidth="200.0">
+                  <Pane id="shadow" layoutX="525.0" layoutY="539.0" prefHeight="70.0" prefWidth="200.0">
                      <children>
                      <!-- "다음"버튼 디자인을 위한 Pane -->
                         <ImageView fx:id="nextBtn" fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
@@ -60,14 +63,14 @@
                            </font>
                         </Text>
                         <!-- 속도 3단계 중 선택할 수 있도록 checkbox 세 개 지정 -->
-                        <JFXCheckBox layoutX="60.0" layoutY="400.0" text="1" />
-                        <JFXCheckBox layoutX="180.0" layoutY="400.0" text="2" />
-                        <JFXCheckBox layoutX="300.0" layoutY="400.0" text="3" />
+                        <JFXRadioButton layoutX="60.0" layoutY="400.0" text="1" />
+                        <JFXRadioButton layoutX="180.0" layoutY="400.0" text="2" />
+                        <JFXRadioButton layoutX="300.0" layoutY="400.0" text="3" />
                         
                         <!-- 각 단계마다의 속도을 시각화 해줄 공 객체들 -->
                         <Circle fx:id="speedCircle1" fill="#5b6a27" layoutX="79.0" layoutY="123.0" radius="20.0" stroke="#707070" strokeType="INSIDE" strokeWidth="0.5" />
-                        <Circle fx:id="speedCircle3" fill="#5b6a27" layoutX="319.0" layoutY="123.0" radius="20.0" stroke="#707070" strokeType="INSIDE" strokeWidth="0.5" />
                         <Circle fx:id="speedCircle2" fill="#5b6a27" layoutX="199.0" layoutY="123.0" radius="20.0" stroke="#707070" strokeType="INSIDE" strokeWidth="0.5" />
+                        <Circle fx:id="speedCircle3" fill="#5b6a27" layoutX="319.0" layoutY="123.0" radius="20.0" stroke="#707070" strokeType="INSIDE" strokeWidth="0.5" />
                      </children>
                   </Pane>
                   <Pane layoutX="670.0" layoutY="100.0" prefHeight="430.0" prefWidth="400.0">
@@ -78,10 +81,14 @@
                            </font>
                         </Text>
                         <!-- 공 모양을 선택할 수 있도록 checkbox 네 개 지정 -->
-                        <JFXCheckBox layoutX="57.0" layoutY="300.0" text="1" />
-                        <JFXCheckBox layoutX="141.0" layoutY="300.0" text="2" />
-                        <JFXCheckBox layoutX="222.0" layoutY="300.0" text="3" />
-                        <JFXCheckBox layoutX="304.0" layoutY="300.0" text="4" />
+                        <JFXRadioButton layoutX="57.0" layoutY="250.0" text="1" />
+                        <JFXRadioButton layoutX="141.0" layoutY="250.0" text="2" />
+                        <JFXRadioButton layoutX="222.0" layoutY="250.0" text="3" />
+                        <JFXRadioButton layoutX="304.0" layoutY="250.0" text="4" />
+                        <Circle fill="#b219af" layoutX="76.0" layoutY="215.0" radius="20.0" stroke="#707070" strokeType="INSIDE" />
+                        <Polygon fill="#b219af" layoutX="194.0" layoutY="139.0" points="-59.0, 97.0, -35.0, 56.0, -12.0, 97.0" stroke="#707070" strokeType="INSIDE" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b219af" height="40.0" layoutX="221.0" layoutY="196.0" stroke="#707070" strokeType="INSIDE" width="40.0" />
+                        <Arc fill="#b219af" layoutX="324.0" layoutY="241.0" length="110.0" radiusX="40.0" radiusY="50.0" startAngle="34.5" stroke="#707070" strokeType="INSIDE" type="ROUND" />
                      </children>
                   </Pane>
                </children>

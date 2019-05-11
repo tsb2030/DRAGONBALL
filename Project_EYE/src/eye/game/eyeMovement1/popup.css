@@ -1,0 +1,15 @@
+AnchorPane{
+	-fx-background-color : #ffffe4;
+}
+#backBorder{
+	-fx-background-color: #EEDCC6;
+	-fx-border-style: dashed;
+	-fx-border-width: 4.0px;
+	-fx-background-radius: 50.0px;
+	-fx-border-radius: 50.0px;
+	-fx-border-color: #707070;
+	-fx-opacity: 40.0%;
+}
+#shadow:hover{
+	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 8.0 );
+}
