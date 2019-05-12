@@ -28,22 +28,6 @@ public class Explaincontroller implements Initializable {
 	@FXML
 	private ImageView backBtn;
 
-	@FXML
-	void first(MouseEvent event) {
-		duration = 6;
-
-	}
-
-	@FXML
-	void second(MouseEvent event) {
-		duration = 4;
-	}
-
-	@FXML
-	void third(MouseEvent event) {
-		duration = 2;
-
-	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

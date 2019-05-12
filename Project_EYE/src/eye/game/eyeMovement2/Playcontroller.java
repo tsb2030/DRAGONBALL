@@ -130,7 +130,7 @@ public class Playcontroller implements Initializable {
 
 			// Creating the path transition
 			pathTransition = new PathTransition();
-			pathTransition.setDuration(Duration.seconds(Explaincontroller.duration));
+			pathTransition.setDuration(Duration.seconds(Selectcontroller.duration));
 			pathTransition.setNode(cir);
 
 			// Setting the path for the transition
@@ -206,7 +206,7 @@ public class Playcontroller implements Initializable {
 	}
 
 	public void showEndPopUp() {
-		FXMLLoader another = new FXMLLoader(Main.class.getResource("design4.fxml")); // 불러올 팝업창 지정
+		FXMLLoader another = new FXMLLoader(Main.class.getResource("gameQ&A.fxml")); // 불러올 팝업창 지정
 		try {
 			AnchorPane anotherPage = (AnchorPane) another.load();
 			// 다른창 띄우는 작업 .... 2
