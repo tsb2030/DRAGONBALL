@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchBall.EndGamePopupController">
+   <children>
+      <JFXButton fx:id="backGame" layoutX="90.0" layoutY="426.0" onAction="#backGameAction" style="-fx-background-color: #DC3C30;" text="BackGame" textFill="WHITE" />
+      <JFXButton fx:id="goMainButton" layoutX="232.0" layoutY="426.0" onAction="#goMainButtonAction" style="-fx-background-color: #DC3C30;" text="GoMain" textFill="WHITE" />
+      <Label fx:id="gameTime" layoutX="216.0" layoutY="124.0" text="0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="gameScore" layoutX="216.0" layoutY="175.0" text="0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Text layoutX="126.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time : " wrappingWidth="84.99999856948853">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="124.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score : ">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

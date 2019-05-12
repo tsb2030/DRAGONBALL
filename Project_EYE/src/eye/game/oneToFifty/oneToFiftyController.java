@@ -1,12 +1,17 @@
 package eye.game.oneToFifty;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 import com.jfoenix.controls.JFXButton;
 
+import eye.main.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
@@ -171,8 +176,11 @@ public class oneToFiftyController implements Initializable{
 	 //게임메인화면으로 이동
 	public void goGameMainBtn() {
 		try {
+
+			Main.mainMusic.stopMusic();
+			Main.mainMusic.resetNameAudioStream("LaLaLa");
 			gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
-		} catch (IOException e) {
+		} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
