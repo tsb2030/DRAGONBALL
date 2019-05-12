@@ -17,7 +17,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Explaincontroller implements Initializable {
-	static int duration = 4;
 
 	@FXML
 	private AnchorPane acpane;

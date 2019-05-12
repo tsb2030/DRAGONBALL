@@ -26,6 +26,7 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.scene.text.Text;
 
 public class Selectcontroller implements Initializable {
 
@@ -34,7 +35,16 @@ public class Selectcontroller implements Initializable {
 	private PathTransition pathTransition2;
 	private PathTransition pathTransition3;
 
-	@FXML
+    @FXML
+    private Text title;
+    
+    @FXML
+    private ToggleGroup group;
+	
+    @FXML
+    private ToggleGroup group2;
+
+    @FXML
 	private Circle speedCircle1;
 
 	@FXML
@@ -60,122 +70,122 @@ public class Selectcontroller implements Initializable {
 
 	@FXML
 	private ImageView backBtn;
-
-	class updown1 extends Thread {
-		@Override
-		public void run() {
-
-			// Creating a Path
-			Path path = new Path();
-
-			// Moving to the starting point
-			MoveTo moveTo = new MoveTo(0, 0);
-
-			// Creating line 진행할 길을 설정합니다.
-			LineTo line1 = new LineTo(0, 250);
-			LineTo line2 = new LineTo(0, 0);
-
-			// Adding all the elements to the path
-			path.getElements().add(moveTo);
-			path.getElements().addAll(line1, line2);
-
-			// Creating the path transition
-			pathTransition1 = new PathTransition();
-			pathTransition1.setDuration(Duration.seconds(6));
-			pathTransition1.setNode(speedCircle1);
-
-			// Setting the path for the transition
-			pathTransition1.setPath(path);
-
-			pathTransition1.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-
-			pathTransition1.setCycleCount(10);
-
-			// Playing the animation
-			pathTransition1.play();
-		}
-
-	}
-
-	class updown2 extends Thread {
-		@Override
-		public void run() {
-
-			// Creating a Path
-			Path path = new Path();
-
-			// Moving to the starting point
-			MoveTo moveTo = new MoveTo(0, 0);
-
-			// Creating line 진행할 길을 설정합니다.
-			LineTo line3 = new LineTo(0, 250);
-			LineTo line4 = new LineTo(0, 0);
-
-			// Adding all the elements to the path
-			path.getElements().add(moveTo);
-			path.getElements().addAll(line3, line4);
-
-			// Creating the path transition
-			pathTransition2 = new PathTransition();
-			pathTransition2.setDuration(Duration.seconds(4));
-			pathTransition2.setNode(speedCircle2);
-
-			// Setting the path for the transition
-			pathTransition2.setPath(path);
-
-			pathTransition2.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-
-			pathTransition2.setCycleCount(10);
-
-			// Playing the animation
-			pathTransition2.play();
-		}
-
-	}
-
-	class updown3 extends Thread {
-		@Override
-		public void run() {
-
-			// Creating a Path
-			Path path = new Path();
-
-			// Moving to the starting point
-			MoveTo moveTo = new MoveTo(0, 0);
-
-			// Creating line 진행할 길을 설정합니다.
-			LineTo line5 = new LineTo(0, 250);
-			LineTo line6 = new LineTo(0, 0);
-
-			// Adding all the elements to the path
-			path.getElements().add(moveTo);
-			path.getElements().addAll(line5, line6);
-
-			// Creating the path transition
-			pathTransition3 = new PathTransition();
-			pathTransition3.setDuration(Duration.seconds(2));
-			pathTransition3.setNode(speedCircle3);
-
-			// Setting the path for the transition
-			pathTransition3.setPath(path);
-
-			pathTransition3.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-
-			pathTransition3.setCycleCount(10);
-
-			// Playing the animation
-			pathTransition3.play();
-
-		}
-
-	}
+//
+//	class updown1 extends Thread {
+//		@Override
+//		public void run() {
+//
+//			// Creating a Path
+//			Path path = new Path();
+//
+//			// Moving to the starting point
+//			MoveTo moveTo = new MoveTo(0, 0);
+//
+//			// Creating line 진행할 길을 설정합니다.
+//			LineTo line1 = new LineTo(0, 250);
+//			LineTo line2 = new LineTo(0, 0);
+//
+//			// Adding all the elements to the path
+//			path.getElements().add(moveTo);
+//			path.getElements().addAll(line1, line2);
+//
+//			// Creating the path transition
+//			pathTransition1 = new PathTransition();
+//			pathTransition1.setDuration(Duration.seconds(6));
+//			pathTransition1.setNode(speedCircle1);
+//
+//			// Setting the path for the transition
+//			pathTransition1.setPath(path);
+//
+//			pathTransition1.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+//
+//			pathTransition1.setCycleCount(10);
+//
+//			// Playing the animation
+//			pathTransition1.play();
+//		}
+//
+//	}
+//
+//	class updown2 extends Thread {
+//		@Override
+//		public void run() {
+//
+//			// Creating a Path
+//			Path path = new Path();
+//
+//			// Moving to the starting point
+//			MoveTo moveTo = new MoveTo(0, 0);
+//
+//			// Creating line 진행할 길을 설정합니다.
+//			LineTo line3 = new LineTo(0, 250);
+//			LineTo line4 = new LineTo(0, 0);
+//
+//			// Adding all the elements to the path
+//			path.getElements().add(moveTo);
+//			path.getElements().addAll(line3, line4);
+//
+//			// Creating the path transition
+//			pathTransition2 = new PathTransition();
+//			pathTransition2.setDuration(Duration.seconds(4));
+//			pathTransition2.setNode(speedCircle2);
+//
+//			// Setting the path for the transition
+//			pathTransition2.setPath(path);
+//
+//			pathTransition2.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+//
+//			pathTransition2.setCycleCount(10);
+//
+//			// Playing the animation
+//			pathTransition2.play();
+//		}
+//
+//	}
+//
+//	class updown3 extends Thread {
+//		@Override
+//		public void run() {
+//
+//			// Creating a Path
+//			Path path = new Path();
+//
+//			// Moving to the starting point
+//			MoveTo moveTo = new MoveTo(0, 0);
+//
+//			// Creating line 진행할 길을 설정합니다.
+//			LineTo line5 = new LineTo(0, 250);
+//			LineTo line6 = new LineTo(0, 0);
+//
+//			// Adding all the elements to the path
+//			path.getElements().add(moveTo);
+//			path.getElements().addAll(line5, line6);
+//
+//			// Creating the path transition
+//			pathTransition3 = new PathTransition();
+//			pathTransition3.setDuration(Duration.seconds(2));
+//			pathTransition3.setNode(speedCircle3);
+//
+//			// Setting the path for the transition
+//			pathTransition3.setPath(path);
+//
+//			pathTransition3.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+//
+//			pathTransition3.setCycleCount(10);
+//
+//			// Playing the animation
+//			pathTransition3.play();
+//
+//		}
+//
+//	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		new updown1().start();
-		new updown2().start();
-		new updown3().start();
-		
+//		new updown1().start();
+//		new updown2().start();
+//		new updown3().start();
+//		
 		
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
@@ -200,7 +210,7 @@ public class Selectcontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
-					Parent root = FXMLLoader.load(getClass().getResource("Playview.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) acpane.getScene().getWindow();
 					primaryStage.setScene(scene);
