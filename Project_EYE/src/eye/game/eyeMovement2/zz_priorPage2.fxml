@@ -63,9 +63,13 @@
                            </font>
                         </Text>
                         <!-- 속도 3단계 중 선택할 수 있도록 checkbox 세 개 지정 -->
-                        <JFXRadioButton fx:id="one" layoutX="60.0" layoutY="400.0" text="1" />
-                        <JFXRadioButton fx:id="two" layoutX="180.0" layoutY="400.0" text="2" />
-                        <JFXRadioButton fx:id="three" layoutX="300.0" layoutY="400.0" text="3" />
+                        <JFXRadioButton fx:id="one" layoutX="60.0" layoutY="400.0" text="1" >
+                        	<toggleGroup>
+                        		<ToggleGroup fx:id="group" />
+                        	</toggleGroup>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="two" layoutX="180.0" layoutY="400.0" text="2" toggleGroup="$group"/>
+                        <JFXRadioButton fx:id="three" layoutX="300.0" layoutY="400.0" text="3" toggleGroup="$group"/>
                         
                         <!-- 각 단계마다의 속도을 시각화 해줄 공 객체들 -->
                         <Circle fx:id="speedCircle1" fill="#5b6a27" layoutX="79.0" layoutY="123.0" radius="20.0" stroke="#707070" strokeType="INSIDE" strokeWidth="0.5" />

@@ -87,11 +87,10 @@ public class Selectcontroller implements Initializable {
 
 			pathTransition1.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
-			pathTransition1.setCycleCount(20);
+			pathTransition1.setCycleCount(10);
 
 			// Playing the animation
 			pathTransition1.play();
-
 		}
 
 	}
@@ -107,12 +106,12 @@ public class Selectcontroller implements Initializable {
 			MoveTo moveTo = new MoveTo(0, 0);
 
 			// Creating line 진행할 길을 설정합니다.
-			LineTo line1 = new LineTo(0, 250);
-			LineTo line2 = new LineTo(0, 0);
+			LineTo line3 = new LineTo(0, 250);
+			LineTo line4 = new LineTo(0, 0);
 
 			// Adding all the elements to the path
 			path.getElements().add(moveTo);
-			path.getElements().addAll(line1, line2);
+			path.getElements().addAll(line3, line4);
 
 			// Creating the path transition
 			pathTransition2 = new PathTransition();
@@ -124,11 +123,10 @@ public class Selectcontroller implements Initializable {
 
 			pathTransition2.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
-			pathTransition2.setCycleCount(20);
+			pathTransition2.setCycleCount(10);
 
-			// Playing the animatio
+			// Playing the animation
 			pathTransition2.play();
-
 		}
 
 	}
@@ -144,12 +142,12 @@ public class Selectcontroller implements Initializable {
 			MoveTo moveTo = new MoveTo(0, 0);
 
 			// Creating line 진행할 길을 설정합니다.
-			LineTo line1 = new LineTo(0, 250);
-			LineTo line2 = new LineTo(0, 0);
+			LineTo line5 = new LineTo(0, 250);
+			LineTo line6 = new LineTo(0, 0);
 
 			// Adding all the elements to the path
 			path.getElements().add(moveTo);
-			path.getElements().addAll(line1, line2);
+			path.getElements().addAll(line5, line6);
 
 			// Creating the path transition
 			pathTransition3 = new PathTransition();
@@ -161,7 +159,7 @@ public class Selectcontroller implements Initializable {
 
 			pathTransition3.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
-			pathTransition3.setCycleCount(20);
+			pathTransition3.setCycleCount(10);
 
 			// Playing the animation
 			pathTransition3.play();
@@ -198,7 +196,7 @@ public class Selectcontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
-					Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("Playview.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) acpane.getScene().getWindow();
 					primaryStage.setScene(scene);

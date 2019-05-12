@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.ImageView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
@@ -34,7 +35,7 @@ public class Playcontroller implements Initializable {
 	private AnchorPane acpane;
 	
 	@FXML
-	private Button backBtn;
+	private ImageView backBtn;
 
 	private PathTransition pathTransition;
 	private boolean pause_control = true; // pause버튼의 활성화조건
