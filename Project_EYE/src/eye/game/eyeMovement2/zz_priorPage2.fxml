@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -63,13 +64,12 @@
                            </font>
                         </Text>
                         <!-- 속도 3단계 중 선택할 수 있도록 checkbox 세 개 지정 -->
-                        <JFXRadioButton fx:id="one" layoutX="60.0" layoutY="400.0" text="1" >
-                        	<toggleGroup>
-                        		<ToggleGroup fx:id="group" />
-                        	</toggleGroup>
-                        </JFXRadioButton>
-                        <JFXRadioButton fx:id="two" layoutX="180.0" layoutY="400.0" text="2" toggleGroup="$group"/>
-                        <JFXRadioButton fx:id="three" layoutX="300.0" layoutY="400.0" text="3" toggleGroup="$group"/>
+                        <JFXRadioButton fx:id="one" layoutX="60.0" layoutY="400.0" text="1">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="group" />
+                           </toggleGroup></JFXRadioButton>
+                        <JFXRadioButton fx:id="two" layoutX="180.0" layoutY="400.0" text="2" toggleGroup="$group" />
+                        <JFXRadioButton fx:id="three" layoutX="300.0" layoutY="400.0" text="3" toggleGroup="$group" />
                         
                         <!-- 각 단계마다의 속도을 시각화 해줄 공 객체들 -->
                         <Circle fx:id="speedCircle1" fill="#5b6a27" layoutX="79.0" layoutY="123.0" radius="20.0" stroke="#707070" strokeType="INSIDE" strokeWidth="0.5" />
@@ -85,10 +85,13 @@
                            </font>
                         </Text>
                         <!-- 공 모양을 선택할 수 있도록 checkbox 네 개 지정 -->
-                        <JFXRadioButton layoutX="57.0" layoutY="250.0" text="1" />
-                        <JFXRadioButton layoutX="141.0" layoutY="250.0" text="2" />
-                        <JFXRadioButton layoutX="222.0" layoutY="250.0" text="3" />
-                        <JFXRadioButton layoutX="304.0" layoutY="250.0" text="4" />
+                        <JFXRadioButton layoutX="57.0" layoutY="250.0" text="1">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="group2" />
+                           </toggleGroup></JFXRadioButton>
+                        <JFXRadioButton layoutX="141.0" layoutY="250.0" text="2" toggleGroup="$group2" />
+                        <JFXRadioButton layoutX="222.0" layoutY="250.0" text="3" toggleGroup="$group2" />
+                        <JFXRadioButton layoutX="304.0" layoutY="250.0" text="4" toggleGroup="$group2" />
                         <Circle fill="#b219af" layoutX="76.0" layoutY="215.0" radius="20.0" stroke="#707070" strokeType="INSIDE" />
                         <Polygon fill="#b219af" layoutX="194.0" layoutY="139.0" points="-59.0, 97.0, -35.0, 56.0, -12.0, 97.0" stroke="#707070" strokeType="INSIDE" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b219af" height="40.0" layoutX="221.0" layoutY="196.0" stroke="#707070" strokeType="INSIDE" width="40.0" />

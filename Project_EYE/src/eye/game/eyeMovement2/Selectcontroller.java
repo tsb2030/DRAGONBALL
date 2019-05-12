@@ -15,6 +15,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -173,6 +175,8 @@ public class Selectcontroller implements Initializable {
 		new updown1().start();
 		new updown2().start();
 		new updown3().start();
+		
+		
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
