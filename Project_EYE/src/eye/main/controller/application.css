@@ -16,33 +16,40 @@
     -fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 0.0, 0.0 , 2.0 , 2.0 );
 }
 #titleText{
-	-fx-font-family: "A¼Ò³ª¹«M";
+	-fx-font-family: "Aì†Œë‚˜ë¬´M";
 	-fx-font-size: 35px;
 }
 
 #img1_text{
-	-fx-font-family: "A¼Ò³ª¹«L";
+	-fx-font-family: "Aì†Œë‚˜ë¬´L";
 	-fx-font-size: 20px;
 }
 #img2_text{
-	-fx-font-family: "A¼Ò³ª¹«L";
+	-fx-font-family: "Aì†Œë‚˜ë¬´L";
 	-fx-font-size: 20px;
 }
 #img3_text{
-	-fx-font-family: "A¼Ò³ª¹«L";
+	-fx-font-family: "Aì†Œë‚˜ë¬´L";
 	-fx-font-size: 20px;
+}
+TextFlow{
+	-fx-font-family: "Aì†Œë‚˜ë¬´L";
+	-fx-font-size: 25px;
+}
+#shadow:hover{
+	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 5.0 );
 }
 #oneToFiftyBtn:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 0.0, 0.0, 5.0 , 8.0 );
-	/*rgba(r, g, b, Åõ¸íµµ 0.0~1.0) */
+	/*rgba(r, g, b, ï¿½ï¿½ï¿½ï¿½ 0.0~1.0) */
 } 
 #GObtn2:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 0.0, 0.0, 5.0 , 8.0 );
-	/*rgba(r, g, b, Åõ¸íµµ 0.0~1.0) */
+	/*rgba(r, g, b, ï¿½ï¿½ï¿½ï¿½ 0.0~1.0) */
 } 
 #GObtn3:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 0.0, 0.0, 5.0 , 8.0 );
-	/*rgba(r, g, b, Åõ¸íµµ 0.0~1.0) */
+	/*rgba(r, g, b, ï¿½ï¿½ï¿½ï¿½ 0.0~1.0) */
 }
 #backBtn:hover{
 	-fx-background-fills: rgba(128,128,128, 0.3);

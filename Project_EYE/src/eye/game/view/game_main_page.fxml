@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="gameMainPage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;" stylesheets="@game_main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.controller.gameMainController">
+<AnchorPane fx:id="gameMainPage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.controller.gameMainController">
 	<children>
       <VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;">
          <children>
@@ -32,6 +32,7 @@
                      <children>
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
+                           <!-- 1to50 -->
                   				<ImageView fx:id="oneToFiftyImage" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                   					<image>
                   						<Image url="@../../../image/gameList/atoz.png" />
@@ -53,6 +54,7 @@
                         </Pane>
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
+                            <!-- 뫼비우스 띠 -->
                               <ImageView fx:id="img2" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../../../image/gameList/mobius.png" />
@@ -74,6 +76,7 @@
                         </Pane>
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
+                            <!-- 지그재그 -->
                               <ImageView fx:id="img3" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../../../image/gameList/zigzag.png" />
@@ -95,6 +98,7 @@
                         </Pane>
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
+                            <!-- 5점카드트레이닝 -->
                               <ImageView fx:id="img31" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../../../image/gameList/5dot.png" />
@@ -116,6 +120,7 @@
                         </Pane>
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
+                            <!-- 두더지 잡기 -->
                               <ImageView fx:id="img32" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../../../image/gameList/catchmole.png" />
@@ -137,6 +142,7 @@
                         </Pane>
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
+                            <!-- 캐치볼 -->
                               <ImageView fx:id="img33" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../../../image/gameList/catchball.png" />
@@ -158,6 +164,7 @@
                         </Pane>
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
+                            <!-- 같은 그림 찾기 -->
                               <ImageView fx:id="img34" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
                                     <Image url="@../../../image/gameList/findpicture.png" />

@@ -7,10 +7,10 @@ import javafx.scene.shape.Path;
 
 public class Model {
 
-	//¸şºñ¿ì½º ¶ì ¸ğ¾çÀÇ °æ·Î ¸¸µé±â
+	//ë«¼ë¹„ìš°ìŠ¤ ë  ëª¨ì–‘ì˜ ê²½ë¡œ ë§Œë“¤ê¸°
 	public Path pathCreate() {
 		Path path = new Path();
-		path.getElements().add(new MoveTo(0, 0));	//ÀÌµ¿ÀÇ ½ÃÀÛÁ¡
+		path.getElements().add(new MoveTo(0, 0));	//ì´ë™ì˜ ì‹œì‘ì 
 		path.getElements().add(new ArcTo(200, 200, 180, -500, 0, true, false));
 		path.getElements().add(new ArcTo(200, 200, 180, 0, 0, true, false));
 		path.getElements().add(new ArcTo(200, 200, 180, 500, 0, true, true));
