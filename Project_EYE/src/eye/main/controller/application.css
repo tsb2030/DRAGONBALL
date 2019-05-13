@@ -39,18 +39,10 @@ TextFlow{
 #shadow:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 5.0 );
 }
-#oneToFiftyBtn:hover{
+.goBtnShadow:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 0.0, 0.0, 5.0 , 8.0 );
-	/*rgba(r, g, b, ���� 0.0~1.0) */
-} 
-#GObtn2:hover{
-	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 0.0, 0.0, 5.0 , 8.0 );
-	/*rgba(r, g, b, ���� 0.0~1.0) */
-} 
-#GObtn3:hover{
-	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 0.0, 0.0, 5.0 , 8.0 );
-	/*rgba(r, g, b, ���� 0.0~1.0) */
 }
+
 #backBtn:hover{
 	-fx-background-fills: rgba(128,128,128, 0.3);
 }
