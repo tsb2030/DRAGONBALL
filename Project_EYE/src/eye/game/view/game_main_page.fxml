@@ -80,7 +80,7 @@
                                  </image>
                               </ImageView>
                               <TextFlow fx:id="zigzagText" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView fx:id="GObtn3" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                              <ImageView fx:id="GObtn3" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#zizagtrainigAction" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>

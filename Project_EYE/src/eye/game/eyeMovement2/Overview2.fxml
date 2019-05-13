@@ -39,7 +39,7 @@
                         <Pane layoutX="120.0" layoutY="5.0" prefHeight="60.0" prefWidth="150.0" styleClass="fontStyle">
                            <children>
                            <!-- 첫번째 text는 횟수에서 숫자를, 두번째 text는 고정문자인 "회"를 나타냄 -->
-                              <Text fx:id="score"layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+                              <Text fx:id="score" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
                               <Text layoutX="55.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="회" />
                            </children>
                         </Pane>

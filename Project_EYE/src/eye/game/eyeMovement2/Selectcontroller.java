@@ -91,7 +91,7 @@ public class Selectcontroller implements Initializable {
 
 			// Creating the path transition
 			pathTransition1 = new PathTransition();
-			pathTransition1.setDuration(Duration.seconds(6));
+			pathTransition1.setDuration(Duration.seconds(2));
 			pathTransition1.setNode(speedCircle1);
 
 			// Setting the path for the transition
@@ -127,7 +127,7 @@ public class Selectcontroller implements Initializable {
 
 			// Creating the path transition
 			pathTransition2 = new PathTransition();
-			pathTransition2.setDuration(Duration.seconds(4));
+			pathTransition2.setDuration(Duration.seconds(1));
 			pathTransition2.setNode(speedCircle2);
 
 			// Setting the path for the transition
@@ -163,7 +163,7 @@ public class Selectcontroller implements Initializable {
 
 			// Creating the path transition
 			pathTransition3 = new PathTransition();
-			pathTransition3.setDuration(Duration.seconds(2));
+			pathTransition3.setDuration(Duration.seconds(0.8));
 			pathTransition3.setNode(speedCircle3);
 
 			// Setting the path for the transition
@@ -182,10 +182,10 @@ public class Selectcontroller implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-//		new updown1().start();
-//		new updown2().start();
-//		new updown3().start();
-//		
+		new updown1().start();
+		new updown2().start();
+		new updown3().start();
+		
 		
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
@@ -250,6 +250,8 @@ public class Selectcontroller implements Initializable {
 			}
 
 		});
+		
+		
 	}
 
 }
