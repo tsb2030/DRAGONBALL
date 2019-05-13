@@ -32,7 +32,7 @@ import javafx.util.Duration;
 public class oneToFiftyController implements Initializable{
 	//다시 게임메인화면으로 돌아가기위한 화면을 정의하고 동적인 버튼을 만들기 위해서 버튼배열 선언
 	@FXML
-	AnchorPane mainPanel,oneToFiftyPage,gameMainPage;
+	AnchorPane apane,oneToFiftyPage,gameMainPage;
 	private JFXButton btnarr[] = new JFXButton[25];
 	
 	@FXML
@@ -195,7 +195,7 @@ public class oneToFiftyController implements Initializable{
 		buttonSetting();
 		for(int i=0;i<25;i++) {
 			
-			mainPanel.getChildren().add(btnarr[i]);
+			apane.getChildren().add(btnarr[i]);
 		}
 		timeLine = new Timeline(); // timeLine 객체 초기화
         timeLine.setCycleCount(Timeline.INDEFINITE);
