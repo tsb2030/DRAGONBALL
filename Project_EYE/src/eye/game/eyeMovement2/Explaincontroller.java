@@ -44,6 +44,7 @@ public class Explaincontroller implements Initializable {
 					Parent root = FXMLLoader.load(getClass().getResource("../../game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) acpane.getScene().getWindow();
+					scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					// TODO: handle exception

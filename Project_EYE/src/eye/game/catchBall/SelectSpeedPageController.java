@@ -28,10 +28,10 @@ public class SelectSpeedPageController {
     @FXML
     void backButtonAction(ActionEvent event) {
     	try {
-    		Parent IntroducePage = FXMLLoader.load(getClass().getResource("IntroducePage.fxml"));  // ºÒ·¯¿Ã ÆäÀÌÁö ÁöÁ¤
+    		Parent IntroducePage = FXMLLoader.load(getClass().getResource("IntroducePage.fxml"));  // ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			Scene scene = new Scene(IntroducePage);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ÁöÁ¤
-			Stage primaryStage = (Stage) backButton.getScene().getWindow();  // ÇöÀç À©µµ¿ì °¡Á®¿À±â
+			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			Stage primaryStage = (Stage) backButton.getScene().getWindow();  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("IntroducePage!");
 		} catch (Exception e) {
@@ -43,10 +43,10 @@ public class SelectSpeedPageController {
     void easyButtonAction(ActionEvent event) {
     	gameSpeed = 5;
     	try {
-    		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // ºÒ·¯¿Ã ÆäÀÌÁö ÁöÁ¤
+    		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			Scene scene = new Scene(CatchBallGame);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ÁöÁ¤
-			Stage primaryStage = (Stage) easyButton.getScene().getWindow();  // ÇöÀç À©µµ¿ì °¡Á®¿À±â
+			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			Stage primaryStage = (Stage) easyButton.getScene().getWindow();  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
 		} catch (Exception e) {
@@ -58,10 +58,10 @@ public class SelectSpeedPageController {
     void hardButtonAction(ActionEvent event) {
     	gameSpeed = 0.1;
     	try {
-    		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // ºÒ·¯¿Ã ÆäÀÌÁö ÁöÁ¤
+    		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			Scene scene = new Scene(CatchBallGame);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ÁöÁ¤
-			Stage primaryStage = (Stage) normalButton.getScene().getWindow();  // ÇöÀç À©µµ¿ì °¡Á®¿À±â
+//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ï¿½ï¿½ï¿½ï¿½
+			Stage primaryStage = (Stage) normalButton.getScene().getWindow();  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
 		} catch (Exception e) {
@@ -73,10 +73,10 @@ public class SelectSpeedPageController {
     void normalButtonAction(ActionEvent event) {
     	gameSpeed = 2.5;
     	try {
-    		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // ºÒ·¯¿Ã ÆäÀÌÁö ÁöÁ¤
+    		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			Scene scene = new Scene(CatchBallGame);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ÁöÁ¤
-			Stage primaryStage = (Stage) hardButton.getScene().getWindow();  // ÇöÀç À©µµ¿ì °¡Á®¿À±â
+//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ï¿½ï¿½ï¿½ï¿½
+			Stage primaryStage = (Stage) hardButton.getScene().getWindow();  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
 		} catch (Exception e) {

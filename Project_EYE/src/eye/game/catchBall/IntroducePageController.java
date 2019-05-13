@@ -30,7 +30,8 @@ public class IntroducePageController {
 			Main.mainMusic.resetNameAudioStream("LaLaLa");
     		Parent gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
     		Scene scene = new Scene(gameMainPage);
-    		Stage primaryStage = (Stage) startButton.getScene().getWindow();  // ÇöÀç À©µµ¿ì °¡Á®¿À±â
+    		scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+    		Stage primaryStage = (Stage) startButton.getScene().getWindow();  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			primaryStage.setScene(scene);
     	}catch(Exception e) {
     		e.printStackTrace();
@@ -42,8 +43,8 @@ public class IntroducePageController {
     	try {
 			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("SelectSpeedPage.fxml"));
 			Scene scene = new Scene(selectSpeedPage);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ÁöÁ¤
-			Stage primaryStage = (Stage) startButton.getScene().getWindow();  // ÇöÀç À©µµ¿ì °¡Á®¿À±â
+			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			Stage primaryStage = (Stage) startButton.getScene().getWindow();  // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("setSpeed");
 		} catch (Exception e) {

@@ -39,101 +39,101 @@ import javafx.util.Duration;
 
 public class CatchballGameController implements Initializable {
 
-	// ÀÌÀü ÆäÀÌÁö¿¡¼­ °¡Á®¿Â ¼Óµµ°ª
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½
 	SelectSpeedPageController sspc = new SelectSpeedPageController();
 
 	@FXML
-	private AnchorPane bigPanne; // ÀüÃ¼È­¸é ÁöÁ¤
+	private AnchorPane bigPanne; // ï¿½ï¿½Ã¼È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	@FXML
-	private AnchorPane GamePane; // ¾È¿¡ AnchorPaneÁöÁ¤
+	private AnchorPane GamePane; // ï¿½È¿ï¿½ AnchorPaneï¿½ï¿½ï¿½ï¿½
 
 	@FXML
-	private Button pausebutton; // ÀÏ½Ã Á¤Áö ¹öÆ°
+	private Button pausebutton; // ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°
 
-	// ÇöÀç ½ºÃ¼ÀÌÁö ÀúÀå
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static Stage currentStage;
 	// (Stage) startButton.getScene().getWindow();
 
 	@FXML
-	private Label timeLabel; // ½Ã°£ÃÊ Ç¥½Ã
+	private Label timeLabel; // ï¿½Ã°ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 
 	@FXML
-	private Label ScoreLabel; // Á¡¼ö Ç¥½Ã
+	private Label ScoreLabel; // ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 
 	@FXML
-	private Label judgeYourBehavior; // ÇÑ ÆÇ´ç ³Ê°¡ ÀßÇß´ÂÁö ¸øÇß´ÂÁö ¸»ÇØÁÜ¤·
+	private Label judgeYourBehavior; // ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ü¤ï¿½
 
-	private static double numX1 = 50; // 1¹ø ÁÂÇ¥
+	private static double numX1 = 50; // 1ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private static double numY1 = 50;
 
-	private static double numX2 = 500; // 2¹ø ÁÂÇ¥
+	private static double numX2 = 500; // 2ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private static double numY2 = 50;
 
-	private static double numX3 = 950; // 3¹ø ÁÂÇ¥
+	private static double numX3 = 950; // 3ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private static double numY3 = 50;
 
-	private static double numX4 = 50; // 4¹ø ÁÂÇ¥
+	private static double numX4 = 50; // 4ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private static double numY4 = 250;
 
-	private static double numX5 = 500; // 5¹ø ÁÂÇ¥
+	private static double numX5 = 500; // 5ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private static double numY5 = 250;
 
-	private static double numX6 = 950; // 6¹ø ÁÂÇ¥
+	private static double numX6 = 950; // 6ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private static double numY6 = 250;
 
-	private static double numX7 = 50; // 7¹ø ÁÂÇ¥
+	private static double numX7 = 50; // 7ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private static double numY7 = 450;
 
-	private static double numX8 = 500; // 8¹ø ÁÂÇ¥
+	private static double numX8 = 500; // 8ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private static double numY8 = 450;
 
-	private static double numX9 = 950; // 9¹ø ÁÂÇ¥
+	private static double numX9 = 950; // 9ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private static double numY9 = 450;
 
 	private boolean flag = false;
 	@FXML
-	private Circle followCircle; // µ¹¾Æ´ó±â´Â ¿ø
+	private Circle followCircle; // ï¿½ï¿½ï¿½Æ´ï¿½ï¿½ï¿½ ï¿½ï¿½
 
 	@FXML
-	private Circle catchCircle; // µû¶ó´Ù´Ï´Â ¿ø
+	private Circle catchCircle; // ï¿½ï¿½ï¿½ï¿½Ù´Ï´ï¿½ ï¿½ï¿½
 
 	double speedValue = SelectSpeedPageController.gameSpeed;
 
-	private double catchCircleX = 50.0; // catchBallCircleÀÇ Ã³À½ ÁÂÇ¥
+	private double catchCircleX = 50.0; // catchBallCircleï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½Ç¥
 	private double catchCircleY = 50.0;
 
 	@FXML
-	private Button startButton; // pauseµÇ¾úÀ» ¶§ restart±â´É
+	private Button startButton; // pauseï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ restartï¿½ï¿½ï¿½
 
 	@FXML
-	private JFXButton backButton; // ÀÌÀü Ã¢À¸·Î µ¹¾Æ°¡´Â ±â´É
+	private JFXButton backButton; // ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	// ¼±ÅÃµÈ ¶óÀÎÀ» ÀúÀåÇÒ ¹è¿­ ¼±¾ð
+	// ï¿½ï¿½ï¿½Ãµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½
 	private double[] checkLine = new double[16];
 
-	// ¸Â¾Ò´ÂÁö Æ²·È´ÂÁö°Ë»ç
+	// ï¿½Â¾Ò´ï¿½ï¿½ï¿½ Æ²ï¿½È´ï¿½ï¿½ï¿½ï¿½Ë»ï¿½
 	private boolean correct = true;
 
-	// ÃÑ ¸î¹ø Æ²·È´ÂÁö
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ Æ²ï¿½È´ï¿½ï¿½ï¿½
 	private int falseCount = 0;
 
-	// ÇÑ ÆÇ¿¡ Á¡¼ö
+	// ï¿½ï¿½ ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private int smallScore = 0;
 
-	// ÃÑ Á¡¼ö
+	// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static int bigScore = 0;
 
 	// lineIndex
 	private int lineIndex = -1;
 
-	// Timer ¼³Á¤
+	// Timer ï¿½ï¿½ï¿½ï¿½
 	private Clock timer;
 
-	// °æ·Î ±×·ÁÁÖ´Â ¶óÀÎ
+	// ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½
 	private Line line;
 
-	// °æ·Î¿¡ ÇÏ³ª¾¿ Ãß°¡ÇÏ±âÀ§ÇÑ index
+	// ï¿½ï¿½Î¿ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï±ï¿½ï¿½ï¿½ï¿½ï¿½ index
 	private int lineRouteIndex = 0;
 
 	private Line[] lines = new Line[8];
@@ -144,28 +144,28 @@ public class CatchballGameController implements Initializable {
 
 	private boolean justOne = false;
 
-	// transitionÁ¤ÀÇ
+	// transitionï¿½ï¿½ï¿½ï¿½
 	PathTransition transition;
 
-	// °ÔÀÓ ½Ã°£À» ÀúÀåÇØ¼­ ¸®ÅÏÇØÁÙ Á¤Àû º¯¼ö
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static int timeTime;
 
-	// È­¸éÀÌ Ã³À½ ÄÑÁ³À» °æ¿ì ½ÇÇàµÇ´Â ¸Þ¼Òµåµé
+	// È­ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Þ¼Òµï¿½ï¿½
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		timer = new Clock();
-		// Ã³À½¿£ ¸ðµç circleµéÀÌ º¸ÀÌÁö ¾Ê°Ô ¼³Á¤
+		// Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ circleï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		followCircle.setVisible(false);
 		catchCircle.setVisible(false);
 		followCircleStart();
 
 	}
 
-	// °ÔÀÓÀÌ Á¾·áµÇ¾úÀ» ¶§ ½ÇÇàµÇ´Â ¸Þ¼Òµå
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½Þ¼Òµï¿½
 	public void gameOver()
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		currentStage = (Stage) pausebutton.getScene().getWindow();
-		// ½Ã°£ÀÌ Á¾·áµÇ°Å³ª, 3¹ø Æ²¸± °æ¿ì
+		// ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°Å³ï¿½, 3ï¿½ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½
 		if (justOne == false) {
 			if (timer.getTime() <= 0 || falseCount > 2) {
 				timer.animation.pause();
@@ -180,12 +180,13 @@ public class CatchballGameController implements Initializable {
 				justOne = true;
 				try {
 					AnchorPane anotherPage = (AnchorPane) EndGamePopup.load();
-					// ´Ù¸¥Ã¢ ¶ç¿ì´Â ÀÛ¾÷ .... 2
+					// ï¿½Ù¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ .... 2
 					Scene EndGamePopupScene = new Scene(anotherPage);
+					EndGamePopupScene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 					Stage stage = new Stage();
 					stage.setScene(EndGamePopupScene);
 					stage.show();
-					// ´Ù¸¥Ã¢ ¶ç¿ì´Â ÀÛ¾÷ .... 2 ³¡.
+					// ï¿½Ù¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ .... 2 ï¿½ï¿½.
 				} catch (IOException e) {
 				}
 			}
@@ -194,14 +195,14 @@ public class CatchballGameController implements Initializable {
 
 	}
 
-	// lineÀÇ °ªÀ» ÇÏ³ª ÇÏ³ª º¹ºÙÇÑ´Ù.
+	// lineï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	public void setCheckLine(double[] line) {
 		for (int i = 0; i < line.length; i++) {
 			this.checkLine[i] = line[i];
 		}
 	}
 
-	// Restart ±â´ÉÀ¸·Î »ý°¢
+	// Restart ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@FXML
 	void startGame(MouseEvent event) {
 		timer.animation.play();
@@ -215,10 +216,10 @@ public class CatchballGameController implements Initializable {
 	@FXML
 	void backButtonAction(ActionEvent event) {
 		try {
-			Parent SelectSpeedPage = FXMLLoader.load(getClass().getResource("SelectSpeedPage.fxml")); // ºÒ·¯¿Ã ÆäÀÌÁö ÁöÁ¤
+			Parent SelectSpeedPage = FXMLLoader.load(getClass().getResource("SelectSpeedPage.fxml")); // ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			Scene scene = new Scene(SelectSpeedPage);
-//				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ÁöÁ¤
-			Stage primaryStage = (Stage) backButton.getScene().getWindow(); // ÇöÀç À©µµ¿ì °¡Á®¿À±â
+			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			Stage primaryStage = (Stage) backButton.getScene().getWindow(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("SelectSpeed");
 		} catch (Exception e) {
@@ -238,7 +239,7 @@ public class CatchballGameController implements Initializable {
 			catchBalltransition.pause();
 	}
 
-	// ¹è¿­À» 0À¸·Î ÃÊ±âÈ­... »ç½Ç ÇÊ¿äÇÑ°¡ ½Í´Ù. ½Ã°£³¯¶§ ÃµÃµÈ÷ »ý°¢ÇØº¸ÀÚ
+	// ï¿½è¿­ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­... ï¿½ï¿½ï¿½ ï¿½Ê¿ï¿½ï¿½Ñ°ï¿½ ï¿½Í´ï¿½. ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ÃµÃµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Øºï¿½ï¿½ï¿½
 	public double[] initArray(double[] line) {
 		for (int i = 0; i < line.length; i++) {
 			line[i] = 0;
@@ -252,7 +253,7 @@ public class CatchballGameController implements Initializable {
 		line.getStrokeDashArray().addAll(20d, 10d);
 		line.setStrokeWidth(5);
 		addLines(line);
-		// ³ªÁß¿¡ »¡°£ °øÀÇ ¿òÁ÷ÀÓÀ» Thread·Î ±¸ÇöÇÏ°Ô µÈ´Ù¸é °Çµå·Áº¼¸¸ÇÑ ³»¿ë
+		// ï¿½ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Threadï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½È´Ù¸ï¿½ ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //		FadeTransition fadeTransition = new FadeTransition(Duration.seconds(1), line);
 //		fadeTransition.setFromValue(0.0);
 //		fadeTransition.setToValue(0.75);
@@ -260,7 +261,7 @@ public class CatchballGameController implements Initializable {
 		GamePane.getChildren().addAll(line);
 	}
 
-	// ¶óÀÎµéÀ» ¸ðµÎ ¾Èº¸ÀÌ°Ô ÇØÁÖ´Â ¸Þ¼Òµå
+	// ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½Þ¼Òµï¿½
 	public void InVisibleLine() {
 		boolean lineNull = false;
 		for (int i = 0; i < lines.length; i++) {
@@ -280,7 +281,7 @@ public class CatchballGameController implements Initializable {
 		lineRouteIndex = 0;
 	}
 
-	// ÇÑ ÆÇ¿¡ ±×¸± ¶óÀÎµéÀ» ¸ðµÎ ¸ð¾ÆÁÙ ¸Þ¼Òµå
+	// ï¿½ï¿½ ï¿½Ç¿ï¿½ ï¿½×¸ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼Òµï¿½
 	public void addLines(Line line) {
 		lines[lineRouteIndex] = line;
 		lineRouteIndex++;
@@ -312,20 +313,20 @@ public class CatchballGameController implements Initializable {
 					catchBalltransition.play();
 					catchCircleY = catchCircleY - (250 - 100 / 2);
 
-					// ÇÑ ¹øÀÇ ¿òÁ÷ÀÓÀÌ ¸Â¾Ò´ÂÁö Æ²·È´ÂÁö Ã¼Å©
+					// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¾Ò´ï¿½ï¿½ï¿½ Æ²ï¿½È´ï¿½ï¿½ï¿½ Ã¼Å©
 
-					// ÇÑ¹øÀÇ ÀÌµ¿ÀÌ ¸ÂÀº °æ¿ì
+					// ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 					if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 						smallScore++;
 //						Thread.sleep(500);
 						drawLine(catchCircleX, catchCircleY + 200, catchCircleX, catchCircleY);
 						ScoreLabel.setText(String.valueOf(bigScore + smallScore));
-					} else { // ÇÑ¹øÀÇ ¿òÁ÷ÀÓÀÌ Æ²¸± °æ¿ì
+					} else { // ï¿½Ñ¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ²ï¿½ï¿½ ï¿½ï¿½ï¿½
 						correct = false;
 						falseCount++;
 					}
 
-					// °ÔÀÓ ÇÑ ÆÇÀÌ Á¾·á µÇ´ÂÁö ¾Æ´ÑÁö °Ë»ç
+					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 					if (smallScore == 8 || correct == false) {
 						switch (lineIndex) {
 						case 0:case 1:case 2:case 3:
@@ -350,13 +351,13 @@ public class CatchballGameController implements Initializable {
 						bigScore += smallScore;
 						smallScore = 0;
 						correct = true;
-						checkLine = initArray(checkLine); // ¹è¿­À» ´Ù½Ã 0À¸·Î ÃÊ±âÈ­
-						lineIndex = -1; // ¹è¿­À» °Ë»çÇÒ ÀÎµ¥½º ÃÊ±âÈ­
+						checkLine = initArray(checkLine); // ï¿½è¿­ï¿½ï¿½ ï¿½Ù½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
+						lineIndex = -1; // ï¿½è¿­ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­
 						InVisibleLine();
 						catchCircle.setVisible(false);
-						followCircleStart(); // ´Ù½Ã followCircleStart()½ÃÀÛ
+						followCircleStart(); // ï¿½Ù½ï¿½ followCircleStart()ï¿½ï¿½ï¿½ï¿½
 					}
-					// Æ²·Á¼­ °ÔÀÓÀÌ Á¾·áµÉ °æ¿ì
+					// Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 					gameOver();
 
 				}
@@ -376,7 +377,7 @@ public class CatchballGameController implements Initializable {
 					catchBalltransition.play();
 					catchCircleY = catchCircleY + (250 - 100 / 2);
 				}
-				// ÇÑ ¹øÀÇ ¿òÁ÷ÀÓÀÌ ¸Â¾Ò´ÂÁö Æ²·È´ÂÁö Ã¼Å©
+				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¾Ò´ï¿½ï¿½ï¿½ Æ²ï¿½È´ï¿½ï¿½ï¿½ Ã¼Å©
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
 //					Thread.sleep(500);
@@ -387,7 +388,7 @@ public class CatchballGameController implements Initializable {
 					falseCount++;
 				}
 
-				// °ÔÀÓ ÇÑ ÆÇÀÌ Á¾·á µÇ´ÂÁö ¾Æ´ÑÁö °Ë»ç
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 				if (smallScore == 8 || correct == false) {
 					switch (lineIndex) {
 					case 0:case 1:case 2:case 3:
@@ -418,7 +419,7 @@ public class CatchballGameController implements Initializable {
 					catchCircle.setVisible(false);
 					followCircleStart();
 				}
-				// Æ²·Á¼­ °ÔÀÓÀÌ Á¾·áµÉ °æ¿ì
+				// Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				gameOver();
 
 				break;
@@ -436,7 +437,7 @@ public class CatchballGameController implements Initializable {
 					catchBalltransition.play();
 					catchCircleX = catchCircleX - (500 - 100 / 2);
 				}
-				// ÇÑ ¹øÀÇ ¿òÁ÷ÀÓÀÌ ¸Â¾Ò´ÂÁö Æ²·È´ÂÁö Ã¼Å©
+				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¾Ò´ï¿½ï¿½ï¿½ Æ²ï¿½È´ï¿½ï¿½ï¿½ Ã¼Å©
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
 //					Thread.sleep(500);
@@ -447,7 +448,7 @@ public class CatchballGameController implements Initializable {
 					falseCount++;
 				}
 
-				// °ÔÀÓ ÇÑ ÆÇÀÌ Á¾·á µÇ´ÂÁö ¾Æ´ÑÁö °Ë»ç
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 				if (smallScore == 8 || correct == false) {
 					switch (lineIndex) {
 					case 0:case 1:case 2:case 3:
@@ -478,7 +479,7 @@ public class CatchballGameController implements Initializable {
 					catchCircle.setVisible(false);
 					followCircleStart();
 				}
-				// Æ²·Á¼­ °ÔÀÓÀÌ Á¾·áµÉ °æ¿ì
+				// Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				gameOver();
 
 				break;
@@ -497,7 +498,7 @@ public class CatchballGameController implements Initializable {
 					catchCircleX = catchCircleX + (500 - 100 / 2);
 
 				}
-				// ÇÑ ¹øÀÇ ¿òÁ÷ÀÓÀÌ ¸Â¾Ò´ÂÁö Æ²·È´ÂÁö Ã¼Å©
+				// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Â¾Ò´ï¿½ï¿½ï¿½ Æ²ï¿½È´ï¿½ï¿½ï¿½ Ã¼Å©
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
 //					Thread.sleep(500);
@@ -508,7 +509,7 @@ public class CatchballGameController implements Initializable {
 					falseCount++;
 				}
 
-				// °ÔÀÓ ÇÑ ÆÇÀÌ Á¾·á µÇ´ÂÁö ¾Æ´ÑÁö °Ë»ç
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 				if (smallScore == 8 || correct == false) {
 					switch (lineIndex) {
 					case 0:case 1:case 2:case 3:
@@ -539,7 +540,7 @@ public class CatchballGameController implements Initializable {
 					catchCircle.setVisible(false);
 					followCircleStart();
 				}
-				// Æ²·Á¼­ °ÔÀÓÀÌ Á¾·áµÉ °æ¿ì
+				// Æ²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 				gameOver();
 				break;
 
@@ -553,25 +554,25 @@ public class CatchballGameController implements Initializable {
 
 	public void followCircleStart() {
 
-		// catchCircleÀ¸¸£ ¾Èº¸ÀÌ°Ô ¼³Á¤
+		// catchCircleï¿½ï¿½ï¿½ï¿½ ï¿½Èºï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		catchCircle.setVisible(false);
 		flag = false;
 
-		// ½ºÇÇµå °ªÀ» ¹Þ¾Æ¿À°í
+		// ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
 
-		// follow¸¦ ½ÃÀÛ
+		// followï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		followCircle.setVisible(true);
 		followBalltransition = new PathTransition();
 		followBalltransition.setNode(followCircle);
 		followBalltransition.setDuration(Duration.seconds(speedValue / 2 + 3));
 
 		Path path = new Path();
-		// 1~4±îÁö ·£´ýÀ¸·Î int°ª Ãâ·Â
+		// 1~4ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ intï¿½ï¿½ ï¿½ï¿½ï¿½
 		double ranValue = Math.random();
 		int value = (int) (ranValue * 4) + 1;
 		switch (value) {
 		case 1:
-			// ½ÃÀÛ À§Ä¡ 1¹ø
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ 1ï¿½ï¿½
 
 			path.getElements().add(new MoveTo(numX1, numY1));
 
@@ -740,7 +741,7 @@ public class CatchballGameController implements Initializable {
 
 			break;
 		case 2:
-			// ½ÃÀÛ À§Ä¡ 3¹ø
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ 3ï¿½ï¿½
 
 			path.getElements().add(new MoveTo(numX3, numY3));
 
@@ -908,7 +909,7 @@ public class CatchballGameController implements Initializable {
 			break;
 
 		case 3:
-			// ½ÃÀÛ À§Ä¡ 7¹ø
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ 7ï¿½ï¿½
 
 			path.getElements().add(new MoveTo(numX7, numY7));
 
@@ -1075,7 +1076,7 @@ public class CatchballGameController implements Initializable {
 
 			break;
 		case 4:
-			// ½ÃÀÛÀ§Ä¡ 9¹ø
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ 9ï¿½ï¿½
 
 			path.getElements().add(new MoveTo(numX9, numY9));
 
@@ -1242,7 +1243,7 @@ public class CatchballGameController implements Initializable {
 		}
 
 		followBalltransition.setOnFinished((e) -> {
-			// °ÔÀÓ ¿À¹ö °Ë»ç (follow°¡ ÇÑ¹ø µ¹°í ³­ ÈÄ °ÔÀÓ Á¾·áÇÏ°Ô ¸¸µë)
+			// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ (followï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½)
 			try {
 				gameOver();
 			} catch (UnsupportedAudioFileException | IOException | LineUnavailableException | URISyntaxException e1) {
