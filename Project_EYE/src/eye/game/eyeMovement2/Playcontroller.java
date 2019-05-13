@@ -179,108 +179,6 @@ public class Playcontroller implements Initializable {
 
 	}
 	
-//
-//	class moving extends Thread {
-//		@Override
-////		public void run() {
-////
-////			// Creating a Path
-////			Path path = new Path();
-////
-////			// Moving to the starting point
-////			MoveTo moveTo = new MoveTo(0, 0);
-////
-////			// Creating line ������ ���� �����մϴ�.
-////			LineTo line1 = new LineTo(1200, 0);
-////			LineTo line2 = new LineTo(0, 550);
-////			LineTo line3 = new LineTo(1200, 550);
-////			LineTo line4 = new LineTo(0, 0);
-////
-////			// Adding all the elements to the path
-////			path.getElements().add(moveTo);
-////			path.getElements().addAll(line1, line2, line3, line4);
-////
-////			// Creating the path transition
-////			pathTransition = new PathTransition();
-////			pathTransition.setDuration(Duration.seconds(Selectcontroller.duration));
-////			pathTransition.setNode(cir);
-////
-////			// Setting the path for the transition
-////			pathTransition.setPath(path);
-////			// �ð� ���ɼ�
-////			pathTransition.cycleDurationProperty();
-////			// Setting the orientation of the path
-////
-////			// �ð��� �Է¹޾� �� �ð����� ���� ���� ��ȯ�ϴ� ��
-////			pathTransition.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
-////				double rndValue = Math.random();
-////				double tmp = oldValue.toSeconds();
-////				if (flag) {
-////					if ((tmp >= duration * 0.1225 && tmp <= duration * 0.125)
-////							|| (tmp >= duration * 0.3725 && tmp <= duration * 0.375)
-////							|| (tmp >= duration * 0.6225 && tmp <= duration * 0.625)
-////							|| (tmp >= duration * 0.8725 && tmp <= duration * 0.875)) {
-////						if (rndValue < 0.14) {
-////							if (rndValue >= 0 && rndValue <= 0.03 && dx != 1) {
-////								cir.setFill(Color.GREY);
-////								dx = 1;
-////							} else if (rndValue > 0.03 && rndValue <= 0.06 && dx != 2) {
-////								cir.setFill(Color.ANTIQUEWHITE);
-////								dx = 2;
-////
-////							} else if (rndValue > 0.06 && rndValue <= 0.09 && dx != 3) {
-////								cir.setFill(Color.CORAL);
-////								dx = 3;
-////							} else if (rndValue > 0.09 && rndValue <= 0.12 && dx != 4) {
-////								cir.setFill(Color.WHITE);
-////								dx = 4;
-////							} else if (rndValue > 0.12 && rndValue <= 0.14 && dx != 5) {
-////								cir.setFill(Color.BLACK);
-////								dx = 5;
-////							} else {
-////								cnt--;
-////							}
-////							cnt++;
-////							flag = false;
-////							System.out.println(cnt);
-////							System.out.println(oldValue.toSeconds());
-////						}
-////					}
-////				}
-////				if (tmp >= 0 && tmp <= 0.05) {
-////					flag = true;
-////
-////				}
-////				if (tmp == 0) {
-////					count++;
-////					score.setText(String.valueOf(count));
-////					System.out.println(count);
-////				}
-////
-////				if (count == 3 && tmp >= Selectcontroller.duration - 0.015) {
-////					this.interrupt();
-////					showEndPopUp();
-////
-////				}
-////
-////			});
-////			pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-////
-////			pathTransition.setCycleCount(3);
-////			pathTransition.setDelay(new Duration(000));
-////
-////			// Ʈ�縦 ������� �ٽ� �ݴ�� ���� �����Դϴ� false�� ������� ���� ������ �ѹ�������
-////			// �����Դϴ�.
-////
-////			// Playing the animation
-////			pathTransition.play();
-////
-////			pause_control = true;
-////
-////		}
-//
-//	}
-
 	public void showEndPopUp() {
 		FXMLLoader another = new FXMLLoader(Main.class.getResource("../game/eyeMovement2/gameQ&A.fxml"));
 		try {
@@ -296,12 +194,6 @@ public class Playcontroller implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-
-	public void closePopUp() {
-
-		Stage stage = (Stage) closeBtn.getScene().getWindow(); // ��ư�� �ִ� â�� �ݴ´�
-		stage.close();
 	}
 
 }
