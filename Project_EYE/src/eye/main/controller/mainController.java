@@ -13,11 +13,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
-/*¸Ş´º¼±ÅÃÀ» À§ÇÑ Å¬·¡½º
- * main_page.fxml¿¡ ¿¬°áµÊ*/
+/*ë©”ë‰´ì„ íƒì„ ìœ„í•œ í´ë˜ìŠ¤
+ * main_page.fxmlì— ì—°ê²°ë¨*/
 public class mainController implements Initializable{
 
-	//ÇöÀç ÆäÀÌÀÎ mainPage¿Í ±³Ã¼ÇÒ ÆäÀÌÁöÀÎ gameMainPage¸¦ ¹Ì¸® ¼±¾ğ
+	//í˜„ì¬ í˜ì´ì¸ mainPageì™€ êµì²´í•  í˜ì´ì§€ì¸ gameMainPageë¥¼ ë¯¸ë¦¬ ì„ ì–¸
 	@FXML
 	private AnchorPane gameMainPage,mainPage;
 	
@@ -26,17 +26,17 @@ public class mainController implements Initializable{
 		// TODO Auto-generated method stub
 	}
 	
-	//°ÔÀÓ ¹öÆ°À» ´­·¶À» ¶§ µ¿ÀÛÇÒ ¸Ş¼Òµå
+	//ê²Œì„ ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ ë™ì‘í•  ë©”ì†Œë“œ
 	public void goGameMain() {
 		try {
 			Main.mainMusic.stopMusic();
 			Main.mainMusic.resetNameAudioStream("LaLaLa");
-			//±³Ã¼ÇÒ ÆäÀÌÁöÀÎ game_main_page.fxml¸¦ °¡Á®¿Í¼­ gameMainPage¿¡ ³Ö¾îÁØ´Ù.
+			//êµì²´í•  í˜ì´ì§€ì¸ game_main_page.fxmlë¥¼ ê°€ì ¸ì™€ì„œ gameMainPageì— ë„£ì–´ì¤€ë‹¤.
 			gameMainPage = FXMLLoader.load(getClass().getResource("../../game/view/game_main_page.fxml"));
 		} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
 			e.printStackTrace();
 		}
-		//ÆäÀÌÁö ±³Ã¼
+		//í˜ì´ì§€ êµì²´
 		mainPage.getChildren().setAll(gameMainPage);
 	}
 	

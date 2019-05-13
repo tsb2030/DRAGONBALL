@@ -16,15 +16,15 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	//Á¤Àû À½¾Ç º¯¼ö Ãß°¡: player
+	//ì •ì  ìŒì•… ë³€ìˆ˜ ì¶”ê°€: player
 	public static SimpleAudioPlayer mainMusic;
 
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Font.loadFont(getClass().getResourceAsStream("font.a¼Ò³ª¹«B.ttf"), 10);
-			Font.loadFont(getClass().getResourceAsStream("font.a¼Ò³ª¹«L.ttf"), 10);
-			Font.loadFont(getClass().getResourceAsStream("font.a¼Ò³ª¹«M.ttf"), 10);
+			Font.loadFont(getClass().getResourceAsStream("font.aì†Œë‚˜ë¬´B.ttf"), 10);
+			Font.loadFont(getClass().getResourceAsStream("font.aì†Œë‚˜ë¬´L.ttf"), 10);
+			Font.loadFont(getClass().getResourceAsStream("font.aì†Œë‚˜ë¬´M.ttf"), 10);
 
 			Parent root = FXMLLoader.load(getClass().getResource("view/loading.fxml"));
 			Scene scene = new Scene(root);
@@ -35,13 +35,13 @@ public class Main extends Application {
 			mainMusic = new SimpleAudioPlayer("MableJ");
 			mainMusic.start();
 			
-			//»ç¿ëÇÒ À½¾Ç ¸ñ·ÏµéÀ» selectedSongÀÌ¶ó´Â ArrayList<Song>¿¡ ÇÏ³ª¾¿ ³Ö¾îÁØ´Ù.
+			//ì‚¬ìš©í•  ìŒì•… ëª©ë¡ë“¤ì„ selectedSongì´ë¼ëŠ” ArrayList<Song>ì— í•˜ë‚˜ì”© ë„£ì–´ì¤€ë‹¤.
 			mainMusic.selectedSong = new ArrayList<Song>();
 			mainMusic.selectedSong.add(new Song("MableJ"));
 			mainMusic.selectedSong.add(new Song("LaLaLa"));
 			mainMusic.selectedSong.add(new Song("introMusic"));
 			
-			//°îÀ» º¯°æÇÒ ¶§ ÀÎµ¦½º¸¦ »ç¿ëÇÒ °æ¿ì¸¦ ´ëºñÇØ ÀÎµ¦½º º¯¼öµµ ¸¸µé¾îÁØ´Ù. »ç¿ë ¾ÈÇÒ¼ö µµ ÀÖÀ½
+			//ê³¡ì„ ë³€ê²½í•  ë•Œ ì¸ë±ìŠ¤ë¥¼ ì‚¬ìš©í•  ê²½ìš°ë¥¼ ëŒ€ë¹„í•´ ì¸ë±ìŠ¤ ë³€ìˆ˜ë„ ë§Œë“¤ì–´ì¤€ë‹¤. ì‚¬ìš© ì•ˆí• ìˆ˜ ë„ ìˆìŒ
 			mainMusic.index = 0;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -50,7 +50,7 @@ public class Main extends Application {
 
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		launch(args);
-		//À½¾Ç ½º·¹µå¸¦ Á¾·á ½ÃÅ²´Ù.
+		//ìŒì•… ìŠ¤ë ˆë“œë¥¼ ì¢…ë£Œ ì‹œí‚¨ë‹¤.
 		mainMusic.stopMusic();
 	}
 }
