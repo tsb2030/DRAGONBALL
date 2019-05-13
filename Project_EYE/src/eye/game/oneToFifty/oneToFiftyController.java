@@ -28,9 +28,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-/*1to50°ÔÀÓ*/
+/*1to50ê²Œì„*/
 public class oneToFiftyController implements Initializable{
-	//´Ù½Ã °ÔÀÓ¸ŞÀÎÈ­¸éÀ¸·Î µ¹¾Æ°¡±âÀ§ÇÑ È­¸éÀ» Á¤ÀÇÇÏ°í µ¿ÀûÀÎ ¹öÆ°À» ¸¸µé±â À§ÇØ¼­ ¹öÆ°¹è¿­ ¼±¾ğ
+	//ë‹¤ì‹œ ê²Œì„ë©”ì¸í™”ë©´ìœ¼ë¡œ ëŒì•„ê°€ê¸°ìœ„í•œ í™”ë©´ì„ ì •ì˜í•˜ê³  ë™ì ì¸ ë²„íŠ¼ì„ ë§Œë“¤ê¸° ìœ„í•´ì„œ ë²„íŠ¼ë°°ì—´ ì„ ì–¸
 	@FXML
 	AnchorPane apane,oneToFiftyPage,gameMainPage;
 	private JFXButton btnarr[] = new JFXButton[25];
@@ -38,25 +38,25 @@ public class oneToFiftyController implements Initializable{
 	@FXML
 	JFXButton goGameMainBtn;
 	
-	//arr1Àº 1~25 ·£´ı¼ö, arr2´Â 26~50±îÁöÀÇ ·£´ı¼ö¸¦ °¡Áö±â À§ÇØ Á¤ÀÇ
+	//arr1ì€ 1~25 ëœë¤ìˆ˜, arr2ëŠ” 26~50ê¹Œì§€ì˜ ëœë¤ìˆ˜ë¥¼ ê°€ì§€ê¸° ìœ„í•´ ì •ì˜
 	@FXML
 	private Text timer;
 	private int arr1[] = new int[25];
 	private int arr2[] = new int[25];
 	Random rd = new Random();
-	//ÇöÀç ¾î¶² ¼ö¸¦ ´­·¯¾ß ÇÏ´ÂÁö ÆÇº°ÇÏ±âÀ§ÇØ¼­ »ç¿ëµÇ´Â ¼ö
+	//í˜„ì¬ ì–´ë–¤ ìˆ˜ë¥¼ ëˆŒëŸ¬ì•¼ í•˜ëŠ”ì§€ íŒë³„í•˜ê¸°ìœ„í•´ì„œ ì‚¬ìš©ë˜ëŠ” ìˆ˜
 	private int number = 1;
 	
-	//Å¸ÀÓ¶óÀÎÀ» »ç¿ëÇÏ±âÀ§ÇÑ Á¤ÀÇ
-	private Boolean isStart = false; // ½ÃÀÛÀÎÁö ÆÇ´ÜÇÒ ÇÊµå.
+	//íƒ€ì„ë¼ì¸ì„ ì‚¬ìš©í•˜ê¸°ìœ„í•œ ì •ì˜
+	private Boolean isStart = false; // ì‹œì‘ì¸ì§€ íŒë‹¨í•  í•„ë“œ.
 	 private Timeline timeLine; 
 	 private DoubleProperty timeSeconds = new SimpleDoubleProperty();
 	 private Duration time = Duration.ZERO;
 	
-	 //¹öÆ°À» Á¤ÀÇ¿Í ÀÌº¥Æ®ÇÚµé·¯¸¦ ´Ş¾ÆÁÖ°í 1~25±îÁöÀÇ ·£´ı¼ö¸¦ °¢°¢ÀÇ ¹öÆ°¿¡ ´Ş¾ÆÁØ´Ù.
+	 //ë²„íŠ¼ì„ ì •ì˜ì™€ ì´ë²¤íŠ¸í•¸ë“¤ëŸ¬ë¥¼ ë‹¬ì•„ì£¼ê³  1~25ê¹Œì§€ì˜ ëœë¤ìˆ˜ë¥¼ ê°ê°ì˜ ë²„íŠ¼ì— ë‹¬ì•„ì¤€ë‹¤.
 	 public void buttonSetting() {
 		 int ly = 60;
-		 //¹öÆ°Á¤ÀÇ
+		 //ë²„íŠ¼ì •ì˜
 		 for(int i=0;i<25;i++) {
 			 btnarr[i] = new JFXButton();
 		 }
@@ -64,12 +64,12 @@ public class oneToFiftyController implements Initializable{
 		 for(int i=0;i<5;i++) {
 			 int lx = 100;
 			 for(int j=0;j<5;j++) {
-				 //¹öÆ°¿¡ ÀÌº¥Æ®¸¦ ´Ş¾ÆÁÖ´Â ºÎºĞ
+				 //ë²„íŠ¼ì— ì´ë²¤íŠ¸ë¥¼ ë‹¬ì•„ì£¼ëŠ” ë¶€ë¶„
 				 btnarr[tmp].setOnAction(new EventHandler<ActionEvent>() {
 					@Override
 					public void handle(ActionEvent event) {
-						/*¹öÆ°ÀÇ ÅØ½ºÆ®¸¦ °¡Á®¿Í ±× ¼ıÀÚ°¡ number¿Í ºñ±³ÇØ¼­ °°À¸¸é arr2¹è¿­¿¡ ÀÖ´Â ¼ö¸¦ Â÷·Ê´ë·Î ³Ö¾îÁÖ°í number¸¦ 1 ´õÇØÁØ´Ù.
-						 * ¸¸¾à number°¡ 25º¸´Ù Å¬ ½Ã¿¡´Â number°ª¸¸ 1¿Ã·ÁÁÖ°í ÅØ½ºÆ®¿¡ ""À» ³Ö¾îÁØ´Ù.*/
+						/*ë²„íŠ¼ì˜ í…ìŠ¤íŠ¸ë¥¼ ê°€ì ¸ì™€ ê·¸ ìˆ«ìê°€ numberì™€ ë¹„êµí•´ì„œ ê°™ìœ¼ë©´ arr2ë°°ì—´ì— ìˆëŠ” ìˆ˜ë¥¼ ì°¨ë¡€ëŒ€ë¡œ ë„£ì–´ì£¼ê³  numberë¥¼ 1 ë”í•´ì¤€ë‹¤.
+						 * ë§Œì•½ numberê°€ 25ë³´ë‹¤ í´ ì‹œì—ëŠ” numberê°’ë§Œ 1ì˜¬ë ¤ì£¼ê³  í…ìŠ¤íŠ¸ì— ""ì„ ë„£ì–´ì¤€ë‹¤.*/
 						Button btn = (Button) event.getSource();
 						String btnstr = btn.getText();
 						if(Integer.parseInt(btnstr)==number) {
@@ -80,7 +80,7 @@ public class oneToFiftyController implements Initializable{
 							}
 							number++;
 							System.out.println(number);
-							//number°¡ 51ÀÌµÇ¸é °ÔÀÓÀÌ ³¡³­ °ÍÀÌ¹Ç·Î Å¸ÀÓ¶óÀÎÀ» ¸ØÃß°í ¼ıÀÚ¹öÆ°ÀÌ ´­¸®Áö¾Ê°Ô Ã³¸®ÇÑ´Ù.
+							//numberê°€ 51ì´ë˜ë©´ ê²Œì„ì´ ëë‚œ ê²ƒì´ë¯€ë¡œ íƒ€ì„ë¼ì¸ì„ ë©ˆì¶”ê³  ìˆ«ìë²„íŠ¼ì´ ëˆŒë¦¬ì§€ì•Šê²Œ ì²˜ë¦¬í•œë‹¤.
 							if(number==51) {
 								timeLine.stop();
 								for(int i=0;i<25;i++) {
@@ -90,7 +90,7 @@ public class oneToFiftyController implements Initializable{
 						}
 					}
 				});
-				 //°¢°¢ ¹öÆ°ÀÇ Å©±â¿Í À§Ä¡¸¦ ¼³Á¤ÇØÁÖ±â À§ÇÑ ºÎºĞ
+				 //ê°ê° ë²„íŠ¼ì˜ í¬ê¸°ì™€ ìœ„ì¹˜ë¥¼ ì„¤ì •í•´ì£¼ê¸° ìœ„í•œ ë¶€ë¶„
 				 btnarr[tmp].setPrefSize(100, 100);
 				 btnarr[tmp].setLayoutX(lx);
 				 btnarr[tmp++].setLayoutY(ly);
@@ -100,7 +100,7 @@ public class oneToFiftyController implements Initializable{
 		 }
 	 }
 	 
-	 //°ÔÀÓ ½ÃÀÛ½Ã¿¡ ¹öÆ°ÀÇ ÅØ½ºÆ®¿¡ 1~25±îÁöÀÇ ·£´ı¼ö¸¦ ³Ö¾îÁÖ±â À§ÇÑ ºÎºĞ
+	 //ê²Œì„ ì‹œì‘ì‹œì— ë²„íŠ¼ì˜ í…ìŠ¤íŠ¸ì— 1~25ê¹Œì§€ì˜ ëœë¤ìˆ˜ë¥¼ ë„£ì–´ì£¼ê¸° ìœ„í•œ ë¶€ë¶„
 	 public void textSetting(int[] intarr) {
 		 int tmp=0;
 		 for(int i=0;i<25;i++) {
@@ -109,7 +109,7 @@ public class oneToFiftyController implements Initializable{
 		 }
 	 }
 	 
-	 //arr1,arr2¿¡ °¢°¢ 1~25,26~50±îÁöÀÇ ¼ö¸¦ ³Ö¾îÁÖ´ÂºÎºĞ
+	 //arr1,arr2ì— ê°ê° 1~25,26~50ê¹Œì§€ì˜ ìˆ˜ë¥¼ ë„£ì–´ì£¼ëŠ”ë¶€ë¶„
 	 public void random() {
 		 for(int i=0; i<25 ;){
 	         Boolean tp=true;
@@ -125,22 +125,22 @@ public class oneToFiftyController implements Initializable{
 	     }
 	 }
 	 
-	 //°ÔÀÓ ½ÃÀÛ½Ã ½ÇÇàµÇ´Â ¸Ş¼Òµå
+	 //ê²Œì„ ì‹œì‘ì‹œ ì‹¤í–‰ë˜ëŠ” ë©”ì†Œë“œ
 	 public void start() {
 		    random();
 			textSetting(arr1);
-			timeLine.stop(); // »õ·Î ½Ã°£À» ÃøÁ¤ÇÏ·Á¸é timeLineÀÌ ÃÊ±âÈ­µÇ¾ß ÇÏ¹Ç·Î stop()
-	    	time = Duration.ZERO; // timeÀÇ °ªµµ »õ·Î ÃøÁ¤ ÇÒ ¶§¸¶´Ù 0ÀÌµÇ¾î¾ß ÇÔ.
-	    	timer.textProperty().bind(timeSeconds.asString()); // timeCheck ¿¡ timeSeconds °ª ´ëÀÔ
-	    	isStart=true; //newButtonÀ» Å¬¸¯ÇßÀ¸¹Ç·Î isStart °ª true·Î
-	    	//½ºÅ¾¿öÄ¡¸¦ ½ÃÀÛÇÏ´ÂºÎºĞ
+			timeLine.stop(); // ìƒˆë¡œ ì‹œê°„ì„ ì¸¡ì •í•˜ë ¤ë©´ timeLineì´ ì´ˆê¸°í™”ë˜ì•¼ í•˜ë¯€ë¡œ stop()
+	    	time = Duration.ZERO; // timeì˜ ê°’ë„ ìƒˆë¡œ ì¸¡ì • í•  ë•Œë§ˆë‹¤ 0ì´ë˜ì–´ì•¼ í•¨.
+	    	timer.textProperty().bind(timeSeconds.asString()); // timeCheck ì— timeSeconds ê°’ ëŒ€ì…
+	    	isStart=true; //newButtonì„ í´ë¦­í–ˆìœ¼ë¯€ë¡œ isStart ê°’ trueë¡œ
+	    	//ìŠ¤íƒ‘ì›Œì¹˜ë¥¼ ì‹œì‘í•˜ëŠ”ë¶€ë¶„
 	    	if(isStart == true){ 
 	        	
 	        	 if (timeLine == null) {
-	        		  // µüÈ÷ ÇÒ °Å ¾øÀ½.
+	        		  // ë”±íˆ í•  ê±° ì—†ìŒ.
 	             } else {
 	                 timeLine = new Timeline(
-	                     new KeyFrame(Duration.millis(10), // 0.01ÃÊ ´ÜÀ§·Î Ã¼Å©
+	                     new KeyFrame(Duration.millis(10), // 0.01ì´ˆ ë‹¨ìœ„ë¡œ ì²´í¬
 	                     new EventHandler<ActionEvent>() {
 	                         @Override
 	                         public void handle(ActionEvent t) {
@@ -157,7 +157,7 @@ public class oneToFiftyController implements Initializable{
 	        }
 	 }
 	 
-	 //pause»óÅÂÀÏ ¶§ ¹öÆ°Å¬¸¯À» ¸øÇÏµµ·Ï ÇÏ´Â ºÎºĞ
+	 //pauseìƒíƒœì¼ ë•Œ ë²„íŠ¼í´ë¦­ì„ ëª»í•˜ë„ë¡ í•˜ëŠ” ë¶€ë¶„
 	 public void pause() {
 		 for(int i=0;i<25;i++) {
 			 btnarr[i].setDisable(true);
@@ -165,7 +165,7 @@ public class oneToFiftyController implements Initializable{
 		 timeLine.stop();
 	 }
 
-	//restart¹öÆ°À» ´­·¶À» ¶§ ¹öÆ°Å¬¸¯À» °¡´ÉÇÏµµ·Ï ÇÏ´Â ºÎºĞ
+	//restartë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ ë²„íŠ¼í´ë¦­ì„ ê°€ëŠ¥í•˜ë„ë¡ í•˜ëŠ” ë¶€ë¶„
 	 public void restart() {
 		 for(int i=0;i<25;i++) {
 			 btnarr[i].setDisable(false);
@@ -173,7 +173,7 @@ public class oneToFiftyController implements Initializable{
 		 timeLine.play();
 	 }
 
-	 //°ÔÀÓ¸ŞÀÎÈ­¸éÀ¸·Î ÀÌµ¿
+	 //ê²Œì„ë©”ì¸í™”ë©´ìœ¼ë¡œ ì´ë™
 	public void goGameMainBtn() {
 		try {
 
@@ -188,7 +188,7 @@ public class oneToFiftyController implements Initializable{
 		oneToFiftyPage.getChildren().setAll(gameMainPage);
 	}
 	 
-	//°ÔÀÓÈ­¸éÀÌ ½ÇÇà½Ã¿¡ ½ÇÇàµÉ Á¤ÀÇ³ª ¸Ş¼Òµå
+	//ê²Œì„í™”ë©´ì´ ì‹¤í–‰ì‹œì— ì‹¤í–‰ë  ì •ì˜ë‚˜ ë©”ì†Œë“œ
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
@@ -197,7 +197,7 @@ public class oneToFiftyController implements Initializable{
 			
 			apane.getChildren().add(btnarr[i]);
 		}
-		timeLine = new Timeline(); // timeLine °´Ã¼ ÃÊ±âÈ­
+		timeLine = new Timeline(); // timeLine ê°ì²´ ì´ˆê¸°í™”
         timeLine.setCycleCount(Timeline.INDEFINITE);
         timeLine.play();
 	}

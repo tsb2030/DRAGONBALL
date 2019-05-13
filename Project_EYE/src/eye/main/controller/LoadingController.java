@@ -15,10 +15,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-/*Ã³À½ ·ÎµùÈ­¸éÀ» ¼³Á¤ÇØÁÖ±â À§ÇÑ Å¬·¡½º
- * loading.fxml¿¡ ¿¬°áµÇ¾îÀÖ´Â ÄÁÆ®·Ñ·¯*/
+/*ì²˜ìŒ ë¡œë”©í™”ë©´ì„ ì„¤ì •í•´ì£¼ê¸° ìœ„í•œ í´ë˜ìŠ¤
+ * loading.fxmlì— ì—°ê²°ë˜ì–´ìˆëŠ” ì»¨íŠ¸ë¡¤ëŸ¬*/
 public class LoadingController implements Initializable{
-	//loading.fxml¿¡ ÀÖ´Â AnchorPaneÀÇ id°ªÀÎ acpaneÀ» °¡Á®¿Í¼­ Á¤ÀÇÇÑ´Ù.
+	//loading.fxmlì— ìˆëŠ” AnchorPaneì˜ idê°’ì¸ acpaneì„ ê°€ì ¸ì™€ì„œ ì •ì˜í•œë‹¤.
 	@FXML
 	private AnchorPane acpane;
 
@@ -28,11 +28,11 @@ public class LoadingController implements Initializable{
 		new loadingScreen().start();
 	}
 	
-	//ÆäÀÌµå¾Æ¿ô È¿°ú¿Í È­¸é ÀüÈ¯À» À§ÇÑ Å¬·¡½º
+	//í˜ì´ë“œì•„ì›ƒ íš¨ê³¼ì™€ í™”ë©´ ì „í™˜ì„ ìœ„í•œ í´ë˜ìŠ¤
 	class loadingScreen extends Thread{
 		@Override
 		public void run() {
-			//ÆäÀÌµå¾Æ¿ô ºÎºĞ
+			//í˜ì´ë“œì•„ì›ƒ ë¶€ë¶„
 			try {
 				Thread.sleep(2000);
 				FadeTransition fadeout = new FadeTransition(Duration.seconds(3),acpane);
@@ -43,7 +43,7 @@ public class LoadingController implements Initializable{
 				Thread.sleep(1500);
 				Platform.runLater(new Runnable() {
 					
-					//È­¸é ÀüÈ¯ºÎºĞ
+					//í™”ë©´ ì „í™˜ë¶€ë¶„
 					@Override
 					public void run() {
 						Parent root = null;

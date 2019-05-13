@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXRadioButton;
 
-import eye.game.eyeMovement2.Playcontroller.moving;
 import javafx.animation.PathTransition;
 import javafx.animation.Animation.Status;
 import javafx.event.Event;
@@ -35,16 +34,16 @@ public class Selectcontroller implements Initializable {
 	private PathTransition pathTransition2;
 	private PathTransition pathTransition3;
 
-    @FXML
-    private Text title;
-    
-    @FXML
-    private ToggleGroup group;
-	
-    @FXML
-    private ToggleGroup group2;
+	@FXML
+	private Text title;
 
-    @FXML
+	@FXML
+	private ToggleGroup group;
+
+	@FXML
+	private ToggleGroup group2;
+
+	@FXML
 	private Circle speedCircle1;
 
 	@FXML
@@ -67,7 +66,7 @@ public class Selectcontroller implements Initializable {
 
 	@FXML
 	private ImageView nextBtn;
-	
+
 	@FXML
 	private Text nextBtn2;
 
@@ -84,7 +83,7 @@ public class Selectcontroller implements Initializable {
 			// Moving to the starting point
 			MoveTo moveTo = new MoveTo(0, 0);
 
-			// Creating line ÁøÇàÇÒ ±æÀ» ¼³Á¤ÇÕ´Ï´Ù.
+			// Creating line ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 			LineTo line1 = new LineTo(0, 250);
 			LineTo line2 = new LineTo(0, 0);
 
@@ -120,7 +119,7 @@ public class Selectcontroller implements Initializable {
 			// Moving to the starting point
 			MoveTo moveTo = new MoveTo(0, 0);
 
-			// Creating line ÁøÇàÇÒ ±æÀ» ¼³Á¤ÇÕ´Ï´Ù.
+			// Creating line ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 			LineTo line3 = new LineTo(0, 250);
 			LineTo line4 = new LineTo(0, 0);
 
@@ -146,50 +145,109 @@ public class Selectcontroller implements Initializable {
 
 	}
 
-	class updown3 extends Thread {
-		@Override
-		public void run() {
+	public void Move1() {
 
-			// Creating a Path
-			Path path = new Path();
+		// Creating a Path
+		Path path = new Path();
 
-			// Moving to the starting point
-			MoveTo moveTo = new MoveTo(0, 0);
+		// Moving to the starting point
+		MoveTo moveTo = new MoveTo(0, 0);
 
-			// Creating line ÁøÇàÇÒ ±æÀ» ¼³Á¤ÇÕ´Ï´Ù.
-			LineTo line5 = new LineTo(0, 250);
-			LineTo line6 = new LineTo(0, 0);
+		// Creating line ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+		LineTo line1 = new LineTo(0, 250);
+		LineTo line2 = new LineTo(0, 0);
 
-			// Adding all the elements to the path
-			path.getElements().add(moveTo);
-			path.getElements().addAll(line5, line6);
+		// Adding all the elements to the path
+		path.getElements().add(moveTo);
+		path.getElements().addAll(line1, line2);
 
-			// Creating the path transition
-			pathTransition3 = new PathTransition();
-			pathTransition3.setDuration(Duration.seconds(0.8));
-			pathTransition3.setNode(speedCircle3);
+		// Creating the path transition
+		pathTransition1 = new PathTransition();
+		pathTransition1.setDuration(Duration.seconds(2));
+		pathTransition1.setNode(speedCircle1);
 
-			// Setting the path for the transition
-			pathTransition3.setPath(path);
+		// Setting the path for the transition
+		pathTransition1.setPath(path);
 
-			pathTransition3.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+		pathTransition1.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
-			pathTransition3.setCycleCount(10);
+		pathTransition1.setCycleCount(10);
 
-			// Playing the animation
-			pathTransition3.play();
+		// Playing the animation
+		pathTransition1.play();
+	}
 
-		}
+	public void Move2() {
+
+		// Creating a Path
+		Path path = new Path();
+
+		// Moving to the starting point
+		MoveTo moveTo = new MoveTo(0, 0);
+
+		// Creating line ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+		LineTo line3 = new LineTo(0, 250);
+		LineTo line4 = new LineTo(0, 0);
+
+		// Adding all the elements to the path
+		path.getElements().add(moveTo);
+		path.getElements().addAll(line3, line4);
+
+		// Creating the path transition
+		pathTransition2 = new PathTransition();
+		pathTransition2.setDuration(Duration.seconds(1));
+		pathTransition2.setNode(speedCircle2);
+
+		// Setting the path for the transition
+		pathTransition2.setPath(path);
+
+		pathTransition2.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+
+		pathTransition2.setCycleCount(10);
+
+		// Playing the animation
+		pathTransition2.play();
+	}
+
+	public void Move3() {
+
+		// Creating a Path
+		Path path = new Path();
+
+		// Moving to the starting point
+		MoveTo moveTo = new MoveTo(0, 0);
+
+		// Creating line ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
+		LineTo line5 = new LineTo(0, 250);
+		LineTo line6 = new LineTo(0, 0);
+
+		// Adding all the elements to the path
+		path.getElements().add(moveTo);
+		path.getElements().addAll(line5, line6);
+
+		// Creating the path transition
+		pathTransition3 = new PathTransition();
+		pathTransition3.setDuration(Duration.seconds(0.8));
+		pathTransition3.setNode(speedCircle3);
+
+		// Setting the path for the transition
+		pathTransition3.setPath(path);
+
+		pathTransition3.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
+
+		pathTransition3.setCycleCount(10);
+
+		// Playing the animation
+		pathTransition3.play();
 
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		new updown1().start();
-		new updown2().start();
-		new updown3().start();
-		
-		
+		Move1();
+		Move2();
+		Move3();
+
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -223,7 +281,7 @@ public class Selectcontroller implements Initializable {
 
 			}
 		});
-		
+
 		nextBtn2.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -240,7 +298,6 @@ public class Selectcontroller implements Initializable {
 
 			}
 		});
-
 
 		one.setOnMouseClicked(new EventHandler<Event>() {
 
@@ -271,8 +328,7 @@ public class Selectcontroller implements Initializable {
 			}
 
 		});
-		
-		
+
 	}
 
 }
