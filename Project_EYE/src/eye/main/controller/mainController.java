@@ -13,7 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
-/*메뉴선택을 위한 클래스
+/*메뉴선택을 위한 클래스입니다.
  * main_page.fxml에 연결됨*/
 public class mainController implements Initializable{
 

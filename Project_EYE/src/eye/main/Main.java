@@ -16,7 +16,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	//정적 음악 변수 추가: player
+	//정적 음악 변수 추가: player입니다.
 	public static SimpleAudioPlayer mainMusic;
 
 	@Override

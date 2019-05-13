@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-/*처음 로딩화면을 설정해주기 위한 클래스
+/*처음 로딩화면을 설정해주기 위한 클래스입니다.
  * loading.fxml에 연결되어있는 컨트롤러*/
 public class LoadingController implements Initializable{
 	//loading.fxml에 있는 AnchorPane의 id값인 acpane을 가져와서 정의한다.
