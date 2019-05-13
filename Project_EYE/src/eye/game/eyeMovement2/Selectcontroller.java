@@ -67,6 +67,9 @@ public class Selectcontroller implements Initializable {
 
 	@FXML
 	private ImageView nextBtn;
+	
+	@FXML
+	private Text nextBtn2;
 
 	@FXML
 	private ImageView backBtn;
@@ -220,6 +223,24 @@ public class Selectcontroller implements Initializable {
 
 			}
 		});
+		
+		nextBtn2.setOnMouseClicked(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+
+				try {
+					Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) acpane.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+			}
+		});
+
 
 		one.setOnMouseClicked(new EventHandler<Event>() {
 

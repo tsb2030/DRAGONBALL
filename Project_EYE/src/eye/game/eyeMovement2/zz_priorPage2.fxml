@@ -53,7 +53,7 @@
                               <Image url="@redRec.png" />
                            </image>
                         </ImageView>
-                        <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />
+                        <Text fx:id="nextBtn2" fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />
                      </children>
                   </Pane>
                   <Pane layoutX="180.0" layoutY="100.0" prefHeight="430.0" prefWidth="400.0">

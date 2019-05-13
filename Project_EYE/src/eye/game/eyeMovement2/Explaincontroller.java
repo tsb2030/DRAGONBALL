@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Explaincontroller implements Initializable {
@@ -26,6 +27,9 @@ public class Explaincontroller implements Initializable {
 
 	@FXML
 	private ImageView backBtn;
+	
+	@FXML
+	private Text nextBtn2;
 
 
 	@Override
@@ -49,6 +53,23 @@ public class Explaincontroller implements Initializable {
 
 		});
 		nextBtn.setOnMouseClicked(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+
+				try {
+					Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage2.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) acpane.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+			}
+		});
+		
+		nextBtn2.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {

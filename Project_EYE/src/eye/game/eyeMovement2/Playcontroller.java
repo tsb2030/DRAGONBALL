@@ -103,7 +103,7 @@ public class Playcontroller implements Initializable {
 
 			@Override
 			public void handle(Event event) {
-				
+
 
 				try {
 					Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage2.fxml"));
