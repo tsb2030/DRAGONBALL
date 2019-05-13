@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="gameMainPage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;" stylesheets="@game_main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.controller.gameMainController">
+<AnchorPane fx:id="gameMainPage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.controller.gameMainController">
 	<children>
       <VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;">
          <children>
@@ -19,7 +19,7 @@
                <children>
       				<Text fx:id="titleText" layoutX="608.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="운동" textAlignment="CENTER" />
                   <Line endX="792.0" endY="48.50001525878906" layoutX="-1.0" layoutY="9.0" startX="489.0" startY="48.50001525878906" stroke="#707070" strokeWidth="3.0" />
-                  <ImageView styleClass="shadow" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="shadow" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="image/backarrow.png" />
                      </image>
@@ -39,7 +39,7 @@
                   					</image>
                   				</ImageView>
                   				<TextFlow fx:id="oneToFiftyText" layoutX="381.0" layoutY="35.0" lineSpacing="5.0" prefHeight="180.0" prefWidth="500.0" textAlignment="LEFT" />
-                  				<ImageView styleClass="shadow" fx:id="oneToFiftyBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                  				<ImageView fx:id="oneToFiftyBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
                   					<image>
                   						<Image url="image/GObtn.png" />
                   					</image>
@@ -61,7 +61,7 @@
                                  </image>
                               </ImageView>
                               <TextFlow fx:id="mobiusText" layoutX="386.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView styleClass="shadow" fx:id="GObtn2" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                              <ImageView fx:id="GObtn2" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
@@ -83,7 +83,7 @@
                                  </image>
                               </ImageView>
                               <TextFlow fx:id="zigzagText" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView styleClass="shadow" fx:id="GObtn3" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#zigzagtrainigAction" pickOnBounds="true">
+                              <ImageView fx:id="GObtn3" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#zigzagtrainigAction" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
@@ -105,7 +105,7 @@
                                  </image>
                               </ImageView>
                               <TextFlow fx:id="fivedotText" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView styleClass="shadow" fx:id="GObtn31" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                              <ImageView fx:id="GObtn31" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
@@ -127,7 +127,7 @@
                                  </image>
                               </ImageView>
                               <TextFlow fx:id="catchmoleText" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView styleClass="shadow" fx:id="GObtn32" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#moleGameAction" pickOnBounds="true">
+                              <ImageView fx:id="GObtn32" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#moleGameAction" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
@@ -149,7 +149,7 @@
                                  </image>
                               </ImageView>
                               <TextFlow fx:id="catchballText" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView styleClass="shadow" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#catchBallGameAction" pickOnBounds="true">
+                              <ImageView fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#catchBallGameAction" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
@@ -171,7 +171,7 @@
                                  </image>
                               </ImageView>
                               <TextFlow fx:id="findpictureText" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView styleClass="shadow" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                              <ImageView fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
