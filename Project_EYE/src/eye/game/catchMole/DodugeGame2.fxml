@@ -1,76 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFe4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchMole.DodugeGameController">
+<AnchorPane fx:id="gamePage" stylesheets="@mobius_main.css" maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFe4;"  xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchMole.DodugeGameController">
    <children>
-      <Text fx:id="TimerLabel" layoutX="898.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="280.00000381469727">
-      <font>
-            <Font name="a소나무M" size="55.0" />
-         </font>
-      </Text>
-      <Label fx:id="gameTitle1" layoutX="450.0" layoutY="30.0" prefHeight="70.0" prefWidth="400.0" text="두더지 잡기 게임">
-         <font>
-            <Font name="a소나무M" size="55.0" />
-         </font>
-      </Label>
-      <Label fx:id="ScoreLabel" layoutX="150.0" layoutY="30.0" prefHeight="70.0" prefWidth="256.0">
-         <font>
-            <Font name="a소나무M" size="55.0" />
-         </font>
-      </Label>
-      <Line fx:id="titleLine" endX="206.0" layoutX="630.0" layoutY="103.0" startX="-184.0" stroke="#707070" strokeWidth="3.0" />
-      <AnchorPane layoutX="50.0" layoutY="126.0" prefHeight="560.0" prefWidth="1182.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+      <HBox fx:id="titleBox" maxHeight="60.0" maxWidth="1280.0" minHeight="60.0" minWidth="1280.0" prefHeight="60.0" prefWidth="1280.0">
          <children>
-            <GridPane layoutX="128.0" layoutY="131.0" prefHeight="560.0" prefWidth="1180.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <ImageView fx:id="moleImageView" fitHeight="93.0" fitWidth="149.0" pickOnBounds="true" preserveRatio="true">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <image>
-                        <Image url="@MOLE.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="moleButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#clickMoleAction" opacity="0.0" prefHeight="112.0" prefWidth="148.0" text="&quot;&quot;">
-                     <font>
-                        <Font size="33.0" />
-                     </font>
-                  </Button>
+         
+                  <ImageView id="btn" fx:id="backToStart" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+               <image>
+                  <Image url="@그룹%2079.png" />
+               </image>
+            </ImageView>
+            <Pane maxHeight="80.0" maxWidth="200.0" minHeight="80.0" minWidth="200.0" prefHeight="80.0" prefWidth="200.0">
+               <children> 
+               	<Label fx:id="ScoreLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="300.0">
+					         <font>
+					            <Font name="a소나무M" size="55.0" />
+					         </font>
+					      </Label>
                </children>
-            </GridPane>
+               <HBox.margin>
+                  <Insets left="50.0" />
+               </HBox.margin>
+            </Pane>
+            <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="두더지 잡기 트레이닝" textAlignment="CENTER" wrappingWidth="359.75521087646484">
+               <HBox.margin>
+                  <Insets left="130.0" right="70.0" top="15.0" />
+               </HBox.margin>       
+            </Text>
+            <Pane minWidth="200.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Arc fill="#c6b351" length="180.0" radiusX="201.0" radiusY="76.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+		                  <Text fx:id="TimerLabel" layoutX="-140" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="280.00000381469727">
+					     	 <font>
+					            <Font name="a소나무M" size="55.0" />
+					         </font>
+					      </Text>
+               </children>
+               <HBox.margin>
+                  <Insets left="200.0" />
+               </HBox.margin>
+            </Pane>
+            
+               </children>
+      </HBox>
+      
+                        <Pane fx:id="mainPanel" layoutY="60.0" maxHeight="660.0" maxWidth="1280.0" minHeight="660.0" minWidth="1280.0" prefHeight="660.0" prefWidth="1280.0">
+         <children>
+        <Line endX="223.0" layoutX="558.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />  
+		      
+		      
+      	<GridPane layoutX="44.0" layoutY="42.0" prefHeight="560.0" prefWidth="1180.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="42.0">
+        	  <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <ImageView fx:id="moleImageView" fitHeight="82.0" fitWidth="149.0" onMouseClicked="#clickMoleAction" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <image>
+                  <Image url="@MOLE.png" />
+               </image>
+            </ImageView>
          </children>
-      </AnchorPane>
-      <JFXButton layoutX="26.0" layoutY="25.0" onAction="#backToIntroPage" prefHeight="80.0" prefWidth="105.0" style="-fx-background-color: #ff1f1f;" text="backButton" textFill="WHITE" />
-     
+      </GridPane>
+      
+                        
+				</children>
+      </Pane>
    </children>
 </AnchorPane>

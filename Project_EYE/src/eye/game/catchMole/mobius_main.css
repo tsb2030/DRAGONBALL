@@ -1,0 +1,22 @@
+AnchorPane{
+	-fx-background-color : #ffffe4;
+}
+#btn_before{
+	-fx-background-color : #fffff4;
+	-fx-border-color: #108649;
+	-fx-border-radius: 5px;
+}
+
+#title{
+	-fx-font-family: "A소나무M";
+	-fx-font-size: 35px;
+
+}
+.fontStyle{
+	-fx-font-family: "A소나무M";
+	-fx-font-size: 65px;
+}
+
+#btn:hover{
+	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 5.0 );
+}

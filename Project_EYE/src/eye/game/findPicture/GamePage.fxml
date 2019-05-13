@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="gamePage" prefHeight="720.0" prefWidth="1280.0" stylesheets="@mobius_main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.findPicture.GamePageController">
+   <children>
+      <VBox prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <HBox minHeight="60.0" prefHeight="60.0" prefWidth="1280.0">
+               <children>
+                 <ImageView id="btn" fx:id="BackBtn" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+	               <HBox.margin>
+	                  <Insets left="10.0" top="5.0" />
+	               </HBox.margin>
+	               <image>
+	                  <Image url="@그룹%2079.png" />
+	               </image>
+	            </ImageView>
+	             <ImageView id="btn" fx:id="PauseBtn" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+	               <HBox.margin>
+	                  <Insets left="10.0" top="5.0" />
+	               </HBox.margin>
+	               <image>
+	                  <Image url="@pause.png" />
+	               </image>
+	            </ImageView>
+	            <Pane maxHeight="80.0" maxWidth="200.0" minHeight="80.0" minWidth="200.0" prefHeight="80.0" prefWidth="200.0">
+	               <children> 
+	               	<Label fx:id="ScoreLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="300.0">
+						         <font>
+						            <Font name="a소나무M" size="55.0" />
+						         </font>
+						      </Label>
+	               </children>
+	               <HBox.margin>
+	                  <Insets left="50.0" />
+	               </HBox.margin>
+	            </Pane>
+                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="같은 그림 찾기" textAlignment="CENTER" wrappingWidth="359.75521087646484">
+                     <HBox.margin>
+                        <Insets left="70.0" right="70.0" top="15.0" />
+                     </HBox.margin>       
+                  </Text>
+                  <Pane minHeight="60.0" minWidth="300.0" prefHeight="60.0" prefWidth="200.0">
+	               <children>
+	                <Arc centerX="150.0" fill="#c6b351" length="180.0" radiusX="201.0" radiusY="76.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+			             <Text fx:id="timeLabel" layoutX="10.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="280.00000381469727">
+					     	 <font>
+					            <Font name="a소나무M" size="55.0" />
+					         </font>
+					      </Text>
+	               </children>
+	               <HBox.margin>
+	                  <Insets left="30.0" />
+	               </HBox.margin>
+	            </Pane>
+               </children>
+            </HBox>
+            
+            <Pane fx:id="mainPanel" prefHeight="660.0" prefWidth="1280.0">
+               <children>
+                 <Line endX="223.0" layoutX="558.0" layoutY="-1.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
+                  <ImageView fx:id="ranImage1" fitHeight="150.0" fitWidth="100.0" layoutX="34.0" layoutY="438.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage2" fitHeight="150.0" fitWidth="100.0" layoutX="243.0" layoutY="479.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage3" fitHeight="150.0" fitWidth="100.0" layoutX="178.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage4" fitHeight="150.0" fitWidth="100.0" layoutX="567.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage5" fitHeight="150.0" fitWidth="100.0" layoutX="202.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage6" fitHeight="150.0" fitWidth="100.0" layoutX="993.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage7" fitHeight="150.0" fitWidth="100.0" layoutX="486.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage8" fitHeight="150.0" fitWidth="100.0" layoutX="784.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage9" fitHeight="150.0" fitWidth="100.0" layoutX="679.0" layoutY="372.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage10" fitHeight="150.0" fitWidth="100.0" layoutX="632.0" layoutY="209.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage11" fitHeight="150.0" fitWidth="100.0" layoutX="923.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage12" fitHeight="150.0" fitWidth="100.0" layoutX="1134.0" layoutY="378.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage13" fitHeight="150.0" fitWidth="100.0" layoutX="979.0" layoutY="449.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage14" fitHeight="150.0" fitWidth="100.0" layoutX="816.0" layoutY="459.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage15" fitHeight="150.0" fitWidth="100.0" layoutX="855.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage16" fitHeight="150.0" fitWidth="100.0" layoutX="430.0" layoutY="443.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage17" fitHeight="150.0" fitWidth="100.0" layoutX="311.0" layoutY="258.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage18" fitHeight="150.0" fitWidth="100.0" layoutX="361.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage19" fitHeight="150.0" fitWidth="100.0" layoutX="38.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage20" fitHeight="150.0" fitWidth="100.0" layoutX="501.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ranImage21" fitHeight="150.0" fitWidth="100.0" layoutX="643.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true" />
+                  <VBox layoutX="1085.0" layoutY="65.0" prefHeight="200.0" prefWidth="150.0" style="-fx-border-color: black; -fx-border-width: 5px; -fx-border-style: dashed;">
+                     <children>
+                        <ImageView fx:id="sampleImage" fitHeight="200.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                        </ImageView>
+                     </children>
+                  </VBox>
+                  
+                     </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

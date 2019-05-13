@@ -1,55 +1,63 @@
 package eye.game.catchMole;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-import com.jfoenix.controls.JFXButton;
-
-import eye.main.Main;
-import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.stage.Stage;
+import javafx.fxml.Initializable;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 
-public class IntroducePageController {
+public class IntroducePageController implements Initializable {
 
-    @FXML
-    private Button backButton;
+	@FXML
+	AnchorPane gamePage,startPage,gameMainPage;
 
-    @FXML
-    private JFXButton startButton;
-
-    @FXML
-    void backButtonAction(ActionEvent event) {
-    	//backButtonEvent!!
-    	try {
-
-			Main.mainMusic.stopMusic();
-			Main.mainMusic.resetNameAudioStream("LaLaLa");
-    		Parent gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
-    		Scene scene = new Scene(gameMainPage);
-    		Stage primaryStage = (Stage) startButton.getScene().getWindow();  // 현재 윈도우 가져오기
-			primaryStage.setScene(scene);
-    	}catch(Exception e) {
-    		e.printStackTrace();
-    	}
-    }
+	@FXML
+	Pane nextBtn;
 
     @FXML
-    void startButtonAction(ActionEvent event) {
-    	try {
-			Parent DodugeGame2Page = FXMLLoader.load(getClass().getResource("DodugeGame2.fxml"));
-			Scene scene = new Scene(DodugeGame2Page);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css 지정
-			Stage primaryStage = (Stage) startButton.getScene().getWindow();  // 현재 윈도우 가져오기
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("DodugeGame2Page");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    }
+    ImageView backBtn;
     
+    @Override
+	public void initialize(URL location, ResourceBundle resources) {
+		
+		nextBtn.setOnMouseClicked(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				try {
+					gamePage = FXMLLoader.load(getClass().getResource("DodugeGame2.fxml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				startPage.getChildren().setAll(gamePage);
+			}
+		});
+		
+		backBtn.setOnMouseClicked(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				try {
+					gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				startPage.getChildren().setAll(gameMainPage);
+			}
+		});
+		
+	}
 
 }

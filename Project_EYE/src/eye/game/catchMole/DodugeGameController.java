@@ -8,10 +8,11 @@ import eye.main.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,35 +26,31 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class DodugeGameController implements Initializable {
-	// ÇöÀç ½ºÃ¼ÀÌÁö ÀúÀå
-	public static Stage currentStage;
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	public static Stage currentStage, dodugeStage;
 	// (Stage) startButton.getScene().getWindow();
 
 	@FXML
 	private Text TimerLabel;
 
 	@FXML
-	private Label gameTitle;
-
+	private Label gameTitle, ScoreLabel;
+	
 	@FXML
-	private Label ScoreLabel;
-
+	AnchorPane gameMainPage, gamePage;
+	
 	@FXML
 	private Line titleLine;
 
 	@FXML
-	private ImageView moleImageView;
+	private ImageView moleImageView, backToStart;
 
-	@FXML
-	private Button moleButton;
 
-	// ´ÙÀ½ ÆÐÀÌÁö¿¡ ³Ñ°ÜÁÙ Å¸ÀÓ º¯¼ö
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static int timeTime = 5;
 
-	// ´ÙÀ½ ÆäÀÌÁö¿¡ ³Ñ°ÜÁÙ Á¡¼ö º¯¼ö
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	public static int score;
-
-	public static Stage dodugeStage;
 
 	Boolean finished = false;
 	Boolean started = true;
@@ -72,7 +69,6 @@ public class DodugeGameController implements Initializable {
 		int r1 = (int) (Math.random() * 8);
 		int r2 = (int) (Math.random() * 5);
 		GridPane.setConstraints(moleImageView, r1, r2);
-		GridPane.setConstraints(moleButton, r1, r2);
 		ScoreLabel.setText("Score: " + score);
 
 	}
@@ -98,9 +94,9 @@ public class DodugeGameController implements Initializable {
 			if (timeTime <= 0 && flag == false) {
 				clock.animation.stop();
 				currentStage = (Stage)TimerLabel.getScene().getWindow();
-				dodugeStage = (Stage) moleButton.getScene().getWindow();
+				dodugeStage = (Stage) TimerLabel.getScene().getWindow();
 				FXMLLoader EndGamePopupLoader = new FXMLLoader(
-						Main.class.getResource("../game/catchMole/EndGamePopup.fxml")); // ºÒ·¯¿Ã ÆË¾÷Ã¢
+						Main.class.getResource("../game/catchMole/EndGamePopup.fxml")); // ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½Ã¢
 				try {
 					AnchorPane EndGamePopupPane = (AnchorPane) EndGamePopupLoader.load();
 					Scene EndGamePopupScene = new Scene(EndGamePopupPane);
@@ -117,26 +113,25 @@ public class DodugeGameController implements Initializable {
 			TimerLabel.setText(S);
 		}
 	}
-    @FXML
-    void backToIntroPage(ActionEvent event) {
-    	try {
 
-    		Clock currentClock = this.clock;
-    		currentClock.flag = true;
-			Parent SelectSpeedPage = FXMLLoader.load(getClass().getResource("IntroducePage.fxml")); // ºÒ·¯¿Ã ÆäÀÌÁö ÁöÁ¤
-			Scene scene = new Scene(SelectSpeedPage);
-//				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ÁöÁ¤
-			Stage primaryStage = (Stage) moleButton.getScene().getWindow(); // ÇöÀç À©µµ¿ì °¡Á®¿À±â
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("IntroducePage");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    }
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		clock = new Clock();
+		
+		backToStart.setOnMouseClicked(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				try {
+					gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				gamePage.getChildren().setAll(gameMainPage);
+			}
+		});
 
 	}
 

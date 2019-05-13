@@ -26,11 +26,11 @@ public class gameMainController implements Initializable {
 
 	// 화면 전환을 위해 필요한 페이지들을 미리 정의한다.
 	@FXML
-	AnchorPane gameMainPage, mainPage, oneToFiftyPage, catchBallPage, zigzagPage;
+	AnchorPane gameMainPage, mainPage, oneToFiftyPage, catchBallPage, zigzagPage,fiveDotPage,findPictureStart;
 
 	// 이미지뷰를 버튼화 시키기 위해서 필요한 정의
 	@FXML
-	ImageView oneToFiftyBtn, backBtn;
+	ImageView oneToFiftyBtn, backBtn, fiveDotBtn,catchBallBtn,findPictureBtn;
 
 	// 운동별 설명문을 넣기 위해서 필요한 정의
 	@FXML
@@ -117,6 +117,47 @@ public class gameMainController implements Initializable {
 			}
 		});
 
+		fiveDotBtn.setOnMouseClicked(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				
+				try {
+
+					Main.mainMusic.stopMusic();
+					Main.mainMusic.resetNameAudioStream("introMusic");
+					fiveDotPage = FXMLLoader.load(getClass().getResource("../fiveDotGame/StartPage.fxml"));
+
+				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				gameMainPage.getChildren().setAll(fiveDotPage);
+			}
+		});
+		
+		findPictureBtn.setOnMouseClicked(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				
+				try {
+
+					Main.mainMusic.stopMusic();
+					Main.mainMusic.resetNameAudioStream("introMusic");
+					findPictureStart = FXMLLoader.load(getClass().getResource("../findPicture/StartPage.fxml"));
+
+				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+				gameMainPage.getChildren().setAll(findPictureStart);
+			}
+		});
 	}
 
 	@FXML

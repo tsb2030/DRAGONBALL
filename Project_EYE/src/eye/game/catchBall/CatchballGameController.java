@@ -8,21 +8,21 @@ import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import com.jfoenix.controls.JFXButton;
-
 import eye.main.Main;
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -34,6 +34,7 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.shape.Polyline;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -41,6 +42,7 @@ public class CatchballGameController implements Initializable {
 
 	// ���� ���������� ������ �ӵ���
 	SelectSpeedPageController sspc = new SelectSpeedPageController();
+	
 
 	@FXML
 	private AnchorPane bigPanne; // ��üȭ�� ����
@@ -50,19 +52,18 @@ public class CatchballGameController implements Initializable {
 
 	@FXML
 	private Button pausebutton; // �Ͻ� ���� ��ư
+	
+	@FXML
+	ImageView BackBtn, PauseBtn;
+	
+	int pauseSwitch = 0;
 
-	// ���� ��ü���� ����
+	//���� ��ü���� ����
 	public static Stage currentStage;
-	// (Stage) startButton.getScene().getWindow();
+			// (Stage) startButton.getScene().getWindow();
 
 	@FXML
-	private Label timeLabel; // �ð��� ǥ��
-
-	@FXML
-	private Label ScoreLabel; // ���� ǥ��
-
-	@FXML
-	private Label judgeYourBehavior; // �� �Ǵ� �ʰ� ���ߴ��� ���ߴ��� �����ܤ�
+	private Text timeLabel; // �ð��� ǥ��
 
 	private static double numX1 = 50; // 1�� ��ǥ
 	private static double numY1 = 50;
@@ -106,9 +107,6 @@ public class CatchballGameController implements Initializable {
 	@FXML
 	private Button startButton; // pause�Ǿ��� �� restart���
 
-	@FXML
-	private JFXButton backButton; // ���� â���� ���ư��� ���
-
 	// ���õ� ������ ������ �迭 ����
 	private double[] checkLine = new double[16];
 
@@ -146,8 +144,8 @@ public class CatchballGameController implements Initializable {
 
 	// transition����
 	PathTransition transition;
-
-	// ���� �ð��� �����ؼ� �������� ���� ����
+	
+	//���� �ð��� �����ؼ� �������� ���� ����
 	public static int timeTime;
 
 	// ȭ���� ó�� ������ ��� ����Ǵ� �޼ҵ��
@@ -158,12 +156,50 @@ public class CatchballGameController implements Initializable {
 		followCircle.setVisible(false);
 		catchCircle.setVisible(false);
 		followCircleStart();
-
+		
+		BackBtn.setOnMouseClicked(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				try {
+					Parent SelectSpeedPage = FXMLLoader.load(getClass().getResource("IntroducePage.fxml")); // �ҷ��� ������ ����
+					Scene scene = new Scene(SelectSpeedPage);
+//						scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
+					Stage primaryStage = (Stage) BackBtn.getScene().getWindow(); // ���� ������ ��������
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		PauseBtn.setOnMouseClicked(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				if (pauseSwitch == 0) {
+					pauseSwitch = 1;
+				// pauseEvent Start!
+				timer.animation.pause();
+				bigPanne.setOpacity(0.45);
+				if (followBalltransition.getStatus() == Status.RUNNING)
+					followBalltransition.pause();
+				if (catchBalltransition.getStatus() == Status.RUNNING)
+					catchBalltransition.pause();
+				} else if (pauseSwitch == 1) {
+					pauseSwitch = 0;
+					timer.animation.play();
+					bigPanne.setOpacity(1.0);
+					if (followBalltransition.getStatus() == Status.PAUSED)
+						followBalltransition.play();
+					if (catchBalltransition.getStatus() == Status.PAUSED)
+						catchBalltransition.play();
+				}
+			}
+		});
+		
 	}
 
 	// ������ ����Ǿ��� �� ����Ǵ� �޼ҵ�
-	public void gameOver()
-			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+	public void gameOver() throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		currentStage = (Stage) pausebutton.getScene().getWindow();
 		// �ð��� ����ǰų�, 3�� Ʋ�� ���
 		if (justOne == false) {
@@ -172,17 +208,16 @@ public class CatchballGameController implements Initializable {
 				bigPanne.setOpacity(0.45);
 				if (followBalltransition.getStatus() == Status.RUNNING)
 					followBalltransition.pause();
-
+				
 				if (catchBalltransition.getStatus() == Status.RUNNING)
 					catchBalltransition.pause();
-				FXMLLoader EndGamePopup = new FXMLLoader(Main.class.getResource("../game/catchBall/EndGamePopup.fxml"));
+				FXMLLoader EndGamePopup = new FXMLLoader(Main.class.getResource("../game/catchBall/EndGamePopup.fxml")); 
 
 				justOne = true;
 				try {
 					AnchorPane anotherPage = (AnchorPane) EndGamePopup.load();
 					// �ٸ�â ���� �۾� .... 2
 					Scene EndGamePopupScene = new Scene(anotherPage);
-					EndGamePopupScene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 					Stage stage = new Stage();
 					stage.setScene(EndGamePopupScene);
 					stage.show();
@@ -202,6 +237,7 @@ public class CatchballGameController implements Initializable {
 		}
 	}
 
+	
 	// Restart ������� ����
 	@FXML
 	void startGame(MouseEvent event) {
@@ -213,21 +249,6 @@ public class CatchballGameController implements Initializable {
 			catchBalltransition.play();
 	}
 
-	@FXML
-	void backButtonAction(ActionEvent event) {
-		try {
-			Parent SelectSpeedPage = FXMLLoader.load(getClass().getResource("SelectSpeedPage.fxml")); // �ҷ��� ������ ����
-			Scene scene = new Scene(SelectSpeedPage);
-			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
-			Stage primaryStage = (Stage) backButton.getScene().getWindow(); // ���� ������ ��������
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("SelectSpeed");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	//
 	@FXML
 	void pauseEvent(ActionEvent event) {
 		// pauseEvent Start!
@@ -288,10 +309,9 @@ public class CatchballGameController implements Initializable {
 	}
 
 	@FXML
-	void keyEventHandler(KeyEvent event) throws InterruptedException, UnsupportedAudioFileException, IOException,
-			LineUnavailableException, URISyntaxException {
-		String yourBehavior = "";
-		if (flag == true) {
+	void keyEventHandler(KeyEvent event) throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+		
+		if(flag == true) {
 			catchBalltransition = new PathTransition();
 			catchBalltransition.setNode(catchCircle);
 			catchBalltransition.setDuration(Duration.seconds(speedValue / 8));
@@ -320,45 +340,31 @@ public class CatchballGameController implements Initializable {
 						smallScore++;
 //						Thread.sleep(500);
 						drawLine(catchCircleX, catchCircleY + 200, catchCircleX, catchCircleY);
-						ScoreLabel.setText(String.valueOf(bigScore + smallScore));
+						System.out.println("�� ������!");
+						System.out.println("currentSpeed? = " + speedValue);
 					} else { // �ѹ��� �������� Ʋ�� ���
 						correct = false;
 						falseCount++;
+						System.out.println("���ϳ�? Ʋ��!");
 					}
-
+					// Ʋ���� ������ ����� ���
+					gameOver();
 					// ���� �� ���� ���� �Ǵ��� �ƴ��� �˻�
 					if (smallScore == 8 || correct == false) {
-						switch (lineIndex) {
-						case 0:case 1:case 2:case 3:
-							yourBehavior = "Animal";
-							break;
-						case 4:case 5:case 6:case 7:
-							yourBehavior = "Australopithecus";
-							break;
 
-						case 8:case 9:case 10:case 11:
-							yourBehavior = "Homo sapiens";
-							break;
-
-						case 12:case 13:case 14:case 15:
-							yourBehavior = "Human";
-							break;
-
-						default:
-							break;
-						}
-						judgeYourBehavior.setText(yourBehavior);
 						bigScore += smallScore;
+						System.out.println("�� �� ��.");
+						System.out.println("�� ���� ����: " + smallScore);
+						System.out.println("�� ����: " + bigScore);
 						smallScore = 0;
 						correct = true;
+						System.out.println("�� �� ��.");
 						checkLine = initArray(checkLine); // �迭�� �ٽ� 0���� �ʱ�ȭ
 						lineIndex = -1; // �迭�� �˻��� �ε��� �ʱ�ȭ
 						InVisibleLine();
 						catchCircle.setVisible(false);
 						followCircleStart(); // �ٽ� followCircleStart()����
 					}
-					// Ʋ���� ������ ����� ���
-					gameOver();
 
 				}
 
@@ -382,45 +388,31 @@ public class CatchballGameController implements Initializable {
 					smallScore++;
 //					Thread.sleep(500);
 					drawLine(catchCircleX, catchCircleY - 200, catchCircleX, catchCircleY);
-					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
+					System.out.println("�� ������!");
+					System.out.println("currentSpeed? = " + speedValue);
 				} else {
 					correct = false;
 					falseCount++;
+					System.out.println("���ϳ�? Ʋ��!");
 				}
-
+				// Ʋ���� ������ ����� ���
+				gameOver();
 				// ���� �� ���� ���� �Ǵ��� �ƴ��� �˻�
 				if (smallScore == 8 || correct == false) {
-					switch (lineIndex) {
-					case 0:case 1:case 2:case 3:
-						yourBehavior = "Animal";
-						break;
-					case 4:case 5:case 6:case 7:
-						yourBehavior = "Australopithecus";
-						break;
 
-					case 8:case 9:case 10:case 11:
-						yourBehavior = "Homo sapiens";
-						break;
-
-					case 12:case 13:case 14:case 15:
-						yourBehavior = "Human";
-						break;
-
-					default:
-						break;
-					}
-					judgeYourBehavior.setText(yourBehavior);
 					bigScore += smallScore;
+					System.out.println("�� �� ��.");
+					System.out.println("�� ���� ����: " + smallScore);
+					System.out.println("�� ����: " + bigScore);
 					smallScore = 0;
 					correct = true;
+					System.out.println("�� �� ��.");
 					checkLine = initArray(checkLine);
 					lineIndex = -1;
 					InVisibleLine();
 					catchCircle.setVisible(false);
 					followCircleStart();
 				}
-				// Ʋ���� ������ ����� ���
-				gameOver();
 
 				break;
 			case LEFT:
@@ -442,45 +434,31 @@ public class CatchballGameController implements Initializable {
 					smallScore++;
 //					Thread.sleep(500);
 					drawLine(catchCircleX + 450, catchCircleY, catchCircleX, catchCircleY);
-					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
+					System.out.println("�� ������!");
+					System.out.println("currentSpeed? = " + speedValue);
 				} else {
 					correct = false;
 					falseCount++;
+					System.out.println("���ϳ�? Ʋ��!");
 				}
-
+				// Ʋ���� ������ ����� ���
+				gameOver();
 				// ���� �� ���� ���� �Ǵ��� �ƴ��� �˻�
 				if (smallScore == 8 || correct == false) {
-					switch (lineIndex) {
-					case 0:case 1:case 2:case 3:
-						yourBehavior = "Animal";
-						break;
-					case 4:case 5:case 6:case 7:
-						yourBehavior = "Australopithecus";
-						break;
 
-					case 8:case 9:case 10:case 11:
-						yourBehavior = "Homo sapiens";
-						break;
-
-					case 12:case 13:case 14:case 15:
-						yourBehavior = "Human";
-						break;
-
-					default:
-						break;
-					}
-					judgeYourBehavior.setText(yourBehavior);
 					bigScore += smallScore;
+					System.out.println("�� �� ��.");
+					System.out.println("�� ���� ����: " + smallScore);
+					System.out.println("�� ����: " + bigScore);
 					smallScore = 0;
 					correct = true;
+					System.out.println("�� �� ��.");
 					checkLine = initArray(checkLine);
 					lineIndex = -1;
 					InVisibleLine();
 					catchCircle.setVisible(false);
 					followCircleStart();
 				}
-				// Ʋ���� ������ ����� ���
-				gameOver();
 
 				break;
 			case RIGHT:
@@ -503,35 +481,22 @@ public class CatchballGameController implements Initializable {
 					smallScore++;
 //					Thread.sleep(500);
 					drawLine(catchCircleX - 450, catchCircleY, catchCircleX, catchCircleY);
-					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
+					System.out.println("�� ������!");
+					System.out.println("currentSpeed? = " + speedValue);
 				} else {
 					correct = false;
 					falseCount++;
+					System.out.println("���ϳ�? Ʋ��!");
 				}
-
+				// Ʋ���� ������ ����� ���
+				gameOver();
 				// ���� �� ���� ���� �Ǵ��� �ƴ��� �˻�
 				if (smallScore == 8 || correct == false) {
-					switch (lineIndex) {
-					case 0:case 1:case 2:case 3:
-						yourBehavior = "Animal";
-						break;
-					case 4:case 5:case 6:case 7:
-						yourBehavior = "Australopithecus";
-						break;
 
-					case 8:case 9:case 10:case 11:
-						yourBehavior = "Homo sapiens";
-						break;
-
-					case 12:case 13:case 14:case 15:
-						yourBehavior = "Human";
-						break;
-
-					default:
-						break;
-					}
-					judgeYourBehavior.setText(yourBehavior);
 					bigScore += smallScore;
+					System.out.println("�� �� ��.");
+					System.out.println("�� ���� ����: " + smallScore);
+					System.out.println("�� ����: " + bigScore);
 					smallScore = 0;
 					correct = true;
 					checkLine = initArray(checkLine);
@@ -540,8 +505,6 @@ public class CatchballGameController implements Initializable {
 					catchCircle.setVisible(false);
 					followCircleStart();
 				}
-				// Ʋ���� ������ ����� ���
-				gameOver();
 				break;
 
 			default:
@@ -549,6 +512,8 @@ public class CatchballGameController implements Initializable {
 				break;
 			}
 		}
+
+		
 
 	}
 
@@ -1314,7 +1279,7 @@ public class CatchballGameController implements Initializable {
 	public class Clock extends Pane {
 
 		private Timeline animation;
-		private int timeTmp = 60;
+		private int timeTmp = 6;
 		private String S = "";
 
 		public Clock() {
@@ -1326,11 +1291,11 @@ public class CatchballGameController implements Initializable {
 		private void timeLabel() {
 			if (timeTmp > 0)
 				timeTmp--;
-			timeTime = timeTmp;
-			S = timeTmp + "";
+			timeTime=timeTmp;
+			S = "Time: " + timeTmp + "";
 			timeLabel.setText(S);
 		}
-
+		
 		public int getTime() {
 			return timeTmp;
 		}

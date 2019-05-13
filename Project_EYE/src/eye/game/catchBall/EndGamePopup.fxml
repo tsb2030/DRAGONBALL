@@ -1,34 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchBall.EndGamePopupController">
-   <children>
-      <JFXButton fx:id="backGame" layoutX="90.0" layoutY="426.0" onAction="#backGameAction" style="-fx-background-color: #DC3C30;" text="BackGame" textFill="WHITE" />
-      <JFXButton fx:id="goMainButton" layoutX="232.0" layoutY="426.0" onAction="#goMainButtonAction" style="-fx-background-color: #DC3C30;" text="GoMain" textFill="WHITE" />
-      <Label fx:id="gameTime" layoutX="216.0" layoutY="124.0" text="0">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Label fx:id="gameScore" layoutX="216.0" layoutY="175.0" text="0">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Label>
-      <Text layoutX="126.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Time : " wrappingWidth="84.99999856948853">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
-      <Text layoutX="124.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score : ">
-         <font>
-            <Font size="25.0" />
-         </font>
-      </Text>
-   </children>
+<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchBall.EndGamePopupController">
+	<children>
+		<Button id="shadow" fx:id="backGame" layoutX="295.0" layoutY="400.0" mnemonicParsing="false" onAction="#backGameAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="다시하기" textFill="WHITE" AnchorPane.rightAnchor="100.0">
+			<font>
+				<Font name="a소나무M" size="21.0" />
+			</font>
+		</Button>
+		<Label layoutX="157.0" layoutY="70.0" text="게임 종료!">
+			<font>
+				<Font name="A소나무M" size="44.0" />
+			</font>
+		</Label>
+		
+		<Button id="shadow" fx:id="goMainButton" layoutX="99.0" layoutY="400.0" mnemonicParsing="false" onAction="#goMainButtonAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="그만하기" textFill="WHITE" AnchorPane.leftAnchor="100.0">
+			<font>
+				<Font name="a소나무M" size="21.0" />
+			</font>
+		</Button>
+		
+		<Text layoutX="183.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="게임 점수 : ">
+			<font>
+				<Font name="a소나무L" size="22.0" />
+			</font>
+		</Text>
+		
+		<Text layoutX="183.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="게임 시간 : ">
+			<font>
+				<Font name="a소나무L" size="22.0" />
+			</font>
+		</Text>
+		
+		<Label fx:id="gameScore" layoutX="295.0" layoutY="149.0" text="0">
+			<font>
+				<Font name="a소나무L" size="25.0" />
+			</font>
+     	</Label>
+     	
+		<Label fx:id="gameTime" layoutX="295.0" layoutY="180.0" text="0">
+			<font>
+				<Font name="a소나무L" size="25.0" />
+			</font>
+     	</Label>
+      
+		<Pane id="backBorder" layoutX="164.0" layoutY="211.0" prefHeight="150.0" prefWidth="180.0" />
+		<Label layoutX="235.0" layoutY="231.0" text="기록">
+			<font>
+				<Font name="a소나무L" size="18" />
+			</font>
+		</Label>
+		<Label layoutX="215.0" layoutY="265.0" text="1위 1.11초">
+			<font>
+				<Font name="a소나무L" size="16" />
+			</font>
+		</Label>
+		<Label layoutX="215.0" layoutY="290.0" text="2위 2.11초">
+			<font>
+				<Font name="a소나무L" size="16" />
+			</font>
+		</Label>
+		<Label layoutX="215.0" layoutY="315.0" text="3위 3.11초">
+			<font>
+				<Font name="a소나무L" size="16" />
+			</font>
+		</Label>
+	</children>
 </AnchorPane>

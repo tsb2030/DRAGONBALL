@@ -11,13 +11,12 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="startPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="@priorPage1.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchMole.IntroducePageController">
+<AnchorPane fx:id="findPictureStart" prefHeight="720.0" prefWidth="1280.0" stylesheets="@priorPage1.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.findPicture.StartPageController">
    <children>
        <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>
             <HBox prefHeight="60.0" prefWidth="1280.0">
                <children>
-               
                   <ImageView fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
                         <Insets left="10.0" top="5.0" />
@@ -26,10 +25,9 @@
                         <Image url="@그룹%2079.png" />
                      </image>
                   </ImageView>
-                  
-                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="두더지 잡기 트레이닝" textAlignment="CENTER">
+                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="같은 그림 찾기">
                      <HBox.margin>
-                        <Insets left="405.0" top="15.0" />
+                        <Insets left="455.0" top="15.0" />
                      </HBox.margin>
                   </Text>
                </children>
@@ -38,10 +36,12 @@
                <children>
                   <Line endX="223.0" layoutX="558.0" layoutY="-1.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
                   <Pane id="backBorder" layoutX="125.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" />
-                  <Label alignment="CENTER" layoutX="240.0" layoutY="150.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="두더지 잡기 트레이닝은 '히비노 사와코' 박사의" textAlignment="CENTER" textFill="#252525" /> 
-                  <Label alignment="CENTER" layoutX="240.0" layoutY="250.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="'시선 이동 트레이닝' 에 기반을 둔 눈운동 게임입니다." textAlignment="CENTER" textFill="#252525" />
-                  <Label alignment="CENTER" layoutX="240.0" layoutY="350.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="랜덤하게 나타나는 두더지를 마우스로 클릭하여 잡습니다." textAlignment="CENTER" textFill="#252525" />
-                  <Label alignment="CENTER" layoutX="240.0" layoutY="450.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="제한시간이 다 되면 게임이 종료됩니다." textAlignment="CENTER" textFill="#252525" />
+                  
+                  <Label alignment="CENTER" layoutX="240.0" layoutY="140.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="같은 그림 찾기는 '히비노 사와코' 박사의" textAlignment="CENTER" textFill="#252525" /> 
+                  <Label alignment="CENTER" layoutX="240.0" layoutY="210.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="'같은 그림 찾기' 에 기반을 둔 눈운동 게임입니다." textAlignment="CENTER" textFill="#252525" />
+                  <Label alignment="CENTER" layoutX="240.0" layoutY="280.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="우측 상단에 나오는 그림을 확인합니다." textAlignment="CENTER" textFill="#252525" />
+                  <Label alignment="CENTER" layoutX="240.0" layoutY="350.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="화면에 표시되는 그림 중에 우측 상단의 그림과 같은 그림을 클릭합니다." textAlignment="CENTER" textFill="#252525" />
+                  <Label alignment="CENTER" layoutX="240.0" layoutY="420.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="제한 시간이 다 되면 게임이 종료됩니다." textAlignment="CENTER" textFill="#252525" />  
                   <Pane id="shadow" fx:id="nextBtn" layoutX="525.0" layoutY="539.0" prefHeight="70.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">

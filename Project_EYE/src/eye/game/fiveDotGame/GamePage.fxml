@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="gamePage" prefHeight="720.0" prefWidth="1280.0" stylesheets="@mobius_main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.fiveDotGame.GamePageController">
+   <children>
+ 	 <VBox prefHeight="720.0" prefWidth="1280.0">
+         <children>
+            <HBox fx:id="titleBox" prefHeight="60.0" prefWidth="1280.0">
+               <children>
+                  <ImageView id="btn" fx:id="backToStart" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets  left="10.0" top="5.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@그룹%2079.png" />
+                     </image>
+                  </ImageView>
+                   <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="5점 카드 트레이닝">
+                     <HBox.margin>
+                        <Insets left="430.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
+            <Pane fx:id="mainPanel" prefHeight="660.0" prefWidth="1280.0">
+               <children>
+              <Line endX="223.0" layoutX="558.0" layoutY="-1.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
+               <Circle fx:id="circle1" fill="WHITE" layoutX="40.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #8fbc8f;" />
+     			 <Circle fx:id="circle2" fill="WHITE" layoutX="340.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #FFFFe4;" />
+    			  <Circle fx:id="circle3" fill="WHITE" layoutX="640.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #FFFFe4;" />
+    			  <Circle fx:id="circle4" fill="WHITE" layoutX="940.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #FFFFe4;" />
+    			  <Circle fx:id="circle5" fill="WHITE" layoutX="1240.0" layoutY="360.0" radius="30.0" stroke="DARKSEAGREEN" strokeType="INSIDE" style="-fx-fill: #FFFFe4;" />
+		      <Text fx:id="endText" fill="DARKSEAGREEN" layoutX="541.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FINISH!" visible="false">
+		         <font>
+		            <Font size="57.0" />
+		         </font>
+		      </Text>  
+		</children>
+            </Pane>
+         </children>
+      </VBox>
+      
+   </children>
+</AnchorPane>

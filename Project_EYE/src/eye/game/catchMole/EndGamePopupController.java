@@ -8,9 +8,6 @@ import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import com.jfoenix.controls.JFXButton;
-
-import eye.game.catchBall.CatchballGameController;
 import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,16 +15,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class EndGamePopupController implements Initializable {
 
 	@FXML
-	private JFXButton backGame;
+	private Button backGame;
 
 	@FXML
-	private JFXButton goMainButton;
+	private Button goMainButton;
 
 	@FXML
 	private Label gameScore;
@@ -42,7 +40,7 @@ public class EndGamePopupController implements Initializable {
 			Parent DodugeGame2 = FXMLLoader.load(getClass().getResource("DodugeGame2.fxml"));
 			Scene scene = new Scene(DodugeGame2);
 		
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ÁöÁ¤
+//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ï¿½ï¿½ï¿½ï¿½
 			DodugeGameController.score = 0;
 			DodugeGameController.timeTime = 60;
 			DodugeGameController.dodugeStage.setScene(scene);
@@ -54,24 +52,24 @@ public class EndGamePopupController implements Initializable {
 
 	@FXML
 	void goMainButtonAction(ActionEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		// ÇöÀç ÆË¾÷ Ã¢À» ´Ý°í, ÀÌÀü Ã¢À» º¯°æÇÏ´Â ÀÛ¾÷À» ¼öÇàÇØ¾ß ÇÔ
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ Ã¢ï¿½ï¿½ ï¿½Ý°ï¿½, ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½
 				Main.mainMusic.stopMusic();
 				Main.mainMusic.resetNameAudioStream("LaLaLa");
 				// go main
 		    	try {
 		    		DodugeGameController.score = 0;
-		    		//catchballGame fxmlÆÄÀÏÀ» scene¿¡ Àú¾ÆÇÏ´Â ¹æ¹ý
+		    		//catchballGame fxmlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ sceneï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
 					Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
 					Scene scene = new Scene(selectSpeedPage);
-					//ÀÌÀü Ã¢À» staticÀ¸·Î ¸¸µé¾ú±â ¶§¹®¿¡ ±× Ã¢À» º¯°æ ÇÒ ¼ö ÀÖ´Ù.
+					//ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ staticï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ã¢ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
 					DodugeGameController.currentStage.setScene(scene);
 					DodugeGameController.currentStage.setTitle("game_main_page");
-					//cssÀúÀå
-					//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ÁöÁ¤
+					//cssï¿½ï¿½ï¿½ï¿½
+					//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ï¿½ï¿½ï¿½ï¿½
 					
-					//ÇöÀç ÆË¾÷Ã¢À» ´Ý±âÀ§ÇØ ÀÏ´Ü ÁöÁ¤
-					Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ÇöÀç À©µµ¿ì °¡Á®¿À±â
-					//ÇöÀç ÆË¾÷ Ã¢ ´Ý±â
+					//ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½Ã¢ï¿½ï¿½ ï¿½Ý±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½
+					Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+					//ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¾ï¿½ Ã¢ ï¿½Ý±ï¿½
 					primaryStage.close();
 				} catch (Exception e) {
 					e.printStackTrace();

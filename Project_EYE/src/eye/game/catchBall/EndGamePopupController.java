@@ -17,16 +17,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class EndGamePopupController implements Initializable {
 
 	@FXML
-	private JFXButton backGame;
-
-	@FXML
-	private JFXButton goMainButton;
+	private Button goMainButton, backGame;
 
 	@FXML
 	private Label gameTime;
@@ -46,7 +44,7 @@ public class EndGamePopupController implements Initializable {
 			Scene scene = new Scene(CatchballGame);
 			
 			//css����
-			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
 			
 			//���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
 			CatchballGameController.currentStage.setScene(scene);
@@ -76,7 +74,7 @@ public class EndGamePopupController implements Initializable {
 			Scene scene = new Scene(selectSpeedPage);
 
 			//css����
-			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
 			
 			//���� �˾�â�� �ݱ����� �ϴ� ����
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������

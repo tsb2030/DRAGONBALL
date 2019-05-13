@@ -105,7 +105,7 @@
                                  </image>
                               </ImageView>
                               <TextFlow fx:id="fivedotText" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView styleClass="goBtnShadow" fx:id="GObtn31" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                              <ImageView styleClass="goBtnShadow" fx:id="fiveDotBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
@@ -171,7 +171,7 @@
                                  </image>
                               </ImageView>
                               <TextFlow fx:id="findpictureText" layoutX="382.0" layoutY="35.0" prefHeight="180.0" prefWidth="500.0" />
-                              <ImageView styleClass="goBtnShadow" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
+                              <ImageView fx:id="findPictureBtn" styleClass="goBtnShadow" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true">
                                  <image>
                                     <Image url="image/GObtn.png" />
                                  </image>
