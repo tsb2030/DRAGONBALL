@@ -41,7 +41,6 @@ public class CatchballGameController implements Initializable {
 
 	// 이전 페이지에서 가져온 속도값
 	SelectSpeedPageController sspc = new SelectSpeedPageController();
-	
 
 	@FXML
 	private AnchorPane bigPanne; // 전체화면 지정
@@ -51,14 +50,19 @@ public class CatchballGameController implements Initializable {
 
 	@FXML
 	private Button pausebutton; // 일시 정지 버튼
-	
 
-	//현재 스체이지 저장
+	// 현재 스체이지 저장
 	public static Stage currentStage;
-			// (Stage) startButton.getScene().getWindow();
+	// (Stage) startButton.getScene().getWindow();
 
 	@FXML
 	private Label timeLabel; // 시간초 표시
+
+	@FXML
+	private Label ScoreLabel; // 점수 표시
+
+	@FXML
+	private Label judgeYourBehavior; // 한 판당 너가 잘했는지 못했는지 말해줌ㅇ
 
 	private static double numX1 = 50; // 1번 좌표
 	private static double numY1 = 50;
@@ -142,8 +146,8 @@ public class CatchballGameController implements Initializable {
 
 	// transition정의
 	PathTransition transition;
-	
-	//게임 시간을 저장해서 리턴해줄 정적 변수
+
+	// 게임 시간을 저장해서 리턴해줄 정적 변수
 	public static int timeTime;
 
 	// 화면이 처음 켜졌을 경우 실행되는 메소드들
@@ -154,13 +158,12 @@ public class CatchballGameController implements Initializable {
 		followCircle.setVisible(false);
 		catchCircle.setVisible(false);
 		followCircleStart();
-		
-		
 
 	}
 
 	// 게임이 종료되었을 때 실행되는 메소드
-	public void gameOver() throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+	public void gameOver()
+			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		currentStage = (Stage) pausebutton.getScene().getWindow();
 		// 시간이 종료되거나, 3번 틀릴 경우
 		if (justOne == false) {
@@ -169,10 +172,10 @@ public class CatchballGameController implements Initializable {
 				bigPanne.setOpacity(0.45);
 				if (followBalltransition.getStatus() == Status.RUNNING)
 					followBalltransition.pause();
-				
+
 				if (catchBalltransition.getStatus() == Status.RUNNING)
 					catchBalltransition.pause();
-				FXMLLoader EndGamePopup = new FXMLLoader(Main.class.getResource("../game/catchBall/EndGamePopup.fxml")); 
+				FXMLLoader EndGamePopup = new FXMLLoader(Main.class.getResource("../game/catchBall/EndGamePopup.fxml"));
 
 				justOne = true;
 				try {
@@ -198,7 +201,6 @@ public class CatchballGameController implements Initializable {
 		}
 	}
 
-	
 	// Restart 기능으로 생각
 	@FXML
 	void startGame(MouseEvent event) {
@@ -285,9 +287,10 @@ public class CatchballGameController implements Initializable {
 	}
 
 	@FXML
-	void keyEventHandler(KeyEvent event) throws InterruptedException, UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		
-		if(flag == true) {
+	void keyEventHandler(KeyEvent event) throws InterruptedException, UnsupportedAudioFileException, IOException,
+			LineUnavailableException, URISyntaxException {
+		String yourBehavior = "";
+		if (flag == true) {
 			catchBalltransition = new PathTransition();
 			catchBalltransition.setNode(catchCircle);
 			catchBalltransition.setDuration(Duration.seconds(speedValue / 8));
@@ -316,31 +319,45 @@ public class CatchballGameController implements Initializable {
 						smallScore++;
 //						Thread.sleep(500);
 						drawLine(catchCircleX, catchCircleY + 200, catchCircleX, catchCircleY);
-						System.out.println("잘 움직임!");
-						System.out.println("currentSpeed? = " + speedValue);
+						ScoreLabel.setText(String.valueOf(bigScore + smallScore));
 					} else { // 한번의 움직임이 틀릴 경우
 						correct = false;
 						falseCount++;
-						System.out.println("뭐하냐? 틀림!");
 					}
-					// 틀려서 게임이 종료될 경우
-					gameOver();
+
 					// 게임 한 판이 종료 되는지 아닌지 검사
 					if (smallScore == 8 || correct == false) {
+						switch (lineIndex) {
+						case 0:case 1:case 2:case 3:
+							yourBehavior = "Animal";
+							break;
+						case 4:case 5:case 6:case 7:
+							yourBehavior = "Australopithecus";
+							break;
 
+						case 8:case 9:case 10:case 11:
+							yourBehavior = "Homo sapiens";
+							break;
+
+						case 12:case 13:case 14:case 15:
+							yourBehavior = "Human";
+							break;
+
+						default:
+							break;
+						}
+						judgeYourBehavior.setText(yourBehavior);
 						bigScore += smallScore;
-						System.out.println("한 판 끝.");
-						System.out.println("이 판의 점수: " + smallScore);
-						System.out.println("총 점수: " + bigScore);
 						smallScore = 0;
 						correct = true;
-						System.out.println("한 판 끝.");
 						checkLine = initArray(checkLine); // 배열을 다시 0으로 초기화
 						lineIndex = -1; // 배열을 검사할 인데스 초기화
 						InVisibleLine();
 						catchCircle.setVisible(false);
 						followCircleStart(); // 다시 followCircleStart()시작
 					}
+					// 틀려서 게임이 종료될 경우
+					gameOver();
 
 				}
 
@@ -364,31 +381,45 @@ public class CatchballGameController implements Initializable {
 					smallScore++;
 //					Thread.sleep(500);
 					drawLine(catchCircleX, catchCircleY - 200, catchCircleX, catchCircleY);
-					System.out.println("잘 움직임!");
-					System.out.println("currentSpeed? = " + speedValue);
+					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
 				} else {
 					correct = false;
 					falseCount++;
-					System.out.println("뭐하냐? 틀림!");
 				}
-				// 틀려서 게임이 종료될 경우
-				gameOver();
+
 				// 게임 한 판이 종료 되는지 아닌지 검사
 				if (smallScore == 8 || correct == false) {
+					switch (lineIndex) {
+					case 0:case 1:case 2:case 3:
+						yourBehavior = "Animal";
+						break;
+					case 4:case 5:case 6:case 7:
+						yourBehavior = "Australopithecus";
+						break;
 
+					case 8:case 9:case 10:case 11:
+						yourBehavior = "Homo sapiens";
+						break;
+
+					case 12:case 13:case 14:case 15:
+						yourBehavior = "Human";
+						break;
+
+					default:
+						break;
+					}
+					judgeYourBehavior.setText(yourBehavior);
 					bigScore += smallScore;
-					System.out.println("한 판 끝.");
-					System.out.println("이 판의 점수: " + smallScore);
-					System.out.println("총 점수: " + bigScore);
 					smallScore = 0;
 					correct = true;
-					System.out.println("한 판 끝.");
 					checkLine = initArray(checkLine);
 					lineIndex = -1;
 					InVisibleLine();
 					catchCircle.setVisible(false);
 					followCircleStart();
 				}
+				// 틀려서 게임이 종료될 경우
+				gameOver();
 
 				break;
 			case LEFT:
@@ -410,31 +441,45 @@ public class CatchballGameController implements Initializable {
 					smallScore++;
 //					Thread.sleep(500);
 					drawLine(catchCircleX + 450, catchCircleY, catchCircleX, catchCircleY);
-					System.out.println("잘 움직임!");
-					System.out.println("currentSpeed? = " + speedValue);
+					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
 				} else {
 					correct = false;
 					falseCount++;
-					System.out.println("뭐하냐? 틀림!");
 				}
-				// 틀려서 게임이 종료될 경우
-				gameOver();
+
 				// 게임 한 판이 종료 되는지 아닌지 검사
 				if (smallScore == 8 || correct == false) {
+					switch (lineIndex) {
+					case 0:case 1:case 2:case 3:
+						yourBehavior = "Animal";
+						break;
+					case 4:case 5:case 6:case 7:
+						yourBehavior = "Australopithecus";
+						break;
 
+					case 8:case 9:case 10:case 11:
+						yourBehavior = "Homo sapiens";
+						break;
+
+					case 12:case 13:case 14:case 15:
+						yourBehavior = "Human";
+						break;
+
+					default:
+						break;
+					}
+					judgeYourBehavior.setText(yourBehavior);
 					bigScore += smallScore;
-					System.out.println("한 판 끝.");
-					System.out.println("이 판의 점수: " + smallScore);
-					System.out.println("총 점수: " + bigScore);
 					smallScore = 0;
 					correct = true;
-					System.out.println("한 판 끝.");
 					checkLine = initArray(checkLine);
 					lineIndex = -1;
 					InVisibleLine();
 					catchCircle.setVisible(false);
 					followCircleStart();
 				}
+				// 틀려서 게임이 종료될 경우
+				gameOver();
 
 				break;
 			case RIGHT:
@@ -457,22 +502,35 @@ public class CatchballGameController implements Initializable {
 					smallScore++;
 //					Thread.sleep(500);
 					drawLine(catchCircleX - 450, catchCircleY, catchCircleX, catchCircleY);
-					System.out.println("잘 움직임!");
-					System.out.println("currentSpeed? = " + speedValue);
+					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
 				} else {
 					correct = false;
 					falseCount++;
-					System.out.println("뭐하냐? 틀림!");
 				}
-				// 틀려서 게임이 종료될 경우
-				gameOver();
+
 				// 게임 한 판이 종료 되는지 아닌지 검사
 				if (smallScore == 8 || correct == false) {
+					switch (lineIndex) {
+					case 0:case 1:case 2:case 3:
+						yourBehavior = "Animal";
+						break;
+					case 4:case 5:case 6:case 7:
+						yourBehavior = "Australopithecus";
+						break;
 
+					case 8:case 9:case 10:case 11:
+						yourBehavior = "Homo sapiens";
+						break;
+
+					case 12:case 13:case 14:case 15:
+						yourBehavior = "Human";
+						break;
+
+					default:
+						break;
+					}
+					judgeYourBehavior.setText(yourBehavior);
 					bigScore += smallScore;
-					System.out.println("한 판 끝.");
-					System.out.println("이 판의 점수: " + smallScore);
-					System.out.println("총 점수: " + bigScore);
 					smallScore = 0;
 					correct = true;
 					checkLine = initArray(checkLine);
@@ -481,6 +539,8 @@ public class CatchballGameController implements Initializable {
 					catchCircle.setVisible(false);
 					followCircleStart();
 				}
+				// 틀려서 게임이 종료될 경우
+				gameOver();
 				break;
 
 			default:
@@ -488,8 +548,6 @@ public class CatchballGameController implements Initializable {
 				break;
 			}
 		}
-
-		
 
 	}
 
@@ -1255,7 +1313,7 @@ public class CatchballGameController implements Initializable {
 	public class Clock extends Pane {
 
 		private Timeline animation;
-		private int timeTmp = 6;
+		private int timeTmp = 60;
 		private String S = "";
 
 		public Clock() {
@@ -1267,11 +1325,11 @@ public class CatchballGameController implements Initializable {
 		private void timeLabel() {
 			if (timeTmp > 0)
 				timeTmp--;
-			timeTime=timeTmp;
+			timeTime = timeTmp;
 			S = timeTmp + "";
 			timeLabel.setText(S);
 		}
-		
+
 		public int getTime() {
 			return timeTmp;
 		}

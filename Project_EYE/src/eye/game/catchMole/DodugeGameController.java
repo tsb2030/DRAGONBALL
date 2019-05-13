@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -116,7 +117,23 @@ public class DodugeGameController implements Initializable {
 			TimerLabel.setText(S);
 		}
 	}
+    @FXML
+    void backToIntroPage(ActionEvent event) {
+    	try {
 
+    		Clock currentClock = this.clock;
+    		currentClock.flag = true;
+			Parent SelectSpeedPage = FXMLLoader.load(getClass().getResource("IntroducePage.fxml")); // 불러올 페이지 지정
+			Scene scene = new Scene(SelectSpeedPage);
+//				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css 지정
+			Stage primaryStage = (Stage) moleButton.getScene().getWindow(); // 현재 윈도우 가져오기
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("IntroducePage");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    }
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		clock = new Clock();

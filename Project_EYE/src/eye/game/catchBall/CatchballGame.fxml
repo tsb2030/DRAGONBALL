@@ -42,5 +42,20 @@
          </font>
       </Label>
       <JFXButton fx:id="backButton" layoutX="43.0" layoutY="272.0" onAction="#backButtonAction" style="-fx-background-color: #DC3C30;" text="BackButton" textFill="WHITE" />
+      <Label layoutX="250.0" layoutY="46.0" text="Score: ">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="ScoreLabel" layoutX="375.0" layoutY="46.0" text="0">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="judgeYourBehavior" layoutX="105.0" layoutY="638.0" prefHeight="44.0" prefWidth="327.0">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

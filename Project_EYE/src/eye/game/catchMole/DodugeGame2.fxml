@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -69,6 +70,7 @@
             </GridPane>
          </children>
       </AnchorPane>
+      <JFXButton layoutX="26.0" layoutY="25.0" onAction="#backToIntroPage" prefHeight="80.0" prefWidth="105.0" style="-fx-background-color: #ff1f1f;" text="backButton" textFill="WHITE" />
      
    </children>
 </AnchorPane>
