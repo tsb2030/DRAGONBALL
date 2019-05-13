@@ -138,7 +138,7 @@ public class gameMainController implements Initializable {
     
 
     @FXML
-    void zizagtrainigAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+    void zigzagtrainigAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
     	Main.mainMusic.stopMusic();
 		Main.mainMusic.resetNameAudioStream("introMusic");
 		zigzagPage = FXMLLoader.load(getClass().getResource("../eyeMovement2/zz_priorPage1.fxml"));

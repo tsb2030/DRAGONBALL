@@ -1,5 +1,7 @@
 package eye.game.eyeMovement2;
 
+import eye.main.Main;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -97,23 +99,24 @@ public class Playcontroller implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		new moving().start();
 
-//		backBtn.setOnMouseClicked(new EventHandler<Event>() {
-//
-//			@Override
-//			public void handle(Event event) {
-//
-//				try {
-//					Parent root = FXMLLoader.load(getClass().getResource("../../game/view/game_main_page.fxml"));
-//					Scene scene = new Scene(root);
-//					Stage primaryStage = (Stage) acpane.getScene().getWindow();
-//					primaryStage.setScene(scene);
-//				} catch (Exception e) {
-//					// TODO: handle exception
-//				}
-//
-//			}
-//
-//		});
+		backBtn.setOnMouseClicked(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				
+
+				try {
+					Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage2.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) acpane.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+			}
+
+		});
 	}
 
 	class moving extends Thread {
@@ -188,14 +191,14 @@ public class Playcontroller implements Initializable {
 
 				}
 				if (tmp == 0) {
-					score.setText(String.valueOf(count));
 					count++;
+					score.setText(String.valueOf(count));
 					System.out.println(count);
 				}
-//
-//				if (count == 20 && tmp >= Explaincontroller.duration - 0.015) {
-//					showEndPopUp();
-//				}
+
+				if (count == 20 && tmp >= Selectcontroller.duration - 0.015) {
+					showEndPopUp();
+				}
 
 			});
 			pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
@@ -213,27 +216,27 @@ public class Playcontroller implements Initializable {
 		}
 
 	}
-//
-//	public void showEndPopUp() {
-//		FXMLLoader another = new FXMLLoader(Main.class.getResource("gameQ&A.fxml")); // 불러올 팝업창 지정
-//		try {
-//			AnchorPane anotherPage = (AnchorPane) another.load();
-//			// 다른창 띄우는 작업 .... 2
-//			Scene anotherScene = new Scene(anotherPage);
-//			Stage stage = new Stage();
-//			stage.setScene(anotherScene);
-//			stage.show();
-//			// 다른창 띄우는 작업 .... 2 끝.
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
-//
-//	public void closePopUp() {
 
-//		Stage stage = (Stage) closeBtn.getScene().getWindow(); // 버튼이 있는 창을 닫는다
-//		stage.close();
-//	}
+	public void showEndPopUp() {
+		FXMLLoader another = new FXMLLoader(Main.class.getResource("../game/eyeMovement2/gameQ&A.fxml"));
+		try {
+			AnchorPane anotherPage = (AnchorPane) another.load();
+			// 다른창 띄우는 작업 .... 2
+			Scene anotherScene = new Scene(anotherPage);
+			Stage stage = new Stage();
+			stage.setScene(anotherScene);
+			stage.show();
+			// 다른창 띄우는 작업 .... 2 끝.
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void closePopUp() {
+
+		Stage stage = (Stage) closeBtn.getScene().getWindow(); // 버튼이 있는 창을 닫는다
+		stage.close();
+	}
 
 }
