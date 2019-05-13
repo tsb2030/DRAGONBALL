@@ -30,6 +30,6 @@
             <Font name="a소나무M" size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="189.0" layoutY="270.0" />
+      <TextField fx:id="answer" layoutX="189.0" layoutY="270.0" />
 	</children>
 </AnchorPane>
