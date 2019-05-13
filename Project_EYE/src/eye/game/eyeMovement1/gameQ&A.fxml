@@ -15,7 +15,7 @@
 				<Font name="a소나무M" size="44.0" />
 			</font>
 		</Label>
-		<Button id="shadow" fx:id="restartPopUpBtn" layoutX="190.0" layoutY="401.0" mnemonicParsing="false" onAction="#numGameRestart" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="확인" textFill="WHITE" AnchorPane.leftAnchor="190.0">
+		<Button id="shadow" fx:id="Equal" layoutX="190.0" layoutY="401.0" mnemonicParsing="false" onMouseClicked="#answerEqual" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="확인" textFill="WHITE" AnchorPane.leftAnchor="190.0">
 			<font>
 				<Font name="a소나무M" size="21.0" />
 			</font>
@@ -25,6 +25,6 @@
             <Font name="a소나무M" size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="193.0" layoutY="270.0" />
+      <TextField fx:id="answer" layoutX="193.0" layoutY="270.0" />
 	</children>
 </AnchorPane>
