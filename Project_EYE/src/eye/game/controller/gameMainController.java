@@ -20,57 +20,57 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
-/*°ÔÀÓ ¸Ş´º¿¡¼­ »ç¿ëµÇ´Â Å¬·¡½º
- * game_main_page.fxml¿¡ ¿¬°áµÇ¾îÀÖ´Ù.*/
+/*ê²Œì„ ë©”ë‰´ì—ì„œ ì‚¬ìš©ë˜ëŠ” í´ë˜ìŠ¤
+ * game_main_page.fxmlì— ì—°ê²°ë˜ì–´ìˆë‹¤.*/
 public class gameMainController implements Initializable {
 
-	// È­¸é ÀüÈ¯À» À§ÇØ ÇÊ¿äÇÑ ÆäÀÌÁöµéÀ» ¹Ì¸® Á¤ÀÇÇÑ´Ù.
+	// í™”ë©´ ì „í™˜ì„ ìœ„í•´ í•„ìš”í•œ í˜ì´ì§€ë“¤ì„ ë¯¸ë¦¬ ì •ì˜í•œë‹¤.
 	@FXML
 	AnchorPane gameMainPage, mainPage, oneToFiftyPage, catchBallPage, zigzagPage;
 
-	// ÀÌ¹ÌÁöºä¸¦ ¹öÆ°È­ ½ÃÅ°±â À§ÇØ¼­ ÇÊ¿äÇÑ Á¤ÀÇ
+	// ì´ë¯¸ì§€ë·°ë¥¼ ë²„íŠ¼í™” ì‹œí‚¤ê¸° ìœ„í•´ì„œ í•„ìš”í•œ ì •ì˜
 	@FXML
 	ImageView oneToFiftyBtn, backBtn;
 
-	// ¿îµ¿º° ¼³¸í¹®À» ³Ö±â À§ÇØ¼­ ÇÊ¿äÇÑ Á¤ÀÇ
+	// ìš´ë™ë³„ ì„¤ëª…ë¬¸ì„ ë„£ê¸° ìœ„í•´ì„œ í•„ìš”í•œ ì •ì˜
 	@FXML
 	TextFlow oneToFiftyText, mobiusText, zigzagText, fivedotText, catchmoleText, catchballText, findpictureText;
 
-	// ¹öÆ°À» ¹Ì¸® Á¤ÀÇÇØÁÖ¾î¾ß ÇÏ±â ¶§¹®¿¡ initializeºÎºĞ¿¡¼­ ÀÌ¹ÌÁöºäµéÀÇ ÀÌº¥Æ®Ã³¸®¸¦ ÇÑ´Ù.
+	// ë²„íŠ¼ì„ ë¯¸ë¦¬ ì •ì˜í•´ì£¼ì–´ì•¼ í•˜ê¸° ë•Œë¬¸ì— initializeë¶€ë¶„ì—ì„œ ì´ë¯¸ì§€ë·°ë“¤ì˜ ì´ë²¤íŠ¸ì²˜ë¦¬ë¥¼ í•œë‹¤.
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		// °¢ °ÔÀÓº°(7°³) ¼³¸í ³Ö±â
+		// ê° ê²Œì„ë³„(7ê°œ) ì„¤ëª… ë„£ê¸°
 		// 1to50
 		Text t = new Text(
-				"<¼ø¼­´ë·Î µû¶ó°¡±â>" + "\n\"´ÙÀ½ ¹®ÀÚ´Â ¾îµğ¿¡ ÀÖÁö?\"" + "\n½Ã°£ ³»¿¡ ¸ğ¾çµµ ¼ø¼­µµ ¸ğµÎ Èğ¾îÁ® ÀÖ´Â ¼ıÀÚ³ª ¹®ÀÚ¸¦ Ã£¾Æº¸¼¼¿ä" + "\nenjoy!!");
+				"<ìˆœì„œëŒ€ë¡œ ë”°ë¼ê°€ê¸°>" + "\n\"ë‹¤ìŒ ë¬¸ìëŠ” ì–´ë””ì— ìˆì§€?\"" + "\nì‹œê°„ ë‚´ì— ëª¨ì–‘ë„ ìˆœì„œë„ ëª¨ë‘ í©ì–´ì ¸ ìˆëŠ” ìˆ«ìë‚˜ ë¬¸ìë¥¼ ì°¾ì•„ë³´ì„¸ìš”" + "\nenjoy!!");
 		oneToFiftyText.getChildren().add(t);
 
-		// ¸şºñ¿ì½º¶ì
-		t = new Text("<¸şºñ¿ì½º ¶ì>" + "\n\"´ÙÀ½ ¹®ÀÚ´Â ¾îµğ¿¡ ÀÖÁö?\"" + "\n½Ã°£ ³»¿¡ ¸ğ¾çµµ ¼ø¼­µµ ¸ğµÎ Èğ¾îÁ® ÀÖ´Â ¼ıÀÚ³ª ¹®ÀÚ¸¦ Ã£¾Æº¸¼¼¿ä" + "\nenjoy!!");
+		// ë«¼ë¹„ìš°ìŠ¤ë 
+		t = new Text("<ë«¼ë¹„ìš°ìŠ¤ ë >" + "\n\"ë‹¤ìŒ ë¬¸ìëŠ” ì–´ë””ì— ìˆì§€?\"" + "\nì‹œê°„ ë‚´ì— ëª¨ì–‘ë„ ìˆœì„œë„ ëª¨ë‘ í©ì–´ì ¸ ìˆëŠ” ìˆ«ìë‚˜ ë¬¸ìë¥¼ ì°¾ì•„ë³´ì„¸ìš”" + "\nenjoy!!");
 		mobiusText.getChildren().add(t);
 
-		// Áö±×Àç±×
-		t = new Text("<Áö±×Àç±×>" + "\n\"´ÙÀ½ ¹®ÀÚ´Â ¾îµğ¿¡ ÀÖÁö?\"" + "\n½Ã°£ ³»¿¡ ¸ğ¾çµµ ¼ø¼­µµ ¸ğµÎ Èğ¾îÁ® ÀÖ´Â ¼ıÀÚ³ª ¹®ÀÚ¸¦ Ã£¾Æº¸¼¼¿ä" + "\nenjoy!!");
+		// ì§€ê·¸ì¬ê·¸
+		t = new Text("<ì§€ê·¸ì¬ê·¸>" + "\n\"ë‹¤ìŒ ë¬¸ìëŠ” ì–´ë””ì— ìˆì§€?\"" + "\nì‹œê°„ ë‚´ì— ëª¨ì–‘ë„ ìˆœì„œë„ ëª¨ë‘ í©ì–´ì ¸ ìˆëŠ” ìˆ«ìë‚˜ ë¬¸ìë¥¼ ì°¾ì•„ë³´ì„¸ìš”" + "\nenjoy!!");
 		zigzagText.getChildren().add(t);
 
-		// 5Á¡ Ä«µå Æ®·¹ÀÌ´×
-		t = new Text("<5Á¡ Ä«µå Æ®·¹ÀÌ´×>" + "\n\"´ÙÀ½ ¹®ÀÚ´Â ¾îµğ¿¡ ÀÖÁö?\"" + "\n½Ã°£ ³»¿¡ ¸ğ¾çµµ ¼ø¼­µµ ¸ğµÎ Èğ¾îÁ® ÀÖ´Â ¼ıÀÚ³ª ¹®ÀÚ¸¦ Ã£¾Æº¸¼¼¿ä" + "\nenjoy!!");
+		// 5ì  ì¹´ë“œ íŠ¸ë ˆì´ë‹
+		t = new Text("<5ì  ì¹´ë“œ íŠ¸ë ˆì´ë‹>" + "\n\"ë‹¤ìŒ ë¬¸ìëŠ” ì–´ë””ì— ìˆì§€?\"" + "\nì‹œê°„ ë‚´ì— ëª¨ì–‘ë„ ìˆœì„œë„ ëª¨ë‘ í©ì–´ì ¸ ìˆëŠ” ìˆ«ìë‚˜ ë¬¸ìë¥¼ ì°¾ì•„ë³´ì„¸ìš”" + "\nenjoy!!");
 		fivedotText.getChildren().add(t);
 
-		// µÎ´õÁöÀâ±â
-		t = new Text("<µÎ´õÁö Àâ±â>" + "\n\"´ÙÀ½ ¹®ÀÚ´Â ¾îµğ¿¡ ÀÖÁö?\"" + "\n½Ã°£ ³»¿¡ ¸ğ¾çµµ ¼ø¼­µµ ¸ğµÎ Èğ¾îÁ® ÀÖ´Â ¼ıÀÚ³ª ¹®ÀÚ¸¦ Ã£¾Æº¸¼¼¿ä" + "\nenjoy!!");
+		// ë‘ë”ì§€ì¡ê¸°
+		t = new Text("<ë‘ë”ì§€ ì¡ê¸°>" + "\n\"ë‹¤ìŒ ë¬¸ìëŠ” ì–´ë””ì— ìˆì§€?\"" + "\nì‹œê°„ ë‚´ì— ëª¨ì–‘ë„ ìˆœì„œë„ ëª¨ë‘ í©ì–´ì ¸ ìˆëŠ” ìˆ«ìë‚˜ ë¬¸ìë¥¼ ì°¾ì•„ë³´ì„¸ìš”" + "\nenjoy!!");
 		catchmoleText.getChildren().add(t);
 
-		// Ä³Ä¡º¼
-		t = new Text("<Catch ball>" + "\n\"´ÙÀ½ ¹®ÀÚ´Â ¾îµğ¿¡ ÀÖÁö?\"" + "\n½Ã°£ ³»¿¡ ¸ğ¾çµµ ¼ø¼­µµ ¸ğµÎ Èğ¾îÁ® ÀÖ´Â ¼ıÀÚ³ª ¹®ÀÚ¸¦ Ã£¾Æº¸¼¼¿ä" + "\nenjoy!!");
+		// ìºì¹˜ë³¼
+		t = new Text("<Catch ball>" + "\n\"ë‹¤ìŒ ë¬¸ìëŠ” ì–´ë””ì— ìˆì§€?\"" + "\nì‹œê°„ ë‚´ì— ëª¨ì–‘ë„ ìˆœì„œë„ ëª¨ë‘ í©ì–´ì ¸ ìˆëŠ” ìˆ«ìë‚˜ ë¬¸ìë¥¼ ì°¾ì•„ë³´ì„¸ìš”" + "\nenjoy!!");
 		catchballText.getChildren().add(t);
 
-		// °°Àº±×¸² Ã£±â
-		t = new Text("<°°Àº ±×¸² Ã£±â>" + "\n\"´ÙÀ½ ¹®ÀÚ´Â ¾îµğ¿¡ ÀÖÁö?\"" + "\n½Ã°£ ³»¿¡ ¸ğ¾çµµ ¼ø¼­µµ ¸ğµÎ Èğ¾îÁ® ÀÖ´Â ¼ıÀÚ³ª ¹®ÀÚ¸¦ Ã£¾Æº¸¼¼¿ä" + "\nenjoy!!");
+		// ê°™ì€ê·¸ë¦¼ ì°¾ê¸°
+		t = new Text("<ê°™ì€ ê·¸ë¦¼ ì°¾ê¸°>" + "\n\"ë‹¤ìŒ ë¬¸ìëŠ” ì–´ë””ì— ìˆì§€?\"" + "\nì‹œê°„ ë‚´ì— ëª¨ì–‘ë„ ìˆœì„œë„ ëª¨ë‘ í©ì–´ì ¸ ìˆëŠ” ìˆ«ìë‚˜ ë¬¸ìë¥¼ ì°¾ì•„ë³´ì„¸ìš”" + "\nenjoy!!");
 		findpictureText.getChildren().add(t);
 
-		// ¸ŞÀÎÈ­¸éÀ¸·Î µ¹¾Æ°¡±â
+		// ë©”ì¸í™”ë©´ìœ¼ë¡œ ëŒì•„ê°€ê¸°
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -95,13 +95,13 @@ public class gameMainController implements Initializable {
 			}
 		});
 
-		// 1to50°ÔÀÓÀ¸·Î È­¸éÀüÈ¯
+		// 1to50ê²Œì„ìœ¼ë¡œ í™”ë©´ì „í™˜
 		oneToFiftyBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
 				// TODO Auto-generated method stub
-				
+
 				try {
 
 					Main.mainMusic.stopMusic();
@@ -126,7 +126,7 @@ public class gameMainController implements Initializable {
 		catchBallPage = FXMLLoader.load(getClass().getResource("../catchBall/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
 	}
-	
+
 
     @FXML
     void moleGameAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
@@ -135,7 +135,7 @@ public class gameMainController implements Initializable {
 		catchBallPage = FXMLLoader.load(getClass().getResource("../catchMole/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
     }
-    
+
 
     @FXML
     void zigzagtrainigAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {

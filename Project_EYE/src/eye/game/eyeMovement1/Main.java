@@ -10,13 +10,13 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
-//fxmlÆÄÀÏ ·ÎµùÀ» È®ÀÎÇÏ±â À§ÇØ ±âÁ¸ MainÀ» ²ø¾î¿Ô½À´Ï´Ù -¼öºó-
+//fxmlíŒŒì¼ ë¡œë”©ì„ í™•ì¸í•˜ê¸° ìœ„í•´ ê¸°ì¡´ Mainì„ ëŒì–´ì™”ìŠµë‹ˆë‹¤ -ìˆ˜ë¹ˆ-
 
 public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws IOException {
-		Font.loadFont(getClass().getResourceAsStream("A¼Ò³ª¹«.TTF"),14.0);
+		Font.loadFont(getClass().getResourceAsStream("Aì†Œë‚˜ë¬´.TTF"),14.0);
 
 //		Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage1.fxml"));
 //		Parent root = FXMLLoader.load(getClass().getResource("strip_priorPage1.fxml"));
@@ -32,7 +32,7 @@ public class Main extends Application {
 //		scene.getStylesheets().add(getClass().getResource("priorPage.css").toString());
 
 		primaryStage.setScene(scene);
-		primaryStage.setTitle("½Ã¼±ÀÌµ¿Æ®·¹ÀÌ´×");
+		primaryStage.setTitle("ì‹œì„ ì´ë™íŠ¸ë ˆì´ë‹");
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}

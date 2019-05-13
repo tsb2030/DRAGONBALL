@@ -1,7 +1,10 @@
-#shadow:hover{
+.shadow:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 5.0 );
 }
 TextFlow{
-	-fx-font-family: "A¼Ò³ª¹«L";
+	-fx-font-family: "Aì†Œë‚˜ë¬´L";
 	-fx-font-size: 25px;
+}
+#titleText{
+	-fx-font-family: "Aì†Œë‚˜ë¬´M"
 }

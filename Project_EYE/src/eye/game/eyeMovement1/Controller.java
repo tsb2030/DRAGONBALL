@@ -22,82 +22,82 @@ import javafx.util.Duration;
 
 public class Controller implements Initializable {
 
-	Model model = new Model(); // ¸ğµ¨°´Ã¼ »ı¼º
-	Timeline timeline; // Å¸ÀÓ¶óÀÎ °´Ã¼ ¼±¾ğ
+	Model model = new Model(); // ëª¨ë¸ê°ì²´ ìƒì„±
+	Timeline timeline; // íƒ€ì„ë¼ì¸ ê°ì²´ ì„ ì–¸
 
-	private PathTransition pathTransition; // pathÆ®·£Áö¼Ç ¼±¾ğ
-	private boolean pause_control = true; // °ø ¿òÁ÷ÀÓÀÌ µ¿ÀÛÁßÀÌ¸é true. ÀÏ½ÃÁ¤Áö »óÅÂ¸é false.¶ó°í °¡Á¤ÇÏ¿¡ ÃÊ±â°ªÀ» true·Î ÁØ´Ù.
+	private PathTransition pathTransition; // pathíŠ¸ëœì§€ì…˜ ì„ ì–¸
+	private boolean pause_control = true; // ê³µ ì›€ì§ì„ì´ ë™ì‘ì¤‘ì´ë©´ true. ì¼ì‹œì •ì§€ ìƒíƒœë©´ false.ë¼ê³  ê°€ì •í•˜ì— ì´ˆê¸°ê°’ì„ trueë¡œ ì¤€ë‹¤.
 
-	private Color[] color = { Color.RED, Color.AQUA, Color.YELLOW, Color.VIOLET, Color.BLACK }; // °ø »ö±ò º¯È­¿¡ ¾²ÀÏ color°ª ¹è¿­
+	private Color[] color = { Color.RED, Color.AQUA, Color.YELLOW, Color.VIOLET, Color.BLACK }; // ê³µ ìƒ‰ê¹” ë³€í™”ì— ì“°ì¼ colorê°’ ë°°ì—´
 
 	@FXML
-	private Circle pointer; // °ø °´Ã¼
+	private Circle pointer; // ê³µ ê°ì²´
 	@FXML
-	private ImageView backBtn; // ¹é ¹öÆ°(µÚ·Î°¡±â ¹× ÀÏ½ÃÁ¤Áö ±â´ÉÀ» Æ÷ÇÔ)
+	private ImageView backBtn; // ë°± ë²„íŠ¼(ë’¤ë¡œê°€ê¸° ë° ì¼ì‹œì •ì§€ ê¸°ëŠ¥ì„ í¬í•¨)
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// Controller »ı¼ºÀÚ ÄÚµå
+		// Controller ìƒì„±ì ì½”ë“œ
 	}
 
-	@FXML // poiner¿¡ #movingÀ¸·Î ÁöÁ¤µÈ ¸Ş¼Òµå, °ø Å¬¸¯½Ã ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ µ¿ÀÛ.
+	@FXML // poinerì— #movingìœ¼ë¡œ ì§€ì •ëœ ë©”ì†Œë“œ, ê³µ í´ë¦­ì‹œ ì• ë‹ˆë©”ì´ì…˜ì´ ë™ì‘.
 	public void moving(MouseEvent event) {
 
-		// ¹é ¹öÆ° Å¬¸¯½Ã ÀÏ½ÃÁ¤Áö ÀÌº¥Æ® Ã³¸®
+		// ë°± ë²„íŠ¼ í´ë¦­ì‹œ ì¼ì‹œì •ì§€ ì´ë²¤íŠ¸ ì²˜ë¦¬
 		backBtn.setOnMouseClicked(new EventHandler<MouseEvent>() {
 
 			@Override
 			public void handle(MouseEvent event) {
 				if (pause_control == true) {
-					// ÇöÀç °øÀÌ µ¿ÀÛÁßÀÌ¸é
-					pathTransition.pause(); // µ¿ÀÛÀ» ÀÏ½ÃÁßÁö ½ÃÅ²´Ù
+					// í˜„ì¬ ê³µì´ ë™ì‘ì¤‘ì´ë©´
+					pathTransition.pause(); // ë™ì‘ì„ ì¼ì‹œì¤‘ì§€ ì‹œí‚¨ë‹¤
 					pause_control = false;
 
-					System.out.println(pathTransition.getStatus()); // ÇöÀç °ø »óÅÂ¸¦ ÄÜ¼Ö¿¡¼­ È®ÀÎÇØº¸·Á°í(Áö¿öµµ ¹«¹æÇÕ´Ï´Ù)
+					System.out.println(pathTransition.getStatus()); // í˜„ì¬ ê³µ ìƒíƒœë¥¼ ì½˜ì†”ì—ì„œ í™•ì¸í•´ë³´ë ¤ê³ (ì§€ì›Œë„ ë¬´ë°©í•©ë‹ˆë‹¤)
 				}
 
 				else if (pause_control == false) {
-					// ÇöÀç °øÀÌ ÀÏ½ÃÁßÁö »óÅÂÀÌ¸é
-					pathTransition.play(); // °øÀ» ½ÇÇà½ÃÅ²´Ù
+					// í˜„ì¬ ê³µì´ ì¼ì‹œì¤‘ì§€ ìƒíƒœì´ë©´
+					pathTransition.play(); // ê³µì„ ì‹¤í–‰ì‹œí‚¨ë‹¤
 					pause_control = true;
 				}
 			}
 		});
 
-		timeline = new Timeline(); // Å¸ÀÓ¶óÀÎ °´Ã¼ »ı¼º
+		timeline = new Timeline(); // íƒ€ì„ë¼ì¸ ê°ì²´ ìƒì„±
 
-		// pointer°¡ ¸şºñ¿ì½º ¶ì ¸ğ¾çÀÇ path¸¦ ÇÑ ½ÎÀÌÅ¬´ç 7ÃÊ ÁÖ±â·Î È¸ÀüÇÏ´Â Æ®·£Áö¼Ç °´Ã¼ »ı¼º
+		// pointerê°€ ë«¼ë¹„ìš°ìŠ¤ ë  ëª¨ì–‘ì˜ pathë¥¼ í•œ ì‹¸ì´í´ë‹¹ 7ì´ˆ ì£¼ê¸°ë¡œ íšŒì „í•˜ëŠ” íŠ¸ëœì§€ì…˜ ê°ì²´ ìƒì„±
 		pathTransition = new PathTransition(Duration.millis(7000), model.pathCreate(), pointer);
 		pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
-		pathTransition.setAutoReverse(false); // ÇÑ ½ÎÀÌÅ¬ÀÌ ³¡³ª¸é ¿ª¹æÇâÀ¸·Î µ¹Áö ¾Ê°Ô ¼³Á¤.
+		pathTransition.setAutoReverse(false); // í•œ ì‹¸ì´í´ì´ ëë‚˜ë©´ ì—­ë°©í–¥ìœ¼ë¡œ ëŒì§€ ì•Šê²Œ ì„¤ì •.
 
-		timeline.setAutoReverse(false); // Å¸ÀÓ¶óÀÎ ¶ÇÇÑ ¸¶Âù°¡Áö.
+		timeline.setAutoReverse(false); // íƒ€ì„ë¼ì¸ ë˜í•œ ë§ˆì°¬ê°€ì§€.
 
-		// timelineÀÇ ÇÑ ½ÎÀÌÅ¬ÀÌ ³¡³¯ ¶§¸¶´Ù ½ÇÇàµÉ ÀÌº¥Æ®
+		// timelineì˜ í•œ ì‹¸ì´í´ì´ ëë‚  ë•Œë§ˆë‹¤ ì‹¤í–‰ë  ì´ë²¤íŠ¸
 		EventHandler onfinished = new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				pathTransition.play(); // ÀÌ ¹®ÀåÀÌ ¾÷À¸¸é pathTransitionµ¿ÀÛÀÌ ½ÇÇàµÇÁö ¾Ê½À´Ï´Ù.
+				pathTransition.play(); // ì´ ë¬¸ì¥ì´ ì—…ìœ¼ë©´ pathTransitionë™ì‘ì´ ì‹¤í–‰ë˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
 			}
 		};
 
-		KeyValue kv = new KeyValue(pathTransition.cycleCountProperty(), 5); // path°æ·Î ¹İº¹ È½¼ö¸¦ 5¹øÀ¸·Î ÁöÁ¤.
-																			// pathTransition.setCycleCount(5)¿Í µ¿ÀÏÇÕ´Ï´Ù!
+		KeyValue kv = new KeyValue(pathTransition.cycleCountProperty(), 5); // pathê²½ë¡œ ë°˜ë³µ íšŸìˆ˜ë¥¼ 5ë²ˆìœ¼ë¡œ ì§€ì •.
+																			// pathTransition.setCycleCount(5)ì™€ ë™ì¼í•©ë‹ˆë‹¤!
 
-		KeyFrame kf = new KeyFrame(new Duration(0), onfinished, kv); // timeline.play();¸¦ ÇÏ¸é onfinished¿¡ ÀÇÇØ
-																		// pathTransitionµµ ¹Ù·Î ½ÇÇà ½ÃÀÛ
-		KeyFrame kf2 = new KeyFrame(new Duration(10000), kv); // 10ÃÊ ´ÜÀ§·Î timelineÀÇ ÁÖ±â°¡ ¼³Á¤
+		KeyFrame kf = new KeyFrame(new Duration(0), onfinished, kv); // timeline.play();ë¥¼ í•˜ë©´ onfinishedì— ì˜í•´
+																		// pathTransitionë„ ë°”ë¡œ ì‹¤í–‰ ì‹œì‘
+		KeyFrame kf2 = new KeyFrame(new Duration(10000), kv); // 10ì´ˆ ë‹¨ìœ„ë¡œ timelineì˜ ì£¼ê¸°ê°€ ì„¤ì •
 
-		timeline.setCycleCount(3); // 3¹øÀÇ ¹İº¹¼³Á¤. Áï, 10ÃÊ°£ 3È¸ÀÌ¹Ç·Î 30ÃÊ°£ timelineÀÌ ½ÇÇàµÇ°Ô ¼³Á¤
-		timeline.getKeyFrames().add(kf); // ¸¸µç keyFrameÀ» timeline¿¡ Ãß°¡
+		timeline.setCycleCount(3); // 3ë²ˆì˜ ë°˜ë³µì„¤ì •. ì¦‰, 10ì´ˆê°„ 3íšŒì´ë¯€ë¡œ 30ì´ˆê°„ timelineì´ ì‹¤í–‰ë˜ê²Œ ì„¤ì •
+		timeline.getKeyFrames().add(kf); // ë§Œë“  keyFrameì„ timelineì— ì¶”ê°€
 		timeline.getKeyFrames().add(kf2);
 
-		keyValueCreate(); // °øÀÌ ¹«ÀÛÀ§ÀÇ ½Ã°£¸¶´Ù »öÀÌ º¯°æµÇµµ·Ï ÇÏ´Â keyFrameµé »ı¼º
-		timeline.play(); // Å¸ÀÓ¶óÀÎ ½ÇÇà. ÀÌ ¹®ÀåÀÌ ¾øÀ¸¸é pathTransition ¶ÇÇÑ µ¿ÀÛÇÏÁö ¾Ê½À´Ï´Ù
+		keyValueCreate(); // ê³µì´ ë¬´ì‘ìœ„ì˜ ì‹œê°„ë§ˆë‹¤ ìƒ‰ì´ ë³€ê²½ë˜ë„ë¡ í•˜ëŠ” keyFrameë“¤ ìƒì„±
+		timeline.play(); // íƒ€ì„ë¼ì¸ ì‹¤í–‰. ì´ ë¬¸ì¥ì´ ì—†ìœ¼ë©´ pathTransition ë˜í•œ ë™ì‘í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤
 
 		/*
-		 * Áß°£Áß°£ ¹Ì¼¼ÇÑ ½Ã°£Â÷ÀÌ ¶§¹®¿¡ ÀÏ½ÃÁ¤Áö ¹öÆ°À» ´­¸¥ ÈÄ¿¡ °©ÀÚ±â °øÀÌ ¿òÁ÷¿©Á® ¹ö¸®´Â ¿À·ù°¡ ¹ß»ıÇÏ¿© ´ÙÀ½ µÎ ¹®ÀåÀ» Ãß°¡ÇÕ´Ï´Ù!
-		 * ½ÇÇàÁßÀÏ ¶§´Â ¹İµå½Ã true¸¦ À¯ÁöÇÏµµ·Ï ÇÏ´Â °ÍÀÌ¿¡¿ä
+		 * ì¤‘ê°„ì¤‘ê°„ ë¯¸ì„¸í•œ ì‹œê°„ì°¨ì´ ë•Œë¬¸ì— ì¼ì‹œì •ì§€ ë²„íŠ¼ì„ ëˆŒë¥¸ í›„ì— ê°‘ìê¸° ê³µì´ ì›€ì§ì—¬ì ¸ ë²„ë¦¬ëŠ” ì˜¤ë¥˜ê°€ ë°œìƒí•˜ì—¬ ë‹¤ìŒ ë‘ ë¬¸ì¥ì„ ì¶”ê°€í•©ë‹ˆë‹¤!
+		 * ì‹¤í–‰ì¤‘ì¼ ë•ŒëŠ” ë°˜ë“œì‹œ trueë¥¼ ìœ ì§€í•˜ë„ë¡ í•˜ëŠ” ê²ƒì´ì—ìš”
 		 */
 		if (pathTransition.getStatus() == Status.RUNNING)
 			pause_control = true;
@@ -106,20 +106,20 @@ public class Controller implements Initializable {
 
 	public void keyValueCreate() {
 		/*
-		 * À§ Á¤ÀÇÇØ µÎ¾ú´ø color°ª ¹è¿­À» ÀÌ¿ëÇÏ¿© ½Ã°£°£°İÀ» ÀÓÀÇ·Î ¹Ù²ãÁÜ¿¡ µû¶ó »õ·Î¿î Å°ÇÁ·¹ÀÓÀ» »ı¼ºÇÏ´Â ¸Ş¼Òµå ¸¸µé¾îÁø Å° ÇÁ·¹ÀÓµéÀº
-		 * timeline¿¡¼­ »ç¿ëµË´Ï´Ù. °á°úÀûÀ¸·Î ¾î¶² »öÀÌ ¸î ÃÊÀÇ °ªÀ» °®´À³Ä¿¡ µû¶ó ÀÓÀÇÀÇ ½Ã°£µ¿¾È ÇØ´ç »ö±òÀÌ À¯ÁöµË´Ï´Ù. ÀÌ ºÎºĞÀº
-		 * ÇãÁ¡ÀÌ ¸¹±â¿¡.... ½Ï ´Ù ³¯¸®°Å³ª ¼öÁ¤ÇÏ°Å³ª ¿øÇÏ½Ã´Â´ë·Î ¼öÁ¤ÇÏ¼Åµµ ¹«¹æÇÕ´Ï´Ù!
+		 * ìœ„ ì •ì˜í•´ ë‘ì—ˆë˜ colorê°’ ë°°ì—´ì„ ì´ìš©í•˜ì—¬ ì‹œê°„ê°„ê²©ì„ ì„ì˜ë¡œ ë°”ê¿”ì¤Œì— ë”°ë¼ ìƒˆë¡œìš´ í‚¤í”„ë ˆì„ì„ ìƒì„±í•˜ëŠ” ë©”ì†Œë“œ ë§Œë“¤ì–´ì§„ í‚¤ í”„ë ˆì„ë“¤ì€
+		 * timelineì—ì„œ ì‚¬ìš©ë©ë‹ˆë‹¤. ê²°ê³¼ì ìœ¼ë¡œ ì–´ë–¤ ìƒ‰ì´ ëª‡ ì´ˆì˜ ê°’ì„ ê°–ëŠëƒì— ë”°ë¼ ì„ì˜ì˜ ì‹œê°„ë™ì•ˆ í•´ë‹¹ ìƒ‰ê¹”ì´ ìœ ì§€ë©ë‹ˆë‹¤. ì´ ë¶€ë¶„ì€
+		 * í—ˆì ì´ ë§ê¸°ì—.... ì‹¹ ë‹¤ ë‚ ë¦¬ê±°ë‚˜ ìˆ˜ì •í•˜ê±°ë‚˜ ì›í•˜ì‹œëŠ”ëŒ€ë¡œ ìˆ˜ì •í•˜ì…”ë„ ë¬´ë°©í•©ë‹ˆë‹¤!
 		 */
 
-		KeyValue[] kv = new KeyValue[5]; // color¹è¿­°ú µ¿ÀÏÇÑ Å©±âÀÇ ¹è¿­
-		int d = 0; // duration °è»êÀ» À§ÇØ ÃÊ±â°ª 0ÁöÁ¤
+		KeyValue[] kv = new KeyValue[5]; // colorë°°ì—´ê³¼ ë™ì¼í•œ í¬ê¸°ì˜ ë°°ì—´
+		int d = 0; // duration ê³„ì‚°ì„ ìœ„í•´ ì´ˆê¸°ê°’ 0ì§€ì •
 
 		for (int i = 0; i < kv.length; i++) {
-			Collections.shuffle(Arrays.asList(color)); // color¹è¿­À» ¸®½ºÆ®È­ ½ÃÄÑ¼­ ¹è¿­ ³» ¼ø¼­¸¦ ·£´ıÈ­ ½ÃÄÑÁÖ´Â ¹®Àå
+			Collections.shuffle(Arrays.asList(color)); // colorë°°ì—´ì„ ë¦¬ìŠ¤íŠ¸í™” ì‹œì¼œì„œ ë°°ì—´ ë‚´ ìˆœì„œë¥¼ ëœë¤í™” ì‹œì¼œì£¼ëŠ” ë¬¸ì¥
 
-			kv[i] = new KeyValue(pointer.fillProperty(), color[i]); // ¼ø¼­°¡ ·£´ıÈ­µÈ ¹è¿­¿¡¼­ color°ªÀ» °¡Á®¿Í keyValue°´Ã¼ »ı¼º
+			kv[i] = new KeyValue(pointer.fillProperty(), color[i]); // ìˆœì„œê°€ ëœë¤í™”ëœ ë°°ì—´ì—ì„œ colorê°’ì„ ê°€ì ¸ì™€ keyValueê°ì²´ ìƒì„±
 
-			// duration°ª ÀÓÀÇ·Î °è»ê
+			// durationê°’ ì„ì˜ë¡œ ê³„ì‚°
 			if (d <= 10000)
 				d += 3000;
 			else if (d <= 30000)
@@ -132,7 +132,7 @@ public class Controller implements Initializable {
 				d += 8000;
 
 			KeyFrame kf = new KeyFrame(Duration.millis(d), kv[i]);
-			timeline.getKeyFrames().add(kf); // keyValue°ªÀ» °¡Áö°í ¸¸µé¾îÁø KeyFrameÀ» Å¸ÀÓ¶óÀÎ¿¡ Ãß°¡
+			timeline.getKeyFrames().add(kf); // keyValueê°’ì„ ê°€ì§€ê³  ë§Œë“¤ì–´ì§„ KeyFrameì„ íƒ€ì„ë¼ì¸ì— ì¶”ê°€
 		}
 
 	}
