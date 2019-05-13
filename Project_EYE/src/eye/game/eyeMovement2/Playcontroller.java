@@ -45,6 +45,9 @@ public class Playcontroller implements Initializable {
 	int dx = 0;
 	int duration = 5;
 	int count = 0;
+	
+	@FXML
+	private Text score;
 
     @FXML
     private Text title;
@@ -94,6 +97,7 @@ public class Playcontroller implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		new moving().start();
+		score.setText(Integer.parseInt(score.getText()) +"");
 //		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 //
 //			@Override
