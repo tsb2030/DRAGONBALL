@@ -41,7 +41,7 @@ public class Playcontroller implements Initializable {
 	private ImageView backBtn;
 
 	private PathTransition pathTransition;
-	private boolean pause_control = true; // pause¹öÆ°ÀÇ È°¼ºÈ­Á¶°Ç
+	private boolean pause_control = true; // pauseï¿½ï¿½Æ°ï¿½ï¿½ È°ï¿½ï¿½È­ï¿½ï¿½ï¿½ï¿½
 	int cnt = 0;
 	boolean flag = true;
 	int dx = 0;
@@ -72,13 +72,13 @@ public class Playcontroller implements Initializable {
 		}
 
 		Alert alert = new Alert(AlertType.NONE);
-		alert.setTitle("ÀÏ½ÃÁ¤Áö");
+		alert.setTitle("ï¿½Ï½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		alert.setHeaderText(null);
-		alert.setContentText("±×¸¸ ÇÏ½Ã°Ú½À´Ï±î?");
+		alert.setContentText("ï¿½×¸ï¿½ ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?");
 
 		alert.initStyle(StageStyle.UTILITY);
-		ButtonType buttonTypeOne = new ButtonType("¿¹");
-		ButtonType buttonTypeTwo = new ButtonType("¾Æ´Ï¿À");
+		ButtonType buttonTypeOne = new ButtonType("ï¿½ï¿½");
+		ButtonType buttonTypeTwo = new ButtonType("ï¿½Æ´Ï¿ï¿½");
 
 		alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo);
 
@@ -129,7 +129,7 @@ public class Playcontroller implements Initializable {
 			// Moving to the starting point
 			MoveTo moveTo = new MoveTo(0, 0);
 
-			// Creating line ÁøÇàÇÒ ±æÀ» ¼³Á¤ÇÕ´Ï´Ù.
+			// Creating line ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
 			LineTo line1 = new LineTo(1200, 0);
 			LineTo line2 = new LineTo(0, 550);
 			LineTo line3 = new LineTo(1200, 550);
@@ -146,11 +146,11 @@ public class Playcontroller implements Initializable {
 
 			// Setting the path for the transition
 			pathTransition.setPath(path);
-			// ½Ã°£ °¡´É¼º
+			// ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½É¼ï¿½
 			pathTransition.cycleDurationProperty();
 			// Setting the orientation of the path
 
-			// ½Ã°£À» ÀÔ·Â¹Þ¾Æ ±× ½Ã°£´ëÀÇ °øÀÇ »öÀ» º¯È¯ÇÏ´Â °Í
+			// ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½Ô·Â¹Þ¾ï¿½ ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ï´ï¿½ ï¿½ï¿½
 			pathTransition.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
 				double rndValue = Math.random();
 				double tmp = oldValue.toSeconds();
@@ -196,17 +196,17 @@ public class Playcontroller implements Initializable {
 					System.out.println(count);
 				}
 
-				if (count == 20 && tmp >= Selectcontroller.duration - 0.015) {
+				if (count == 3 && tmp >= Selectcontroller.duration - 0.015) {
 					showEndPopUp();
 				}
 
 			});
 			pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
-			pathTransition.setCycleCount(20);
+			pathTransition.setCycleCount(3);
 			pathTransition.setDelay(new Duration(000));
 
-			// Æ®·ç¸¦ ÇÞÀ»°æ¿ì ´Ù½Ã ¹Ý´ë·Î °øÀÌ ¿òÁ÷ÀÔ´Ï´Ù false¸¦ ÇßÀ»°æ¿ì °øÀÇ ¹æÇâÀÌ ÇÑ¹æÇâÀ¸·Î ¿òÁ÷ÀÔ´Ï´Ù.
+			// Æ®ï¿½ç¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½ï¿½ ï¿½Ý´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½ falseï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.
 
 			// Playing the animation
 			pathTransition.play();
@@ -221,13 +221,14 @@ public class Playcontroller implements Initializable {
 		FXMLLoader another = new FXMLLoader(Main.class.getResource("../game/eyeMovement2/gameQ&A.fxml"));
 		try {
 			AnchorPane anotherPage = (AnchorPane) another.load();
-			// ´Ù¸¥Ã¢ ¶ç¿ì´Â ÀÛ¾÷ .... 2
+			// ï¿½Ù¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ .... 2
 			Scene anotherScene = new Scene(anotherPage);
 			Stage stage = new Stage();
 			stage.setScene(anotherScene);
 			stage.show();
-			// ´Ù¸¥Ã¢ ¶ç¿ì´Â ÀÛ¾÷ .... 2 ³¡.
+			// ï¿½Ù¸ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ .... 2 ï¿½ï¿½.
 		} catch (IOException e) {
+			
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -235,7 +236,7 @@ public class Playcontroller implements Initializable {
 
 	public void closePopUp() {
 
-		Stage stage = (Stage) closeBtn.getScene().getWindow(); // ¹öÆ°ÀÌ ÀÖ´Â Ã¢À» ´Ý´Â´Ù
+		Stage stage = (Stage) closeBtn.getScene().getWindow(); // ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½Ö´ï¿½ Ã¢ï¿½ï¿½ ï¿½Ý´Â´ï¿½
 		stage.close();
 	}
 
