@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="bigPanne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#keyEventHandler" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFE4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchBall.CatchballGameController">
+   <children>
+      <Button fx:id="pausebutton" layoutX="58.0" layoutY="38.0" mnemonicParsing="false" onAction="#pauseEvent" style="-fx-background-color: #BB4B43;" text="||" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Button>
+      <Text layoutX="591.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CathBall">
+         <font>
+            <Font size="41.0" />
+         </font>
+      </Text>
+      <AnchorPane fx:id="GamePane" layoutX="182.0" layoutY="121.0" prefHeight="500.0" prefWidth="1000.0" style="-fx-background-color: #FFFFf9;">
+         <children>
+            <Circle fx:id="catchCircle" fill="#1fff3e" radius="50.0" stroke="#5aa165" strokeType="INSIDE" />
+            <Circle fx:id="followCircle" fill="#ff1f1f" radius="50.0" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="startButton" layoutX="14.0" layoutY="147.0" mnemonicParsing="false" onMouseClicked="#startGame" style="-fx-background-color: #BB4B43;" text="ReStart" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Button>
+      <Label layoutX="885.0" layoutY="49.0" text="Timer: ">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="timeLabel" layoutX="1009.0" layoutY="49.0" text="60">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="backButton" layoutX="43.0" layoutY="272.0" onAction="#backButtonAction" style="-fx-background-color: #DC3C30;" text="BackButton" textFill="WHITE" />
+      <Label layoutX="250.0" layoutY="46.0" text="Score: ">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="ScoreLabel" layoutX="375.0" layoutY="46.0" text="0">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <Label fx:id="judgeYourBehavior" layoutX="105.0" layoutY="638.0" prefHeight="44.0" prefWidth="327.0">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
