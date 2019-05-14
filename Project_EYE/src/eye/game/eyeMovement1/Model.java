@@ -5,7 +5,7 @@ import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 
-public class Model {
+public class  Model {
 
 	//뫼비우스 띠 모양의 경로 만들기
 	public Path pathCreate() {

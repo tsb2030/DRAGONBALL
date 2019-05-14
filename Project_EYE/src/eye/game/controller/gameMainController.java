@@ -26,7 +26,7 @@ public class gameMainController implements Initializable {
 
 	// 화면 전환을 위해 필요한 페이지들을 미리 정의한다.
 	@FXML
-	AnchorPane gameMainPage, mainPage, oneToFiftyPage, catchBallPage, zigzagPage,fiveDotPage,findPictureStart;
+	AnchorPane gameMainPage, mainPage, oneToFiftyPage, catchBallPage, zigzagPage,fiveDotPage,findPictureStart,stripPage;
 
 	// 이미지뷰를 버튼화 시키기 위해서 필요한 정의
 	@FXML
@@ -189,6 +189,14 @@ public class gameMainController implements Initializable {
 		Main.mainMusic.resetNameAudioStream("introMusic");
 		zigzagPage = FXMLLoader.load(getClass().getResource("../eyeMovement2/zz_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(zigzagPage);
+    }
+    
+    @FXML
+    void striptrainingAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+    	Main.mainMusic.stopMusic();
+		Main.mainMusic.resetNameAudioStream("introMusic");
+		stripPage = FXMLLoader.load(getClass().getResource("../eyeMovement1/strip_priorPage1.fxml"));
+		gameMainPage.getChildren().setAll(stripPage);
     }
 
 }

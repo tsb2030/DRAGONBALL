@@ -1,4 +1,4 @@
-package eye.game.eyeMovement2;
+package eye.game.eyeMovement1;
 
 import java.io.IOException;
 
