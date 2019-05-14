@@ -1,13 +1,7 @@
 package eye.game.findPicture;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,10 +13,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class EndPopupController implements Initializable {
+public class EndPopupController  {
 
 	@FXML
 	private Button goMainButton, backGame;
+	
+	@FXML
+	AnchorPane endPopup;
 
 	@FXML
 	private Label gameScore;
@@ -45,27 +42,21 @@ public class EndPopupController implements Initializable {
 	}
 
 	@FXML
-	void goMainButtonAction(ActionEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-//		Main.mainMusic.stopMusic();
-//		Main.mainMusic.resetNameAudioStream("LaLaLa");
+    void goMainButtonAction(ActionEvent event) {
+	 try {
+		System.out.println("되나?");
+		Parent root = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
+		Scene scene = new Scene(root);		
+		GamePageController.gamePageStage.setScene(scene);
 		
-    	try {
-    		GamePageController.bigScore = 0;
-
-			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("game_main_page.fxml"));
-			Scene scene = new Scene(selectSpeedPage);
-
-			GamePageController.currentStage.setScene(scene);
-			Stage primaryStage = (Stage) backGame.getScene().getWindow(); 
-			primaryStage.close();
-		} catch (Exception e) {
-			e.printStackTrace();
+		Stage currentStage = (Stage) endPopup.getScene().getWindow();
+		currentStage.close();
+		
+	
+		}catch (Exception e1) {
+			// TODO: handle exception
 		}
-}
+    }
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		gameScore.setText(String.valueOf(GamePageController.bigScore));
-	}
 
 }

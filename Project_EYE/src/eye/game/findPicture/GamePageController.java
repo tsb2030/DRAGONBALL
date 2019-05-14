@@ -72,6 +72,7 @@ public class GamePageController implements Initializable {
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		clock = new Clock();
+
 		
 		B[0] = ranImage1;
 		B[1] = ranImage2;
@@ -97,15 +98,16 @@ public class GamePageController implements Initializable {
 		
 		try {
 
-			File file = new File(Main.class.getResource("01.png").toURI());
+			
+			File file = new File(Main.class.getResource("abocado.png").toURI());
 			FileInputStream fis = new FileInputStream(file);
 			image1 = new Image(fis);
 
-			File file1 = new File(Main.class.getResource("02.png").toURI());
+			File file1 = new File(Main.class.getResource("apple.png").toURI());
 			FileInputStream fis1 = new FileInputStream(file1);
 			image2 = new Image(fis1);
 
-			File file2 = new File(Main.class.getResource("03.png").toURI());
+			File file2 = new File(Main.class.getResource("kiwi.png").toURI());
 			FileInputStream fis2 = new FileInputStream(file2);
 			image3 = new Image(fis2);
 
@@ -414,47 +416,69 @@ public class GamePageController implements Initializable {
 		if (randomI == 1) {
 			sampleImage.setImage(image1);
 
+
 			for (int i = 0; i <= 20; i++) {
+				Random random2 = new Random();
+				randomI = random2.nextInt(5) + 1;
+				if (randomI%2 == 0) {
 				B[i].setImage(image2);
 				code[i] = 2;
+				} else if (randomI%2 == 1)  {
+					B[i].setImage(image3);
+					code[i] = 3;
+					} 
 			}
 			
-			for (int i = 0;i<=20;i++) {
-				B[i].setImage(image2);
-				wrongImage.add(new WrongImage(B[i], 2));
-				
-			}
+//			for (int i = 0;i<=20;i++) {
+//				B[i].setImage(image2);
+//				wrongImage.add(new WrongImage(B[i], 2));
+//				
+//			}
 			
 			code[21] = 1;
 
 		} else if (randomI == 2) {
 			sampleImage.setImage(image2);
 
-
 			for (int i = 0; i <= 20; i++) {
-				B[i].setImage(image3);
-				code[i] = 3;
+				Random random2 = new Random();
+				randomI = random2.nextInt(5) + 1;
+				if (randomI%2 == 0) {
+				B[i].setImage(image1);
+				code[i] = 1;
+				} else if (randomI%2 == 1)  {
+					B[i].setImage(image3);
+					code[i] = 3;
+					} 
 			}
-			for (int i = 0;i<=20;i++) {
-				B[i].setImage(image3);
-				wrongImage.add(new WrongImage(B[i], 3));
 				
-			}
+//			for (int i = 0;i<=20;i++) {
+//				B[i].setImage(image3);
+//				wrongImage.add(new WrongImage(B[i], 3));
+//				
+//			}
 			code[21] = 2;
 
 		} else if (randomI == 3) {
 			sampleImage.setImage(image3);
 
 			for (int i = 0; i <= 20; i++) {
-				B[i].setImage(image1);
-				code[i] = 1;
+				Random random2 = new Random();
+				randomI = random2.nextInt(5) + 1;
+				if (randomI%2 == 0) {
+				B[i].setImage(image2);
+				code[i] = 2;
+				} else if (randomI%2 == 1)  {
+					B[i].setImage(image1);
+					code[i] = 1;
+					} 
 			}
 
-			for (int i = 0;i<=20;i++) {
-				B[i].setImage(image1);
-				wrongImage.add(new WrongImage(B[i], 1));
-				
-			}
+//			for (int i = 0;i<=20;i++) {
+//				B[i].setImage(image1);
+//				wrongImage.add(new WrongImage(B[i], 1));
+//				
+//			}
 			code[21] = 3;
 
 		}
@@ -463,6 +487,7 @@ public class GamePageController implements Initializable {
 		randomJ = random1.nextInt(21); // 0 에서 20까지
 		B[randomJ].setImage(sampleImage.getImage());
 		code[randomJ] = code[21]; // 22번째 코드
+		gamePageStage = (Stage) gamePage.getScene().getWindow();
 	}
 	
 	@FXML

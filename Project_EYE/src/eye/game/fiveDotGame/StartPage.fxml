@@ -22,7 +22,7 @@
                         <Insets left="10.0" top="5.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@그룹%2079.png" />
+                        <Image url="image/그룹 79.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="5점 카드 트레이닝">
@@ -45,7 +45,7 @@
                      <children>
                         <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@사각형 20.png" />
+                              <Image url="image/사각형 20.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />

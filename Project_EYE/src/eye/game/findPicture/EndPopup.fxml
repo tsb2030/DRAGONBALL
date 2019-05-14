@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.findPicture.EndPopupController">
+<AnchorPane fx:id="endPopup" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.findPicture.EndPopupController">
 	<children>
 		<Button id="shadow" fx:id="backGame" layoutX="295.0" layoutY="400.0" mnemonicParsing="false" onAction="#backGameAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="다시하기" textFill="WHITE" AnchorPane.rightAnchor="100.0">
 			<font>
