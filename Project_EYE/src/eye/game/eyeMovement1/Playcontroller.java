@@ -147,14 +147,14 @@ public class Playcontroller implements Initializable {
 
 			}
 			if (tmp == 0) {
-				count++;
 				score.setText(String.valueOf(count));
+				count++;
 				System.out.println(count);
 			}
 
 			if (count == 3 && tmp >= Selectcontroller.duration - 0.015) {
 				showEndPopUp();
-
+				score.setText(String.valueOf(count));
 			}
 
 		});
