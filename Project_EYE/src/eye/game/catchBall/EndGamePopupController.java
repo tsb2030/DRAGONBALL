@@ -44,7 +44,7 @@ public class EndGamePopupController implements Initializable {
 			Scene scene = new Scene(CatchballGame);
 			
 			//css����
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
+			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 			
 			//���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
 			CatchballGameController.currentStage.setScene(scene);
@@ -74,7 +74,7 @@ public class EndGamePopupController implements Initializable {
 			Scene scene = new Scene(selectSpeedPage);
 
 			//css����
-			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
+			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 			
 			//���� �˾�â�� �ݱ����� �ϴ� ����
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������

@@ -39,8 +39,9 @@ public class EndGamePopupController implements Initializable {
 			primaryStage.close();
 			Parent DodugeGame2 = FXMLLoader.load(getClass().getResource("DodugeGame2.fxml"));
 			Scene scene = new Scene(DodugeGame2);
-		
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
+
+			scene.getStylesheets()
+					.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 			DodugeGameController.score = 0;
 			DodugeGameController.timeTime = 60;
 			DodugeGameController.dodugeStage.setScene(scene);
@@ -51,29 +52,27 @@ public class EndGamePopupController implements Initializable {
 	}
 
 	@FXML
-	void goMainButtonAction(ActionEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		// ���� �˾� â�� �ݰ�, ���� â�� �����ϴ� �۾��� �����ؾ� ��
-				Main.mainMusic.stopMusic();
-				Main.mainMusic.resetNameAudioStream("LaLaLa");
-				// go main
-		    	try {
-		    		DodugeGameController.score = 0;
-		    		//catchballGame fxml������ scene�� �����ϴ� ���
-					Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
-					Scene scene = new Scene(selectSpeedPage);
-					//���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
-					DodugeGameController.currentStage.setScene(scene);
-					DodugeGameController.currentStage.setTitle("game_main_page");
-					//css����
-					//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
-					
-					//���� �˾�â�� �ݱ����� �ϴ� ����
-					Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������
-					//���� �˾� â �ݱ�
-					primaryStage.close();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+	void goMainButtonAction(ActionEvent event)
+			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+		Main.mainMusic.stopMusic();
+		Main.mainMusic.resetNameAudioStream("LaLaLa");
+		// go main
+		try {
+			DodugeGameController.score = 0;
+			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
+			Scene scene = new Scene(selectSpeedPage);
+			DodugeGameController.dodugeStage.setScene(scene);
+			DodugeGameController.dodugeStage.setTitle("game_main_page");
+
+			scene.getStylesheets()
+					.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+
+			Stage primaryStage = (Stage) backGame.getScene().getWindow();
+
+			primaryStage.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

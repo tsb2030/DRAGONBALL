@@ -39,7 +39,8 @@ public class IntroducePageController implements Initializable  {
 
     @Override
    	public void initialize(URL location, ResourceBundle resources) {
-   		
+    	System.out.println("java version: "+System.getProperty("java.version"));
+		System.out.println("javafx.version: " + System.getProperty("javafx.version"));
     	startButton.setOnMouseClicked(new EventHandler<Event>() {
 
    			@Override
@@ -79,7 +80,7 @@ public class IntroducePageController implements Initializable  {
     	try {
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
+			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) easyButton.getScene().getWindow();  // ���� ������ ��������
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
@@ -94,7 +95,7 @@ public class IntroducePageController implements Initializable  {
     	try {
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
+			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) hardButton.getScene().getWindow();  // ���� ������ ��������
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
@@ -109,7 +110,7 @@ public class IntroducePageController implements Initializable  {
     	try {
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());  // css ����
+			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) normalButton.getScene().getWindow();  // ���� ������ ��������
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");

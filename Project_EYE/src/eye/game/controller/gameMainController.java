@@ -23,7 +23,6 @@ import javafx.scene.text.TextFlow;
 /*게임 메뉴에서 사용되는 클래스입니다.
  * game_main_page.fxml에 연결되어있다.*/
 public class gameMainController implements Initializable {
-
 	// 화면 전환을 위해 필요한 페이지들을 미리 정의한다.
 	@FXML
 	AnchorPane gameMainPage, mainPage, oneToFiftyPage, catchBallPage, zigzagPage,fiveDotPage,findPictureStart,stripPage;

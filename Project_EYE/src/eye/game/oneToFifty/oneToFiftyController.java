@@ -30,6 +30,7 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 /*1to50게임*/
 public class oneToFiftyController implements Initializable{
+	
 	//다시 게임메인화면으로 돌아가기위한 화면을 정의하고 동적인 버튼을 만들기 위해서 버튼배열 선언
 	@FXML
 	AnchorPane apane,oneToFiftyPage,gameMainPage;

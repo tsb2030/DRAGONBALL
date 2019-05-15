@@ -26,7 +26,8 @@ public class IntroducePageController implements Initializable {
     
     @Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
+    	System.out.println("java version: "+System.getProperty("java.version"));
+		System.out.println("javafx.version: " + System.getProperty("javafx.version"));
 		nextBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
