@@ -1,4 +1,4 @@
-package eye.game.eyeMovement2;
+package eye.game.eyeMovement1;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,11 +46,11 @@ public class Failcontroller implements Initializable {
 	@FXML
 	void numGameRestart(ActionEvent event) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource("Overview.fxml"));
 			Scene scene = new Scene(root);
 
 			Playcontroller.currentStage.setScene(scene);
-			Playcontroller.currentStage.setTitle("시선이동트레이닝2");
+			Playcontroller.currentStage.setTitle("시선이동트레이닝1");
 
 			Stage primaryStage = (Stage) FailPage.getScene().getWindow();
 			primaryStage.close();

@@ -8,7 +8,7 @@
 
 <!-- 게임 실패 팝업창 -->
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" stylesheets="@popup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eyeMovement1/Controller">
+<AnchorPane fx:id="FailPage" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" stylesheets="@popup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.eyeMovement2.Failcontroller">
 	<children>
 		<Button id="shadow" fx:id="closeBtn" layoutX="295.0" layoutY="400.0" mnemonicParsing="false" onAction="#closePopUp" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="그만하기" textFill="WHITE" AnchorPane.rightAnchor="100.0">
 			<font>

@@ -42,9 +42,13 @@ public class EndPopUpcontroller  {
 			}
 
 		} else {
-
-			System.out.println(ganswer);
-
+			try {
+				stripPage = FXMLLoader.load(getClass().getResource("gameFail.fxml"));
+				EndPopUpPage.getChildren().setAll(stripPage);
+				System.out.println(ganswer);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

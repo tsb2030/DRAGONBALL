@@ -40,8 +40,16 @@ public class EndPopUpcontroller {
 			}
 			
 		} else {
+			try {
+				zigzagPage = FXMLLoader.load(getClass().getResource("gameFail.fxml"));
+				EndPopUpPage.getChildren().setAll(zigzagPage);
+				System.out.println(ganswer);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
 
-			System.out.println(ganswer);
+
 
 		}
 
