@@ -45,19 +45,19 @@
                   </ImageView>
 	            <Pane maxHeight="80.0" maxWidth="200.0" minHeight="80.0" minWidth="200.0" prefHeight="80.0" prefWidth="200.0">
 	               <children> 
-	               	<Label fx:id="ScoreLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="300.0">
+	               	<Label fx:id="ScoreLabel" prefHeight="80.0" prefWidth="300.0">
 						         <font>
 						            <Font name="a소나무M" size="55.0" />
 						         </font>
 						      </Label>
 	               </children>
 	               <HBox.margin>
-	                  <Insets left="50.0" />
+	                  <Insets left="20.0" />
 	               </HBox.margin>
 	            </Pane>
                   <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="같은 그림 찾기" textAlignment="CENTER" wrappingWidth="359.75521087646484">
                      <HBox.margin>
-                        <Insets left="70.0" right="70.0" top="15.0" />
+                        <Insets left="50.0" right="70.0" top="15.0" />
                      </HBox.margin>       
                   </Text>
                   <Pane minHeight="60.0" minWidth="300.0" prefHeight="60.0" prefWidth="200.0">
