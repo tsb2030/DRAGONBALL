@@ -333,7 +333,7 @@ public class CatchballGameController implements Initializable {
 					catchBalltransition.setCycleCount(1);
 					catchBalltransition.play();
 					catchCircleY = catchCircleY - (250 - 100 / 2);
-
+					
 					if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 						smallScore++;
 						System.out.println("smallScore : " + smallScore);
@@ -411,6 +411,7 @@ public class CatchballGameController implements Initializable {
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
 					drawLine(catchCircleX, catchCircleY - 200, catchCircleX, catchCircleY);
+					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
 				} else {
 					correct = false;
 					falseCount++;
@@ -481,6 +482,7 @@ public class CatchballGameController implements Initializable {
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
 					drawLine(catchCircleX + 450, catchCircleY, catchCircleX, catchCircleY);
+					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
 				} else {
 					correct = false;
 					falseCount++;
@@ -551,6 +553,7 @@ public class CatchballGameController implements Initializable {
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
 					drawLine(catchCircleX - 450, catchCircleY, catchCircleX, catchCircleY);
+					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
 				} else {
 					correct = false;
 					falseCount++;

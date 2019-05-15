@@ -13,13 +13,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="gamePage" prefHeight="720.0" prefWidth="1280.0" stylesheets="@mobius_main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.findPicture.GamePageController">
+<AnchorPane fx:id="gamePage" prefHeight="720.0" prefWidth="1280.0" stylesheets="@mobius_main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.findPicture.GamePageController">
    <children>
       <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>
             <HBox minHeight="60.0" prefHeight="60.0" prefWidth="1280.0">
                <children>
-                 <ImageView id="btn" fx:id="BackBtn" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                 <ImageView id="btn" fx:id="BackBtn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#BackBtnAction" pickOnBounds="true" preserveRatio="true">
 	               <HBox.margin>
 	                  <Insets left="10.0" top="5.0" />
 	               </HBox.margin>
@@ -27,7 +27,7 @@
 	                <Image url="image/그룹 79.png" />
 	               </image>
 	            </ImageView>
-	             <ImageView id="btn" fx:id="PauseBtn" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+	             <ImageView id="btn" fx:id="PauseBtn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#pauseAction" pickOnBounds="true" preserveRatio="true">
 	               <HBox.margin>
 	                  <Insets left="10.0" top="5.0" />
 	               </HBox.margin>
@@ -35,6 +35,14 @@
 	                 <Image url="image/pause.png" />
 	               </image>
 	            </ImageView>
+                  <ImageView id="btn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#restartAction" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="image/pause.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
 	            <Pane maxHeight="80.0" maxWidth="200.0" minHeight="80.0" minWidth="200.0" prefHeight="80.0" prefWidth="200.0">
 	               <children> 
 	               	<Label fx:id="ScoreLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="300.0">

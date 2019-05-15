@@ -35,11 +35,9 @@ public class StartPageController implements Initializable  {
 
 			@Override
 			public void handle(Event event) {
-				// TODO Auto-generated method stub
 				try {
 					gamePage = FXMLLoader.load(getClass().getResource("GamePage.fxml"));
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -50,11 +48,9 @@ public class StartPageController implements Initializable  {
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
-				// TODO Auto-generated method stub
 				try {
 					gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				

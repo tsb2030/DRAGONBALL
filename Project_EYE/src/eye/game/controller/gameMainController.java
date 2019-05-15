@@ -155,7 +155,6 @@ public class gameMainController implements Initializable {
 					findPictureStart = FXMLLoader.load(getClass().getResource("../findPicture/StartPage.fxml"));
 
 				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
