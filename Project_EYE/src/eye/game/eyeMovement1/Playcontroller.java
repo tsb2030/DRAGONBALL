@@ -4,12 +4,9 @@ import eye.main.Main;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 import javafx.animation.PathTransition;
-import javafx.animation.Animation.Status;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,21 +14,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcTo;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.LineTo;
 import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class Playcontroller implements Initializable {
@@ -41,9 +33,9 @@ public class Playcontroller implements Initializable {
 	@FXML
 	private ImageView backBtn;
 
-	public static Stage currentStage;
+	static Stage currentStage;
 	private PathTransition pathTransition;
-	static int cnt = 0;
+	public static int cnt = 0;
 	boolean flag = true;
 	int dx = 0;
 	int duration = 4;

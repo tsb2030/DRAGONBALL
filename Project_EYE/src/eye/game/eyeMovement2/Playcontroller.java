@@ -42,7 +42,7 @@ public class Playcontroller implements Initializable {
 
 	public static Stage currentStage;
 	private PathTransition pathTransition;
-	static int cnt = 0;
+	public static int cnt = 0;
 	boolean flag = true;
 	int dx = 0;
 	int duration = 5;

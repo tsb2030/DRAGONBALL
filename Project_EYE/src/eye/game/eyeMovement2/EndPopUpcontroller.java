@@ -25,14 +25,20 @@ public class EndPopUpcontroller {
 	private TextField answer;
 
 	@FXML
-	void answerEqual(ActionEvent event) throws IOException {
+	void answerEqual(ActionEvent event)  {
 		String getAnswer = answer.getText();
 		int ganswer = Integer.parseInt(getAnswer);
 
 		if (Playcontroller.cnt == ganswer) {
-//			zigzagPage = FXMLLoader.load(getClass().getResource("gameSuccess.fxml"));
-//			EndPopUpPage.getChildren().setAll(zigzagPage);
-			System.out.println(ganswer);
+			try {
+				zigzagPage = FXMLLoader.load(getClass().getResource("gameSuccess.fxml"));
+				EndPopUpPage.getChildren().setAll(zigzagPage);
+				System.out.println(ganswer);
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			
 		} else {
 
 			System.out.println(ganswer);
