@@ -37,7 +37,7 @@
 	            </ImageView>
                   <ImageView id="btn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#restartAction" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="image/pause.png" />
+                        <Image url="image/play.png" />
                      </image>
                      <HBox.margin>
                         <Insets left="10.0" top="5.0" />

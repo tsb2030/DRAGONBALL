@@ -16,34 +16,50 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="gamePage" maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFe4;" stylesheets="@mobius_main.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchMole.DodugeGameController">
+<AnchorPane fx:id="gamePage" maxHeight="720.0" maxWidth="1280.0" minHeight="720.0" minWidth="1280.0" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFe4;" stylesheets="@mobius_main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchMole.DodugeGameController">
    <children>
       <HBox fx:id="titleBox" maxHeight="60.0" maxWidth="1280.0" minHeight="60.0" minWidth="1280.0" prefHeight="60.0" prefWidth="1280.0">
          <children>
          
-                  <ImageView id="btn" fx:id="backToStart" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#backToStartAction" pickOnBounds="true" preserveRatio="true">
+                <ImageView id="btn" fx:id="backToStart" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#backToStartAction" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
                   <Insets left="10.0" top="5.0" />
                </HBox.margin>
                <image>
-                  <Image url="image/그룹 79.png" />
+                        <Image url="image/그룹 79.png" />
+               </image>
+            </ImageView>
+            <ImageView id="btn" fx:id="pauseImageView" fitHeight="50.0" fitWidth="50.0" layoutX="9.0" layoutY="14.0" onMouseClicked="#pauseAction" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+               <image>
+                        <Image url="image/pause.png" />
+               </image>
+            </ImageView>
+            <ImageView id="btn" fx:id="restartImageView" fitHeight="50.0" fitWidth="50.0" layoutX="9.0" layoutY="84.0" onMouseClicked="#restartAction" pickOnBounds="true" preserveRatio="true">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+               <image>
+                        <Image url="image/play.png" />
                </image>
             </ImageView>
             <Pane maxHeight="80.0" maxWidth="200.0" minHeight="80.0" minWidth="200.0" prefHeight="80.0" prefWidth="200.0">
                <children> 
-               	<Label fx:id="ScoreLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="300.0">
+               	<Label fx:id="ScoreLabel" prefHeight="80.0" prefWidth="300.0">
 					         <font>
 					            <Font name="a소나무M" size="55.0" />
 					         </font>
 					      </Label>
                </children>
                <HBox.margin>
-                  <Insets left="50.0" />
+                  <Insets left="10.0" />
                </HBox.margin>
             </Pane>
             <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="두더지 잡기 트레이닝" textAlignment="CENTER" wrappingWidth="359.75521087646484">
                <HBox.margin>
-                  <Insets left="130.0" right="70.0" top="15.0" />
+                  <Insets left="50.0" right="70.0" top="15.0" />
                </HBox.margin>       
             </Text>
             <Pane minWidth="200.0" prefHeight="200.0" prefWidth="200.0">
@@ -56,16 +72,16 @@
 					      </Text>
                </children>
                <HBox.margin>
-                  <Insets left="200.0" />
+                  <Insets left="180.0" />
                </HBox.margin>
             </Pane>
             
                </children>
       </HBox>
       
-                        <Pane fx:id="mainPanel" layoutY="60.0" maxHeight="660.0" maxWidth="1280.0" minHeight="660.0" minWidth="1280.0" prefHeight="660.0" prefWidth="1280.0">
+         <Pane fx:id="mainPanel" layoutY="60.0" maxHeight="660.0" maxWidth="1280.0" minHeight="660.0" minWidth="1280.0" prefHeight="660.0" prefWidth="1280.0">
          <children>
-        <Line endX="223.0" layoutX="558.0" startX="-115.0" stroke="#707070" strokeWidth="3.0" />  
+        <Line endX="223.0" layoutX="558.0" layoutY="-1.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
 		      
 		      
       	<GridPane layoutX="50.0" layoutY="50.0" prefHeight="560.0" prefWidth="1180.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
@@ -97,16 +113,7 @@
             </ImageView>
          </children>
       </GridPane>
-            <ImageView id="btn" fx:id="pauseImageView" fitHeight="50.0" fitWidth="50.0" layoutX="9.0" layoutY="14.0" onMouseClicked="#pauseAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="image/그룹 79.png" />
-               </image>
-            </ImageView>
-            <ImageView id="btn" fx:id="restartImageView" fitHeight="50.0" fitWidth="50.0" layoutX="9.0" layoutY="84.0" onMouseClicked="#restartAction" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="image/그룹 79.png" />
-               </image>
-            </ImageView>
+            
       
                         
 				</children>

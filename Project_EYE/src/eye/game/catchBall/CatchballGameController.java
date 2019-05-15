@@ -48,9 +48,6 @@ public class CatchballGameController implements Initializable {
 	private AnchorPane GamePane; // 공이 움직이는 AnchoPane
 
 	@FXML
-	private Button pausebutton;
-
-	@FXML
 	ImageView BackBtn, PauseBtn;
 
 	int pauseSwitch = 0;
@@ -183,23 +180,25 @@ public class CatchballGameController implements Initializable {
 		PauseBtn.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
-				if (pauseSwitch == 0) { // 같은 버튼을 다시 눌렀을 때 다른 이벤트가 발생하도록 (switch형태) 하였다.)
-					pauseSwitch = 1;
-					timer.animation.pause();
-					bigPanne.setOpacity(0.45);
-					if (followBalltransition.getStatus() == Status.RUNNING)
-						followBalltransition.pause();
-					if (catchBalltransition.getStatus() == Status.RUNNING)
-						catchBalltransition.pause();
-				} else if (pauseSwitch == 1) {
-					pauseSwitch = 0;
-					timer.animation.play();
-					bigPanne.setOpacity(1.0);
-					if (followBalltransition.getStatus() == Status.PAUSED)
-						followBalltransition.play();
-					if (catchBalltransition.getStatus() == Status.PAUSED)
-						catchBalltransition.play();
-				}
+				// pauseEvent Start!
+				timer.animation.pause();
+				bigPanne.setOpacity(0.45);
+				if (followBalltransition.getStatus() == Status.RUNNING)
+					followBalltransition.pause();
+				if (catchBalltransition.getStatus() == Status.RUNNING)
+					catchBalltransition.pause();
+			}
+		});
+		
+		startButton.setOnMouseClicked(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				timer.animation.play();
+				bigPanne.setOpacity(1.0);
+				if (followBalltransition.getStatus() == Status.PAUSED)
+					followBalltransition.play();
+				if (catchBalltransition.getStatus() == Status.PAUSED)
+					catchBalltransition.play();
 			}
 		});
 
@@ -208,7 +207,7 @@ public class CatchballGameController implements Initializable {
 	// 게임이 종료되었을 때 호출되는 이벤트
 	public void gameOver()
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		currentStage = (Stage) pausebutton.getScene().getWindow();
+		currentStage = (Stage) PauseBtn.getScene().getWindow();
 		if (justOne == false) { // 종료 메소드가 한번 실행 되었다면 두번 반복되지 않기 위해 boolean값을 이용하였다.
 			if (timer.getTime() <= 0 || falseCount > 2) {
 				timer.animation.pause();
@@ -245,26 +244,26 @@ public class CatchballGameController implements Initializable {
 	}
 
 	// pause되어있던 상태를 원상태로 되돌린다.
-	@FXML
-	void startGame(MouseEvent event) {
-		timer.animation.play();
-		bigPanne.setOpacity(1.0);
-		if (followBalltransition.getStatus() == Status.PAUSED)
-			followBalltransition.play();
-		if (catchBalltransition.getStatus() == Status.PAUSED)
-			catchBalltransition.play();
-	}
+//	@FXML
+//	void startGame(MouseEvent event) {
+//		timer.animation.play();
+//		bigPanne.setOpacity(1.0);
+//		if (followBalltransition.getStatus() == Status.PAUSED)
+//			followBalltransition.play();
+//		if (catchBalltransition.getStatus() == Status.PAUSED)
+//			catchBalltransition.play();
+//	}
 
-	@FXML
-	void pauseEvent(ActionEvent event) {
-		// pauseEvent Start!
-		timer.animation.pause();
-		bigPanne.setOpacity(0.45);
-		if (followBalltransition.getStatus() == Status.RUNNING)
-			followBalltransition.pause();
-		if (catchBalltransition.getStatus() == Status.RUNNING)
-			catchBalltransition.pause();
-	}
+//	@FXML
+//	void pauseEvent(ActionEvent event) {
+//		// pauseEvent Start!
+//		timer.animation.pause();
+//		bigPanne.setOpacity(0.45);
+//		if (followBalltransition.getStatus() == Status.RUNNING)
+//			followBalltransition.pause();
+//		if (catchBalltransition.getStatus() == Status.RUNNING)
+//			catchBalltransition.pause();
+//	}
 
 	// 배열을 초기화 시킨다.(자바에선 사실상 필요없다.)
 	public double[] initArray(double[] line) {
