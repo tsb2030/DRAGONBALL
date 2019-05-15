@@ -34,9 +34,9 @@
                         <Image url="@backarrow.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="시선이동 트레이닝1">
+                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="뫼비우스 띠">
                      <HBox.margin>
-                        <Insets left="430.0" top="10.0" />
+                        <Insets left="480.0" top="10.0" />
                      </HBox.margin>
                   </Text>
                </children>

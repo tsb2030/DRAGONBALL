@@ -29,7 +29,7 @@
                         <Image url="@backarrow.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="시선 이동 트레이닝1" textAlignment="CENTER" wrappingWidth="359.75521087646484">
+                  <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="뫼비우스 띠" textAlignment="CENTER" wrappingWidth="359.75521087646484">
                      <HBox.margin>
                         <Insets left="400.0" right="70.0" top="15.0" />
                      </HBox.margin>       
