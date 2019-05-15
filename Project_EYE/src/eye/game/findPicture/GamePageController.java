@@ -89,7 +89,7 @@ public class GamePageController implements Initializable {
 	
 	@FXML
     void BackBtnAction(MouseEvent event) {
-		gamePageStage = (Stage) pausebutton.getScene().getWindow();
+		gamePageStage = (Stage) BackBtn.getScene().getWindow();
 		try {
 			findPictureStart = FXMLLoader.load(getClass().getResource("StartPage.fxml"));
 		} catch (IOException e) {
