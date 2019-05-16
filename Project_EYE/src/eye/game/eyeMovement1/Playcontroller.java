@@ -62,7 +62,7 @@ public class Playcontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
-					Parent root = FXMLLoader.load(getClass().getResource("strip_priorPage2.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("strip_priorPage3.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) eyePlayPage1.getScene().getWindow();
 					primaryStage.setScene(scene);
