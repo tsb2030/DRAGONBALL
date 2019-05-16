@@ -34,28 +34,29 @@ public class EndGamePopupController implements Initializable {
 
 	@FXML
 	void backGameAction(ActionEvent event) {
-		
+
 		try {
 
-			Main.mainMusic.stopMusic();
-			Main.mainMusic.resetNameAudioStream("LaLaLa");
-			//catchballGame fxml������ scene�� �����ϴ� ���
+//			Main.mainMusic.stopMusic();
+//			Main.mainMusic.resetNameAudioStream("LaLaLa");
+			// catchballGame fxml������ scene�� �����ϴ� ���
 			Parent CatchballGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));
 			Scene scene = new Scene(CatchballGame);
-			
-			//css����
-			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
-			
-			//���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
+
+			// css����
+			scene.getStylesheets()
+					.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+
+			// ���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
 			CatchballGameController.currentStage.setScene(scene);
 			CatchballGameController.currentStage.setTitle("CatchballGame");
-			
-			//���� �˾�â�� �ݱ����� �ϴ� ����
+
+			// ���� �˾�â�� �ݱ����� �ϴ� ����
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������
-			//���� �˾� â �ݱ�
+			// ���� �˾� â �ݱ�
 			primaryStage.close();
-			
-			//���� �ʱ�ȭ
+
+			// ���� �ʱ�ȭ
 			CatchballGameController.bigScore = 0;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -63,30 +64,32 @@ public class EndGamePopupController implements Initializable {
 	}
 
 	@FXML
-	void goMainButtonAction(ActionEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+	void goMainButtonAction(ActionEvent event)
+			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		// ���� �˾� â�� �ݰ�, ���� â�� �����ϴ� �۾��� �����ؾ� ��
 		Main.mainMusic.stopMusic();
 		Main.mainMusic.resetNameAudioStream("LaLaLa");
 		// go main
-    	try {
-    		//catchballGame fxml������ scene�� �����ϴ� ���
+		try {
+			// catchballGame fxml������ scene�� �����ϴ� ���
 			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
 			Scene scene = new Scene(selectSpeedPage);
 
-			//css����
-			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
-			
-			//���� �˾�â�� �ݱ����� �ϴ� ����
+			// css����
+			scene.getStylesheets()
+					.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+
+			// ���� �˾�â�� �ݱ����� �ϴ� ����
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������
 
-			//���� �ʱ�ȭ
+			// ���� �ʱ�ȭ
 			CatchballGameController.bigScore = 0;
-			
-			//���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
+
+			// ���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
 			CatchballGameController.currentStage.setScene(scene);
 			CatchballGameController.currentStage.setTitle("game_main_page");
-			
-			//���� �˾� â �ݱ�
+
+			// ���� �˾� â �ݱ�
 			primaryStage.close();
 		} catch (Exception e) {
 			e.printStackTrace();
