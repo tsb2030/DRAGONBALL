@@ -1343,7 +1343,7 @@ public class CatchballGameController implements Initializable {
 	public class Clock extends Pane {
 
 		private Timeline animation;
-		private int timeTmp = 6;
+		private int timeTmp = 60;
 		private String S = "";
 
 		public Clock() {
