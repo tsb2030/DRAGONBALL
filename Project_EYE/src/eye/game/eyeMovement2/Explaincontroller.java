@@ -59,7 +59,7 @@ public class Explaincontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
-					Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage2.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage3.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
 					primaryStage.setScene(scene);
@@ -76,7 +76,7 @@ public class Explaincontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
-					Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage2.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage3.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
 					primaryStage.setScene(scene);

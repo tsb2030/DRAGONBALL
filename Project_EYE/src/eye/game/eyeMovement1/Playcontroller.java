@@ -152,7 +152,7 @@ public class Playcontroller implements Initializable {
 				System.out.println(count);
 			}
 
-			if (count == 3 && tmp >= Selectcontroller.duration - 0.015) {
+			if (count == 20 && tmp >= Selectcontroller.duration - 0.015) {
 				showEndPopUp();
 				score.setText(String.valueOf(count));
 			}
@@ -160,7 +160,7 @@ public class Playcontroller implements Initializable {
 		});
 		pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
-		pathTransition.setCycleCount(3);
+		pathTransition.setCycleCount(20);
 		pathTransition.setDelay(new Duration(000));
 
 		// Playing the animation
