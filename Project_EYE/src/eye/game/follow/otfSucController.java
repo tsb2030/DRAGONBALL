@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+//1to50 팝업창 컨트롤러 - 게임3개 다 사용가능할듯?
 public class otfSucController {
 	
 	@FXML

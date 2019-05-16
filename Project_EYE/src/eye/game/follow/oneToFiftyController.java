@@ -15,7 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+//숫자게임 인트로 페이지 컨트롤러
 public class oneToFiftyController implements Initializable{
 	
 	@FXML
