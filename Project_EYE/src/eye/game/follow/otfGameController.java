@@ -26,7 +26,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+//숫자게임페이지에 달려있는 컨트롤러
 public class otfGameController implements Initializable{
 
 	@FXML
