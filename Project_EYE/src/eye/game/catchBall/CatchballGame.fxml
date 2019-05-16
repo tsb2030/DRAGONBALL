@@ -97,5 +97,20 @@
             <Font name="a소나무M" size="55.0" />
          </font>
       </Label>
+      <Text layoutX="182.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="틀린 횟수: " wrappingWidth="226.0">
+         <font>
+            <Font name="a소나무M" size="50.0" />
+         </font>
+      </Text>
+      <Label fx:id="falseCountLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="399.0" layoutY="48.0" prefHeight="80.0" prefWidth="83.0" text="0">
+         <font>
+            <Font name="a소나무M" size="50.0" />
+         </font>
+      </Label>
+      <Text layoutX="453.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="/3" wrappingWidth="71.0">
+         <font>
+            <Font name="a소나무M" size="50.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

@@ -62,6 +62,9 @@ public class CatchballGameController implements Initializable {
     private Label ScoreLabel;	//
     
     @FXML
+    private Label falseCountLabel;
+    
+    @FXML
     private Label judgeYourBehavior;
 
 	private static double numX1 = 50; // 1번 좌표
@@ -164,6 +167,7 @@ public class CatchballGameController implements Initializable {
 			@Override
 			public void handle(Event event) {
 				try {
+					timer.animation.pause();
 					Parent SelectSpeedPage = FXMLLoader.load(getClass().getResource("IntroducePage.fxml"));
 					Scene scene = new Scene(SelectSpeedPage);
 					scene.getStylesheets()
@@ -320,6 +324,7 @@ public class CatchballGameController implements Initializable {
 					} else { 
 						correct = false;
 						falseCount++;
+						falseCountLabel.setText(String.valueOf(falseCount));
 					}
 					
 					if (smallScore == 8 || correct == false) {
@@ -391,6 +396,7 @@ public class CatchballGameController implements Initializable {
 				} else {
 					correct = false;
 					falseCount++;
+					falseCountLabel.setText(String.valueOf(falseCount));
 				}
 				
 				
@@ -462,6 +468,7 @@ public class CatchballGameController implements Initializable {
 				} else {
 					correct = false;
 					falseCount++;
+					falseCountLabel.setText(String.valueOf(falseCount));
 				}
 				
 				if (smallScore == 8 || correct == false) {
@@ -533,6 +540,7 @@ public class CatchballGameController implements Initializable {
 				} else {
 					correct = false;
 					falseCount++;
+					falseCountLabel.setText(String.valueOf(falseCount));
 				}
 			
 				
