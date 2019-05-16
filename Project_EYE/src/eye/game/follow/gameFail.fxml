@@ -10,7 +10,7 @@
 	style="-fx-background-color: #ffffe4;"
 	xmlns="http://javafx.com/javafx/8.0.171"
 	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="application.Controller">
+	fx:controller="eye.game.follow.Controller">
 	<children>
 		<Button id="shadow" fx:id="closeBtn" layoutX="295.0"
 			layoutY="400.0" mnemonicParsing="false" onAction="#closePopUp"

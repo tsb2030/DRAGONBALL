@@ -11,13 +11,13 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="gamePageNum" prefHeight="720.0" prefWidth="1280.0" stylesheets="@game.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+<AnchorPane fx:id="gamePageNum" prefHeight="720.0" prefWidth="1280.0" stylesheets="@game.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.follow.otfGameController">
 	<children>
 		<VBox prefHeight="720.0" prefWidth="1280.0">
 			<children>
 				<HBox fx:id="titleBox" prefHeight="60.0" prefWidth="1280.0">
 					<children>
-						<ImageView id="btn" fx:id="btnBefore" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#goBackToInfoNum" pickOnBounds="true" preserveRatio="true">
+						<ImageView id="btn" fx:id="btnBefore" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
 							<HBox.margin>
 								<Insets bottom="10.0" left="10.0" top="10.0" />
 							</HBox.margin>
@@ -33,7 +33,7 @@
 								<Insets bottom="10.0" left="50.0" top="10.0" />
 							</HBox.margin>
 						</ImageView>
-                  <ImageView id="shadow" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="shadow" fx:id="reStartBtn" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@restart.png" />
                      </image>
@@ -54,7 +54,7 @@
 						<Pane prefHeight="60.0" prefWidth="430.0" styleClass="fontStyle">  <!-- 점수판 뒤의 원 -->
 							<children>
 								<Arc fill="#c6b351" layoutX="258.0" layoutY="-3.0" length="180.0" radiusX="201.0" radiusY="76.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
-								<Text layoutX="180.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
+								<Text fx:id="timer" layoutX="180.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
 							</children>
 						</Pane>
 					</children>
