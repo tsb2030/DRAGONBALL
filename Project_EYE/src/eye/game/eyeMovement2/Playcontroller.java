@@ -45,7 +45,7 @@ public class Playcontroller implements Initializable {
 	public static int cnt = 0;
 	boolean flag = true;
 	int dx = 0;
-	int duration = 5;
+	int duration = 4;
 	int count = 0;
 
 	@FXML
@@ -126,14 +126,14 @@ public class Playcontroller implements Initializable {
 							cir.setFill(Color.GREY);
 							dx = 1;
 						} else if (rndValue > 0.03 && rndValue <= 0.06 && dx != 2) {
-							cir.setFill(Color.ANTIQUEWHITE);
+							cir.setFill(Color.SEAGREEN);
 							dx = 2;
 
 						} else if (rndValue > 0.06 && rndValue <= 0.09 && dx != 3) {
 							cir.setFill(Color.CORAL);
 							dx = 3;
 						} else if (rndValue > 0.09 && rndValue <= 0.12 && dx != 4) {
-							cir.setFill(Color.WHITE);
+							cir.setFill(Color.DEEPPINK);
 							dx = 4;
 						} else if (rndValue > 0.12 && rndValue <= 0.14 && dx != 5) {
 							cir.setFill(Color.BLACK);
@@ -159,7 +159,7 @@ public class Playcontroller implements Initializable {
 				count++;
 			}
 
-			if (count == 3 && tmp >= Selectcontroller.duration - 0.015) {
+			if (count == 20 && tmp >= Selectcontroller.duration - 0.015) {
 				showEndPopUp();
 				score.setText(String.valueOf(count));
 
@@ -168,7 +168,7 @@ public class Playcontroller implements Initializable {
 		});
 		pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
-		pathTransition.setCycleCount(3);
+		pathTransition.setCycleCount(20);
 		pathTransition.setDelay(new Duration(000));
 
 		// Playing the animation
