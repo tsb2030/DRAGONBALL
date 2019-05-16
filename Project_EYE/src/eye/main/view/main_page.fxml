@@ -14,22 +14,22 @@
 				<Font name="a소나무M" size="100.0" />
 			</font>
 		</Label>
-		<Button fx:id="main_exercise" layoutX="268.0" layoutY="418.0" mnemonicParsing="false" onAction="#goGameMain" prefHeight="84.0" prefWidth="325.0" text="운동" textFill="WHITE" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="687.0">
+		<Button fx:id="main_exercise" layoutX="268.0" layoutY="418.0" mnemonicParsing="false" onAction="#goGameMain" prefHeight="84.0" prefWidth="325.0" text="운동" textFill="WHITE" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="270.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>
 		</Button>
-		<Button fx:id="main_setting" layoutX="685.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="설정" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="687.0" AnchorPane.rightAnchor="270.0">
+		<Button fx:id="main_setting" layoutX="685.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="설정" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.rightAnchor="270.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>
 		</Button>
-		<Button fx:id="main_relax" layoutX="685.0" layoutY="418.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="휴식" textFill="WHITE" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="687.0" AnchorPane.rightAnchor="270.0">
+		<Button fx:id="main_relax" layoutX="685.0" layoutY="418.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="휴식" textFill="WHITE" AnchorPane.bottomAnchor="218.0" AnchorPane.rightAnchor="270.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>
 		</Button>
-		<Button fx:id="main_record" layoutX="268.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="기록" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="687.0">
+		<Button fx:id="main_record" layoutX="268.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="기록" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="270.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>
