@@ -2,12 +2,12 @@ package eye.game.follow;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
-import eye.main.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
@@ -24,13 +24,13 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-//숫자게임페이지에 달려있는 컨트롤러
-public class otfGameController implements Initializable{
 
-	public static Stage currentStage;
+public class korGameController implements Initializable{
+public static Stage currentStage;
 	
 	@FXML
 	private ImageView btnBefore,pauseBtn,reStartBtn;
@@ -39,16 +39,18 @@ public class otfGameController implements Initializable{
 	@FXML
 	private Pane mainPanel; 
 	
-	public static int bul = 3;
+	public static int bul = 2;
+	
 	//arr1은 1~25 랜덤수, arr2는 26~50까지의 랜덤수를 가지기 위해 정의
 	@FXML
 	private Text timer;
 	public static String result;
-	private int arr1[] = new int[25];
-	private int arr2[] = new int[25];
+	private String check[] = {"ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅅ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"};
+	private String setting[] = new String[14];
+	private int arr1[] = new int[14];
 	Random rd = new Random();
 	//현재 어떤 수를 눌러야 하는지 판별하기위해서 사용되는 수
-	private int number = 1;
+	private int number = 0;
 	
 	//타임라인을 사용하기위한 정의
 	private Boolean isStart = false; // 시작인지 판단할 필드.
@@ -132,23 +134,19 @@ public class otfGameController implements Initializable{
 							 * 만약 number가 25보다 클 시에는 number값만 1올려주고 텍스트에 ""을 넣어준다.*/
 							Button btn = (Button) event.getSource();
 							String btnstr = btn.getText();
-							if(Integer.parseInt(btnstr)==number) {
-								if(number<=25) {
-									btn.setText(arr2[number-1]+"");
-								}else {
-									btn.setText("");
-								}
+							if(btnstr.equals(check[number])) {
+								btn.setText("");
 								number++;
 								System.out.println(number);
 								//number가 51이되면 게임이 끝난 것이므로 타임라인을 멈추고 숫자버튼이 눌리지않게 처리한다.
-								if(number==3) {
+								if(number==14) {
 									timeLine.stop();
 									for(int i=0;i<25;i++) {
 										 btnarr[i].setDisable(true);
 									 }
 									currentStage = (Stage) timer.getScene().getWindow();
 									result = timer.getText();
-									FXMLLoader endGamePopup = new FXMLLoader(getClass().getResource("gameSuccess.fxml"));
+									FXMLLoader endGamePopup = new FXMLLoader(getClass().getResource("korPopup.fxml"));
 									try {
 										AnchorPane anotherPage = (AnchorPane) endGamePopup.load();
 										Scene endGamePopupScene = new Scene(anotherPage);
@@ -169,33 +167,44 @@ public class otfGameController implements Initializable{
 					 btnarr[tmp++].setLayoutY(ly);
 					 lx += 240;
 				 }
-				 ly+=120;
+				 ly+=220;
 			 }
 		 }
 		 
 		 //게임 시작시에 버튼의 텍스트에 1~25까지의 랜덤수를 넣어주기 위한 부분
 		 public void textSetting(int[] intarr) {
 			 int tmp=0;
-			 for(int i=0;i<25;i++) {
-				 btnarr[tmp].setText(intarr[tmp]+"");
+			 for(int i=0;i<14;i++) {
+				 btnarr[tmp].setText(setting[tmp]);
 				 tmp++;
 			 }
 		 }
 		 
-		 //arr1,arr2에 각각 1~25,26~50까지의 수를 넣어주는부분
+		 //영어 랜덤지정 넣어주는부분
 		 public void random() {
-			 for(int i=0; i<25 ;){
+			 int k=0;
+			 
+			 while(true){
+				 int tl=0;
 		         Boolean tp=true;
-		         int r = rd.nextInt(25)+1;
-		         for(int j=0;j<25;j++){if(arr1[j]==r)tp=false;}
-		         if(tp){arr1[i]=r;i++; }
+		         int r = rd.nextInt(14);
+		         for(int j=0;j<14;j++){
+		        	 if(arr1[j]==r)
+		        		 tp=false;
+		        	 if(arr1[j]==0)
+		        		 tl++;
+		         }
+		         if(tp){arr1[k]=r;k++; }
+		         
+		         if(tl==1)
+		        	 break;
 		     }
-			 for(int i=0; i<25 ;){
-		         Boolean tp=true;
-		         int r = rd.nextInt(25)+26;
-		         for(int j=0;j<25;j++){if(arr2[j]==r)tp=false;}
-		         if(tp){arr2[i]=r;i++; }
-		     }
+			 
+			 for(int i=0;i<14;i++) {
+				 setting[i] = check[arr1[i]];
+			 }
+			 System.out.println(Arrays.toString(arr1));
+			 System.out.println(Arrays.toString(setting));
 		 }
 		 
 		//게임 시작시 실행되는 메소드
