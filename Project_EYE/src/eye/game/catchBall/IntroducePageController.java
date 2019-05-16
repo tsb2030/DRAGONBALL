@@ -1,10 +1,12 @@
 package eye.game.catchBall;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.jfoenix.controls.JFXButton;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 import eye.main.Main;
 import javafx.event.ActionEvent;
@@ -62,8 +64,10 @@ public class IntroducePageController implements Initializable  {
    			public void handle(Event event) {
    				// TODO Auto-generated method stub
    				try {
+   					Main.mainMusic.stopMusic();
+   					Main.mainMusic.resetNameAudioStream("LaLaLa");
    					gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
-   				} catch (IOException e) {
+   				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
    					// TODO Auto-generated catch block
    					e.printStackTrace();
    				}
