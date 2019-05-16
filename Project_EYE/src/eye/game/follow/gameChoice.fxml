@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="background" prefHeight="720.0" prefWidth="1280.0" stylesheets="@intro.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.follow.followController">
+	<children>
+		<VBox prefHeight="720.0" prefWidth="1280.0">
+			<children>
+				<HBox prefHeight="60.0" prefWidth="1280.0">
+					<children>
+						<ImageView id="shadow" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+							<HBox.margin>
+								<Insets left="10.0" top="10.0" />
+							</HBox.margin>
+							<image>
+								<Image url="@back.png" />
+							</image>
+						</ImageView>
+						<Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="순서대로 따라가기">
+							<HBox.margin>
+								<Insets left="450.0" top="15.0" />
+							</HBox.margin>
+						</Text>
+					</children>
+				</HBox>
+				<Pane prefHeight="660.0" prefWidth="1280.0">
+					<children>
+						<Line endX="223.0" layoutX="580.0" layoutY="-1.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
+						<Pane id="backBorder" layoutX="140.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" />
+                  <Button id="shadow" fx:id="korBtn" layoutX="290.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToKorGameIntro" prefHeight="50.0" prefWidth="129.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="choiceBtn" text="선택하기" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button id="shadow" fx:id="engBtn" layoutX="575.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToEngGameIntro" prefHeight="50.0" prefWidth="129.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="choiceBtn" text="선택하기" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button id="shadow" fx:id="numBtn" layoutX="850.0" layoutY="460.0" mnemonicParsing="false" onAction="#goToNumGameIntro" prefHeight="50.0" prefWidth="129.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="choiceBtn" text="선택하기" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+						<Label layoutX="410.0" layoutY="110.0" prefHeight="60.0" prefWidth="478.0" styleClass="infoGame" text="순서대로 따라갈 문자를 선택해주세요." textAlignment="CENTER" textFill="#252525" />
+                  <Label layoutX="335.0" layoutY="220.0" styleClass="fontStyleChoice" text="한글">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="600.0" layoutY="220.0" styleClass="fontStyleChoice" text="알파벳">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="895.0" layoutY="220.0" styleClass="fontStyleChoice" text="숫자">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="170.0" fitWidth="235.0" layoutX="240.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@ㄱtoㅎ.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="170.0" fitWidth="235.0" layoutX="520.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@atoz.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="170.0" fitWidth="235.0" layoutX="800.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@1to50.png" />
+                     </image>
+                  </ImageView>
+					</children>
+				</Pane>
+			</children>
+		</VBox>
+	</children>
+</AnchorPane>

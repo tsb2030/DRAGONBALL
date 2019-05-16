@@ -25,15 +25,15 @@ import javafx.scene.text.TextFlow;
 public class gameMainController implements Initializable {
 	// 화면 전환을 위해 필요한 페이지들을 미리 정의한다.
 	@FXML
-	AnchorPane gameMainPage, mainPage, oneToFiftyPage, catchBallPage, zigzagPage,fiveDotPage,findPictureStart,stripPage;
+	AnchorPane gameMainPage, mainPage,followPage, catchBallPage, zigzagPage,fiveDotPage,findPictureStart,stripPage;
 
 	// 이미지뷰를 버튼화 시키기 위해서 필요한 정의
 	@FXML
-	ImageView oneToFiftyBtn, backBtn, fiveDotBtn,catchBallBtn,findPictureBtn;
+	ImageView followBtn, backBtn, fiveDotBtn,catchBallBtn,findPictureBtn;
 
 	// 운동별 설명문을 넣기 위해서 필요한 정의
 	@FXML
-	TextFlow oneToFiftyText, mobiusText, zigzagText, fivedotText, catchmoleText, catchballText, findpictureText;
+	TextFlow followText, mobiusText, zigzagText, fivedotText, catchmoleText, catchballText, findpictureText;
 
 	// 버튼을 미리 정의해주어야 하기 때문에 initialize부분에서 이미지뷰들의 이벤트처리를 한다.
 	@Override
@@ -44,7 +44,7 @@ public class gameMainController implements Initializable {
 		Text t = new Text(
 				"<순서대로 따라가기>" + "\n\"다음 문자는 어디에 있지?\"" + "\n정해진 시간 안에 흩어져 있는 숫자나 문자를 순서대로 찾아보아요"
 						+ "\n\nTip! 빨리 움직일수록  눈운동 효과 up!");
-		oneToFiftyText.getChildren().add(t);
+		followText.getChildren().add(t);
 
 		// 뫼비우스띠
 		t = new Text("<뫼비우스 띠>" + "\n\"세상이 빙-빙- 돈다\"" + "\n총 20회 동안 진행되는 첫번째 시선 이동 트레이닝으로, ∞모양을 따라 움직입니다"+ "\n\nTip! 본인의 취향에 맞게 진행 속도를 조절하세요!");
@@ -100,7 +100,7 @@ public class gameMainController implements Initializable {
 		});
 
 		// 1to50게임으로 화면전환
-		oneToFiftyBtn.setOnMouseClicked(new EventHandler<Event>() {
+		followBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
@@ -110,14 +110,14 @@ public class gameMainController implements Initializable {
 
 					Main.mainMusic.stopMusic();
 					Main.mainMusic.resetNameAudioStream("introMusic");
-					oneToFiftyPage = FXMLLoader.load(getClass().getResource("../oneToFifty/oneToFiftyGame.fxml"));
+					followPage = FXMLLoader.load(getClass().getResource("../follow/gameChoice.fxml"));
 
 				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
-				gameMainPage.getChildren().setAll(oneToFiftyPage);
+				gameMainPage.getChildren().setAll(followPage);
 			}
 		});
 

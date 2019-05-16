@@ -33,13 +33,13 @@
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
                            <!-- 1to50 -->
-                  				<ImageView fx:id="oneToFiftyImage" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                  				<ImageView fx:id="followImage" fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                   					<image>
                   						<Image url="@../../../image/gameList/atoz.png" />
                   					</image>
                   				</ImageView>
-                  				<TextFlow fx:id="oneToFiftyText" layoutX="381.0" layoutY="35.0" lineSpacing="5.0" prefHeight="180.0" prefWidth="500.0" textAlignment="LEFT" />
-                  				<ImageView fx:id="oneToFiftyBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                  				<TextFlow fx:id="followText" layoutX="381.0" layoutY="35.0" lineSpacing="5.0" prefHeight="180.0" prefWidth="500.0" textAlignment="LEFT" />
+                  				<ImageView fx:id="followBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
                   					<image>
                   						<Image url="image/GObtn.png" />
                   					</image>
