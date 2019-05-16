@@ -245,7 +245,6 @@ public class CatchballGameController implements Initializable {
 		}
 	}
 
-
 	// 배열을 초기화 시킨다.(자바에선 사실상 필요없다.)
 	public double[] initArray(double[] line) {
 		for (int i = 0; i < line.length; i++) {
