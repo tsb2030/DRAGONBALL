@@ -243,27 +243,6 @@ public class CatchballGameController implements Initializable {
 		}
 	}
 
-	// pause되어있던 상태를 원상태로 되돌린다.
-//	@FXML
-//	void startGame(MouseEvent event) {
-//		timer.animation.play();
-//		bigPanne.setOpacity(1.0);
-//		if (followBalltransition.getStatus() == Status.PAUSED)
-//			followBalltransition.play();
-//		if (catchBalltransition.getStatus() == Status.PAUSED)
-//			catchBalltransition.play();
-//	}
-
-//	@FXML
-//	void pauseEvent(ActionEvent event) {
-//		// pauseEvent Start!
-//		timer.animation.pause();
-//		bigPanne.setOpacity(0.45);
-//		if (followBalltransition.getStatus() == Status.RUNNING)
-//			followBalltransition.pause();
-//		if (catchBalltransition.getStatus() == Status.RUNNING)
-//			catchBalltransition.pause();
-//	}
 
 	// 배열을 초기화 시킨다.(자바에선 사실상 필요없다.)
 	public double[] initArray(double[] line) {
@@ -335,13 +314,11 @@ public class CatchballGameController implements Initializable {
 					
 					if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 						smallScore++;
-						System.out.println("smallScore : " + smallScore);
+						bigScore++;
 						drawLine(catchCircleX, catchCircleY + 200, catchCircleX, catchCircleY);
-						System.out.println("마자춤");
-						ScoreLabel.setText(String.valueOf(bigScore + smallScore));
+						ScoreLabel.setText(String.valueOf(bigScore));
 					} else { 
 						correct = false;
-						System.out.println("틀렸춤");
 						falseCount++;
 					}
 					
@@ -378,7 +355,6 @@ public class CatchballGameController implements Initializable {
 							break;
 						}
 						judgeYourBehavior.setText(yourBehavior);
-						bigScore += smallScore;
 						smallScore = 0;
 						correct = true;
 						checkLine = initArray(checkLine); 
@@ -409,8 +385,9 @@ public class CatchballGameController implements Initializable {
 			
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
+					bigScore++;
 					drawLine(catchCircleX, catchCircleY - 200, catchCircleX, catchCircleY);
-					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
+					ScoreLabel.setText(String.valueOf(bigScore));
 				} else {
 					correct = false;
 					falseCount++;
@@ -450,7 +427,6 @@ public class CatchballGameController implements Initializable {
 						break;
 					}
 					judgeYourBehavior.setText(yourBehavior);
-					bigScore += smallScore;
 					smallScore = 0;
 					correct = true;
 					checkLine = initArray(checkLine);
@@ -480,8 +456,9 @@ public class CatchballGameController implements Initializable {
 			
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
+					bigScore++;
 					drawLine(catchCircleX + 450, catchCircleY, catchCircleX, catchCircleY);
-					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
+					ScoreLabel.setText(String.valueOf(bigScore));
 				} else {
 					correct = false;
 					falseCount++;
@@ -520,7 +497,6 @@ public class CatchballGameController implements Initializable {
 						break;
 					}
 					judgeYourBehavior.setText(yourBehavior);
-					bigScore += smallScore;
 					smallScore = 0;
 					correct = true;
 					checkLine = initArray(checkLine);
@@ -551,8 +527,9 @@ public class CatchballGameController implements Initializable {
 				
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
+					bigScore++;
 					drawLine(catchCircleX - 450, catchCircleY, catchCircleX, catchCircleY);
-					ScoreLabel.setText(String.valueOf(bigScore + smallScore));
+					ScoreLabel.setText(String.valueOf(bigScore));
 				} else {
 					correct = false;
 					falseCount++;
@@ -592,7 +569,6 @@ public class CatchballGameController implements Initializable {
 						break;
 					}
 					judgeYourBehavior.setText(yourBehavior);
-					bigScore += smallScore;
 					smallScore = 0;
 					correct = true;
 					checkLine = initArray(checkLine);
@@ -1365,17 +1341,27 @@ public class CatchballGameController implements Initializable {
 		private String S = "";
 
 		public Clock() {
-			animation = new Timeline(new KeyFrame(Duration.seconds(1), e -> timeLabel()));
+			animation = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
+				try {
+					timeLabel();
+				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException
+						| URISyntaxException e1) {
+					e1.printStackTrace();
+				}
+			}));
 			animation.setCycleCount(Timeline.INDEFINITE);
 			animation.play();
 		}
 
-		private void timeLabel() {
+		private void timeLabel() throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 			if (timeTmp > 0)
 				timeTmp--;
 			timeTime = timeTmp;
 			S = "Time: " + timeTmp + "";
 			timeLabel.setText(S);
+			if(timeTmp == 0) {
+				gameOver();
+			}
 		}
 
 		public int getTime() {

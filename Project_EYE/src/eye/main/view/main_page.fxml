@@ -2,34 +2,34 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="mainPage" fx:controller="eye.main.controller.mainController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFE4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="mainPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFE4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.main.controller.mainController">
 	<children>
 		<Label alignment="CENTER" layoutX="391.0" layoutY="130.0" text="운동하라" textFill="#3bb948" AnchorPane.leftAnchor="391.0" AnchorPane.topAnchor="130.0">
 			<font>
 				<Font name="a소나무M" size="100.0" />
 			</font>
 		</Label>
-		<Button onAction="#goGameMain" fx:id="main_exercise" layoutX="268.0" layoutY="418.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="운동" textFill="WHITE" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="268.0">
+		<Button fx:id="main_exercise" layoutX="268.0" layoutY="418.0" mnemonicParsing="false" onAction="#goGameMain" prefHeight="84.0" prefWidth="325.0" text="운동" textFill="WHITE" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="687.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>
 		</Button>
-		<Button fx:id="main_setting" layoutX="687.0" layoutY="418.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="설정" textFill="WHITE" AnchorPane.bottomAnchor="218.0" AnchorPane.rightAnchor="268.0">
+		<Button fx:id="main_setting" layoutX="685.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="설정" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="687.0" AnchorPane.rightAnchor="270.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>
 		</Button>
-		<Button fx:id="main_relax" layoutX="687.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="휴식" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="687.0">
+		<Button fx:id="main_relax" layoutX="685.0" layoutY="418.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="휴식" textFill="WHITE" AnchorPane.bottomAnchor="218.0" AnchorPane.leftAnchor="687.0" AnchorPane.rightAnchor="270.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>
 		</Button>
-		<Button fx:id="main_record" layoutX="268.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="기록" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.rightAnchor="687.0">
+		<Button fx:id="main_record" layoutX="268.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="기록" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="270.0" AnchorPane.rightAnchor="687.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>
@@ -39,7 +39,7 @@
             <Image url="image/운눈_로고.png" />
 		</image>
 	  </ImageView>
-		<Label layoutX="282.0" layoutY="284.0" text="E   x   e   r   c   i   s   e      Y   o   u   r      E   y   e   s">
+		<Label layoutX="287.0" layoutY="285.0" text="E   x   e   r   c   i   s   e      Y   o   u   r      E   y   e   s">
 			<font>
 				<Font name="a소나무L" size="31.0" />
 			</font>
