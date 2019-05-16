@@ -60,8 +60,8 @@ public class gameMainController implements Initializable {
 		fivedotText.getChildren().add(t);
 
 		// 두더지잡기
-		t = new Text("<두더지 잡기>" + "\n\"요놈 잡았다!\"" + "\n여러 군데서 나타나는 두더지를 클릭해보세요"
-				+ "\n한 마리를 잡으면 바로 다른 곳에서 나타납니다" + "\n\nTip! 두더지를 따라 움직이는 눈동자 감각에 집중해주세요!");
+		t = new Text("<두더지 잡기>" + "\n\"요놈 잡았다!\"" + "\n여러 군데서 나타나는 두더지를 클릭해보세요!"
+				+ "   한 마리를 잡으면 바로 다른 곳에서 나타납니다" + "\n\nTip! 두더지를 따라 움직이는 눈동자 감각에 집중해주세요!");
 		catchmoleText.getChildren().add(t);
 
 		// 캐치볼
@@ -188,7 +188,7 @@ public class gameMainController implements Initializable {
 		zigzagPage = FXMLLoader.load(getClass().getResource("../eyeMovement2/zz_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(zigzagPage);
     }
-    
+
     @FXML
     void striptrainingAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
     	Main.mainMusic.stopMusic();
