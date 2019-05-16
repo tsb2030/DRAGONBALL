@@ -219,8 +219,6 @@ public class CatchballGameController implements Initializable {
 				if (followBalltransition.getStatus() == Status.RUNNING)
 					followBalltransition.pause();
 
-				if (catchBalltransition.getStatus() == Status.RUNNING)
-					catchBalltransition.pause();
 				FXMLLoader EndGamePopup = new FXMLLoader(Main.class.getResource("../game/catchBall/EndGamePopup.fxml"));
 
 				justOne = true;
@@ -1345,17 +1343,20 @@ public class CatchballGameController implements Initializable {
 	public class Clock extends Pane {
 
 		private Timeline animation;
-		private int timeTmp = 60;
+		private int timeTmp = 6;
 		private String S = "";
 
 		public Clock() {
 			animation = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
 				try {
+					
+					
 					timeLabel();
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException
 						| URISyntaxException e1) {
 					e1.printStackTrace();
 				}
+				
 			}));
 			animation.setCycleCount(Timeline.INDEFINITE);
 			animation.play();
@@ -1367,7 +1368,7 @@ public class CatchballGameController implements Initializable {
 			timeTime = timeTmp;
 			S = "Time: " + timeTmp + "";
 			timeLabel.setText(S);
-			if(timeTmp == 0) {
+			if(timeTime <= 0) {
 				gameOver();
 			}
 		}
