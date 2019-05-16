@@ -22,6 +22,10 @@ public class EndPopupController {
 			GamePageController.gamePageStage.setScene(scene);
 			GamePageController.gamePageStage.setTitle("5점 카드 트레이닝");
 			
+			scene.getStylesheets()
+			.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+
+			
 			Stage currentStage = (Stage) endPopup.getScene().getWindow();
 			currentStage.close();
 			
@@ -41,6 +45,10 @@ public class EndPopupController {
 			Scene scene = new Scene(root);		
 			GamePageController.gamePageStage.setScene(scene);
 			GamePageController.gamePageStage.setTitle("게임 고르기 페이지");
+			
+			scene.getStylesheets()
+			.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+
 			
 			Stage currentStage = (Stage) endPopup.getScene().getWindow();
 			currentStage.close();

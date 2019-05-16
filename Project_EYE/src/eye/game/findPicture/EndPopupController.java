@@ -40,6 +40,9 @@ public class EndPopupController implements Initializable {
 			Parent DodugeGame2 = FXMLLoader.load(getClass().getResource("GamePage.fxml"));
 			Scene scene = new Scene(DodugeGame2);
 		
+			scene.getStylesheets()
+			.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			
 			GamePageController.bigScore = 0;
 			GamePageController.timeTime = 60;
 			GamePageController.dodugeStage.setScene(scene);
