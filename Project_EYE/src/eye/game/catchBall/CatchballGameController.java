@@ -11,8 +11,11 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import eye.main.Main;
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
+import javafx.animation.ParallelTransition;
 import javafx.animation.PathTransition;
+import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -48,25 +51,29 @@ public class CatchballGameController implements Initializable {
 	@FXML
 	private AnchorPane GamePane; // 공이 움직이는 AnchoPane
 
-	@FXML
-	ImageView BackBtn, PauseBtn;
-
-	int pauseSwitch = 0;
-
 	// 현재 Stage를 저장하기 위한 변수
 	public static Stage currentStage;
 
 	@FXML
+	ImageView BackBtn, PauseBtn;
+
+	@FXML
 	private Text timeLabel; // 시간을 표시하기 위한 Text
-	
-    @FXML
-    private Label ScoreLabel;	//
-    
-    @FXML
-    private Label falseCountLabel;
-    
-    @FXML
-    private Label judgeYourBehavior;
+
+	@FXML
+	private Label ScoreLabel; //
+
+	@FXML
+	private Label falseCountLabel;
+
+	@FXML
+	private Label judgeYourBehavior;
+
+	@FXML
+	private Circle followCircle;
+
+	@FXML
+	private Circle catchCircle;
 
 	private static double numX1 = 50; // 1번 좌표
 	private static double numY1 = 50;
@@ -95,15 +102,10 @@ public class CatchballGameController implements Initializable {
 	private static double numX9 = 950; // 9번 좌표
 	private static double numY9 = 450;
 
-	//catchBall을 움직일수 있게 할지 말지를 결정해주는 변수
-	private boolean flag = false;
-	@FXML
-	private Circle followCircle;
+	// catchBall을 움직일수 있게 할지 말지를 결정해주는 변수
+	private boolean flag = false; // catchBall움직이는거 허락하는 변수
+	int pauseSwitch = 0;
 
-	@FXML
-	private Circle catchCircle;
-
-	double speedValue = IntroducePageController.gameSpeed;
 	double firstSpeedValue = IntroducePageController.gameSpeed;
 	double changedSpeedValue = firstSpeedValue;
 	double speedIncreaseValue = firstSpeedValue;
@@ -127,6 +129,9 @@ public class CatchballGameController implements Initializable {
 
 	// 한 판당 점수
 	private int smallScore = 0;
+
+	// 판단 증감 점수
+	private int plusScore = 1;
 
 	// 전체 게임의 총 점수
 	public static int bigScore = 0;
@@ -157,18 +162,17 @@ public class CatchballGameController implements Initializable {
 	// 현재까지 진행된 시간값을 전달하기 위한 변수
 	public static int timeTime;
 
-
 	// 처음 창이 실행되었을 경우
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-    	System.out.println("java version: "+System.getProperty("java.version"));
+		System.out.println("java version: " + System.getProperty("java.version"));
 		System.out.println("javafx.version: " + System.getProperty("javafx.version"));
 		timer = new Clock();
 
 		followCircle.setVisible(false);
 		catchCircle.setVisible(false);
 		followCircleStart();
-		firstColor = catchCircle.getFill();
+		firstColor = catchCircle.getFill(); // 처음 컬러를 얻어서 저장
 
 		// backButton이 실행되었을 경우
 		BackBtn.setOnMouseClicked(new EventHandler<Event>() {
@@ -201,7 +205,7 @@ public class CatchballGameController implements Initializable {
 					catchBalltransition.pause();
 			}
 		});
-		
+
 		startButton.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
@@ -246,7 +250,7 @@ public class CatchballGameController implements Initializable {
 
 	}
 
-	// 입력받은 라인배열로 checkLine배열의 값들을 채운다. 
+	// 입력받은 라인배열로 checkLine배열의 값들을 채운다.
 	public void setCheckLine(double[] line) {
 		for (int i = 0; i < line.length; i++) {
 			this.checkLine[i] = line[i];
@@ -261,7 +265,7 @@ public class CatchballGameController implements Initializable {
 		return line;
 	}
 
-	//catchBall이 간 경로를 그려주는 메소드
+	// catchBall이 간 경로를 그려주는 메소드
 	public void drawLine(double startX, double startY, double endX, double endY) {
 		line = new Line(startX, startY, endX, endY);
 		line.setStroke(Color.LIGHTGREEN);
@@ -296,46 +300,51 @@ public class CatchballGameController implements Initializable {
 			}
 		lineRouteIndex = 0;
 	}
-	
-	//노드 색깔 바꾸깅
+
+	// 노드 색깔 바꾸깅
 	public void changeNode(Circle catchCircle) {
-//		ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(5));
-//
-//		scaleTransition.setNode(catchCircle);
-//		scaleTransition.setCycleCount(1);
-//		scaleTransition.setToX(1.1);
-//		scaleTransition.setToY(1.1);
-//
-//		TranslateTransition translateTransition = new TranslateTransition(Duration.millis(5));
-//		translateTransition.setFromX(catchCircleX);
-//		translateTransition.setFromY(catchCircleY);
-//		translateTransition.setToX(catchCircleX + 10);
-//		translateTransition.setToY(catchCircleY + 10);
-//		translateTransition.setCycleCount(1);
-//
-//		ParallelTransition parallelTransition = new ParallelTransition(catchCircle, scaleTransition,
-//				translateTransition);
+
 		// catBall의 색깔 변화
-		if (colorCount == 0) {
+		if (colorCount == 0) { // 첫 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.YELLOWGREEN);
 			colorCount++;
+			plusScore += 1; // plusScore == 2
 			speedIncreaseValue = firstSpeedValue * 0.75;
-		} else if (colorCount == 1) {
+		} else if (colorCount == 1) { // 둘째 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.YELLOW);
 			colorCount++;
+			plusScore += 2; // plusScore == 4
 			speedIncreaseValue = speedIncreaseValue * 0.75;
-		} else if (colorCount == 2) {
+		} else if (colorCount == 2) { // 셋째 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.ORANGE);
 			colorCount++;
+			plusScore += 4; // plusScore == 8
 			speedIncreaseValue = speedIncreaseValue * 0.75;
-		} else {
+		} else { // 넷째 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.RED);
 		}
-//		parallelTransition.play();
-//		playAnimationAndWaitForFinish(parallelTransition);
+
+		ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(5));
+
+		scaleTransition.setNode(catchCircle);
+		scaleTransition.setCycleCount(1);
+		scaleTransition.setToX(1.1);
+		scaleTransition.setToY(1.1);
+
+		TranslateTransition translateTransition = new TranslateTransition(Duration.millis(5));
+		translateTransition.setFromX(catchCircleX);
+		translateTransition.setFromY(catchCircleY);
+		translateTransition.setToX(catchCircleX + 10);
+		translateTransition.setToY(catchCircleY + 10);
+		translateTransition.setCycleCount(1);
+
+		ParallelTransition parallelTransition = new ParallelTransition(catchCircle, scaleTransition,
+				translateTransition);
+		parallelTransition.play();
 		
+//		playAnimationAndWaitForFinish(parallelTransition);
 	}
-	
+
 	// 한판을 성공했을 때 이벤트
 	public void oneStageSuccesEvent(Circle catchCircle) {
 		// 빨간 공 스피드 올리고
@@ -343,9 +352,9 @@ public class CatchballGameController implements Initializable {
 
 //		catchBall이 살짝 커졌다다시 작아짐 -> 시발 안 해 않 해 안 해 안 해 안 해 ㅁ시바러비러ㅣㅓ이ㅣㅏㄹ빙
 		changeNode(catchCircle);
-		
+
 	}
-	
+
 	// 한판을 실패했을 때 이벤트
 	public void oneStageFailEvent(Circle catchCircle, double currentX, double currentY) {
 		// 빨간 공의 스피드를 초기 스피드로 롤백시킴
@@ -355,7 +364,7 @@ public class CatchballGameController implements Initializable {
 		// catchBall의 색깔이 초기 색으로 돌아옴
 		colorCount = 0;
 		catchCircle.setFill(firstColor);
-		
+
 		// catchBall이 부르르르 떨림
 //		PathTransition pathTransition = new PathTransition(Duration.millis(10000), catchCircle);
 //
@@ -375,18 +384,18 @@ public class CatchballGameController implements Initializable {
 //		pathTransition.setPath(path);
 //		pathTransition.play();
 	}
-	
+
 	// 시간 초과까지 무사히 완료했을 때 이벤트
-		public void allStageSuccesEvent() {
+	public void allStageSuccesEvent() {
 
-		}
+	}
 
-		// 삼진 아웃 되었을때 이벤트
-		public void allStageFailEvent() {
+	// 삼진 아웃 되었을때 이벤트
+	public void allStageFailEvent() {
 
-		}
-		
-		//언젠가 쓰게 될 지도 모르는 메소드
+	}
+
+	// 언젠가 쓰게 될 지도 모르는 메소드
 //		private synchronized void playAnimationAndWaitForFinish(final Animation animation) {
 //		if (Platform.isFxApplicationThread()) {
 //			throw new IllegalThreadStateException("Cannot be executed on main JavaFX thread???????");
@@ -421,8 +430,8 @@ public class CatchballGameController implements Initializable {
 //		}
 //
 //	}
-	
-	//catchBall을 움직이게 하는 키 이벤트 메소드
+
+	// catchBall을 움직이게 하는 키 이벤트 메소드
 	@FXML
 	void keyEventHandler(KeyEvent event) throws InterruptedException, UnsupportedAudioFileException, IOException,
 			LineUnavailableException, URISyntaxException {
@@ -445,19 +454,19 @@ public class CatchballGameController implements Initializable {
 					catchBalltransition.setCycleCount(1);
 					catchBalltransition.play();
 					catchCircleY = catchCircleY - (250 - 100 / 2);
-					
+
 					if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 						smallScore++;
 						bigScore++;
 						drawLine(catchCircleX, catchCircleY + 200, catchCircleX, catchCircleY);
 						ScoreLabel.setText(String.valueOf(bigScore));
-					} else { 
+					} else {
 						correct = false;
 						falseCount++;
 						falseCountLabel.setText(String.valueOf(falseCount));
 						oneStageFailEvent(catchCircle, catchCircleX, catchCircleY);
 					}
-					
+
 					if (smallScore == 8 || correct == false) {
 						switch (lineIndex) {
 						case 0:
@@ -496,8 +505,8 @@ public class CatchballGameController implements Initializable {
 						judgeYourBehavior.setText(yourBehavior);
 						smallScore = 0;
 						correct = true;
-						checkLine = initArray(checkLine); 
-						lineIndex = -1; 
+						checkLine = initArray(checkLine);
+						lineIndex = -1;
 						InVisibleLine();
 						catchCircle.setVisible(false);
 						followCircleStart();
@@ -521,7 +530,7 @@ public class CatchballGameController implements Initializable {
 					catchBalltransition.play();
 					catchCircleY = catchCircleY + (250 - 100 / 2);
 				}
-			
+
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
 					bigScore++;
@@ -533,8 +542,7 @@ public class CatchballGameController implements Initializable {
 					falseCountLabel.setText(String.valueOf(falseCount));
 					oneStageFailEvent(catchCircle, catchCircleX, catchCircleY);
 				}
-				
-				
+
 				if (smallScore == 8 || correct == false) {
 					switch (lineIndex) {
 					case 0:
@@ -579,7 +587,7 @@ public class CatchballGameController implements Initializable {
 					catchCircle.setVisible(false);
 					followCircleStart();
 					gameOver();
-					
+
 				}
 
 				break;
@@ -597,7 +605,7 @@ public class CatchballGameController implements Initializable {
 					catchBalltransition.play();
 					catchCircleX = catchCircleX - (500 - 100 / 2);
 				}
-			
+
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
 					bigScore++;
@@ -609,7 +617,7 @@ public class CatchballGameController implements Initializable {
 					falseCountLabel.setText(String.valueOf(falseCount));
 					oneStageFailEvent(catchCircle, catchCircleX, catchCircleY);
 				}
-				
+
 				if (smallScore == 8 || correct == false) {
 					switch (lineIndex) {
 					case 0:
@@ -653,7 +661,7 @@ public class CatchballGameController implements Initializable {
 					InVisibleLine();
 					catchCircle.setVisible(false);
 					followCircleStart();
-					
+
 					gameOver();
 				}
 
@@ -673,7 +681,7 @@ public class CatchballGameController implements Initializable {
 					catchCircleX = catchCircleX + (500 - 100 / 2);
 
 				}
-				
+
 				if (checkLine[++lineIndex] == catchCircleX && checkLine[++lineIndex] == catchCircleY) {
 					smallScore++;
 					bigScore++;
@@ -685,8 +693,7 @@ public class CatchballGameController implements Initializable {
 					falseCountLabel.setText(String.valueOf(falseCount));
 					oneStageFailEvent(catchCircle, catchCircleX, catchCircleY);
 				}
-			
-				
+
 				if (smallScore == 8 || correct == false) {
 					switch (lineIndex) {
 					case 0:
@@ -1497,26 +1504,26 @@ public class CatchballGameController implements Initializable {
 		public Clock() {
 			animation = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
 				try {
-					
-					
+
 					timeLabel();
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException
 						| URISyntaxException e1) {
 					e1.printStackTrace();
 				}
-				
+
 			}));
 			animation.setCycleCount(Timeline.INDEFINITE);
 			animation.play();
 		}
 
-		private void timeLabel() throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+		private void timeLabel()
+				throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 			if (timeTmp > 0)
 				timeTmp--;
 			timeTime = timeTmp;
 			S = "Time: " + timeTmp + "";
 			timeLabel.setText(S);
-			if(timeTime <= 0) {
+			if (timeTime <= 0) {
 				gameOver();
 			}
 		}
