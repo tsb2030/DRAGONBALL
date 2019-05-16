@@ -36,7 +36,7 @@
 				<Font name="A소나무M" size="21.0" />
 			</font>
 		</Button>
-		<Text layoutX="176.0" layoutY="170.0" strokeType="OUTSIDE"
+		<Text fx:id="result" layoutX="176.0" layoutY="170.0" strokeType="OUTSIDE"
 			strokeWidth="0.0" text="게임 시간 : x초">
 			<font>
 				<Font name="a소나무L" size="22.0" />
