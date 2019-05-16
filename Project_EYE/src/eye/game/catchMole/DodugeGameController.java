@@ -42,7 +42,7 @@ public class DodugeGameController implements Initializable {
 	private Line titleLine;
 
 	@FXML
-	private ImageView moleImageView, backToStart, pauseImageView, restartImageView;
+	private ImageView moleImageView, backToStart, pauseImageView;
 
 	private boolean isPause = false;
 	public static int timeTime = 5;
