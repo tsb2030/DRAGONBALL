@@ -54,7 +54,7 @@ public class oneToFiftyController implements Initializable{
 	 private DoubleProperty timeSeconds = new SimpleDoubleProperty();
 	 private Duration time = Duration.ZERO;
 	
-	 //버튼을 정의와 이벤트핸들러를 달아주고 1~25까지의 랜덤수를 각각의 버튼에 달아준다.
+	   //버튼을 정의와 이벤트핸들러를 달아주고 1~25까지의 랜덤수를 각각의 버튼에 달아준다.
 	 public void buttonSetting() {
 		 int ly = 60;
 		 //버튼정의

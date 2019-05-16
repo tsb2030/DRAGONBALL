@@ -35,7 +35,7 @@
 	                  <Image url="image/pause.png" />
 	               </image>
 	            </ImageView>
-	            <Button fx:id="startButton" layoutX="14.0" layoutY="147.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false"  style="-fx-background-color: #BB4B43;" text="ReStart" textFill="WHITE">
+	            <Button fx:id="startButton" layoutX="14.0" layoutY="147.0" maxHeight="50.0" maxWidth="50.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" style="-fx-background-color: #BB4B43;" text="ReStart" textFill="WHITE">
 		         <font>
 		            <Font size="34.0" />
 		         </font>
@@ -48,7 +48,7 @@
 	                  <Insets left="30.0" />
 	               </HBox.margin>
                <children> 
-            	<Label fx:id="ScoreLabel" alignment="CENTER" contentDisplay="CENTER"  layoutX="157.0" layoutY="-13.0" prefHeight="80.0" prefWidth="83.0" text="1">
+            	<Label fx:id="ScoreLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="157.0" layoutY="-13.0" prefHeight="80.0" prefWidth="83.0" text="0">
             					<font>
 					           	 <Font name="a소나무M" size="50.0" />
 					        	</font>
