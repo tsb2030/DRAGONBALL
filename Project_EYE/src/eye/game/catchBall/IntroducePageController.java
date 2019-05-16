@@ -81,6 +81,7 @@ public class IntroducePageController implements Initializable  {
     @FXML
     void easyButtonAction(ActionEvent event) {
     	gameSpeed = 5;
+    	CatchballGameController.bigScore = 0;
     	try {
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
@@ -96,6 +97,7 @@ public class IntroducePageController implements Initializable  {
     @FXML
     void normalButtonAction(ActionEvent event) {
     	gameSpeed = 2.5;
+    	CatchballGameController.bigScore = 0;
     	try {
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
@@ -111,6 +113,7 @@ public class IntroducePageController implements Initializable  {
     @FXML
     void hardButtonAction(ActionEvent event) {
     	gameSpeed = 0.1;
+    	CatchballGameController.bigScore = 0;
     	try {
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
