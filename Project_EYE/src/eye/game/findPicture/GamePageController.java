@@ -50,7 +50,7 @@ public class GamePageController implements Initializable {
 	@FXML
 	Text timeLabel;
 
-	public static int timeTime = 30;
+	public static int timeTime = 10;
 
 	public static Stage gamePageStage, currentStage, dodugeStage;
 
@@ -814,7 +814,7 @@ public class GamePageController implements Initializable {
 	public class Clock extends Pane {
 
 		private Timeline animation;
-		private int timeTmp = 30;
+		private int timeTmp = 10;
 		private String S = "";
 		private boolean flag = false;
 
