@@ -82,7 +82,7 @@ public class gameMainController implements Initializable {
 				// TODO Auto-generated method stub
 				try {
 					Main.mainMusic.stopMusic();
-					Main.mainMusic.resetNameAudioStream("MableJ");
+					Main.mainMusic.resetNameAudioStream("introMusic2");
 				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException
 						| URISyntaxException e1) {
 					// TODO Auto-generated catch block
@@ -109,7 +109,7 @@ public class gameMainController implements Initializable {
 				try {
 
 					Main.mainMusic.stopMusic();
-					Main.mainMusic.resetNameAudioStream("introMusic");
+					Main.mainMusic.resetNameAudioStream("gameMusic");
 					followPage = FXMLLoader.load(getClass().getResource("../follow/gameChoice.fxml"));
 
 				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
@@ -130,7 +130,7 @@ public class gameMainController implements Initializable {
 				try {
 
 					Main.mainMusic.stopMusic();
-					Main.mainMusic.resetNameAudioStream("introMusic");
+					Main.mainMusic.resetNameAudioStream("gameMusic");
 					fiveDotPage = FXMLLoader.load(getClass().getResource("../fiveDotGame/StartPage.fxml"));
 
 				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
@@ -151,7 +151,7 @@ public class gameMainController implements Initializable {
 				try {
 
 					Main.mainMusic.stopMusic();
-					Main.mainMusic.resetNameAudioStream("introMusic");
+					Main.mainMusic.resetNameAudioStream("gameMusic");
 					findPictureStart = FXMLLoader.load(getClass().getResource("../findPicture/StartPage.fxml"));
 
 				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
@@ -166,7 +166,7 @@ public class gameMainController implements Initializable {
 	@FXML
 	void catchBallGameAction(MouseEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
 		Main.mainMusic.stopMusic();
-		Main.mainMusic.resetNameAudioStream("introMusic");
+		Main.mainMusic.resetNameAudioStream("gameMusic");
 		catchBallPage = FXMLLoader.load(getClass().getResource("../catchBall/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
 	}
@@ -175,7 +175,7 @@ public class gameMainController implements Initializable {
     @FXML
     void moleGameAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
     	Main.mainMusic.stopMusic();
-		Main.mainMusic.resetNameAudioStream("introMusic");
+		Main.mainMusic.resetNameAudioStream("gameMusic");
 		catchBallPage = FXMLLoader.load(getClass().getResource("../catchMole/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
     }
@@ -184,7 +184,7 @@ public class gameMainController implements Initializable {
     @FXML
     void zigzagtrainigAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
     	Main.mainMusic.stopMusic();
-		Main.mainMusic.resetNameAudioStream("introMusic");
+		Main.mainMusic.resetNameAudioStream("gameMusic");
 		zigzagPage = FXMLLoader.load(getClass().getResource("../eyeMovement2/zz_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(zigzagPage);
     }
@@ -192,7 +192,7 @@ public class gameMainController implements Initializable {
     @FXML
     void striptrainingAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
     	Main.mainMusic.stopMusic();
-		Main.mainMusic.resetNameAudioStream("introMusic");
+		Main.mainMusic.resetNameAudioStream("gameMusic");
 		stripPage = FXMLLoader.load(getClass().getResource("../eyeMovement1/strip_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(stripPage);
     }

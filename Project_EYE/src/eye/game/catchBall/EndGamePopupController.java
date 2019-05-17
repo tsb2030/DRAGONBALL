@@ -68,7 +68,7 @@ public class EndGamePopupController implements Initializable {
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		// ���� �˾� â�� �ݰ�, ���� â�� �����ϴ� �۾��� �����ؾ� ��
 		Main.mainMusic.stopMusic();
-		Main.mainMusic.resetNameAudioStream("LaLaLa");
+		Main.mainMusic.resetNameAudioStream("mainMusic");
 		// go main
 		try {
 			// catchballGame fxml������ scene�� �����ϴ� ���
