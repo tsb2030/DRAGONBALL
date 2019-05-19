@@ -75,97 +75,83 @@ public class Selectcontroller implements Initializable {
 
 	public void Move1() {
 
-		// Creating a Path
+		// 이동 경로 선언
 		Path path = new Path();
 
-		// Moving to the starting point
+		// 물체의 시작점
 		MoveTo moveTo = new MoveTo(0, 0);
 
-		// Creating line ������ ���� �����մϴ�.
+		// 공의 방향을 선언
 		LineTo line1 = new LineTo(0, 250);
 		LineTo line2 = new LineTo(0, 0);
 
-		// Adding all the elements to the path
+		// 이동 경로 지정
 		path.getElements().add(moveTo);
 		path.getElements().addAll(line1, line2);
 
-		// Creating the path transition
+		// 물체 이동 선언
 		pathTransition1 = new PathTransition();
 		pathTransition1.setDuration(Duration.seconds(2));
 		pathTransition1.setNode(speedCircle1);
 
-		// Setting the path for the transition
+		// 이동 경로 받기
 		pathTransition1.setPath(path);
 
 		pathTransition1.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
 		pathTransition1.setCycleCount(10);
 
-		// Playing the animation
+		// 애니메이션 실행
 		pathTransition1.play();
 	}
 
 	public void Move2() {
 
-		// Creating a Path
 		Path path = new Path();
 
-		// Moving to the starting point
 		MoveTo moveTo = new MoveTo(0, 0);
 
-		// Creating line ������ ���� �����մϴ�.
 		LineTo line3 = new LineTo(0, 250);
 		LineTo line4 = new LineTo(0, 0);
 
-		// Adding all the elements to the path
 		path.getElements().add(moveTo);
 		path.getElements().addAll(line3, line4);
 
-		// Creating the path transition
 		pathTransition2 = new PathTransition();
 		pathTransition2.setDuration(Duration.seconds(1));
 		pathTransition2.setNode(speedCircle2);
 
-		// Setting the path for the transition
 		pathTransition2.setPath(path);
 
 		pathTransition2.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
 		pathTransition2.setCycleCount(10);
 
-		// Playing the animation
 		pathTransition2.play();
 	}
 
 	public void Move3() {
 
-		// Creating a Path
 		Path path = new Path();
 
-		// Moving to the starting point
 		MoveTo moveTo = new MoveTo(0, 0);
 
-		// Creating line ������ ���� �����մϴ�.
 		LineTo line5 = new LineTo(0, 250);
 		LineTo line6 = new LineTo(0, 0);
 
-		// Adding all the elements to the path
 		path.getElements().add(moveTo);
 		path.getElements().addAll(line5, line6);
 
-		// Creating the path transition
 		pathTransition3 = new PathTransition();
 		pathTransition3.setDuration(Duration.seconds(0.8));
 		pathTransition3.setNode(speedCircle3);
 
-		// Setting the path for the transition
 		pathTransition3.setPath(path);
 
 		pathTransition3.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
 		pathTransition3.setCycleCount(10);
 
-		// Playing the animation
 		pathTransition3.play();
 
 	}

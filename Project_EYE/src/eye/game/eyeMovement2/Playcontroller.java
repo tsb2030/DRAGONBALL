@@ -58,7 +58,7 @@ public class Playcontroller implements Initializable {
 
 	@FXML
 	private Circle cir;
-
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Moving();
@@ -82,13 +82,13 @@ public class Playcontroller implements Initializable {
 
 		});
 	}
-
+	//물체 이동 메소드
 	public void Moving() {
 
-		// Creating a Path
+		// 이동 경로 선언
 		Path path = new Path();
 
-		// Moving to the starting point
+		// 물체의 시작점
 		MoveTo moveTo = new MoveTo(0, 0);
 
 		// 공의 방향을 선언
@@ -97,18 +97,18 @@ public class Playcontroller implements Initializable {
 		LineTo line3 = new LineTo(1200, 550);
 		LineTo line4 = new LineTo(0, 0);
 
-		// Adding all the elements to the path
+		// 이동 경로 지정
 		path.getElements().add(moveTo);
 		path.getElements().addAll(line1, line2, line3, line4);
 
-		// Creating the path transition
+		// 물체 이동 선언
 		pathTransition = new PathTransition();
 		pathTransition.setDuration(Duration.seconds(Selectcontroller.duration));
 		pathTransition.setNode(cir);
 
-		// Setting the path for the transition
+		// 이동 경로 받기
 		pathTransition.setPath(path);
-		//시간을 입력받게합니다.
+		// 시간을 입력받게합니다.
 		pathTransition.cycleDurationProperty();
 		// Setting the orientation of the path
 
@@ -171,12 +171,12 @@ public class Playcontroller implements Initializable {
 		pathTransition.setCycleCount(20);
 		pathTransition.setDelay(new Duration(000));
 
-		// Playing the animation
+		// 애니메이션 실행
 		pathTransition.play();
 
 
 	}
-
+	//트레이닝 종료후 확인 팝업
 	public void showEndPopUp() {
 		currentStage = (Stage) backBtn.getScene().getWindow();
 		
