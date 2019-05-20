@@ -30,7 +30,7 @@ public class mainController implements Initializable{
 	public void goGameMain() {
 		try {
 			Main.mainMusic.stopMusic();
-			Main.mainMusic.resetNameAudioStream("LaLaLa");
+			Main.mainMusic.resetNameAudioStream("mainMusic");
 			//교체할 페이지인 game_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
 			gameMainPage = FXMLLoader.load(getClass().getResource("../../game/view/game_main_page.fxml"));
 		} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {

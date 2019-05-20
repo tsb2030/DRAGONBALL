@@ -55,7 +55,7 @@ public class EndGamePopupController implements Initializable {
 	void goMainButtonAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		Main.mainMusic.stopMusic();
-		Main.mainMusic.resetNameAudioStream("LaLaLa");
+		Main.mainMusic.resetNameAudioStream("mainMusic");
 		// go main
 		try {
 			DodugeGameController.score = 0;

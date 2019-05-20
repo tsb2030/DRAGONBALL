@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import eye.main.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
@@ -29,6 +30,8 @@ import javafx.util.Duration;
 //숫자게임페이지에 달려있는 컨트롤러
 public class otfGameController implements Initializable{
 
+	public static Stage currentStage;
+	
 	@FXML
 	private ImageView btnBefore,pauseBtn,reStartBtn;
 	private JFXButton btnarr[] = new JFXButton[25];
@@ -36,9 +39,11 @@ public class otfGameController implements Initializable{
 	@FXML
 	private Pane mainPanel; 
 	
+	public static int bul = 3;
 	//arr1은 1~25 랜덤수, arr2는 26~50까지의 랜덤수를 가지기 위해 정의
 	@FXML
 	private Text timer;
+	public static String result;
 	private int arr1[] = new int[25];
 	private int arr2[] = new int[25];
 	Random rd = new Random();
@@ -141,9 +146,19 @@ public class otfGameController implements Initializable{
 									for(int i=0;i<25;i++) {
 										 btnarr[i].setDisable(true);
 									 }
-									Stage stage = (Stage) mainPanel.getScene().getWindow(); // 창을 닫는다
-									stage.close();
-									showEndPopUp();
+									currentStage = (Stage) timer.getScene().getWindow();
+									result = timer.getText();
+									FXMLLoader endGamePopup = new FXMLLoader(getClass().getResource("gameSuccess.fxml"));
+									try {
+										AnchorPane anotherPage = (AnchorPane) endGamePopup.load();
+										Scene endGamePopupScene = new Scene(anotherPage);
+										endGamePopupScene.getStylesheets()
+												.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+										Stage stage = new Stage();
+										stage.setScene(endGamePopupScene);
+										stage.show();
+									} catch (IOException e) {
+									}
 								}
 							}
 						}

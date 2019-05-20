@@ -7,6 +7,10 @@ AnchorPane{
 	-fx-border-radius: 5.0px;
 }
 
+JFXButton{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 35.0px;
+}
 #title{
 	-fx-font-family: "a소나무M";
 	-fx-font-size: 40.0px;

@@ -27,14 +27,13 @@ public class Explaincontroller implements Initializable {
 
 	@FXML
 	private ImageView backBtn;
-	
+
 	@FXML
 	private Text nextBtn2;
 
-
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		//이전 화면 전환 버튼
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -44,7 +43,8 @@ public class Explaincontroller implements Initializable {
 					Parent root = FXMLLoader.load(getClass().getResource("../../game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
-					scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+					scene.getStylesheets()
+							.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -53,6 +53,7 @@ public class Explaincontroller implements Initializable {
 			}
 
 		});
+		//다음 화면 전환 버튼
 		nextBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -69,7 +70,7 @@ public class Explaincontroller implements Initializable {
 
 			}
 		});
-		
+		//다음 화면 전환 버튼
 		nextBtn2.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override

@@ -56,7 +56,7 @@ public class StartPageController implements Initializable  {
 			public void handle(Event event) {
 				try {
 					Main.mainMusic.stopMusic();
-					Main.mainMusic.resetNameAudioStream("LaLaLa");
+					Main.mainMusic.resetNameAudioStream("mainMusic");
 					gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
 				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
 					e.printStackTrace();

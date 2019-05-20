@@ -1,5 +1,6 @@
 package eye.game.fiveDotGame;
 
+import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,6 +42,8 @@ public class EndPopupController {
 	    void backToGameSelectPage(ActionEvent event) {
 		 try {
 			System.out.println("되나?");
+			Main.mainMusic.stopMusic();
+				Main.mainMusic.resetNameAudioStream("mainMusic");
 			Parent root = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
 			Scene scene = new Scene(root);		
 			GamePageController.gamePageStage.setScene(scene);

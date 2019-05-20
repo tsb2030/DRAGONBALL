@@ -22,7 +22,7 @@ public class oneToFiftyController implements Initializable{
 	private AnchorPane choicePage,introPage;
 	
 	@FXML
-	private ImageView backBtn,btnBefore,pauseBtn;
+	private ImageView backBtn;
 	
 	@FXML
 	private Button goNumGameBtn;

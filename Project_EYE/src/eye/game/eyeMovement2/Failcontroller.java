@@ -23,7 +23,7 @@ public class Failcontroller implements Initializable {
 
 	@FXML
 	private Button restartPopUpBtn;
-
+	//종료 후 게임 목록으로 변환 메소드
 	@FXML
 	void closePopUp(ActionEvent event) {
 		try {
@@ -42,7 +42,7 @@ public class Failcontroller implements Initializable {
 		}
 
 	}
-
+	//트레이닝 다시 시작 버튼
 	@FXML
 	void numGameRestart(ActionEvent event) {
 		try {

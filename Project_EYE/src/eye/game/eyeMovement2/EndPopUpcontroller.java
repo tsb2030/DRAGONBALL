@@ -24,6 +24,8 @@ public class EndPopUpcontroller {
 	@FXML
 	private TextField answer;
 
+	
+	//색변환 정답 확인 메소드
 	@FXML
 	void answerEqual(ActionEvent event)  {
 		String getAnswer = answer.getText();
@@ -52,14 +54,6 @@ public class EndPopUpcontroller {
 
 
 		}
-
-	}
-
-	public void ans() {
-
-	}
-
-	public void ans2() {
 
 	}
 
