@@ -1,0 +1,30 @@
+AnchorPane{
+	-fx-background-color : #ffffe4;
+	
+}
+#backBorder{
+	-fx-background-color: #EEDCC6;
+	-fx-border-style: dashed;
+	-fx-border-width: 4px;
+	-fx-background-radius: 50px;
+	-fx-border-radius: 50px;
+	-fx-border-color: #707070;
+	-fx-opacity: 40%;
+	
+}
+.fontStyleL{
+	-fx-font-family: "A소나무L";
+	-fx-font-size: 25px;
+	-fx-text-fill: #252525;
+}
+.fontStyleM{
+	-fx-font-family: "A소나무M";
+	-fx-font-size: 35px;
+}
+#shadow:hover{
+	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 10.0 );
+}
+
+#btn:hover{
+	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 5.0 );
+}
