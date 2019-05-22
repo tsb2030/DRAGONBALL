@@ -1,0 +1,74 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+AnchorPane{
+	-fx-background-color : #ffffe4;
+}
+Pane{
+	-fx-background-color:#ffffe4;
+	-fx-border-color:#ffffe4;
+}
+
+#backBorder{
+	-fx-background-color: #EEDCC6;
+	-fx-border-style: dashed;
+	-fx-border-width: 4.0px;
+	-fx-background-radius: 50.0px;
+	-fx-border-radius: 50.0px;
+	-fx-border-color: #707070;
+	-fx-opacity: 40.0%;
+}
+
+.fontStyleL{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 25.0px;
+	-fx-text-fill: #252525;
+}
+.fontStyleM{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 35.0px;
+}
+
+.littleTitleL{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 18.0px;
+}
+
+.littleTitleM{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 25.0px;
+}
+
+.borderDashed{
+	-fx-border-style: dashed;
+	-fx-border-width: 4.0px;
+	-fx-border-radius: 50.0px;
+	-fx-border-color: #c6c6b6;
+}
+
+.borderLine{
+	-fx-border-width: 4.0px;
+	-fx-border-radius: 50.0px;
+	-fx-border-color: #c6c6b6;
+}
+
+.buttonFontStyle{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 23.0px;
+	-fx-text-fill: #FFFFFF;
+}
+.innerPane{
+	-fx-background-color:#f8f1d8;
+	-fx-background-radius:30.0px;
+}
+
+.background {
+	-fx-background-color: #f8f1d8;
+	-fx-border-style: dashed;
+	-fx-border-width: 4.0px;
+	-fx-background-radius: 50.0px;
+	-fx-border-radius: 50.0px;
+	-fx-border-color: #c6c6b6;
+}
+
+#shadow:hover{
+	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 7.0 );
+}
