@@ -1,4 +1,4 @@
-package eye.rest.view;
+package eye.record.view;
 
 import java.io.IOException;
 
