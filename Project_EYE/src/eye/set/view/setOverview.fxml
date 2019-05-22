@@ -101,7 +101,7 @@
                      <children>
                         <Label layoutY="15.0" text="실행 주기" />
                         <JFXComboBox fx:id="combobox3" focusColor="#108649" layoutX="120.0" layoutY="5.0"/>
-                        <Label layoutX="230.0" layoutY="15.0" text="시간" />
+                        
                      </children>
                   </Pane>
                </children>
