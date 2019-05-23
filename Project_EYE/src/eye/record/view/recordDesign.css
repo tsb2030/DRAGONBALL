@@ -27,10 +27,30 @@ Pane{
 	-fx-font-size: 35.0px;
 }
 
+.fontStyleL30{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 33.0px;
+}
+
+.fontStyleM30{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 33.0px;
+}
+
 .labelL{
 	-fx-font-family: "a소나무L";
 	-fx-font-size: 20.0px;
 	-fx-text-fill: #252525;
+}
+
+.listTitle{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 20.0px;
+}
+
+.listContent{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 18.0px;
 }
 
 .littleTitleL{
@@ -61,6 +81,13 @@ Pane{
 	-fx-font-size: 23.0px;
 	-fx-text-fill: #FFFFFF;
 }
+
+.smallButtonFontStyle{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 20.0px;
+	-fx-text-fill: #FFFFFF;
+}
+
 .innerPane{
 	-fx-background-color:#f8f1d8;
 	-fx-background-radius:30.0px;
