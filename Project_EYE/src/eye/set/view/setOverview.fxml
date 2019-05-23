@@ -91,16 +91,16 @@
                   <Pane layoutX="165.0" layoutY="380.0" prefHeight="60.0" prefWidth="500.0" styleClass="fontStyleL">
                      <children>
                         <Label layoutY="15.0" text="방해 금지 시간" />
-                        <JFXComboBox fx:id="combobox1" focusColor="#108649" layoutX="180.0" layoutY="5.0"/>	<!-- 방해금지 시작시간 -->
+                        <JFXComboBox fx:id="combobox1" focusColor="#108649" layoutX="180.0" layoutY="5.0" />	<!-- 방해금지 시작시간 -->
                         <Label layoutX="290.0" layoutY="15.0" text="시 ~" />
-                        <JFXComboBox fx:id="combobox2" focusColor="#108649" layoutX="350.0" layoutY="5.0"/>	<!-- 방해금지 종료시간 -->
+                        <JFXComboBox fx:id="combobox2" focusColor="#108649" layoutX="350.0" layoutY="5.0" />	<!-- 방해금지 종료시간 -->
                         <Label layoutX="460.0" layoutY="15.0" text="시" />
                      </children>
                   </Pane>
                   <Pane layoutX="750.0" layoutY="380.0" prefHeight="60.0" prefWidth="300.0" styleClass="fontStyleL">
                      <children>
                         <Label layoutY="15.0" text="실행 주기" />
-                        <JFXComboBox fx:id="combobox3" focusColor="#108649" layoutX="120.0" layoutY="5.0"/>
+                        <JFXComboBox fx:id="combobox3" focusColor="#108649" layoutX="120.0" layoutY="5.0" />
                         
                      </children>
                   </Pane>
