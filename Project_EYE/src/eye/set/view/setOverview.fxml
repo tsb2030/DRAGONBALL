@@ -88,20 +88,58 @@
                   <JFXToggleButton layoutX="350.0" layoutY="100.0" size="15.0" styleClass="fontStyleL" text="BGM" toggleColor="#108649" toggleLineColor="#7cc59e" />
                   <JFXToggleButton layoutX="700.0" layoutY="100.0" size="15.0" styleClass="fontStyleL" text="효과음" toggleColor="#108649" toggleLineColor="#7cc59e" />
                   <Label layoutX="165.0" layoutY="470.0" styleClass="fontStyleL" text="휴식 프로그램 유형 " />
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="390.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../image/questionMark.png" />
+                     </image>
+                  </ImageView>
+                  <Pane id="clicked" layoutX="450.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/yellowbox.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="35.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="짧게" />
+                     </children>
+                  </Pane>
                   <Pane layoutX="165.0" layoutY="380.0" prefHeight="60.0" prefWidth="500.0" styleClass="fontStyleL">
                      <children>
                         <Label layoutY="15.0" text="방해 금지 시간" />
-                        <JFXComboBox fx:id="combobox1" focusColor="#108649" layoutX="180.0" layoutY="5.0"/>	<!-- 방해금지 시작시간 -->
+                        <JFXComboBox fx:id="combobox1" focusColor="#108649" layoutX="180.0" layoutY="5.0" />	<!-- 방해금지 시작시간 -->
                         <Label layoutX="290.0" layoutY="15.0" text="시 ~" />
-                        <JFXComboBox fx:id="combobox2" focusColor="#108649" layoutX="350.0" layoutY="5.0"/>	<!-- 방해금지 종료시간 -->
+                        <JFXComboBox fx:id="combobox2" focusColor="#108649" layoutX="350.0" layoutY="5.0" />	<!-- 방해금지 종료시간 -->
                         <Label layoutX="460.0" layoutY="15.0" text="시" />
                      </children>
                   </Pane>
-                  <Pane layoutX="750.0" layoutY="380.0" prefHeight="60.0" prefWidth="300.0" styleClass="fontStyleL">
+                  <Pane layoutX="700.0" layoutY="380.0" prefHeight="60.0" prefWidth="400.0" styleClass="fontStyleL">
                      <children>
                         <Label layoutY="15.0" text="실행 주기" />
-                        <JFXComboBox fx:id="combobox3" focusColor="#108649" layoutX="120.0" layoutY="5.0"/>
+                        <JFXComboBox fx:id="combobox3" focusColor="#108649" layoutX="120.0" layoutY="5.0" />
+
+                        <Label layoutX="320.0" layoutY="15.0" text="마다" />
+
                         
+                     </children>
+                  </Pane>
+                  <Pane id="clicked" layoutX="600.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/yellowbox.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="35.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="길게" />
+                     </children>
+                  </Pane>
+                  <Pane id="clicked" layoutX="750.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
+                     <children>
+                        <ImageView fitHeight="50.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../image/yellowbox.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="23.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="골고루" />
                      </children>
                   </Pane>
                </children>
