@@ -21,10 +21,18 @@ AnchorPane{
 	-fx-font-family: "A소나무M";
 	-fx-font-size: 35px;
 }
+
+.fontStyleB{
+	-fx-font-family: "A소나무B";
+	-fx-font-size: 25px;
+}
 #shadow:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 10.0 );
 }
 
 #btn:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 5.0 );
+}
+#clicked:hover{
+	-fx-opacity: 100%;
 }
