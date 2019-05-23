@@ -17,26 +17,48 @@
 
 <!-- 기록 화면 페이지 -->
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.record.controller.recordController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity"
+	minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
+	prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="eye.record.controller.recordController">
 	<children>
 		<VBox prefHeight="720.0" prefWidth="1280.0">
 			<children>
-				<Pane prefHeight="60.0" prefWidth="1280.0" style="-fx-border-color: #ffffe4;">
+
+				<!-- 상단바 -->
+				<Pane prefHeight="60.0" prefWidth="1280.0"
+					style="-fx-border-color: #ffffe4;">
 					<children>
-						<ImageView id="shadow" fitHeight="47.0" fitWidth="50.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView id="shadow" fitHeight="47.0" fitWidth="50.0"
+							layoutX="6.0" layoutY="6.0" pickOnBounds="true"
+							preserveRatio="true">
 							<image>
 								<Image url="@../../../image/backarrow.png" />
 							</image>
 						</ImageView>
-						<Label layoutX="608.0" layoutY="3.0" styleClass="fontStyleM" text="휴식">
+						<Label layoutX="608.0" layoutY="3.0" styleClass="fontStyleM"
+							text="휴식">
 							<font>
 								<Font size="45.0" />
 							</font>
 						</Label>
-						<Line endX="100.0" layoutX="640.0" layoutY="53.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
+						<Line endX="100.0" layoutX="640.0" layoutY="53.0"
+							startX="-100.0" stroke="#707070" strokeWidth="3.0" />
+
+						<!-- 도전과제, 시력검사 버튼 -->
+						<Button id="shadow" layoutX="1125.0" layoutY="10.0"
+							mnemonicParsing="false"
+							style="-fx-background-color: #108649; -fx-background-radius: 30;"
+							styleClass="buttonFontStyle" text="시력 검사" />
+						<Button id="shadow" layoutX="980.0" layoutY="10.0"
+							mnemonicParsing="false"
+							style="-fx-background-radius: 30; -fx-background-color: #bb4b43;"
+							styleClass="buttonFontStyle" text="도전과제" />
 					</children>
 				</Pane>
-				<ScrollPane hbarPolicy="NEVER" prefHeight="660.0" prefWidth="1280.0" styleClass="edge-to-edge">
+				<ScrollPane hbarPolicy="NEVER" prefHeight="660.0"
+					prefWidth="1280.0" styleClass="edge-to-edge">
 					<VBox.margin>
 						<Insets />
 					</VBox.margin>
@@ -46,13 +68,19 @@
 
 								<VBox prefHeight="1900.0" prefWidth="1280.0">
 									<children>
-										<Pane prefHeight="500.0" prefWidth="400.0" styleClass="borderLine">
+
+										<!-- 전체 기록 판 -->
+										<Pane prefHeight="500.0" prefWidth="400.0"
+											styleClass="borderLine">
 											<VBox.margin>
-												<Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+												<Insets bottom="10.0" left="20.0" right="20.0"
+													top="20.0" />
 											</VBox.margin>
 											<children>
-												<Label layoutX="35.0" layoutY="35.0" styleClass="littleTitleM" text="전체 기록" underline="true" />
-												<LineChart layoutX="212.0" layoutY="110.0" prefHeight="271.0" prefWidth="617.0">
+												<Label layoutX="35.0" layoutY="35.0"
+													styleClass="littleTitleM" text="전체 기록" underline="true" />
+												<LineChart layoutX="212.0" layoutY="85.0"
+													prefHeight="271.0" prefWidth="617.0">
 													<xAxis>
 														<CategoryAxis side="BOTTOM" />
 													</xAxis>
@@ -60,110 +88,335 @@
 														<NumberAxis side="LEFT" />
 													</yAxis>
 												</LineChart>
-												<Button id="shadow" layoutX="437.0" layoutY="40.0" mnemonicParsing="false" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="buttonFontStyle" text="주간" textFill="WHITE" />
-												<Button id="shadow" layoutX="535.0" layoutY="40.0" mnemonicParsing="false" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="buttonFontStyle" text="월간" textFill="WHITE" />
-												<Label layoutX="263.0" layoutY="404.0" styleClass="fontStyleL" text="오늘 실행 횟수 : " />
-												<Label layoutX="455.0" layoutY="404.0" styleClass="fontStyleL" text="회" />
-												<Label layoutX="601.0" layoutY="404.0" styleClass="fontStyleL" text="총 실행 횟수 : " />
-												<Label layoutX="788.0" layoutY="404.0" styleClass="fontStyleL" text="회" />
+												<Button id="shadow" layoutX="437.0" layoutY="30.0"
+													mnemonicParsing="false"
+													style="-fx-background-color: #bb4b43; -fx-background-radius: 30;"
+													styleClass="buttonFontStyle" text="주간" textFill="WHITE" />
+												<Button id="shadow" layoutX="535.0" layoutY="30.0"
+													mnemonicParsing="false"
+													style="-fx-background-color: #bb4b43; -fx-background-radius: 30;"
+													styleClass="buttonFontStyle" text="월간" textFill="WHITE" />
+												<Label layoutX="245.0" layoutY="404.0"
+													styleClass="labelL" text="오늘 휴식 실행 횟수 : " />
+												<Label layoutX="470.0" layoutY="404.0"
+													styleClass="labelL" text="회" />
+												<Label layoutX="590.0" layoutY="404.0"
+													styleClass="labelL" text="총 휴식 실행 횟수 : " />
+												<Label layoutX="798.0" layoutY="404.0"
+													styleClass="labelL" text="회" />
+												<Label layoutX="245.0" layoutY="364.0"
+													styleClass="labelL" text="오늘 운동 실행 횟수 : " />
+												<Label layoutX="470.0" layoutY="364.0"
+													styleClass="labelL" text="회" />
+												<Label layoutX="590.0" layoutY="364.0"
+													styleClass="labelL" text="총 운동 실행 횟수 : " />
+												<Label layoutX="798.0" layoutY="364.0"
+													styleClass="labelL" text="회" />
 											</children>
 										</Pane>
 
-										<Pane prefHeight="800.0" prefWidth="400.0" styleClass="borderLine">
+										<!-- 게임 별 기록 -->
+										<Pane prefHeight="800.0" prefWidth="400.0"
+											styleClass="borderLine">
 											<VBox.margin>
-												<Insets bottom="10.0" left="20.0" right="20.0" top="20.0" />
+												<Insets bottom="10.0" left="20.0" right="20.0"
+													top="20.0" />
 											</VBox.margin>
 											<children>
-												<Label layoutX="35.0" layoutY="35.0" styleClass="littleTitleM" text="게임 기록" underline="true" />
-												<Pane layoutX="60.0" layoutY="90.0" prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
+												<Label layoutX="35.0" layoutY="35.0"
+													styleClass="littleTitleM" text="게임 기록" underline="true" />
+
+												<!-- 순서대로 따라가기 -->
+												<Pane layoutX="60.0" layoutY="90.0" prefHeight="200.0"
+													prefWidth="450.0" styleClass="innerPane">
 													<children>
-														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
+															preserveRatio="true">
 															<image>
 																<Image url="@../../../image/gameList/atoz.png" />
 															</image>
 														</ImageView>
-														<Label layoutX="215.0" layoutY="25.0" styleClass="littleTitleM" text="순서대로 따라가기" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
-														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="215.0" layoutY="25.0"
+															styleClass="littleTitleM" text="순서대로 따라가기" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0"
+															mnemonicParsing="false" prefHeight="30.0"
+															prefWidth="84.0"
+															style="-fx-background-color: #bb4b43; -fx-background-radius: 50;"
+															styleClass="buttonFontStyle" text="확인" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
-												<Pane layoutX="530.0" layoutY="90.0" prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
+
+												<!-- 시선 이동 트레이닝 -->
+												<Pane layoutX="530.0" layoutY="90.0" prefHeight="200.0"
+													prefWidth="450.0" styleClass="innerPane">
 													<children>
-														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
+															preserveRatio="true">
 															<image>
 																<Image url="@../../../image/gameList/mobius.png" />
 															</image>
 														</ImageView>
-														<Label layoutX="215.0" layoutY="25.0" styleClass="littleTitleM" text="시선이동 트레이닝" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
-														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="215.0" layoutY="25.0"
+															styleClass="littleTitleM" text="시선이동 트레이닝" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0"
+															mnemonicParsing="false" prefHeight="30.0"
+															prefWidth="84.0"
+															style="-fx-background-color: #bb4b43; -fx-background-radius: 50;"
+															styleClass="buttonFontStyle" text="확인" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
 
-												<Pane layoutX="60.0" layoutY="310.0" prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
+												<!-- 5점 카드 트레이닝 -->
+												<Pane layoutX="60.0" layoutY="310.0" prefHeight="200.0"
+													prefWidth="450.0" styleClass="innerPane">
 													<children>
-														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
+															preserveRatio="true">
 															<image>
 																<Image url="@../../../image/gameList/5dot.png" />
 															</image>
 														</ImageView>
-														<Label layoutX="215.0" layoutY="25.0" styleClass="littleTitleM" text="5점 카드 트레이닝" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
-														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
-													</children>
-												</Pane>
-												<Pane layoutX="530.0" layoutY="310.0" prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
-													<children>
-														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-															<image>
-																<Image url="@../../../image/gameList/catchmole.png" />
-															</image>
-														</ImageView>
-														<Label layoutX="245.0" layoutY="25.0" styleClass="littleTitleM" text="두더지 잡기" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
-														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="215.0" layoutY="25.0"
+															styleClass="littleTitleM" text="5점 카드 트레이닝" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0"
+															mnemonicParsing="false" prefHeight="30.0"
+															prefWidth="84.0"
+															style="-fx-background-color: #bb4b43; -fx-background-radius: 50;"
+															styleClass="buttonFontStyle" text="확인" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
 
-												<Pane layoutX="60.0" layoutY="530.0" prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
+												<!-- 두더지 잡기 -->
+												<Pane layoutX="530.0" layoutY="310.0"
+													prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
 													<children>
-														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
+															preserveRatio="true">
 															<image>
-																<Image url="@../../../image/gameList/catchball.png" />
+																<Image
+																	url="@../../../image/gameList/catchmole.png" />
 															</image>
 														</ImageView>
-														<Label layoutX="255.0" layoutY="25.0" styleClass="littleTitleM" text="Catch Ball" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
-														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="245.0" layoutY="25.0"
+															styleClass="littleTitleM" text="두더지 잡기" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0"
+															mnemonicParsing="false" prefHeight="30.0"
+															prefWidth="84.0"
+															style="-fx-background-color: #bb4b43; -fx-background-radius: 50;"
+															styleClass="buttonFontStyle" text="확인" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
-												<Pane layoutX="530.0" layoutY="530.0" prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
+
+												<!-- 캐치볼 -->
+												<Pane layoutX="60.0" layoutY="530.0" prefHeight="200.0"
+													prefWidth="450.0" styleClass="innerPane">
 													<children>
-														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
+															preserveRatio="true">
 															<image>
-																<Image url="@../../../image/gameList/findpicture.png" />
+																<Image
+																	url="@../../../image/gameList/catchball.png" />
 															</image>
 														</ImageView>
-														<Label layoutX="235.0" layoutY="25.0" styleClass="littleTitleM" text="같은 그림 찾기" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
-														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="255.0" layoutY="25.0"
+															styleClass="littleTitleM" text="Catch Ball" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0"
+															mnemonicParsing="false" prefHeight="30.0"
+															prefWidth="84.0"
+															style="-fx-background-color: #bb4b43; -fx-background-radius: 50;"
+															styleClass="buttonFontStyle" text="확인" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
+													</children>
+												</Pane>
+
+												<!-- 같은 그림 찾기 -->
+												<Pane layoutX="530.0" layoutY="530.0"
+													prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
+													<children>
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
+															preserveRatio="true">
+															<image>
+																<Image
+																	url="@../../../image/gameList/findpicture.png" />
+															</image>
+														</ImageView>
+														<Label layoutX="235.0" layoutY="25.0"
+															styleClass="littleTitleM" text="같은 그림 찾기" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0"
+															mnemonicParsing="false" prefHeight="30.0"
+															prefWidth="84.0"
+															style="-fx-background-color: #bb4b43; -fx-background-radius: 50;"
+															styleClass="buttonFontStyle" text="확인" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
 											</children>
 										</Pane>
 
-										<Pane prefHeight="500.0" prefWidth="400.0" styleClass="borderLine">
+										<!-- 휴식 별 기록 -->
+										<Pane prefHeight="600.0" prefWidth="400.0"
+											styleClass="borderLine">
 											<VBox.margin>
-												<Insets bottom="50.0" left="20.0" right="20.0" top="20.0" />
+												<Insets bottom="50.0" left="20.0" right="20.0"
+													top="20.0" />
 											</VBox.margin>
 											<children>
-												<Label layoutX="35.0" layoutY="35.0" styleClass="littleTitleM" text="휴식 기록" underline="true" />
+												<Label layoutX="35.0" layoutY="35.0"
+													styleClass="littleTitleM" text="휴식 기록" underline="true" />
+
+												<!-- 눈 꼭 감기 -->
+												<Pane layoutX="60.0" layoutY="90.0" prefHeight="130.0"
+													prefWidth="450.0" styleClass="innerPane">
+													<children>
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="15.0" pickOnBounds="true"
+															preserveRatio="true">
+															<image>
+																<Image
+																	url="@../../../image/gameList/findpicture.png" />
+															</image>
+														</ImageView>
+														<Label layoutX="260.0" layoutY="25.0"
+															styleClass="littleTitleM" text="눈 꼭 감기" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
+													</children>
+												</Pane>
+
+												<!-- 멀리 보기 -->
+												<Pane layoutX="530.0" layoutY="90.0" prefHeight="130.0"
+													prefWidth="450.0" styleClass="innerPane">
+													<children>
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="15.0" pickOnBounds="true"
+															preserveRatio="true">
+															<image>
+																<Image
+																	url="@../../../image/gameList/findpicture.png" />
+															</image>
+														</ImageView>
+														<Label layoutX="260.0" layoutY="25.0"
+															styleClass="littleTitleM" text="멀리 보기" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
+													</children>
+												</Pane>
+
+												<!-- 눈 마사지 -->
+												<Pane layoutX="60.0" layoutY="240.0" prefHeight="130.0"
+													prefWidth="450.0" styleClass="innerPane">
+													<children>
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="15.0" pickOnBounds="true"
+															preserveRatio="true">
+															<image>
+																<Image
+																	url="@../../../image/gameList/findpicture.png" />
+															</image>
+														</ImageView>
+														<Label layoutX="260.0" layoutY="25.0"
+															styleClass="littleTitleM" text="눈 마사지" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
+													</children>
+												</Pane>
+
+												<!-- 눈 굴리기 -->
+												<Pane layoutX="530.0" layoutY="240.0"
+													prefHeight="130.0" prefWidth="450.0" styleClass="innerPane">
+													<children>
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="15.0" pickOnBounds="true"
+															preserveRatio="true">
+															<image>
+																<Image
+																	url="@../../../image/gameList/findpicture.png" />
+															</image>
+														</ImageView>
+														<Label layoutX="260.0" layoutY="25.0"
+															styleClass="littleTitleM" text="눈 굴리기" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
+													</children>
+												</Pane>
+
+												<!-- 빨리 깜빡이기 -->
+												<Pane layoutX="60.0" layoutY="390.0" prefHeight="130.0"
+													prefWidth="450.0" styleClass="innerPane">
+													<children>
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="15.0" pickOnBounds="true"
+															preserveRatio="true">
+															<image>
+																<Image
+																	url="@../../../image/gameList/findpicture.png" />
+															</image>
+														</ImageView>
+														<Label layoutX="245.0" layoutY="25.0"
+															styleClass="littleTitleM" text="빨리 깜빡이기" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
+													</children>
+												</Pane>
+
+												<!-- 롱 브레이크 -->
+												<Pane layoutX="530.0" layoutY="390.0"
+													prefHeight="130.0" prefWidth="450.0" styleClass="innerPane">
+													<children>
+														<ImageView fitHeight="120.0" fitWidth="160.0"
+															layoutX="20.0" layoutY="15.0" pickOnBounds="true"
+															preserveRatio="true">
+															<image>
+																<Image
+																	url="@../../../image/gameList/findpicture.png" />
+															</image>
+														</ImageView>
+														<Label layoutX="250.0" layoutY="25.0"
+															styleClass="littleTitleM" text="롱 브레이크" />
+														<Label layoutX="210.0" layoutY="80.0"
+															styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="385.0" layoutY="80.0"
+															styleClass="littleTitleL" text="회" />
+													</children>
+												</Pane>
 											</children>
 										</Pane>
 									</children>

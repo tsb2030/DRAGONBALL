@@ -27,6 +27,12 @@ Pane{
 	-fx-font-size: 35.0px;
 }
 
+.labelL{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 20.0px;
+	-fx-text-fill: #252525;
+}
+
 .littleTitleL{
 	-fx-font-family: "a소나무L";
 	-fx-font-size: 18.0px;
