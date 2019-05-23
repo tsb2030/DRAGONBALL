@@ -32,17 +32,17 @@ public class Main extends Application {
 			primaryStage.show();
 			
 			//
-//			mainMusic = new SimpleAudioPlayer("introMusic2");
-//			mainMusic.start();
+			mainMusic = new SimpleAudioPlayer("introMusic2");
+			mainMusic.start();
 			
 			//사용할 음악 목록들을 selectedSong이라는 ArrayList<Song>에 하나씩 넣어준다.
-//			mainMusic.selectedSong = new ArrayList<Song>();
-//			mainMusic.selectedSong.add(new Song("introMusic2"));
-//			mainMusic.selectedSong.add(new Song("mainMusic"));
-//			mainMusic.selectedSong.add(new Song("gameMusic"));
+			mainMusic.selectedSong = new ArrayList<Song>();
+			mainMusic.selectedSong.add(new Song("introMusic2"));
+			mainMusic.selectedSong.add(new Song("mainMusic"));
+			mainMusic.selectedSong.add(new Song("gameMusic"));
 			
 			//곡을 변경할 때 인덱스를 사용할 경우를 대비해 인덱스 변수도 만들어준다. 사용 안할수 도 있음
-//			mainMusic.index = 0;
+			mainMusic.index = 0;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -51,6 +51,6 @@ public class Main extends Application {
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		launch(args);
 		//음악 스레드를 종료 시킨다.
-//		mainMusic.stopMusic();
+		mainMusic.stopMusic();
 	}
 }
