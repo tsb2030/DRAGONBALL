@@ -105,6 +105,8 @@ public class recordController {
 		recordChart.getData().add(restData);
 
 	}
+	
+	
 
 	
 
