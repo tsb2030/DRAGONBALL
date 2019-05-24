@@ -1,12 +1,17 @@
 package eye.record.controller;
 
+import java.io.IOException;
 import java.text.DateFormatSymbols;
 import java.util.Locale;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.stage.Stage;
 
 public class recordController {
 
@@ -105,7 +110,122 @@ public class recordController {
 		recordChart.getData().add(restData);
 
 	}
-	
+	// 1to50 record 팝업 띄우기
+		public void oneToFiftyButton(ActionEvent e) {
+			FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/OrderedPopUp.fxml"));
+			Parent root;
+			try {
+				root = (Parent) fxmlloader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(root));
+				stage.setTitle("순서대로 따라가기 기록");
+				stage.show();
+
+
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+		}
+
+//		// 시선이동트레이닝 - 뫼비우스 record 팝업 띄우기
+		public void eyeMovementButton(ActionEvent e) {
+			FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/MovePopUp.fxml"));
+			Parent root;
+			try {
+				root = (Parent) fxmlloader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(root));
+				stage.setTitle("시선이동 - 뫼비우스 기록");
+				stage.show();
+				
+
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+
+			}
+		}
+		
+
+//		// 시선이동트레이닝 - 지그재그 record 팝업 띄우기
+//		public void eyeMovementButton2(ActionEvent e) {
+//			FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/MovePopUp2.fxml"));
+//			Parent root;
+//			try {
+//				root = (Parent) fxmlloader.load();
+//				Stage stage = new Stage();
+//				stage.setScene(new Scene(root));
+//				stage.setTitle("시선이동 - 지그재그 기록");
+//				stage.show();
+//
+//
+//			} catch (IOException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//
+//			}
+//		}
+
+
+
+		//  두더지 잡기 record 팝업 띄우기
+		public void catchMoleGameButton(ActionEvent e) {
+			FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/CatchMolePopUp.fxml"));
+			Parent root;
+			try {
+				root = (Parent) fxmlloader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(root));
+				stage.setTitle("두더지 게임 기록");
+				stage.show();
+
+
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+		}
+
+		// 캐치 볼 record 팝업 띄우기
+		public void catchBallButton(ActionEvent e) {
+			FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/CatchBallPopUp.fxml"));
+			Parent root;
+			try {
+				root = (Parent) fxmlloader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(root));
+				stage.setTitle("Catch Ball 기록");
+				stage.show();
+
+
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+		}
+
+		// 같은 그림 찾기 record 팝업 띄우기
+		public void findPictureButton(ActionEvent e) {
+			FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/FindPicturePopUp.fxml"));
+			Parent root;
+			try {
+				root = (Parent) fxmlloader.load();
+				Stage stage = new Stage();
+				stage.setScene(new Scene(root));
+				stage.setTitle("같은그림 찾기 기록");
+				stage.show();
+
+
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+		}
 	
 
 	
