@@ -98,7 +98,7 @@
 															</image>
 														</ImageView>
 														<Label layoutX="215.0" layoutY="25.0" styleClass="littleTitleM" text="순서대로 따라가기" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" onAction="#oneToFiftyButton" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
@@ -113,7 +113,7 @@
 															</image>
 														</ImageView>
 														<Label layoutX="215.0" layoutY="25.0" styleClass="littleTitleM" text="시선이동 트레이닝" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" onAction="#eyeMovementButton" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
@@ -128,7 +128,6 @@
 															</image>
 														</ImageView>
 														<Label layoutX="215.0" layoutY="25.0" styleClass="littleTitleM" text="5점 카드 트레이닝" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
@@ -143,7 +142,7 @@
 															</image>
 														</ImageView>
 														<Label layoutX="245.0" layoutY="25.0" styleClass="littleTitleM" text="두더지 잡기" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" onAction="#catchMoleGameButton" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
@@ -158,7 +157,7 @@
 															</image>
 														</ImageView>
 														<Label layoutX="255.0" layoutY="25.0" styleClass="littleTitleM" text="Catch Ball" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" onAction="#catchBallButton" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
@@ -173,7 +172,7 @@
 															</image>
 														</ImageView>
 														<Label layoutX="235.0" layoutY="25.0" styleClass="littleTitleM" text="같은 그림 찾기" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" onAction="#findPictureButton" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="확인" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
