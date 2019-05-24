@@ -41,10 +41,10 @@ public class otfSucController implements Initializable{
 		// 팝업창 닫기
 		public void closePopUp() {
 			try {
-				Parent root = FXMLLoader.load(getClass().getResource("eye/game/view/game_main_page.fxml"));
+				Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) closeBtn.getScene().getWindow();
-				scene.getStylesheets().add(getClass().getResource("eye/main/controller/application.css").toExternalForm());
+				scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 				otfGameController.currentStage.setScene(scene);
 				otfGameController.currentStage.setTitle("gameMainPage");
 				primaryStage.close();
