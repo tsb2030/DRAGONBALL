@@ -33,7 +33,7 @@ public class Failcontroller implements Initializable {
 			Playcontroller.currentStage.setScene(scene);
 			Playcontroller.currentStage.setTitle("game_main_page");
 			
-			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
 			Stage primaryStage = (Stage) FailPage.getScene().getWindow();
 			primaryStage.close();

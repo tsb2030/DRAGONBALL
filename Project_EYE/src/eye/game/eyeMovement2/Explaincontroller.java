@@ -40,11 +40,11 @@ public class Explaincontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
-					Parent root = FXMLLoader.load(getClass().getResource("../../game/view/game_main_page.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
 					scene.getStylesheets()
-							.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					// TODO: handle exception

@@ -171,7 +171,7 @@ public class Playcontroller implements Initializable {
 
 	public void showEndPopUp() {
 		currentStage = (Stage) backBtn.getScene().getWindow();
-		FXMLLoader another = new FXMLLoader(Main.class.getResource("../game/eyeMovement1/gameQ&A.fxml"));
+		FXMLLoader another = new FXMLLoader(Main.class.getResource("/eye/game/eyeMovement1/gameQ&A.fxml"));
 		try {
 			AnchorPane anotherPage = (AnchorPane) another.load();
 			//
