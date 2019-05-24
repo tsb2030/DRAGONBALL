@@ -14,7 +14,7 @@
 	<children>
 		<Pane prefHeight="500.0" prefWidth="500.0">
 			<children>
-				<Label layoutX="105.0" layoutY="14.0" styleClass="fontStyleL30" text="같은 그림 찾기 - 순위" />
+				<Label layoutX="135.0" layoutY="14.0" styleClass="fontStyleM28" text="같은 그림 찾기  랭킹" />
 				<Line endX="200.0" layoutX="200.0" layoutY="57.0" startX="-100.0" stroke="#707070" />
 				<Button id="shadow" layoutX="212.0" layoutY="436.0" mnemonicParsing="false" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="buttonFontStyle" text="닫기" />
 				<ScrollPane layoutX="79.0" layoutY="90.0" prefHeight="327.0" prefWidth="350.0" style="-fx-background-color: #ffffe4;" styleClass="edge-to-edge">

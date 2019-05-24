@@ -16,8 +16,8 @@
 	<children>
 		<Pane prefHeight="500.0" prefWidth="500.0">
 			<children>
-				<Label layoutX="90.0" layoutY="14.0"
-					styleClass="fontStyleL30" text="순서대로 따라가기 순위" />
+				<Label layoutX="110.0" layoutY="14.0"
+					styleClass="fontStyleM28" text="순서대로 따라가기  랭킹" />
 				<Line endX="240.0" layoutX="180.0" layoutY="57.0"
 					startX="-100.0" stroke="#707070" />
 				<Button id="shadow" layoutX="116.0" layoutY="80.0"

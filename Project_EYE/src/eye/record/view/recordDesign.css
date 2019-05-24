@@ -27,7 +27,7 @@ Pane{
 	-fx-font-size: 35.0px;
 }
 
-.fontStyleL30{
+.fontStyleL33{
 	-fx-font-family: "a소나무L";
 	-fx-font-size: 33.0px;
 }
@@ -41,6 +41,11 @@ Pane{
 	-fx-font-family: "a소나무L";
 	-fx-font-size: 20.0px;
 	-fx-text-fill: #252525;
+}
+
+.fontStyleM28{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 28.0px;
 }
 
 .listTitle{

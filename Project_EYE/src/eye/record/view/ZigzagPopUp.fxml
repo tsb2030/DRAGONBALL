@@ -16,8 +16,8 @@
 	<children>
 		<Pane prefHeight="500.0" prefWidth="500.0">
 			<children>
-				<Label layoutX="180.0" layoutY="14.0"
-					styleClass="fontStyleM28" text="캐치볼 랭킹" />
+				<Label layoutX="170.0" layoutY="14.0"
+					styleClass="fontStyleM28" text="지그재그 랭킹" />
 				<Line endX="120.0" layoutX="240.0" layoutY="57.0"
 					startX="-100.0" stroke="#707070" />
 				<Button id="shadow" layoutX="116.0" layoutY="80.0"
