@@ -133,10 +133,10 @@ public class Controller implements Initializable{
 			public void handle(Event arg0) {
 				// TODO Auto-generated method stub
 				try {
-					Parent root = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) backBtn.getScene().getWindow();
-					scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+					scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					// TODO: handle exception

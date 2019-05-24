@@ -151,7 +151,7 @@ public static Stage currentStage;
 										AnchorPane anotherPage = (AnchorPane) endGamePopup.load();
 										Scene endGamePopupScene = new Scene(anotherPage);
 										endGamePopupScene.getStylesheets()
-												.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+												.add(getClass().getResource("eye/main/controller/application.css").toExternalForm());
 										Stage stage = new Stage();
 										stage.setScene(endGamePopupScene);
 										stage.show();

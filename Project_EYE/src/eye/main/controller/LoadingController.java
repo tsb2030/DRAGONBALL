@@ -48,7 +48,7 @@ public class LoadingController implements Initializable{
 					public void run() {
 						Parent root = null;
 						try {
-						root = FXMLLoader.load(getClass().getResource("../view/main_page.fxml"));
+						root = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 						}catch (Exception e) {
 							// TODO: handle exception
 						}
