@@ -402,15 +402,15 @@ public class GamePageController implements Initializable {
 
 		try {
 
-			File file = new File(Main.class.getResource("../game/findPicture/abocado.png").toURI());
+			File file = new File(Main.class.getResource("/eye/game/findPicture/abocado.png").toURI());
 			FileInputStream fis = new FileInputStream(file);
 			image1 = new Image(fis);
 
-			File file1 = new File(Main.class.getResource("../game/findPicture/apple.png").toURI());
+			File file1 = new File(Main.class.getResource("/eye/game/findPicture/apple.png").toURI());
 			FileInputStream fis1 = new FileInputStream(file1);
 			image2 = new Image(fis1);
 
-			File file2 = new File(Main.class.getResource("../game/findPicture/kiwi.png").toURI());
+			File file2 = new File(Main.class.getResource("/eye/game/findPicture/kiwi.png").toURI());
 			FileInputStream fis2 = new FileInputStream(file2);
 			image3 = new Image(fis2);
 
@@ -833,7 +833,7 @@ public class GamePageController implements Initializable {
 				clock.animation.stop();
 				currentStage = (Stage) timeLabel.getScene().getWindow();
 				dodugeStage = (Stage) sampleImage.getScene().getWindow();
-				FXMLLoader EndGamePopupLoader = new FXMLLoader(Main.class.getResource("../game/findPicture/EndPopup.fxml")); // �ҷ��� �˾�â
+				FXMLLoader EndGamePopupLoader = new FXMLLoader(Main.class.getResource("/eye/game/findPicture/EndPopup.fxml")); // �ҷ��� �˾�â
 				try {
 					AnchorPane EndGamePopupPane = (AnchorPane) EndGamePopupLoader.load();
 					Scene EndGamePopupScene = new Scene(EndGamePopupPane);
