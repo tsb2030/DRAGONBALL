@@ -141,7 +141,7 @@ public class otfGameController implements Initializable{
 								number++;
 								System.out.println(number);
 								//number가 51이되면 게임이 끝난 것이므로 타임라인을 멈추고 숫자버튼이 눌리지않게 처리한다.
-								if(number==3) {
+								if(number==51) {
 									timeLine.stop();
 									for(int i=0;i<25;i++) {
 										 btnarr[i].setDisable(true);
@@ -153,7 +153,7 @@ public class otfGameController implements Initializable{
 										AnchorPane anotherPage = (AnchorPane) endGamePopup.load();
 										Scene endGamePopupScene = new Scene(anotherPage);
 										endGamePopupScene.getStylesheets()
-												.add(getClass().getResource("eye/main/controller/application.css").toExternalForm());
+												.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 										Stage stage = new Stage();
 										stage.setScene(endGamePopupScene);
 										stage.show();
