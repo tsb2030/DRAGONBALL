@@ -16,7 +16,7 @@ public class Main extends Application {
 		Font.loadFont(getClass().getResourceAsStream("a소나무L.ttf"), 14.0);
 		Font.loadFont(getClass().getResourceAsStream("a소나무M.ttf"), 14.0);
 		
-		Parent root = FXMLLoader.load(getClass().getResource("OrderedPopUp.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("recordMain.fxml"));
 
 		Scene scene = new Scene(root);
 
@@ -27,6 +27,9 @@ public class Main extends Application {
 		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
+	
+	
+	
 
 	public static void main(String[] args) {
 		launch(args);
