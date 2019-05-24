@@ -3,6 +3,7 @@ package eye.game.findPicture;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
@@ -401,16 +402,21 @@ public class GamePageController implements Initializable {
 		B[20] = ranImage21;
 
 		try {
-
-			File file = new File(Main.class.getResource("/eye/game/findPicture/abocado.png").toURI());
+			URL url = getClass().getResource("/eye/game/findPicture/abocado.png");
+			URI uri = url.toURI();
+			File file = new File(uri);
 			FileInputStream fis = new FileInputStream(file);
 			image1 = new Image(fis);
 
-			File file1 = new File(Main.class.getResource("/eye/game/findPicture/apple.png").toURI());
+			URL url1 = getClass().getResource("/eye/game/findPicture/apple.png");
+			URI uri1 = url1.toURI();
+			File file1 = new File(uri1);
 			FileInputStream fis1 = new FileInputStream(file1);
 			image2 = new Image(fis1);
 
-			File file2 = new File(Main.class.getResource("/eye/game/findPicture/kiwi.png").toURI());
+			URL url2 = getClass().getResource("/eye/game/findPicture/kiwi.png");
+			URI uri2 = url2.toURI();
+			File file2 = new File(uri2);
 			FileInputStream fis2 = new FileInputStream(file2);
 			image3 = new Image(fis2);
 

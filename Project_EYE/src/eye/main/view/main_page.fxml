@@ -36,7 +36,7 @@
 		</Button>
 		 <ImageView fitHeight="136.0" fitWidth="115.0" layoutX="800.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
      	<image>
-            <Image url="image/운눈_로고.png" />
+            <Image url="/image/운눈_로고.png" />
 		</image>
 	  </ImageView>
 		<Label layoutX="287.0" layoutY="285.0" text="E   x   e   r   c   i   s   e      Y   o   u   r      E   y   e   s">

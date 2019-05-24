@@ -16,7 +16,7 @@
 
 <!-- 지그재그  게임 전 속도 선택 페이지/ 공선택 미구현에 따른 디자인! 추후 삭제해도 무방~~ -->
 
-<AnchorPane fx:id="acpane" prefHeight="720.0" prefWidth="1280.0" stylesheets="@priorPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.eyeMovement2.Selectcontroller">
+<AnchorPane fx:id="acpane" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/game/eyeMovement2/priorPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.eyeMovement2.Selectcontroller">
    <children>
       <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>
@@ -28,7 +28,7 @@
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@backarrow.png" />
+                        <Image url="/eye/game/eyeMovement2/backarrow.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="지그재그">
@@ -47,7 +47,7 @@
                      <!-- "다음"버튼 디자인을 위한 Pane -->
                         <ImageView fx:id="nextBtn" fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@redRec.png" />
+                              <Image url="/eye/game/eyeMovement2/redRec.png" />
                            </image>
                         </ImageView>
                         <Text fx:id="nextBtn2" fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />

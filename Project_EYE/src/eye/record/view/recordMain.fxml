@@ -34,7 +34,7 @@
 							layoutX="6.0" layoutY="6.0" pickOnBounds="true"
 							preserveRatio="true">
 							<image>
-								<Image url="@../../../image/backarrow.png" />
+								<Image url="/image/backarrow.png" />
 							</image>
 						</ImageView>
 						<Label layoutX="608.0" layoutY="3.0" styleClass="fontStyleM"
@@ -147,7 +147,7 @@
 															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
 															preserveRatio="true">
 															<image>
-																<Image url="@../../../image/gameList/atoz.png" />
+																<Image url="/image/gameList/atoz.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="215.0" layoutY="25.0"
@@ -175,7 +175,7 @@
 															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
 															preserveRatio="true">
 															<image>
-																<Image url="@../../../image/gameList/mobius.png" />
+																<Image url="/image/gameList/mobius.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="250.0" layoutY="25.0"
@@ -203,7 +203,7 @@
 															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
 															preserveRatio="true">
 															<image>
-																<Image url="@../../../image/gameList/zigzag.png" />
+																<Image url="/image/gameList/zigzag.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="270.0" layoutY="25.0"
@@ -231,7 +231,7 @@
 															layoutX="20.0" layoutY="50.0" pickOnBounds="true"
 															preserveRatio="true">
 															<image>
-																<Image url="@../../../image/gameList/5dot.png" />
+																<Image url="/image/gameList/5dot.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="220.0" layoutY="50.0"
@@ -254,7 +254,7 @@
 															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
 															preserveRatio="true">
 															<image>
-																<Image url="@../../../image/gameList/catchmole.png" />
+																<Image url="/image/gameList/catchmole.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="255.0" layoutY="25.0"
@@ -282,7 +282,7 @@
 															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
 															preserveRatio="true">
 															<image>
-																<Image url="@../../../image/gameList/catchball.png" />
+																<Image url="/image/gameList/catchball.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="280.0" layoutY="25.0"
@@ -310,7 +310,7 @@
 															layoutX="20.0" layoutY="25.0" pickOnBounds="true"
 															preserveRatio="true">
 															<image>
-																<Image url="@../../../image/gameList/findpicture.png" />
+																<Image url="/image/gameList/findpicture.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="240.0" layoutY="25.0"
@@ -352,7 +352,7 @@
 															preserveRatio="true">
 															<image>
 																<Image
-																	url="@../../../image/gameList/findpicture.png" />
+																	url="/image/gameList/findpicture.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0"
@@ -373,7 +373,7 @@
 															preserveRatio="true">
 															<image>
 																<Image
-																	url="@../../../image/gameList/findpicture.png" />
+																	url="/image/gameList/findpicture.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0"
@@ -394,7 +394,7 @@
 															preserveRatio="true">
 															<image>
 																<Image
-																	url="@../../../image/gameList/findpicture.png" />
+																	url="/image/gameList/findpicture.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0"
@@ -415,7 +415,7 @@
 															preserveRatio="true">
 															<image>
 																<Image
-																	url="@../../../image/gameList/findpicture.png" />
+																	url="/image/gameList/findpicture.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0"
@@ -436,7 +436,7 @@
 															preserveRatio="true">
 															<image>
 																<Image
-																	url="@../../../image/gameList/findpicture.png" />
+																	url="/image/gameList/findpicture.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="245.0" layoutY="25.0"
@@ -457,7 +457,7 @@
 															preserveRatio="true">
 															<image>
 																<Image
-																	url="@../../../image/gameList/findpicture.png" />
+																	url="/image/gameList/findpicture.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="250.0" layoutY="25.0"

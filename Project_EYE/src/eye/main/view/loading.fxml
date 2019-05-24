@@ -8,12 +8,12 @@
    <children>
       <ImageView fitHeight="400.0" fitWidth="500.0" layoutX="390.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="image/blink.gif" />
+            <Image url="/image/blink.gif" />
          </image>
       </ImageView>
       <ImageView fitHeight="100.0" fitWidth="400.0" layoutX="480.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="image/loading0.gif" />
+            <Image url="/image/loading0.gif" />
          </image>
       </ImageView>
    </children>

@@ -16,7 +16,7 @@
 
 <!-- 셋팅창 페이지 -->
 
-<AnchorPane fx:id="ExplainPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="@setPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.set.controller.setController">
+<AnchorPane fx:id="ExplainPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/set/view/setPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.set.controller.setController">
    <children>
       <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>
@@ -28,7 +28,7 @@
                      </HBox.margin>
                      <image>
                      <!-- 뒤로가기 버튼 이미지 -->
-                        <Image url="@../../../image/backarrow.png" />
+                        <Image url="/image/backarrow.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="설정">
@@ -49,7 +49,7 @@
                      <!-- "확인"버튼 디자인을 위한 Pane -->
                         <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../image/사각형%2020.png" />
+                              <Image url="/image/사각형%2020.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="확인" />
@@ -59,7 +59,7 @@
                      <children>
                         <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../image/사각형%2020.png" />
+                              <Image url="/image/사각형%2020.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="48.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="초기화" textAlignment="CENTER" />
@@ -90,14 +90,14 @@
                   <Label layoutX="165.0" layoutY="470.0" styleClass="fontStyleL" text="휴식 프로그램 유형 " />
                   <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="390.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../image/questionMark.png" />
+                        <Image url="/image/questionMark.png" />
                      </image>
                   </ImageView>
                   <Pane id="clicked" layoutX="450.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../image/yellowbox.png" />
+                              <Image url="/image/yellowbox.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="35.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="짧게" />
@@ -126,7 +126,7 @@
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../image/yellowbox.png" />
+                              <Image url="/image/yellowbox.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="35.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="길게" />
@@ -136,7 +136,7 @@
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../image/yellowbox.png" />
+                              <Image url="/image/yellowbox.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="23.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="골고루" />

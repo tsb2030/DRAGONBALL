@@ -8,7 +8,7 @@
 
 <!-- 게임 후 질문 팝업창 -->
 
-<AnchorPane fx:id="EndPopUpPage" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" stylesheets="@popup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.eyeMovement2.EndPopUpcontroller">
+<AnchorPane fx:id="EndPopUpPage" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" stylesheets="/eye/game/eyeMovement2/popup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.eyeMovement2.EndPopUpcontroller">
 	<children>
 		<Label layoutX="40.0" layoutY="107.0" text="색이 몇 회 바뀌었나요?">
 			<font>
