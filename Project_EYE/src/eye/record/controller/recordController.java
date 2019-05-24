@@ -134,7 +134,7 @@ public class recordController {
 
 	//		// 시선이동트레이닝 - 뫼비우스 record 팝업 띄우기
 	public void eyeMovementButton(ActionEvent e) {
-		FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/MovePopUp.fxml"));
+		FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/MobiusPopUp.fxml"));
 		try {
 			AnchorPane anotherPage = (AnchorPane) fxmlloader.load();
 			Scene Scene = new Scene(anotherPage);
@@ -153,25 +153,25 @@ public class recordController {
 	}
 
 
-	//		// 시선이동트레이닝 - 지그재그 record 팝업 띄우기
-	//		public void eyeMovementButton2(ActionEvent e) {
-	//			FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/MovePopUp2.fxml"));
-	//			
-	//			try {
-	//		AnchorPane anotherPage = (AnchorPane) fxmlloader.load();
-	//		Scene Scene = new Scene(anotherPage);
-	//		Scene.getStylesheets()
-	//				.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
-	//		Stage stage = new Stage();
-	//		stage.setScene(Scene);
-	//		stage.show();
-	////
-	//			} catch (IOException e1) {
-	//				// TODO Auto-generated catch block
-	//				e1.printStackTrace();
+			// 시선이동트레이닝 - 지그재그 record 팝업 띄우기
+			public void eyeMovementButton2(ActionEvent e) {
+				FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/ZigzagPopUp.fxml"));
+				
+				try {
+			AnchorPane anotherPage = (AnchorPane) fxmlloader.load();
+			Scene Scene = new Scene(anotherPage);
+			Scene.getStylesheets()
+					.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
+			Stage stage = new Stage();
+			stage.setScene(Scene);
+			stage.show();
 	//
-	//			}
-	//		}
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+	
+				}
+			}
 
 
 

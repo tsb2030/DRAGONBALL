@@ -10,142 +10,73 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0"
-	xmlns="http://javafx.com/javafx/8.0.171"
-	xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="zigzagRecord" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.record.controller.ZigzagRecordController">
 	<children>
 		<Pane prefHeight="500.0" prefWidth="500.0">
 			<children>
-				<Label layoutX="170.0" layoutY="14.0"
-					styleClass="fontStyleM28" text="지그재그 랭킹" />
-				<Line endX="120.0" layoutX="240.0" layoutY="57.0"
-					startX="-100.0" stroke="#707070" />
-				<Button id="shadow" layoutX="116.0" layoutY="80.0"
-					mnemonicParsing="false"
-					style="-fx-background-color: #bb4b43; -fx-background-radius: 30;"
-					styleClass="smallButtonFontStyle" text="1단계" />
-				<Button id="shadow" layoutX="210.0" layoutY="80.0"
-					mnemonicParsing="false"
-					style="-fx-background-color: #bb4b43; -fx-background-radius: 30;"
-					styleClass="smallButtonFontStyle" text="2단계" />
-				<Button id="shadow" layoutX="309.0" layoutY="80.0"
-					mnemonicParsing="false"
-					style="-fx-background-color: #bb4b43; -fx-background-radius: 30;"
-					styleClass="smallButtonFontStyle" text="3단계" />
-				<Button id="shadow" layoutX="212.0" layoutY="436.0"
-					mnemonicParsing="false"
-					style="-fx-background-color: #bb4b43; -fx-background-radius: 30;"
-					styleClass="buttonFontStyle" text="닫기" />
-				<ScrollPane layoutX="79.0" layoutY="137.0"
-					prefHeight="280.0" prefWidth="350.0"
-					style="-fx-background-color: #ffffe4;" styleClass="edge-to-edge">
+				<Label layoutX="170.0" layoutY="14.0" styleClass="fontStyleM28" text="지그재그 랭킹" />
+				<Line endX="120.0" layoutX="240.0" layoutY="57.0" startX="-100.0" stroke="#707070" />
+				<Button id="shadow" layoutX="116.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="smallButtonFontStyle" text="1단계" />
+				<Button id="shadow" layoutX="210.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="smallButtonFontStyle" text="2단계" />
+				<Button id="shadow" layoutX="309.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="smallButtonFontStyle" text="3단계" />
+				<Button id="shadow" layoutX="212.0" layoutY="436.0" mnemonicParsing="false" onAction="#exitButton" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="buttonFontStyle" text="닫기" />
+				<ScrollPane layoutX="79.0" layoutY="137.0" prefHeight="280.0" prefWidth="350.0" style="-fx-background-color: #ffffe4;" styleClass="edge-to-edge">
 					<content>
 						<Pane prefHeight="400.0" prefWidth="330.0">
 							<children>
-								<GridPane prefHeight="400.0" prefWidth="330.0"
-									styleClass="innerPane">
+								<GridPane prefHeight="400.0" prefWidth="330.0" styleClass="innerPane">
 									<columnConstraints>
-										<ColumnConstraints hgrow="SOMETIMES"
-											minWidth="10.0" prefWidth="100.0" />
-										<ColumnConstraints hgrow="SOMETIMES"
-											minWidth="10.0" prefWidth="100.0" />
-										<ColumnConstraints hgrow="SOMETIMES"
-											minWidth="10.0" prefWidth="100.0" />
+										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+										<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
 									</columnConstraints>
 									<rowConstraints>
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="10.0"
-											prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+										<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
 									</rowConstraints>
 									<children>
-										<Label alignment="CENTER" prefHeight="19.0"
-											prefWidth="115.0" text="점수" styleClass="listTitle"
-											GridPane.columnIndex="1" />
-										<Label alignment="CENTER" prefWidth="115.0" text="1"
-											styleClass="listContent" GridPane.rowIndex="1" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="1" />
-										<Label alignment="CENTER" prefHeight="19.0"
-											prefWidth="115.0" text="날짜" styleClass="listTitle"
-											GridPane.columnIndex="2" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="1" />
-										<Label alignment="CENTER" prefWidth="115.0" text="2"
-											GridPane.rowIndex="2" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="2" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="2" />
-										<Label alignment="CENTER" prefWidth="115.0" text="3"
-											GridPane.rowIndex="3" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="3" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="3" />
-										<Label alignment="CENTER" prefWidth="115.0" text="4"
-											GridPane.rowIndex="4" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="4" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="4" />
-										<Label alignment="CENTER" prefWidth="115.0" text="5"
-											GridPane.rowIndex="5" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="5" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="5" />
-										<Label alignment="CENTER" prefWidth="115.0" text="6"
-											GridPane.rowIndex="6" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="6" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="6" />
-										<Label alignment="CENTER" prefWidth="115.0" text="7"
-											GridPane.rowIndex="7" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="7" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="7" />
-										<Label alignment="CENTER" prefWidth="115.0" text="8"
-											GridPane.rowIndex="8" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="8" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="8" />
-										<Label alignment="CENTER" prefWidth="115.0" text="9"
-											GridPane.rowIndex="9" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="9" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="9" />
-										<Label alignment="CENTER" prefWidth="115.0" text="10"
-											GridPane.rowIndex="10" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="1" GridPane.rowIndex="10" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label"
-											GridPane.columnIndex="2" GridPane.rowIndex="10" />
-										<Label alignment="CENTER" prefHeight="19.0"
-											prefWidth="115.0" text="순위" styleClass="listTitle"
-											textAlignment="CENTER" />
+										<Label alignment="CENTER" prefHeight="19.0" prefWidth="115.0" styleClass="listTitle" text="점수" GridPane.columnIndex="1" />
+										<Label alignment="CENTER" prefWidth="115.0" styleClass="listContent" text="1" GridPane.rowIndex="1" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+										<Label alignment="CENTER" prefHeight="19.0" prefWidth="115.0" styleClass="listTitle" text="날짜" GridPane.columnIndex="2" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+										<Label alignment="CENTER" prefWidth="115.0" text="2" GridPane.rowIndex="2" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+										<Label alignment="CENTER" prefWidth="115.0" text="3" GridPane.rowIndex="3" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+										<Label alignment="CENTER" prefWidth="115.0" text="4" GridPane.rowIndex="4" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+										<Label alignment="CENTER" prefWidth="115.0" text="5" GridPane.rowIndex="5" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+										<Label alignment="CENTER" prefWidth="115.0" text="6" GridPane.rowIndex="6" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+										<Label alignment="CENTER" prefWidth="115.0" text="7" GridPane.rowIndex="7" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+										<Label alignment="CENTER" prefWidth="115.0" text="8" GridPane.rowIndex="8" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+										<Label alignment="CENTER" prefWidth="115.0" text="9" GridPane.rowIndex="9" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+										<Label alignment="CENTER" prefWidth="115.0" text="10" GridPane.rowIndex="10" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+										<Label alignment="CENTER" prefHeight="19.0" prefWidth="115.0" styleClass="listTitle" text="순위" textAlignment="CENTER" />
 									</children>
 								</GridPane>
 							</children>
