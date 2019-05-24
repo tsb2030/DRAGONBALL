@@ -22,9 +22,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Font.loadFont(getClass().getResourceAsStream("font.a소나무B.ttf"), 10);
-			Font.loadFont(getClass().getResourceAsStream("font.a소나무L.ttf"), 10);
-			Font.loadFont(getClass().getResourceAsStream("font.a소나무M.ttf"), 10);
+			Font.loadFont(getClass().getResourceAsStream("/font/a소나무B.ttf"), 10);
+			Font.loadFont(getClass().getResourceAsStream("/font/a소나무L.ttf"), 10);
+			Font.loadFont(getClass().getResourceAsStream("/font/a소나무M.ttf"), 10);
 
 			Parent root = FXMLLoader.load(getClass().getResource("view/loading.fxml"));
 			Scene scene = new Scene(root);
