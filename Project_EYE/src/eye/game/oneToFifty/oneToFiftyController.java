@@ -178,10 +178,10 @@ public class oneToFiftyController implements Initializable{
 	public void goGameMainBtn() {
 		try {
 
-			Main.mainMusic.stopMusic();
-			Main.mainMusic.resetNameAudioStream("LaLaLa");
+//			Main.mainMusic.stopMusic();
+//			Main.mainMusic.resetNameAudioStream("LaLaLa");
 			gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
-		} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
+		} catch (IOException  e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

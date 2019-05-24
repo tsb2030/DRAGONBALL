@@ -45,8 +45,8 @@ public class Explaincontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
-					Main.mainMusic.stopMusic();
-   					Main.mainMusic.resetNameAudioStream("mainMusic");
+//					Main.mainMusic.stopMusic();
+//   					Main.mainMusic.resetNameAudioStream("mainMusic");
 					Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();

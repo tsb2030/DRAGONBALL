@@ -64,10 +64,10 @@ public class IntroducePageController implements Initializable  {
    			public void handle(Event event) {
    				// TODO Auto-generated method stub
    				try {
-   					Main.mainMusic.stopMusic();
-   					Main.mainMusic.resetNameAudioStream("mainMusic");
-   					gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
-   				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
+//   					Main.mainMusic.stopMusic();
+//   					Main.mainMusic.resetNameAudioStream("mainMusic");
+   					gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
+   				} catch (IOException  e) {
    					// TODO Auto-generated catch block
    					e.printStackTrace();
    				}
@@ -85,7 +85,7 @@ public class IntroducePageController implements Initializable  {
     	try {
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
-			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) easyButton.getScene().getWindow();  // ���� ������ ��������
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
@@ -101,7 +101,7 @@ public class IntroducePageController implements Initializable  {
     	try {
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
-			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) hardButton.getScene().getWindow();  // ���� ������ ��������
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
@@ -117,7 +117,7 @@ public class IntroducePageController implements Initializable  {
     	try {
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
-			scene.getStylesheets().add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) normalButton.getScene().getWindow();  // ���� ������ ��������
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");

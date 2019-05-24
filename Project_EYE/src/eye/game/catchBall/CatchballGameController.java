@@ -183,7 +183,7 @@ public class CatchballGameController implements Initializable {
 					Parent SelectSpeedPage = FXMLLoader.load(getClass().getResource("IntroducePage.fxml"));
 					Scene scene = new Scene(SelectSpeedPage);
 					scene.getStylesheets()
-							.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage primaryStage = (Stage) BackBtn.getScene().getWindow();
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
@@ -231,14 +231,14 @@ public class CatchballGameController implements Initializable {
 				if (followBalltransition.getStatus() == Status.RUNNING)
 					followBalltransition.pause();
 
-				FXMLLoader EndGamePopup = new FXMLLoader(Main.class.getResource("../game/catchBall/EndGamePopup.fxml"));
+				FXMLLoader EndGamePopup = new FXMLLoader(Main.class.getResource("/eye/game/catchBall/EndGamePopup.fxml"));
 
 				justOne = true;
 				try {
 					AnchorPane anotherPage = (AnchorPane) EndGamePopup.load();
 					Scene EndGamePopupScene = new Scene(anotherPage);
 					EndGamePopupScene.getStylesheets()
-							.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage stage = new Stage();
 					stage.setScene(EndGamePopupScene);
 					stage.show();

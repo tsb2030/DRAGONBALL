@@ -27,7 +27,7 @@ public class Failcontroller implements Initializable {
 	@FXML
 	void closePopUp(ActionEvent event) {
 		try {
-			Parent MainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
+			Parent MainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(MainPage);
 
 			Playcontroller.currentStage.setScene(scene);

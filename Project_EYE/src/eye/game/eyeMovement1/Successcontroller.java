@@ -29,8 +29,8 @@ public class Successcontroller implements Initializable{
 	void numGameRestart(ActionEvent event) {
 		try {
 
-			Main.mainMusic.stopMusic();
-			Main.mainMusic.resetNameAudioStream("LaLaLa");
+//			Main.mainMusic.stopMusic();
+//			Main.mainMusic.resetNameAudioStream("LaLaLa");
 			
 			Parent root = FXMLLoader.load(getClass().getResource("Overview.fxml"));
 			Scene scene = new Scene(root);
@@ -52,8 +52,8 @@ public class Successcontroller implements Initializable{
 	void closePopUp(ActionEvent event) {
 		try {
 
-			Main.mainMusic.stopMusic();
-			Main.mainMusic.resetNameAudioStream("LaLaLa");
+//			Main.mainMusic.stopMusic();
+//			Main.mainMusic.resetNameAudioStream("LaLaLa");
 			
 			Parent MainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(MainPage);

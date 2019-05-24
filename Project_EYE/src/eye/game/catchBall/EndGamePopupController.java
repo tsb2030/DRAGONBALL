@@ -45,7 +45,7 @@ public class EndGamePopupController implements Initializable {
 
 			// css����
 			scene.getStylesheets()
-					.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
 			// ���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
 			CatchballGameController.currentStage.setScene(scene);
@@ -67,17 +67,17 @@ public class EndGamePopupController implements Initializable {
 	void goMainButtonAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		// ���� �˾� â�� �ݰ�, ���� â�� �����ϴ� �۾��� �����ؾ� ��
-		Main.mainMusic.stopMusic();
-		Main.mainMusic.resetNameAudioStream("mainMusic");
+//		Main.mainMusic.stopMusic();
+//		Main.mainMusic.resetNameAudioStream("mainMusic");
 		// go main
 		try {
 			// catchballGame fxml������ scene�� �����ϴ� ���
-			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
+			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(selectSpeedPage);
 
 			// css����
 			scene.getStylesheets()
-					.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
 			// ���� �˾�â�� �ݱ����� �ϴ� ����
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������

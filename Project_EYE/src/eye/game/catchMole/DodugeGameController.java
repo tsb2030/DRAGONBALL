@@ -131,12 +131,12 @@ public class DodugeGameController implements Initializable {
 				clock.animation.stop();
 				dodugeStage = (Stage) TimerLabel.getScene().getWindow();
 				FXMLLoader EndGamePopupLoader = new FXMLLoader(
-						Main.class.getResource("../game/catchMole/EndGamePopup.fxml"));
+						Main.class.getResource("/eye/game/catchMole/EndGamePopup.fxml"));
 				try {
 					AnchorPane EndGamePopupPane = (AnchorPane) EndGamePopupLoader.load();
 					Scene EndGamePopupScene = new Scene(EndGamePopupPane);
 					EndGamePopupScene.getStylesheets()
-							.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage stage = new Stage();
 					stage.setScene(EndGamePopupScene);
 					stage.show();

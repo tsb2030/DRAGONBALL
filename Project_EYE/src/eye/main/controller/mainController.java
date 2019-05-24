@@ -36,11 +36,11 @@ public class mainController implements Initializable{
 	//게임 버튼을 눌렀을 때 동작할 메소드
 	public void goGameMain() {
 		try {
-			Main.mainMusic.stopMusic();
-			Main.mainMusic.resetNameAudioStream("mainMusic");
+//			Main.mainMusic.stopMusic();
+//			Main.mainMusic.resetNameAudioStream("mainMusic");
 			//교체할 페이지인 game_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
 			gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
-		} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		//페이지 교체

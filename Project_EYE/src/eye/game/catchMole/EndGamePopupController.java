@@ -41,7 +41,7 @@ public class EndGamePopupController implements Initializable {
 			Scene scene = new Scene(DodugeGame2);
 
 			scene.getStylesheets()
-					.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			DodugeGameController.score = 0;
 			DodugeGameController.timeTime = 60;
 			DodugeGameController.dodugeStage.setScene(scene);
@@ -54,18 +54,18 @@ public class EndGamePopupController implements Initializable {
 	@FXML
 	void goMainButtonAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		Main.mainMusic.stopMusic();
-		Main.mainMusic.resetNameAudioStream("mainMusic");
+//		Main.mainMusic.stopMusic();
+//		Main.mainMusic.resetNameAudioStream("mainMusic");
 		// go main
 		try {
 			DodugeGameController.score = 0;
-			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
+			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(selectSpeedPage);
 			DodugeGameController.dodugeStage.setScene(scene);
 			DodugeGameController.dodugeStage.setTitle("game_main_page");
 
 			scene.getStylesheets()
-					.add(getClass().getResource("../../main/controller/application.css").toExternalForm());
+					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
 			Stage primaryStage = (Stage) backGame.getScene().getWindow();
 

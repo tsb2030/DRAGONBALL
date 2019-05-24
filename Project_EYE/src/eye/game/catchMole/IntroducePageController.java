@@ -54,10 +54,10 @@ public class IntroducePageController implements Initializable {
 			public void handle(Event event) {
 				// TODO Auto-generated method stub
 				try {
-					Main.mainMusic.stopMusic();
-   					Main.mainMusic.resetNameAudioStream("mainMusic");
+//					Main.mainMusic.stopMusic();
+//   					Main.mainMusic.resetNameAudioStream("mainMusic");
 					gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
-				} catch (IOException | UnsupportedAudioFileException | LineUnavailableException | URISyntaxException e) {
+				} catch (IOException  e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
