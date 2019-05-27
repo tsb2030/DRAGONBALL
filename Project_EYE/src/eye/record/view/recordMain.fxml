@@ -30,7 +30,7 @@
 								<Image url="/image/backarrow.png" />
 							</image>
 						</ImageView>
-						<Label layoutX="608.0" layoutY="3.0" styleClass="fontStyleM" text="휴식">
+						<Label layoutX="608.0" layoutY="3.0" styleClass="fontStyleM" text="기록">
 							<font>
 								<Font size="45.0" />
 							</font>
@@ -102,7 +102,7 @@
 															</image>
 														</ImageView>
 														<Label layoutX="215.0" layoutY="25.0" styleClass="littleTitleM" text="순서대로 따라가기" />
-														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" onAction="#oneToFiftyButton" prefHeight="30.0" prefWidth="84.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="자세히" />
+														<Button id="shadow" layoutX="180.0" layoutY="135.0" mnemonicParsing="false" onAction="#oneToFiftyButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="자세히" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
 														<Label layoutX="400.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
@@ -224,6 +224,7 @@
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0" styleClass="littleTitleM" text="눈 꼭 감기" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
@@ -238,6 +239,7 @@
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0" styleClass="littleTitleM" text="멀리 보기" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
@@ -252,6 +254,7 @@
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0" styleClass="littleTitleM" text="눈 마사지" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
@@ -266,6 +269,7 @@
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0" styleClass="littleTitleM" text="눈 굴리기" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
@@ -280,6 +284,7 @@
 														</ImageView>
 														<Label layoutX="245.0" layoutY="25.0" styleClass="littleTitleM" text="빨리 깜빡이기" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
@@ -294,6 +299,7 @@
 														</ImageView>
 														<Label layoutX="250.0" layoutY="25.0" styleClass="littleTitleM" text="롱 브레이크" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>
