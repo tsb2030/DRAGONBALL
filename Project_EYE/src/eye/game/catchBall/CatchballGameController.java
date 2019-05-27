@@ -165,8 +165,6 @@ public class CatchballGameController implements Initializable {
 	// 처음 창이 실행되었을 경우
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.println("java version: " + System.getProperty("java.version"));
-		System.out.println("javafx.version: " + System.getProperty("javafx.version"));
 		timer = new Clock();
 
 		followCircle.setVisible(false);
