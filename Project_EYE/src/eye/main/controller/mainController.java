@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,8 +37,7 @@ public class mainController implements Initializable{
 	//게임 버튼을 눌렀을 때 동작할 메소드
 	public void goGameMain() {
 		try {
-//			Main.mainMusic.stopMusic();
-//			Main.mainMusic.resetNameAudioStream("mainMusic");
+			Main.setMusic("mainMusic.mp3", true);
 			//교체할 페이지인 game_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
 			gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 		} catch (IOException e) {
@@ -50,6 +50,7 @@ public class mainController implements Initializable{
 	public void goRecord() {
 		Parent recordPage=null;
 		try {
+			Main.setMusic("mainMusic.mp3", true);
 			recordPage = FXMLLoader.load(getClass().getResource("/eye/record/view/recordMain.fxml"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

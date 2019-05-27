@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-import eye.SimpleAudioPlayer;
-import eye.Song;
+import eye.Music;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +16,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	//정적 음악 변수 추가: player입니다.
-//	public static SimpleAudioPlayer mainMusic;
+	public static Music mainMusic;
 
 	@Override
 	public void start(Stage primaryStage) {
@@ -31,9 +30,9 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
-			//
-//			mainMusic = new SimpleAudioPlayer("introMusic2");
-//			mainMusic.start();
+			//introMusic 시작
+			mainMusic = new Music("introMusic.mp3", true);
+			mainMusic.start();
 //			
 			//사용할 음악 목록들을 selectedSong이라는 ArrayList<Song>에 하나씩 넣어준다.
 //			mainMusic.selectedSong = new ArrayList<Song>();
@@ -47,10 +46,16 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void setMusic(String name, boolean isLoop) {
+		mainMusic.close();
+		mainMusic = new Music(name, isLoop);
+		mainMusic.start();
+	}
 
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		launch(args);
 		//음악 스레드를 종료 시킨다.
-//		mainMusic.stopMusic();
+		mainMusic.close();
 	}
 }
