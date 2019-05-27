@@ -180,7 +180,7 @@ public class oneToFiftyController implements Initializable{
 
 //			Main.mainMusic.stopMusic();
 //			Main.mainMusic.resetNameAudioStream("LaLaLa");
-			gameMainPage = FXMLLoader.load(getClass().getResource("../view/game_main_page.fxml"));
+			gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 		} catch (IOException  e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
