@@ -1,23 +1,32 @@
 package eye.record.controller;
 
 import java.io.IOException;
+import java.net.URL;
 import java.text.DateFormatSymbols;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class recordController {
+public class recordController implements Initializable{
 
 	@FXML
 	private LineChart recordChart;
+	
+	@FXML
+	private ImageView backBtn;
 
 	// (일~토) 배열
 	private String[] weekDays = DateFormatSymbols.getInstance(Locale.KOREAN).getShortWeekdays();
@@ -235,6 +244,28 @@ public class recordController {
 			e1.printStackTrace();
 		}
 
+	}
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+		backBtn.setOnMouseClicked(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				try {
+					Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
+					Scene scene = new Scene(recordPage);
+					scene.getStylesheets()
+							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+					Stage primaryStage = (Stage) backBtn.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 
