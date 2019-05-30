@@ -36,27 +36,19 @@ public class EndGamePopupController implements Initializable {
 	void backGameAction(ActionEvent event) {
 
 		try {
-
-//			Main.mainMusic.stopMusic();
-//			Main.mainMusic.resetNameAudioStream("LaLaLa");
-			// catchballGame fxml������ scene�� �����ϴ� ���
 			Parent CatchballGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));
 			Scene scene = new Scene(CatchballGame);
 
-			// css����
+			// css
 			scene.getStylesheets()
 					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
-			// ���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
 			CatchballGameController.currentStage.setScene(scene);
 			CatchballGameController.currentStage.setTitle("CatchballGame");
 
-			// ���� �˾�â�� �ݱ����� �ϴ� ����
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������
-			// ���� �˾� â �ݱ�
 			primaryStage.close();
 
-			// ���� �ʱ�ȭ
 			CatchballGameController.bigScore = 0;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -66,30 +58,24 @@ public class EndGamePopupController implements Initializable {
 	@FXML
 	void goMainButtonAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		// ���� �˾� â�� �ݰ�, ���� â�� �����ϴ� �۾��� �����ؾ� ��
-//		Main.mainMusic.stopMusic();
-//		Main.mainMusic.resetNameAudioStream("mainMusic");
+
+		Main.setMusic("mainMusic", true);
 		// go main
 		try {
-			// catchballGame fxml������ scene�� �����ϴ� ���
 			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(selectSpeedPage);
 
-			// css����
+			// css
 			scene.getStylesheets()
 					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
-			// ���� �˾�â�� �ݱ����� �ϴ� ����
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������
 
-			// ���� �ʱ�ȭ
 			CatchballGameController.bigScore = 0;
 
-			// ���� â�� static���� ������� ������ �� â�� ���� �� �� �ִ�.
 			CatchballGameController.currentStage.setScene(scene);
 			CatchballGameController.currentStage.setTitle("game_main_page");
 
-			// ���� �˾� â �ݱ�
 			primaryStage.close();
 		} catch (Exception e) {
 			e.printStackTrace();

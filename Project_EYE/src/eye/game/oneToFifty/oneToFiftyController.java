@@ -177,9 +177,7 @@ public class oneToFiftyController implements Initializable{
 	 //게임메인화면으로 이동
 	public void goGameMainBtn() {
 		try {
-
-//			Main.mainMusic.stopMusic();
-//			Main.mainMusic.resetNameAudioStream("LaLaLa");
+			Main.setMusic("mainMusic", true);
 			gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 		} catch (IOException  e) {
 			// TODO Auto-generated catch block

@@ -36,9 +36,7 @@ public class EndPopupController {
 	@FXML
 	void backToGameSelectPage(ActionEvent event) {
 		try {
-			System.out.println("되나?");
-//			Main.mainMusic.stopMusic();
-//			Main.mainMusic.resetNameAudioStream("mainMusic");
+			Main.setMusic("mainMusic", true);
 			Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(root);
 			GamePageController.gamePageStage.setScene(scene);
@@ -50,7 +48,6 @@ public class EndPopupController {
 			currentStage.close();
 
 		} catch (Exception e1) {
-			// TODO: handle exception
 		}
 	}
 

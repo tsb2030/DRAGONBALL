@@ -3,6 +3,7 @@ package eye.game.eyeMovement2;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,6 +28,7 @@ public class Failcontroller implements Initializable {
 	@FXML
 	void closePopUp(ActionEvent event) {
 		try {
+			Main.setMusic("mainMusic", true);
 			Parent MainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(MainPage);
 

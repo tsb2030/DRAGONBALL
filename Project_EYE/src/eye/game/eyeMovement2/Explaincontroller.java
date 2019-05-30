@@ -3,6 +3,7 @@ package eye.game.eyeMovement2;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.main.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -40,6 +41,7 @@ public class Explaincontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
+					Main.setMusic("mainMusic", true);
 					Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
@@ -47,7 +49,6 @@ public class Explaincontroller implements Initializable {
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
-					// TODO: handle exception
 				}
 
 			}

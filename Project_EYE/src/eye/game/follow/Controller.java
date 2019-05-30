@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -133,6 +134,7 @@ public class Controller implements Initializable{
 			public void handle(Event arg0) {
 				// TODO Auto-generated method stub
 				try {
+					Main.setMusic("mainMusic", true);
 					Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) backBtn.getScene().getWindow();

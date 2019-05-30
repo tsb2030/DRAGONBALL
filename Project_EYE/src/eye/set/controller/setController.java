@@ -135,7 +135,8 @@ public class setController implements Initializable {
 		}
 	}
 
-	public void setToggleColor() {
+	//일단 오류때문에 사용금지
+	public void setToggleColors() {
 		Color firstBGMLUnToggleColor = (Color) BGMToggle.getUnToggleColor();
 		Color firstBGMLUnToggleLineColor = (Color) BGMToggle.getUnToggleLineColor();
 		Color firstBGMLToggleColor = (Color) BGMToggle.getToggleColor();
@@ -161,7 +162,7 @@ public class setController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 		// 처음에 켜진 상태이기 때문에 바꿈..
-		setToggleColor();
+//		setToggleColors();
 
 		for (int i = 0; i < 24; i++) {
 			timeList.add(i);

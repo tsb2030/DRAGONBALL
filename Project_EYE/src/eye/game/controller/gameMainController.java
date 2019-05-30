@@ -79,15 +79,6 @@ public class gameMainController implements Initializable {
 
 			@Override
 			public void handle(Event event) {
-				// TODO Auto-generated method stub
-//				try {
-//					Main.mainMusic.stopMusic();
-//					Main.mainMusic.resetNameAudioStream("introMusic2");
-//				} catch (UnsupportedAudioFileException | IOException | LineUnavailableException
-//						| URISyntaxException e1) {
-//					// TODO Auto-generated catch block
-//					e1.printStackTrace();
-//				}
 				try {
 					Main.setMusic("introMusic", true);
 					mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
@@ -109,8 +100,6 @@ public class gameMainController implements Initializable {
 
 				try {
 					Main.setMusic("gameMusic", true);
-//					Main.mainMusic.stopMusic();
-//					Main.mainMusic.resetNameAudioStream("gameMusic");
 					followPage = FXMLLoader.load(getClass().getResource("/eye/game/follow/gameChoice.fxml"));
 
 				} catch (IOException  e) {
@@ -126,20 +115,14 @@ public class gameMainController implements Initializable {
 
 			@Override
 			public void handle(Event event) {
-				// TODO Auto-generated method stub
-
 				try {
-
 					Main.setMusic("gameMusic", true);
-//					Main.mainMusic.stopMusic();
-//					Main.mainMusic.resetNameAudioStream("gameMusic");
 					fiveDotPage = FXMLLoader.load(getClass().getResource("/eye/game/fiveDotGame/StartPage.fxml"));
 
 				} catch (IOException  e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-
 				gameMainPage.getChildren().setAll(fiveDotPage);
 			}
 		});
@@ -148,19 +131,13 @@ public class gameMainController implements Initializable {
 
 			@Override
 			public void handle(Event event) {
-				// TODO Auto-generated method stub
-
 				try {
-
 					Main.setMusic("gameMusic", true);
-//					Main.mainMusic.stopMusic();
-//					Main.mainMusic.resetNameAudioStream("gameMusic");
 					findPictureStart = FXMLLoader.load(getClass().getResource("/eye/game/findPicture/StartPage.fxml"));
 
 				} catch (IOException  e) {
 					e.printStackTrace();
 				}
-
 				gameMainPage.getChildren().setAll(findPictureStart);
 			}
 		});
@@ -168,8 +145,6 @@ public class gameMainController implements Initializable {
 
 	@FXML
 	void catchBallGameAction(MouseEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
-//		Main.mainMusic.stopMusic();
-//		Main.mainMusic.resetNameAudioStream("gameMusic");
 		Main.setMusic("gameMusic", true);
 		catchBallPage = FXMLLoader.load(getClass().getResource("/eye/game/catchBall/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
@@ -178,8 +153,6 @@ public class gameMainController implements Initializable {
 
     @FXML
     void moleGameAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-//    	Main.mainMusic.stopMusic();
-//		Main.mainMusic.resetNameAudioStream("gameMusic");
 		Main.setMusic("gameMusic", true);
 		catchBallPage = FXMLLoader.load(getClass().getResource("/eye/game/catchMole/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
@@ -188,8 +161,6 @@ public class gameMainController implements Initializable {
 
     @FXML
     void zigzagtrainigAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-//    	Main.mainMusic.stopMusic();
-//		Main.mainMusic.resetNameAudioStream("gameMusic");
 		Main.setMusic("gameMusic", true);
 		zigzagPage = FXMLLoader.load(getClass().getResource("/eye/game/eyeMovement2/zz_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(zigzagPage);
@@ -197,8 +168,6 @@ public class gameMainController implements Initializable {
 
     @FXML
     void striptrainingAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-//    	Main.mainMusic.stopMusic();
-//		Main.mainMusic.resetNameAudioStream("gameMusic");
 		Main.setMusic("gameMusic", true);
 		stripPage = FXMLLoader.load(getClass().getResource("/eye/game/eyeMovement1/strip_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(stripPage);

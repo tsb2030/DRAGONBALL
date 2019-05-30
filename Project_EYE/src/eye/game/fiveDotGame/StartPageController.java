@@ -53,13 +53,10 @@ public class StartPageController implements Initializable  {
 
 			@Override
 			public void handle(Event event) {
-				// TODO Auto-generated method stub
 				try {
-//					Main.mainMusic.stopMusic();
-//   					Main.mainMusic.resetNameAudioStream("mainMusic");
+					Main.setMusic("mainMusic", true);
 					gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 				} catch (IOException  e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				

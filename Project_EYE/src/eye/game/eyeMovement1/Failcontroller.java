@@ -28,10 +28,7 @@ public class Failcontroller implements Initializable {
 	@FXML
 	void closePopUp(ActionEvent event) {
 		try {
-
-//			Main.mainMusic.stopMusic();
-//			Main.mainMusic.resetNameAudioStream("LaLaLa");
-			
+			Main.setMusic("mainMusic", true);
 			Parent MainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(MainPage);
 
@@ -50,11 +47,7 @@ public class Failcontroller implements Initializable {
 
 	@FXML
 	void numGameRestart(ActionEvent event) {
-		try {
-
-//			Main.mainMusic.stopMusic();
-//			Main.mainMusic.resetNameAudioStream("LaLaLa");
-			
+		try {	
 			Parent root = FXMLLoader.load(getClass().getResource("Overview.fxml"));
 			Scene scene = new Scene(root);
 

@@ -6,6 +6,7 @@ import java.text.DateFormatSymbols;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -255,6 +256,7 @@ public class recordController implements Initializable{
 			public void handle(Event event) {
 				// TODO Auto-generated method stub
 				try {
+					Main.setMusic("introMusic", true);
 					Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 					Scene scene = new Scene(recordPage);
 					scene.getStylesheets()

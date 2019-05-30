@@ -45,15 +45,13 @@ public class Explaincontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
-//					Main.mainMusic.stopMusic();
-//   					Main.mainMusic.resetNameAudioStream("mainMusic");
+					Main.setMusic("mainMusic", true);
 					Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
 					scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
-					// TODO: handle exception
 				}
 
 			}
@@ -70,7 +68,6 @@ public class Explaincontroller implements Initializable {
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
-					// TODO: handle exception
 				}
 
 			}

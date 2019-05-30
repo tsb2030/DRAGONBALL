@@ -54,8 +54,7 @@ public class EndPopupController implements Initializable {
 	@FXML
 	void goMainButtonAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-//		Main.mainMusic.stopMusic();
-//		Main.mainMusic.resetNameAudioStream("mainMusic");
+		Main.setMusic("mainMusic", true);
 		// go main
 		try {
 			GamePageController.bigScore = 0;

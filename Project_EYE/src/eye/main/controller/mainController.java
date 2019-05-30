@@ -37,6 +37,7 @@ public class mainController implements Initializable{
 	//게임 버튼을 눌렀을 때 동작할 메소드
 	public void goGameMain() {
 		try {
+			//음악 바꾸기
 			Main.setMusic("mainMusic.mp3", true);
 			//교체할 페이지인 game_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
 			gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
@@ -50,6 +51,7 @@ public class mainController implements Initializable{
 	public void goRecord() {
 		Parent recordPage=null;
 		try {
+			//음악 바꾸기
 			Main.setMusic("mainMusic.mp3", true);
 			recordPage = FXMLLoader.load(getClass().getResource("/eye/record/view/recordMain.fxml"));
 		} catch (IOException e) {

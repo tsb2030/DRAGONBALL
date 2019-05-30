@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,6 +42,7 @@ public class engPopupController implements Initializable{
 		// 팝업창 닫기
 		public void closePopUp() {
 			try {
+				Main.setMusic("mainMusic", true);
 				Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) closeBtn.getScene().getWindow();

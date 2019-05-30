@@ -55,8 +55,7 @@ public class StartPageController implements Initializable  {
 			@Override
 			public void handle(Event event) {
 				try {
-//					Main.mainMusic.stopMusic();
-//					Main.mainMusic.resetNameAudioStream("mainMusic");
+					Main.setMusic("mainMusic", true);
 					gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 				} catch (IOException  e) {
 					e.printStackTrace();

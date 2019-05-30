@@ -48,6 +48,7 @@ public class Successcontroller implements Initializable{
 	@FXML
 	void closePopUp(ActionEvent event) {
 		try {
+			Main.setMusic("mainMusic", true);
 			Parent MainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(MainPage);
 
