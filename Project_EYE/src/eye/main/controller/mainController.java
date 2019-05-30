@@ -1,14 +1,9 @@
 package eye.main.controller;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-
-import eye.Music;
 import eye.main.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,16 +19,16 @@ public class mainController implements Initializable{
 
 	//현재 페이인 mainPage와 교체할 페이지인 gameMainPage를 미리 선언
 	@FXML
-	private AnchorPane gameMainPage,mainPage;
-	
+	private AnchorPane gameMainPage,mainPage, restMainPage;
+
 	@FXML
-	private Button main_record;
-	
+	private Button main_record, main_relax;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 	}
-	
+
 	//게임 버튼을 눌렀을 때 동작할 메소드
 	public void goGameMain() {
 		try {
@@ -47,7 +42,7 @@ public class mainController implements Initializable{
 		//페이지 교체
 		mainPage.getChildren().setAll(gameMainPage);
 	}
-	
+
 	public void goRecord() {
 		Parent recordPage=null;
 		try {
@@ -64,12 +59,22 @@ public class mainController implements Initializable{
 		primaryStage.setScene(scene);
 	}
 
-	public void go2() {
-	
+	public void goRest() {
+		Parent restPage = null;
+		try {
+			//음악 바꾸기
+			Main.setMusic("mainMusic", true);
+			//교체할 페이지인 rest_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
+			restMainPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/rest_main_page.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//페이지 교체
+		mainPage.getChildren().setAll(restMainPage);
 	}
 
 	public void go3() {
-	
-	}		
+
+	}
 
 }

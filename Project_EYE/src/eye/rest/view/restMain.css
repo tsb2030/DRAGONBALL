@@ -1,0 +1,9 @@
+.fontStyleL{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 25.0px;
+	-fx-text-fill: #252525;
+}
+.fontStyleM{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 35.0px;
+}

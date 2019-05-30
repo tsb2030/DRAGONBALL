@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane fx:id="restMainPage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;" stylesheets="/eye/rest/view/restMain.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.rest.controller.restController">
+	<children>
+      <VBox prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;">
+         <children>
+            <Pane prefHeight="60.0" prefWidth="1280.0">
+               <children>
+      				<Text fx:id="titleText" layoutX="608.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="휴식" textAlignment="CENTER" />
+                  <Line endX="792.0" endY="48.50001525878906" layoutX="-1.0" layoutY="9.0" startX="489.0" startY="48.50001525878906" stroke="#707070" strokeWidth="3.0" />
+                  <ImageView id="shadow" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" layoutX="10.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="/image/backarrow.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ScrollPane prefHeight="660.0" prefWidth="1270.0" style="-fx-background-color: #FFFFEE;">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="1260.0" style="-fx-background-color: #FFFFEE;">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                  				<ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                  					<image>
+                  						<Image url="/image/restList/closeEye.png" />
+                  					</image>
+                  				</ImageView>
+                              <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈 꼭 감기" textFill="#252525" />
+                  				<TextFlow fx:id="text1" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
+                  				<ImageView fx:id="closeEyeBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                  					<image>
+                  						<Image url="/image/GObtn.png" />
+                  					</image>
+                  				</ImageView>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="/image/restList/lookFar.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="멀리 보기" textFill="#252525" />
+                              <TextFlow fx:id="text2" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
+                              <ImageView fx:id="lookFarBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                                 <image>
+                                    <Image url="/image/GObtn.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="/image/restList/closeEye.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈 마사지" textFill="#252525" />
+                              <TextFlow fx:id="text3" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
+                              <ImageView fx:id="eyeMassageBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                                 <image>
+                                    <Image url="/image/GObtn.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="/image/restList/closeEye.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈 굴리기" textFill="#252525" />
+                              <TextFlow fx:id="text4" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
+                              <ImageView fx:id="rollingEyeBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                                 <image>
+                                    <Image url="/image/GObtn.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="/image/restList/closeEye.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="빨리 깜빡이기" textFill="#252525" />
+                              <TextFlow fx:id="text5" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
+                              <ImageView fx:id="blinkBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                                 <image>
+                                    <Image url="/image/GObtn.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" />
+                           </VBox.margin>
+                        </Pane>
+                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
+                           <children>
+                              <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="/image/restList/closeEye.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="Long Break" textFill="#252525" />
+                              <TextFlow fx:id="text6" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
+                              <ImageView fx:id="longBreakBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                                 <image>
+                                    <Image url="/image/GObtn.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <padding>
+                              <Insets bottom="250.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" left="100.0" right="100.0" />
+                           </VBox.margin>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+	</children>
+</AnchorPane>
