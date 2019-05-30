@@ -31,7 +31,7 @@ public class Main extends Application {
 			primaryStage.show();
 			
 			//introMusic 시작
-			mainMusic = new Music("introMusic.mp3", true);
+			mainMusic = new Music("introMusic", true);
 			mainMusic.start();
 //			
 			//사용할 음악 목록들을 selectedSong이라는 ArrayList<Song>에 하나씩 넣어준다.

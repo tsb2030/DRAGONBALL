@@ -17,7 +17,7 @@ public class Music extends Thread {
 	public Music(String name, boolean isLoop) {
 		try {
 			this.isLoop = isLoop;
-			is = Music.class.getResourceAsStream("/musics/" + name);
+			is = Music.class.getResourceAsStream("/musics/" + name + ".mp3");
 			player = new Player(is);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
