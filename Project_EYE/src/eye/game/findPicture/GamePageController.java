@@ -97,22 +97,19 @@ public class GamePageController implements Initializable {
 		clock.animation.play();
 		findPicturegamePage.setOpacity(1.0);
 		restartGame();
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/master
 	}
 
 	@FXML
     void BackBtnAction(MouseEvent event) {
 		if(pauseSwitch == 0) {
+			clock.animation.pause();
 			gamePageStage = (Stage) BackBtn.getScene().getWindow();
 			try {
 				findPictureStart = FXMLLoader.load(getClass().getResource("StartPage.fxml"));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 			findPicturegamePage.getChildren().setAll(findPictureStart);
 		}
 		
@@ -440,9 +437,7 @@ public class GamePageController implements Initializable {
 			e.printStackTrace();
 		}
 
-<<<<<<< HEAD
-		if(pauseSwitch == 0) {		
-=======
+
 		if(pauseSwitch==0) {
 			//난 이렇게 안함 ㅎ
 
@@ -477,7 +472,7 @@ public class GamePageController implements Initializable {
 //				}
 //			});
 
->>>>>>> refs/remotes/origin/master
+
 			B[0].setOnMouseClicked(new EventHandler<Event>() {
 				@Override
 				public void handle(Event event) {
