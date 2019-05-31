@@ -47,7 +47,7 @@
                      <!-- "다음"버튼 디자인을 위한 Pane -->
                         <ImageView fx:id="nextBtn" fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="/eye/game/eyeMovement2/redRec.png" />
+                              <Image url="/image/redbox.png" />
                            </image>
                         </ImageView>
                         <Text fx:id="nextBtn2" fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />

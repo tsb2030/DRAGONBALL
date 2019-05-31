@@ -49,7 +49,7 @@
                      <!-- "확인"버튼 디자인을 위한 Pane -->
                         <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="/image/사각형 20.png" />
+                              <Image url="/image/redbox.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="확인" />
@@ -59,7 +59,7 @@
                      <children>
                         <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="/image/사각형 20.png" />
+                              <Image url="/image/redbox.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="48.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="초기화" textAlignment="CENTER" />

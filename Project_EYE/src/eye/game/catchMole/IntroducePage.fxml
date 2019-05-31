@@ -46,7 +46,7 @@
                      <children>
                         <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="/image/사각형 20.png" />
+                              <Image url="/image/redbox.png" />
                            </image>
                         </ImageView>
                         <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />

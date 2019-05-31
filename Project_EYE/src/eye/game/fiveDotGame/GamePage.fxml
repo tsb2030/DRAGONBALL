@@ -23,7 +23,7 @@
                         <Insets  left="10.0" top="5.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="/image/그룹 79.png" />
+                        <Image url="/image/backarrow.png" />
                      </image>
                   </ImageView>
                    <Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="5점 카드 트레이닝">

@@ -24,7 +24,7 @@
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
 							<image>
-								<Image url="/eye/game/follow/back.png" />
+								<Image url="/image/backarrow.png" />
 							</image>
 						</ImageView>
 						<Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="순서대로 따라가기">
