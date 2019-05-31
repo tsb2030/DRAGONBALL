@@ -33,8 +33,8 @@ import javafx.util.Duration;
 public class setController implements Initializable {
 	String timeInterval[] = { "30분", "1시간", "1시간 30분", "2시간", "2시간 30분", "3시간", "3시간 30분", "4시간", "4시간 30분", "5시간" };
 
-    @FXML
-    private AnchorPane ExplainPage;
+	@FXML
+	private AnchorPane ExplainPage;
 	// shortRestlist
 	private ArrayList<Integer> restList = new ArrayList<Integer>();
 	int startDisturbTime;
@@ -44,7 +44,7 @@ public class setController implements Initializable {
 	int s = 1;
 	int t = 1;
 	boolean flag = false;// 게임이 진행 중인지 받아올 변수
-	
+
 	@FXML
 	ComboBox<Integer> combobox1, combobox2;
 	@FXML
@@ -59,13 +59,13 @@ public class setController implements Initializable {
 	ObservableList<Integer> timeList = FXCollections.observableArrayList();
 	ObservableList<String> intervalList = FXCollections.observableArrayList();
 
-    @FXML
-    void backButtonAction(MouseEvent event) throws IOException {
-    	Main.setMusic("introMusic", true);
+	@FXML
+	void backButtonAction(MouseEvent event) throws IOException {
+		Main.setMusic("introMusic", true);
 		Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 		ExplainPage.getChildren().setAll(mainPage);
-    }
-	
+	}
+
 	// shorRestplay
 	public void playShorRest() {
 		double ran = Math.random();
@@ -148,7 +148,7 @@ public class setController implements Initializable {
 		}
 	}
 
-	//일단 오류때문에 사용금지
+	// 일단 오류때문에 사용금지
 	public void setToggleColors() {
 		Color firstBGMLUnToggleColor = (Color) BGMToggle.getUnToggleColor();
 		Color firstBGMLUnToggleLineColor = (Color) BGMToggle.getUnToggleLineColor();
@@ -193,12 +193,12 @@ public class setController implements Initializable {
 	@FXML
 	void BGMToggleAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		if (t == 1)
+		if (t == 1) {
 			System.out.println("");
-//			Main.mainMusic.stopMusic();
+			Main.closeMusic();
+		}
 		else
-			System.out.println("");
-//			Main.mainMusic.play();
+			Main.reStartMusic(true);
 
 		t = -t;
 	}
@@ -213,14 +213,12 @@ public class setController implements Initializable {
 		System.out.println("cancel");
 	}
 
-
-    @FXML
-    void cancelText(MouseEvent event) {
+	@FXML
+	void cancelText(MouseEvent event) {
 
 		System.out.println("cancel");
-    }
+	}
 
-	
 	@FXML
 	void submit(MouseEvent event) {
 		System.out.println("submit");
