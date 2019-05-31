@@ -19,7 +19,7 @@
 				<Font name="a소나무M" size="30" />
 			</font>
 		</Button>
-		<Button fx:id="main_setting" layoutX="685.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="설정" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.rightAnchor="270.0">
+		<Button fx:id="main_setting" layoutX="685.0" layoutY="527.0" mnemonicParsing="false" onAction="#goSet" prefHeight="84.0" prefWidth="325.0" text="설정" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.rightAnchor="270.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>
@@ -29,7 +29,7 @@
 				<Font name="a소나무M" size="30" />
 			</font>
 		</Button>
-		<Button fx:id="main_record" onAction="#goRecord" layoutX="268.0" layoutY="527.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="325.0" text="기록" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="270.0">
+		<Button fx:id="main_record" layoutX="268.0" layoutY="527.0" mnemonicParsing="false" onAction="#goRecord" prefHeight="84.0" prefWidth="325.0" text="기록" textFill="WHITE" AnchorPane.bottomAnchor="109.0" AnchorPane.leftAnchor="270.0">
 			<font>
 				<Font name="a소나무M" size="30" />
 			</font>

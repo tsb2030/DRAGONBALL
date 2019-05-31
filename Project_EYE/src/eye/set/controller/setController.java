@@ -20,9 +20,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
@@ -30,6 +33,8 @@ import javafx.util.Duration;
 public class setController implements Initializable {
 	String timeInterval[] = { "30분", "1시간", "1시간 30분", "2시간", "2시간 30분", "3시간", "3시간 30분", "4시간", "4시간 30분", "5시간" };
 
+    @FXML
+    private AnchorPane ExplainPage;
 	// shortRestlist
 	private ArrayList<Integer> restList = new ArrayList<Integer>();
 	int startDisturbTime;
@@ -53,6 +58,13 @@ public class setController implements Initializable {
 	ObservableList<Integer> timeList = FXCollections.observableArrayList();
 	ObservableList<String> intervalList = FXCollections.observableArrayList();
 
+    @FXML
+    void backButtonAction(MouseEvent event) throws IOException {
+    	Main.setMusic("introMusic", true);
+		Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
+		ExplainPage.getChildren().setAll(mainPage);
+    }
+	
 	// shorRestplay
 	public void playShorRest() {
 		double ran = Math.random();

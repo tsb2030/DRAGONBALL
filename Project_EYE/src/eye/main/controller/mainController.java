@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eye.main.Main;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +13,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 /*메뉴선택을 위한 클래스입니다.
  * main_page.fxml에 연결됨*/
@@ -19,7 +21,7 @@ public class mainController implements Initializable{
 
 	//현재 페이인 mainPage와 교체할 페이지인 gameMainPage를 미리 선언
 	@FXML
-	private AnchorPane gameMainPage,mainPage, restMainPage;
+	private AnchorPane gameMainPage,mainPage, restMainPage ,setMainPage;
 
 	@FXML
 	private Button main_record, main_relax;
@@ -73,8 +75,15 @@ public class mainController implements Initializable{
 		mainPage.getChildren().setAll(restMainPage);
 	}
 
-	public void go3() {
-
-	}
+    @FXML
+    void goSet(ActionEvent event) throws IOException {
+    	//음악 바꾸기
+		Main.setMusic("mainMusic", true);
+		Font.loadFont(getClass().getResourceAsStream("A소나무.TTF"),14.0);
+		//교체할 페이지인 rest_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
+		setMainPage = FXMLLoader.load(getClass().getResource("/eye/set/view/setOverview.fxml"));
+		setMainPage.getStylesheets().add(getClass().getResource("/eye/set/view/setPage.css").toString());
+		mainPage.getChildren().setAll(setMainPage);
+    }
 
 }
