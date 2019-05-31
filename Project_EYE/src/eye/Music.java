@@ -9,10 +9,11 @@ public class Music extends Thread {
 	private Player player;
 	private boolean isLoop;
 	private InputStream is;
-	
+	private String name;
 	public Music(String name, boolean isLoop) {
 		try {
 			this.isLoop = isLoop;
+			this.name = name;
 			is = Music.class.getResourceAsStream("/musics/" + name + ".mp3");
 			player = new Player(is);
 		} catch (Exception e) {
@@ -20,6 +21,10 @@ public class Music extends Thread {
 		}
 	}
 
+	public String getMusicName() {
+		return this.name;
+	}
+	
 	public int getTime() {
 		if(player == null)
 			return 0;

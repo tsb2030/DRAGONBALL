@@ -297,7 +297,6 @@ public class setController implements Initializable {
 	}
 
 	public class Clock extends Pane {
-
 		LocalTime currnetTime = LocalTime.now();
 		int currnetTimeHour = currnetTime.getHour();
 		private Timeline animation;

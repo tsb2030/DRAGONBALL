@@ -52,6 +52,17 @@ public class Main extends Application {
 		mainMusic = new Music(name, isLoop);
 		mainMusic.start();
 	}
+	public static String currentMusicName;
+	
+	public static void closeMusic() {
+		currentMusicName = mainMusic.getMusicName();
+		mainMusic.close();
+	}
+	
+	public static void reStartMusic(boolean isLoop) {
+		mainMusic = new Music(currentMusicName, isLoop);
+		mainMusic.start();
+	}
 
 	public static void main(String[] args) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		launch(args);

@@ -74,16 +74,30 @@ public class mainController implements Initializable{
 		//페이지 교체
 		mainPage.getChildren().setAll(restMainPage);
 	}
+	
+	public void goSet() {
+		Parent restPage = null;
+		try {
+			//음악 바꾸기
+			Main.setMusic("mainMusic", true);
+			//교체할 페이지인 rest_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
+			restMainPage = FXMLLoader.load(getClass().getResource("/eye/set/view/setOverview.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//페이지 교체
+		mainPage.getChildren().setAll(restMainPage);
+	}
 
-    @FXML
-    void goSet(ActionEvent event) throws IOException {
-    	//음악 바꾸기
-		Main.setMusic("mainMusic", true);
-		Font.loadFont(getClass().getResourceAsStream("A소나무.TTF"),14.0);
-		//교체할 페이지인 rest_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
-		setMainPage = FXMLLoader.load(getClass().getResource("/eye/set/view/setOverview.fxml"));
-		setMainPage.getStylesheets().add(getClass().getResource("/eye/set/view/setPage.css").toString());
-		mainPage.getChildren().setAll(setMainPage);
-    }
+//    @FXML
+//    void goSet(ActionEvent event) throws IOException {
+//    	//음악 바꾸기
+//		Main.setMusic("mainMusic", true);
+//		Font.loadFont(getClass().getResourceAsStream("A소나무.TTF"),14.0);
+//		//교체할 페이지인 rest_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
+//		setMainPage = FXMLLoader.load(getClass().getResource("/eye/set/view/setOverview.fxml"));
+//		setMainPage.getStylesheets().add(getClass().getResource("/eye/set/view/setPage.css").toString());
+//		mainPage.getChildren().setAll(setMainPage);
+//    }
 
 }
