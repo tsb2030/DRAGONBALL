@@ -97,8 +97,12 @@ public class GamePageController implements Initializable {
 		clock.animation.play();
 		findPicturegamePage.setOpacity(1.0);
 		restartGame();
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/master
 	}
-	
+
 	@FXML
     void BackBtnAction(MouseEvent event) {
 		if(pauseSwitch == 0) {
@@ -113,7 +117,7 @@ public class GamePageController implements Initializable {
 		}
 		
     }
-	
+
 	public void restartGame() {
 		if(pauseSwitch == 0) {
 			B[0].setOnMouseClicked(new EventHandler<Event>() {
@@ -392,7 +396,8 @@ public class GamePageController implements Initializable {
 		}
 		
 	}
-	
+
+	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		findPicturegamePage.setOpacity(1.0);
 		pauseSwitch = 0;
@@ -435,7 +440,44 @@ public class GamePageController implements Initializable {
 			e.printStackTrace();
 		}
 
+<<<<<<< HEAD
 		if(pauseSwitch == 0) {		
+=======
+		if(pauseSwitch==0) {
+			//난 이렇게 안함 ㅎ
+
+//			BackBtn.setOnMouseClicked(new EventHandler<Event>() {
+//				@Override
+//				public void handle(Event event) {
+//					try {
+//						findPictureStart = FXMLLoader.load(getClass().getResource("StartPage.fxml"));
+//					} catch (IOException e) {
+//						e.printStackTrace();
+//					}
+//
+//					gamePage.getChildren().setAll(findPictureStart);
+//				}
+//			});
+
+			//난 이렇게 안함 ㅎ
+
+//			PauseBtn.setOnMouseClicked(new EventHandler<Event>() {
+//				@Override
+//				public void handle(Event event) {
+//					if (pauseSwitch == 0) {
+//						pauseSwitch = 1;
+//						// pauseEvent Start!
+//						timer.animation.pause();
+//						gamePage.setOpacity(0.45);
+//					} else if (pauseSwitch == 1) {
+//						pauseSwitch = 0;
+//						timer.animation.play();
+//						gamePage.setOpacity(1.0);
+//					}
+//				}
+//			});
+
+>>>>>>> refs/remotes/origin/master
 			B[0].setOnMouseClicked(new EventHandler<Event>() {
 				@Override
 				public void handle(Event event) {
@@ -710,7 +752,7 @@ public class GamePageController implements Initializable {
 				}
 			});
 		}
-		
+
 	}
 
 	// 이미지 배치 메소드
@@ -736,7 +778,7 @@ public class GamePageController implements Initializable {
 //			for (int i = 0;i<=20;i++) {
 //				B[i].setImage(image2);
 //				wrongImage.add(new WrongImage(B[i], 2));
-//				
+//
 //			}
 
 			code[21] = 1;
@@ -759,7 +801,7 @@ public class GamePageController implements Initializable {
 //			for (int i = 0;i<=20;i++) {
 //				B[i].setImage(image3);
 //				wrongImage.add(new WrongImage(B[i], 3));
-//				
+//
 //			}
 			code[21] = 2;
 
@@ -781,7 +823,7 @@ public class GamePageController implements Initializable {
 //			for (int i = 0;i<=20;i++) {
 //				B[i].setImage(image1);
 //				wrongImage.add(new WrongImage(B[i], 1));
-//				
+//
 //			}
 			code[21] = 3;
 
@@ -791,7 +833,7 @@ public class GamePageController implements Initializable {
 		randomJ = random1.nextInt(21); // 0 에서 20까지
 		B[randomJ].setImage(sampleImage.getImage());
 		code[randomJ] = code[21]; // 22번째 코드
-		
+
 	}
 
 	public class Clock extends Pane {
