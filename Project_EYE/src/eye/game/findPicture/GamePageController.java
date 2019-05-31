@@ -3,12 +3,14 @@ package eye.game.findPicture;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -32,7 +34,10 @@ import javafx.util.Duration;
 public class GamePageController implements Initializable {
 
 	@FXML
-	AnchorPane gamePage, findPictureStart;
+	AnchorPane findPicturegamePage;
+
+	@FXML
+	AnchorPane findPictureStart;
 
 	@FXML
 	ImageView BackBtn, sampleImage, PauseBtn, ranImage1, ranImage2, ranImage3, ranImage4, ranImage5, ranImage6,
@@ -67,316 +72,330 @@ public class GamePageController implements Initializable {
 	public static int bigScore = 0;
 
 	public ArrayList<WrongImage> wrongImage = new ArrayList<WrongImage>();
-	Clock clock;
+	public Clock clock;
 
 	//pause이벤트
 	@FXML
 	void pauseAction(MouseEvent event) {
+		pauseEvent();
+	}
+	public void pauseEvent() {
 		pauseSwitch = 1;
 		// pauseEvent Start!
 		clock.animation.pause();
-		gamePage.setOpacity(0.45);
+		findPicturegamePage.setOpacity(0.45);
 	}
 
 	//restart이벤트
 	@FXML
 	void restartAction(MouseEvent event) {
+		restartEvent();
+		
+	}
+	public void restartEvent() {
 		pauseSwitch = 0;
 		clock.animation.play();
-		gamePage.setOpacity(1.0);
+		findPicturegamePage.setOpacity(1.0);
 		restartGame();
-		
 	}
 	
 	@FXML
     void BackBtnAction(MouseEvent event) {
-		gamePageStage = (Stage) BackBtn.getScene().getWindow();
-		try {
-			findPictureStart = FXMLLoader.load(getClass().getResource("StartPage.fxml"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		if(pauseSwitch == 0) {
+			gamePageStage = (Stage) BackBtn.getScene().getWindow();
+			try {
+				findPictureStart = FXMLLoader.load(getClass().getResource("StartPage.fxml"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
-		gamePage.getChildren().setAll(findPictureStart);
+			findPicturegamePage.getChildren().setAll(findPictureStart);
+		}
+		
     }
 	
 	public void restartGame() {
-		B[0].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+		if(pauseSwitch == 0) {
+			B[0].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[0] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[0] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[1].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[1].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[1] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[1] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[2].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[2].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[2] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[2] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[3].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[3].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[3] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[3] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[4].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[4].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[4] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[4] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[5].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[5].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[5] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[5] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[6].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[6].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[6] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[6] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[7].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[7].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[7] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[7] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[8].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[8].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[8] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[8] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[9].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[9].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[9] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[9] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[10].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[10].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[10] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[10] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[11].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[11].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[11] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[11] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[12].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[12].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[12] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[12] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[13].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[13].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[13] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[13] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[14].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[14].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[14] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[14] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[15].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[15].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[15] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[15] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[16].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[16].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[16] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[16] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[17].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[17].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[17] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[17] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[18].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[18].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[18] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[18] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[19].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[19].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[19] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[19] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
-		B[20].setOnMouseClicked(new EventHandler<Event>() {
-			@Override
-			public void handle(Event event) {
-//					ImageView findView = (ImageView)event.getSource();
+			});
+			B[20].setOnMouseClicked(new EventHandler<Event>() {
+				@Override
+				public void handle(Event event) {
+//						ImageView findView = (ImageView)event.getSource();
 
-				if (code[20] == code[21]) {
-					System.out.println("check");
-					bigScore = bigScore + 1;
-					ScoreLabel.setText("Score: " + bigScore);
-					newGame();
+					if (code[20] == code[21] && pauseSwitch == 0) {
+						System.out.println("check");
+						bigScore = bigScore + 1;
+						ScoreLabel.setText("Score: " + bigScore);
+						newGame();
+					}
 				}
-			}
-		});
+			});
+		}
+		
 	}
 	
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		findPicturegamePage.setOpacity(1.0);
+		pauseSwitch = 0;
 		clock = new Clock();
 
 		B[0] = ranImage1;
@@ -402,69 +421,27 @@ public class GamePageController implements Initializable {
 		B[20] = ranImage21;
 
 		try {
-			URL url = getClass().getResource("/eye/game/findPicture/abocado.png");
-			URI uri = url.toURI();
-			File file = new File(uri);
-			FileInputStream fis = new FileInputStream(file);
-			image1 = new Image(fis);
+			InputStream is1 = Music.class.getResourceAsStream("/eye/game/findPicture/abocado.png");
+			image1 = new Image(is1);
 
-			URL url1 = getClass().getResource("/eye/game/findPicture/apple.png");
-			URI uri1 = url1.toURI();
-			File file1 = new File(uri1);
-			FileInputStream fis1 = new FileInputStream(file1);
-			image2 = new Image(fis1);
+			InputStream is2 = Music.class.getResourceAsStream("/eye/game/findPicture/apple.png");
+			image2 = new Image(is2);
 
-			URL url2 = getClass().getResource("/eye/game/findPicture/kiwi.png");
-			URI uri2 = url2.toURI();
-			File file2 = new File(uri2);
-			FileInputStream fis2 = new FileInputStream(file2);
-			image3 = new Image(fis2);
+			InputStream is3 = Music.class.getResourceAsStream("/eye/game/findPicture/kiwi.png");
+			image3 = new Image(is3);
 
 			newGame();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		if(pauseSwitch==0) {
-			//난 이렇게 안함 ㅎ
-			
-//			BackBtn.setOnMouseClicked(new EventHandler<Event>() {
-//				@Override
-//				public void handle(Event event) {
-//					try {
-//						findPictureStart = FXMLLoader.load(getClass().getResource("StartPage.fxml"));
-//					} catch (IOException e) {
-//						e.printStackTrace();
-//					}
-//
-//					gamePage.getChildren().setAll(findPictureStart);
-//				}
-//			});
-			
-			//난 이렇게 안함 ㅎ
-			
-//			PauseBtn.setOnMouseClicked(new EventHandler<Event>() {
-//				@Override
-//				public void handle(Event event) {
-//					if (pauseSwitch == 0) {
-//						pauseSwitch = 1;
-//						// pauseEvent Start!
-//						timer.animation.pause();
-//						gamePage.setOpacity(0.45);
-//					} else if (pauseSwitch == 1) {
-//						pauseSwitch = 0;
-//						timer.animation.play();
-//						gamePage.setOpacity(1.0);
-//					}
-//				}
-//			});
-
+		if(pauseSwitch == 0) {		
 			B[0].setOnMouseClicked(new EventHandler<Event>() {
 				@Override
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[0] == code[21]) {
+					if (code[0] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -477,7 +454,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[1] == code[21]) {
+					if (code[1] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -490,7 +467,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[2] == code[21]) {
+					if (code[2] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -503,7 +480,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[3] == code[21]) {
+					if (code[3] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -516,7 +493,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[4] == code[21]) {
+					if (code[4] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -529,7 +506,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[5] == code[21]) {
+					if (code[5] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -542,7 +519,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[6] == code[21]) {
+					if (code[6] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -555,7 +532,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[7] == code[21]) {
+					if (code[7] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -568,7 +545,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[8] == code[21]) {
+					if (code[8] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -581,7 +558,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[9] == code[21]) {
+					if (code[9] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -594,7 +571,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[10] == code[21]) {
+					if (code[10] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -607,7 +584,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[11] == code[21]) {
+					if (code[11] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -620,7 +597,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[12] == code[21]) {
+					if (code[12] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -633,7 +610,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[13] == code[21]) {
+					if (code[13] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -646,7 +623,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[14] == code[21]) {
+					if (code[14] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -659,7 +636,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[15] == code[21]) {
+					if (code[15] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -672,7 +649,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[16] == code[21]) {
+					if (code[16] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -685,7 +662,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[17] == code[21]) {
+					if (code[17] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -698,7 +675,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[18] == code[21]) {
+					if (code[18] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -711,7 +688,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[19] == code[21]) {
+					if (code[19] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -724,7 +701,7 @@ public class GamePageController implements Initializable {
 				public void handle(Event event) {
 //						ImageView findView = (ImageView)event.getSource();
 
-					if (code[20] == code[21]) {
+					if (code[20] == code[21] && pauseSwitch == 0) {
 						System.out.println("check");
 						bigScore = bigScore + 1;
 						ScoreLabel.setText("Score: " + bigScore);
@@ -836,6 +813,8 @@ public class GamePageController implements Initializable {
 				timeTime = timeTmp;
 			}
 			if (timeTime <= 0 && flag == false) {
+				pauseSwitch = 1;
+				findPicturegamePage.setOpacity(0.45);
 				clock.animation.stop();
 				currentStage = (Stage) timeLabel.getScene().getWindow();
 				dodugeStage = (Stage) sampleImage.getScene().getWindow();

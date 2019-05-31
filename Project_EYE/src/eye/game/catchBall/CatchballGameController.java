@@ -16,7 +16,6 @@ import javafx.animation.PathTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,7 +27,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -44,6 +42,26 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class CatchballGameController implements Initializable {
+
+	private String[] humans = { "Animal", "Australopithecus", "Homo sapiens", "Human", "" };
+	private int humanIndex = 0;
+	public static boolean eyeAchivementCatchBallHumanEvalutionValue = false;
+
+	//인류의 진화 이벤트
+	public void checkHumanEvalution(String value, String[] humans) {
+		if (humans[humanIndex] == value) {
+			humanIndex++;
+		}
+		else
+			humanIndex = 0;
+		if (humanIndex == 4) {
+			eyeAchivementCatchBallHumanEvalutionValue = true;
+		}
+	}
+	
+	private int eyeAchivementCatchBallHexaKill = 0;
+	public static boolean eyeAchivementCatchBallHexaKillValue = false;
+
 
 	@FXML
 	private AnchorPane bigPanne; // 전체 AnchorPane
@@ -130,9 +148,6 @@ public class CatchballGameController implements Initializable {
 	// 한 판당 점수
 	private int smallScore = 0;
 
-	// 판단 증감 점수
-	private int plusScore = 1;
-
 	// 전체 게임의 총 점수
 	public static int bigScore = 0;
 
@@ -197,6 +212,7 @@ public class CatchballGameController implements Initializable {
 				// pauseEvent Start!
 				timer.animation.pause();
 				bigPanne.setOpacity(0.45);
+				flag = false;
 				if (followBalltransition.getStatus() == Status.RUNNING)
 					followBalltransition.pause();
 				if (catchBalltransition.getStatus() == Status.RUNNING)
@@ -209,6 +225,7 @@ public class CatchballGameController implements Initializable {
 			public void handle(Event event) {
 				timer.animation.play();
 				bigPanne.setOpacity(1.0);
+				flag = true;
 				if (followBalltransition.getStatus() == Status.PAUSED)
 					followBalltransition.play();
 				if (catchBalltransition.getStatus() == Status.PAUSED)
@@ -229,7 +246,8 @@ public class CatchballGameController implements Initializable {
 				if (followBalltransition.getStatus() == Status.RUNNING)
 					followBalltransition.pause();
 
-				FXMLLoader EndGamePopup = new FXMLLoader(Main.class.getResource("/eye/game/catchBall/EndGamePopup.fxml"));
+				FXMLLoader EndGamePopup = new FXMLLoader(
+						Main.class.getResource("/eye/game/catchBall/EndGamePopup.fxml"));
 
 				justOne = true;
 				try {
@@ -306,20 +324,21 @@ public class CatchballGameController implements Initializable {
 		if (colorCount == 0) { // 첫 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.YELLOWGREEN);
 			colorCount++;
-			plusScore += 1; // plusScore == 2
 			speedIncreaseValue = firstSpeedValue * 0.75;
 		} else if (colorCount == 1) { // 둘째 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.YELLOW);
 			colorCount++;
-			plusScore += 2; // plusScore == 4
 			speedIncreaseValue = speedIncreaseValue * 0.75;
 		} else if (colorCount == 2) { // 셋째 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.ORANGE);
 			colorCount++;
-			plusScore += 4; // plusScore == 8
 			speedIncreaseValue = speedIncreaseValue * 0.75;
 		} else { // 넷째 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.RED);
+			eyeAchivementCatchBallHexaKill++;
+			if(eyeAchivementCatchBallHexaKill == 6)
+				eyeAchivementCatchBallHexaKillValue = true;	
+
 		}
 
 		ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(5));
@@ -339,7 +358,7 @@ public class CatchballGameController implements Initializable {
 		ParallelTransition parallelTransition = new ParallelTransition(catchCircle, scaleTransition,
 				translateTransition);
 		parallelTransition.play();
-		
+
 //		playAnimationAndWaitForFinish(parallelTransition);
 	}
 
@@ -355,6 +374,8 @@ public class CatchballGameController implements Initializable {
 
 	// 한판을 실패했을 때 이벤트
 	public void oneStageFailEvent(Circle catchCircle, double currentX, double currentY) {
+		//실패하면 초기화
+		eyeAchivementCatchBallHexaKill = 0;
 		// 빨간 공의 스피드를 초기 스피드로 롤백시킴
 		changedSpeedValue = firstSpeedValue;
 		speedIncreaseValue = firstSpeedValue;
@@ -393,41 +414,6 @@ public class CatchballGameController implements Initializable {
 
 	}
 
-	// 언젠가 쓰게 될 지도 모르는 메소드
-//		private synchronized void playAnimationAndWaitForFinish(final Animation animation) {
-//		if (Platform.isFxApplicationThread()) {
-//			throw new IllegalThreadStateException("Cannot be executed on main JavaFX thread???????");
-//		}
-//		final Thread currentThread = Thread.currentThread();
-//		final EventHandler<ActionEvent> originalOnFinished = animation.getOnFinished();
-//		animation.setOnFinished(new EventHandler<ActionEvent>() {
-//
-//			@Override
-//			public void handle(ActionEvent event) {
-//				if (originalOnFinished != null) {
-//					originalOnFinished.handle(event);
-//				}
-//				synchronized (currentThread) {
-//					currentThread.notify();
-//				}
-//			}
-//		});
-//		Platform.runLater(new Runnable() {
-//
-//			@Override
-//			public void run() {
-//				animation.play();
-//			}
-//		});
-//		synchronized (currentThread) {
-//			try {
-//				currentThread.wait();
-//			} catch (InterruptedException ex) {
-//				// somebody interrupted me, OK
-//			}
-//		}
-//
-//	}
 
 	// catchBall을 움직이게 하는 키 이벤트 메소드
 	@FXML
@@ -495,6 +481,7 @@ public class CatchballGameController implements Initializable {
 							break;
 
 						default:
+							checkHumanEvalution(yourBehavior, humans);
 							break;
 						}
 						if (smallScore == 8 && correct == true) {
@@ -571,6 +558,7 @@ public class CatchballGameController implements Initializable {
 						break;
 
 					default:
+						checkHumanEvalution(yourBehavior, humans);
 						break;
 					}
 					if (smallScore == 8 && correct == true) {
@@ -646,6 +634,7 @@ public class CatchballGameController implements Initializable {
 						break;
 
 					default:
+						checkHumanEvalution(yourBehavior, humans);
 						break;
 					}
 					if (smallScore == 8 && correct == true) {
@@ -722,6 +711,7 @@ public class CatchballGameController implements Initializable {
 						break;
 
 					default:
+						checkHumanEvalution(yourBehavior, humans);
 						break;
 					}
 					if (smallScore == 8 && correct == true) {

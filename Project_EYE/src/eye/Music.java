@@ -1,11 +1,7 @@
 package eye;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
 
-import eye.main.Main;
 import javazoom.jl.player.Player;
 
 public class Music extends Thread {

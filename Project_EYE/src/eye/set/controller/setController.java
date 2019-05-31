@@ -44,6 +44,7 @@ public class setController implements Initializable {
 	int s = 1;
 	int t = 1;
 	boolean flag = false;// 게임이 진행 중인지 받아올 변수
+	
 	@FXML
 	ComboBox<Integer> combobox1, combobox2;
 	@FXML

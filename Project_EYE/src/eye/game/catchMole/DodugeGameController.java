@@ -52,6 +52,34 @@ public class DodugeGameController implements Initializable {
 	Boolean finished = false;
 	Boolean started = true;
 	Clock clock;
+	private int sameUpDodugeCount = 0;
+
+	// 데이터 베이스에 성취여부를 전달할 staic boolean변수
+	public static boolean eyeAchievementCatchMoleValue = false;
+	private int sameR1;
+	private int sameR2;
+	// 같은 자리에서 2번 두더지가 출현 하게 될 경우
+		public void countSameUpDoduge(int r1, int r2) {
+			if (sameR1 == 0 && sameR2 == 0) {
+				sameR1 = r1;
+				sameR2 = r2;
+			} else {
+				if (r1 == sameR1 && r2 == sameR2) {
+					sameUpDodugeCount++;
+					eyeAchievementCatchMoleValue = eyeAchievementCatchMole();
+//					if(eyeAchievementCatchMoleValue == true)
+//						이벤트 발생!
+				} else
+					sameUpDodugeCount = 0;
+			}
+		}
+
+		public boolean eyeAchievementCatchMole() {
+			if (sameUpDodugeCount == 1)
+				return true;
+			return false;
+		}
+
 
 	@FXML
 	void clickMoleAction(MouseEvent event) {
@@ -66,6 +94,8 @@ public class DodugeGameController implements Initializable {
 			}
 			int r1 = (int) (Math.random() * 8);
 			int r2 = (int) (Math.random() * 5);
+			//닥트리오 이벤트 체크
+			countSameUpDoduge(r1, r2);
 			GridPane.setConstraints(moleImageView, r1, r2);
 			ScoreLabel.setText("Score: " + score);
 		}
