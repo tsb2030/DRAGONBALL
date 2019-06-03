@@ -18,6 +18,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -50,6 +51,10 @@ public static Stage currentStage;
 	Random rd = new Random();
 	//현재 어떤 수를 눌러야 하는지 판별하기위해서 사용되는 수
 	private int number = 0;
+	
+	private int posRand[] = new int[26];
+	private int colorRand[] = new int[26];
+	private int sizeRand[] = new int[26];
 	
 	//타임라인을 사용하기위한 정의
 	private Boolean isStart = false; // 시작인지 판단할 필드.
@@ -116,6 +121,7 @@ public static Stage currentStage;
 	
 	  //버튼을 정의와 이벤트핸들러를 달아주고 1~25까지의 랜덤수를 각각의 버튼에 달아준다.
 		 public void buttonSetting() {
+			 randomSet();
 			 int tpp = 0;
 			 for(int i=65;i<91;i++) {
 				char tp = (char)i;
@@ -144,6 +150,38 @@ public static Stage currentStage;
 								}else {
 									btn.setText("");
 								}	
+								int prand = rd.nextInt(4)+1;
+								int crand = rd.nextInt(5)+1;
+								int srand = rd.nextInt(3)+1;
+								
+								if(prand==1) {
+									btn.setAlignment(Pos.TOP_LEFT);
+								 }else if(prand==2) {
+									 btn.setAlignment(Pos.TOP_RIGHT);
+								 }else if(prand==3) {
+									 btn.setAlignment(Pos.BOTTOM_RIGHT);
+								 }else if(prand==4) {
+									 btn.setAlignment(Pos.BOTTOM_LEFT);
+								 }
+								 if(srand==1) {
+									 btn.setStyle("-fx-font-size: 25.0px;");
+								 }else if(srand==2) {
+									 btn.setStyle("-fx-font-size: 30.0px;");
+								 }else if (srand==3) {
+									 btn.setStyle("-fx-font-size: 43.0px;");
+								 }
+								 if(crand==1) {
+									 btn.setStyle("-fx-text-fill: black;");
+								 }else if(crand==2) {
+									 btn.setStyle("-fx-text-fill: lightblue;");
+								 }else if(crand==3) {
+									 btn.setStyle("-fx-text-fill: red;");
+								 }else if(crand==4) {
+									 btn.setStyle("-fx-text-fill: pink;");
+								 }else if(crand==5) {
+									 btn.setStyle("-fx-text-fill: green;");
+								 }
+								 
 								number++;
 								System.out.println(number);
 								//number가 51이되면 게임이 끝난 것이므로 타임라인을 멈추고 숫자버튼이 눌리지않게 처리한다.
@@ -170,6 +208,33 @@ public static Stage currentStage;
 						}
 					});
 					 //각각 버튼의 크기와 위치를 설정해주기 위한 부분
+					 if(posRand[tmp]==1) {
+						 btnarr[tmp].setAlignment(Pos.TOP_LEFT);
+					 }else if(posRand[tmp]==2) {
+						 btnarr[tmp].setAlignment(Pos.TOP_RIGHT);
+					 }else if(posRand[tmp]==3) {
+						 btnarr[tmp].setAlignment(Pos.BOTTOM_RIGHT);
+					 }else if(posRand[tmp]==4) {
+						 btnarr[tmp].setAlignment(Pos.BOTTOM_LEFT);
+					 }
+					 if(sizeRand[tmp]==1) {
+						 btnarr[tmp].setStyle("-fx-font-size: 25.0px;");
+					 }else if(sizeRand[tmp]==2) {
+						 btnarr[tmp].setStyle("-fx-font-size: 30.0px;");
+					 }else if (sizeRand[tmp]==3) {
+						 btnarr[tmp].setStyle("-fx-font-size: 43.0px;");
+					 }
+					 if(colorRand[tmp]==1) {
+						 btnarr[tmp].setStyle("-fx-text-fill: black;");
+					 }else if(colorRand[tmp]==2) {
+						 btnarr[tmp].setStyle("-fx-text-fill: lightblue;");
+					 }else if(colorRand[tmp]==3) {
+						 btnarr[tmp].setStyle("-fx-text-fill: red;");
+					 }else if(colorRand[tmp]==4) {
+						 btnarr[tmp].setStyle("-fx-text-fill: pink;");
+					 }else if(colorRand[tmp]==5) {
+						 btnarr[tmp].setStyle("-fx-text-fill: green;");
+					 }
 					 btnarr[tmp].setPrefSize(100, 100);
 					 btnarr[tmp].setLayoutX(lx);
 					 btnarr[tmp++].setLayoutY(ly);
@@ -186,6 +251,17 @@ public static Stage currentStage;
 				 btnarr[tmp].setText(setting[tmp]);
 				 tmp++;
 			 }
+		 }
+		 
+		 public void randomSet() {
+			 for(int i=0; i<26 ;i++){
+		         posRand[i] = rd.nextInt(4)+1;
+		         colorRand[i] = rd.nextInt(5)+1;
+		         sizeRand[i] = rd.nextInt(3)+1;
+		     }
+			 System.out.println(Arrays.toString(posRand));
+			 System.out.println(Arrays.toString(colorRand));
+			 System.out.println(Arrays.toString(sizeRand));
 		 }
 		 
 		 //영어 랜덤지정 넣어주는부분
