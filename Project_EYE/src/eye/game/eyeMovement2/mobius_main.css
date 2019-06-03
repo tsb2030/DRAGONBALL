@@ -20,3 +20,11 @@ AnchorPane{
 #btn:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 5.0 );
 }
+.shadow:hover{
+	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 8.0 );
+	
+}
+.shadow{
+	-fx-font-family: "A소나무B";
+	-fx-font-size: 16px;
+}
