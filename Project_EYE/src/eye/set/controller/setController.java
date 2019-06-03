@@ -31,21 +31,26 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
 public class setController implements Initializable {
+	@FXML
+	private AnchorPane ExplainPage;
+	
 	String timeInterval[] = { "30분", "1시간", "1시간 30분", "2시간", "2시간 30분", "3시간", "3시간 30분", "4시간", "4시간 30분", "5시간" };
+	
 	Clock clock;
 	public static LocalTime currentTime = LocalTime.now();
 	public static LocalDate currentDate = LocalDate.now();
 	int nextDay = currentDate.getDayOfMonth();
 	int today = currentDate.getDayOfMonth();
-	@FXML
-	private AnchorPane ExplainPage;
-	// shortRestlist
+	
+
 	private ArrayList<Integer> restList = new ArrayList<Integer>();
 	int restCycle = 0;
 	int startDisturbTime;
 	int endDisturbTime;
 	private int varStartDisturbTime;
 	private int varEndDisturbTime;
+	
+	
 	int restType;
 	boolean rotateFlag = false;
 	boolean BGMFlag = false;
@@ -78,6 +83,38 @@ public class setController implements Initializable {
 	ObservableList<Integer> timeList = FXCollections.observableArrayList();
 	ObservableList<String> intervalList = FXCollections.observableArrayList();
 
+	@FXML
+	void submit(MouseEvent event) {
+		System.out.println("submit");
+
+		if(varEndDisturbTime == 0)					//기본 알람 방지 시작 시간 = 9(저녁 9시)
+			varEndDisturbTime = 21;
+		if(varStartDisturbTime == 0)				//기본 알람 방지 종료 시간 = 8(다음날)
+			varStartDisturbTime = 8;
+		if(restCycle == 0)							//기본 알람 주기 = 3시간
+			restCycle = 6;
+		
+		if (varStartDisturbTime > varEndDisturbTime) {	//다음 날짜로 알람이 설정 되었는지?
+			tomarrowFlag = true;
+			today = currentDate.getDayOfMonth();
+			nextDay = currentDate.getDayOfMonth() + 1;
+		}
+		startDisturbTime = varStartDisturbTime;
+		endDisturbTime = varEndDisturbTime;
+		
+		if (clock != null) {
+			clock.animation.stop();
+			clock = null;
+		}
+
+		clock = new Clock();
+		
+		/*
+		 * 
+		 * 창을 이전 페이지(main)페이지로 가게 함
+		 */
+	}
+	
 	@FXML
 	void backButtonAction(MouseEvent event) throws IOException {
 		Main.setMusic("introMusic", true);
@@ -191,6 +228,7 @@ public class setController implements Initializable {
 
 	// 일단 오류때문에 사용금지
 	public void setToggleColors() {
+		System.out.println("change Color");
 		Color firstBGMLUnToggleColor = (Color) BGMToggle.getUnToggleColor();
 		Color firstBGMLUnToggleLineColor = (Color) BGMToggle.getUnToggleLineColor();
 		Color firstBGMLToggleColor = (Color) BGMToggle.getToggleColor();
@@ -201,22 +239,22 @@ public class setController implements Initializable {
 		Color firstEffectLToggleColor = (Color) effectToggle.getToggleColor();
 		Color firstEffectLToggleLineColor = (Color) effectToggle.getToggleLineColor();
 
-		BGMToggle.setUnToggleColor(firstBGMLUnToggleColor);
-		BGMToggle.setUnToggleLineColor(firstBGMLUnToggleLineColor);
-		BGMToggle.setToggleColor(firstBGMLToggleColor);
-		BGMToggle.setToggleLineColor(firstBGMLToggleLineColor);
+		BGMToggle.setUnToggleColor(firstBGMLToggleColor);
+		BGMToggle.setUnToggleLineColor(firstBGMLToggleLineColor);
+		BGMToggle.setToggleColor(firstBGMLUnToggleColor);
+		BGMToggle.setToggleLineColor(firstBGMLUnToggleLineColor);
 
-		effectToggle.setUnToggleColor(firstEffectLUnToggleColor);
-		effectToggle.setUnToggleLineColor(firstEffectLUnToggleLineColor);
-		effectToggle.setToggleColor(firstEffectLToggleColor);
-		effectToggle.setToggleLineColor(firstEffectLToggleLineColor);
+		effectToggle.setUnToggleColor(firstEffectLToggleColor);
+		effectToggle.setUnToggleLineColor(firstEffectLToggleLineColor);
+		effectToggle.setToggleColor(firstEffectLUnToggleColor);
+		effectToggle.setToggleLineColor(firstEffectLUnToggleLineColor);
 	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
 		// 처음에 켜진 상태이기 때문에 바꿈..
-//		setToggleColors();
+		setToggleColors();
 
 		for (int i = 0; i < 24; i++) {
 			timeList.add(i);
@@ -255,15 +293,15 @@ public class setController implements Initializable {
 	 */
 	@FXML
 	void effectToggleAction(ActionEvent event) {
-		if (effectFlag == false) {
-			System.out.println("effect music close");
-			Main.closeMusic();
-			effectFlag = true;
-		} else {
-			System.out.println("effect music restart");
-			Main.reStartMusic(true);
-			effectFlag = false;
-		}
+//		if (effectFlag == false) {
+//			System.out.println("effect music close");
+//			Main.closeMusic();
+//			effectFlag = true;
+//		} else {
+//			System.out.println("effect music restart");
+//			Main.reStartMusic(true);
+//			effectFlag = false;
+//		}
 	}
 
 	@FXML
@@ -277,27 +315,7 @@ public class setController implements Initializable {
 		System.out.println("cancel");
 	}
 
-	@FXML
-	void submit(MouseEvent event) {
-		System.out.println("submit");
-
-		// submit버튼을 눌렀을 때 변경되도록
-		startDisturbTime = varStartDisturbTime;
-		// 알람이 하루가 지나간다면?
-		if (varStartDisturbTime > varEndDisturbTime) {
-			tomarrowFlag = true;
-			today = currentDate.getDayOfMonth();
-			nextDay = currentDate.getDayOfMonth() + 1;
-		}
-
-		endDisturbTime = varEndDisturbTime;
-		if (clock != null) {
-			clock.animation.stop();
-			clock = null;
-		}
-
-		clock = new Clock();
-	}
+	
 
 	// 방해금지 종료시간 설정
 	@FXML
@@ -420,7 +438,6 @@ public class setController implements Initializable {
 						}
 					}
 				}
-
 			}));
 			animation.setCycleCount(Timeline.INDEFINITE);
 			animation.play();

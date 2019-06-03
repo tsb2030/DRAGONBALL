@@ -1,0 +1,56 @@
+AnchorPane{
+	-fx-background-color : #ffffe4;
+}
+#btn_before{
+	-fx-background-color : #fffff4;
+	-fx-border-color: #108649;
+	-fx-border-radius: 5.0px;
+}
+
+#title{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 40.0px;
+
+}
+.fontStyle{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 65.0px;
+}
+
+.fontStyleL25{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 25.0px;
+	-fx-text-fill: #252525;
+}
+
+.fontStyleL30{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 30.0px;
+}
+
+.fontStyleL35{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 35.0px;
+	-fx-text-fill: #252525;
+}
+
+.fontStyleM{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 35.0px;
+}
+.fontStyleM30{
+	-fx-font-family: "a소나무M";
+	-fx-font-size: 30.0px;
+}
+
+.fontSetting{
+	-fx-font-family: "a소나무L";
+}
+
+#btn:hover{
+	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 5.0 );
+}
+
+#shadow:hover{
+	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 8.0 );
+}

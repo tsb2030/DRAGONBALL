@@ -852,6 +852,13 @@ public class GamePageController implements Initializable {
 			if (timeTime <= 0 && flag == false) {
 				pauseSwitch = 1;
 				findPicturegamePage.setOpacity(0.45);
+				for (int i = 0;i >=20;i++) {
+					B[i].setOnMouseClicked(new EventHandler<Event>() {
+						@Override
+						public void handle(Event event) {
+						}
+					});
+				}
 				clock.animation.stop();
 				currentStage = (Stage) timeLabel.getScene().getWindow();
 				dodugeStage = (Stage) sampleImage.getScene().getWindow();
