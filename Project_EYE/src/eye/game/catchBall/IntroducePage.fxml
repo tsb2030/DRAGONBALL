@@ -19,7 +19,7 @@
             <HBox prefHeight="60.0" prefWidth="1280.0">
                <children>
                
-                  <ImageView fx:id="backButton" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="btn" fx:id="backButton" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
                         <Insets left="10.0" top="5.0" />
                      </HBox.margin>
