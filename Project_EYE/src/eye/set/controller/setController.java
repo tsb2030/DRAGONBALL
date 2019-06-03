@@ -3,6 +3,7 @@ package eye.set.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -10,10 +11,10 @@ import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXToggleButton;
 
 import eye.main.Main;
-import eye.set.controller.setController.Clock;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -23,7 +24,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.ComboBox;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -32,23 +32,42 @@ import javafx.util.Duration;
 
 public class setController implements Initializable {
 	String timeInterval[] = { "30분", "1시간", "1시간 30분", "2시간", "2시간 30분", "3시간", "3시간 30분", "4시간", "4시간 30분", "5시간" };
-
+	Clock clock;
+	public static LocalTime currentTime = LocalTime.now();
+	public static LocalDate currentDate = LocalDate.now();
+	int nextDay = currentDate.getDayOfMonth();
+	int today = currentDate.getDayOfMonth();
 	@FXML
 	private AnchorPane ExplainPage;
 	// shortRestlist
 	private ArrayList<Integer> restList = new ArrayList<Integer>();
-	int startDisturbTime;
 	int restCycle = 0;
+	int startDisturbTime;
 	int endDisturbTime;
+	private int varStartDisturbTime;
+	private int varEndDisturbTime;
 	int restType;
-	int s = 1;
-	int t = 1;
+	boolean rotateFlag = false;
+	boolean BGMFlag = false;
+	boolean effectFlag = false;
 	boolean flag = false;// 게임이 진행 중인지 받아올 변수
+	boolean tomarrowFlag = false;
+	// 만약 운동중에 휴식 알람을 울려야 한다면
+	public static boolean maintainRestEvent = false;
 
 	@FXML
-	ComboBox<Integer> combobox1, combobox2;
+	private JFXComboBox<Integer> combobox1;
+
 	@FXML
-	ComboBox<String> combobox3;
+	private JFXComboBox<Integer> combobox2;
+
+	@FXML
+	private JFXComboBox<String> combobox3;
+
+//	@FXML
+//	ComboBox<Integer> combobox1, combobox2;
+//	@FXML
+//	ComboBox<String> combobox3;
 
 	@FXML
 	private JFXToggleButton BGMToggle;
@@ -116,31 +135,53 @@ public class setController implements Initializable {
 
 	// RotateRestEvent!!
 	public void playRotateRest() {
-		if (s == 1)
+		if (rotateFlag == false) {
 			playShorRest();
-		else
+			rotateFlag = true;
+		} else {
 			playLongRest();
+			rotateFlag = false;
+		}
+	}
 
-		s = -s;
+	@FXML
+	void restTypeIsShort(MouseEvent event) {
+		restType = 1;
+		System.out.println("resType = short");
+	}
+
+	@FXML
+	void restTypeIsLong(MouseEvent event) {
+		restType = 2;
+		System.out.println("resType = long");
+	}
+
+	@FXML
+	void restTypeIsRotate(MouseEvent event) {
+		restType = 3;
+		System.out.println("resType = rotate");
 	}
 
 	// 휴식 이벤트 시작
 	public void playRest(int restType) {
 		switch (restType) {
 
-		// RotateEvent!
-		case 1:
-			playRotateRest();
-			break;
-
 		// ShortEvent
-		case 2:
+		case 1:
 			playShorRest();
+			System.out.println("play short Rest");
 			break;
 
 		// LongEvent
-		case 3:
+		case 2:
 			playLongRest();
+			System.out.println("play long Rest");
+			break;
+
+		// RotateEvent!
+		case 3:
+			playRotateRest();
+			System.out.println("play rotate Rest");
 			break;
 
 		default:
@@ -190,22 +231,39 @@ public class setController implements Initializable {
 		combobox3.setItems(intervalList);
 	}
 
+	/**
+	 * 
+	 * t --> BGMToggleFlag
+	 */
 	@FXML
 	void BGMToggleAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		if (t == 1) {
-			System.out.println("");
+		if (BGMFlag == false) {
+			System.out.println("BGM music close");
 			Main.closeMusic();
-		}
-		else
+			BGMFlag = true;
+		} else {
+			System.out.println("BGM music restart");
 			Main.reStartMusic(true);
-
-		t = -t;
+			BGMFlag = false;
+		}
 	}
 
+	/**
+	 * 
+	 * 위랑 같이 변경
+	 */
 	@FXML
 	void effectToggleAction(ActionEvent event) {
-
+		if (effectFlag == false) {
+			System.out.println("effect music close");
+			Main.closeMusic();
+			effectFlag = true;
+		} else {
+			System.out.println("effect music restart");
+			Main.reStartMusic(true);
+			effectFlag = false;
+		}
 	}
 
 	@FXML
@@ -223,29 +281,34 @@ public class setController implements Initializable {
 	void submit(MouseEvent event) {
 		System.out.println("submit");
 
-		@SuppressWarnings("unused")
-		Clock clock = new Clock();
-	}
+		// submit버튼을 눌렀을 때 변경되도록
+		startDisturbTime = varStartDisturbTime;
+		// 알람이 하루가 지나간다면?
+		if (varStartDisturbTime > varEndDisturbTime) {
+			tomarrowFlag = true;
+			today = currentDate.getDayOfMonth();
+			nextDay = currentDate.getDayOfMonth() + 1;
+		}
 
-	@FXML
-	void submitText(MouseEvent event) {
+		endDisturbTime = varEndDisturbTime;
+		if (clock != null) {
+			clock.animation.stop();
+			clock = null;
+		}
 
-		System.out.println("submit");
-
-		@SuppressWarnings("unused")
-		Clock clock = new Clock();
+		clock = new Clock();
 	}
 
 	// 방해금지 종료시간 설정
 	@FXML
 	void setEndDisturbTime(ActionEvent event) {
-		endDisturbTime = (int) combobox2.getValue();
+		varEndDisturbTime = (int) combobox2.getValue();
 	}
 
 	// 방해금지 시작시간 설정
 	@FXML
 	void setStartDisturbTime(ActionEvent event) {
-		startDisturbTime = (int) combobox1.getValue();
+		varStartDisturbTime = (int) combobox1.getValue();
 	}
 
 	// 실행 주기 설정
@@ -256,6 +319,10 @@ public class setController implements Initializable {
 		findOne(s);
 	}
 
+	/**
+	 * 
+	 * 입력된 값에 따라 integer값을 restCycle에 저장해 둔다.
+	 */
 	public void findOne(String s) {
 		switch (s) {
 		case "30":
@@ -295,8 +362,9 @@ public class setController implements Initializable {
 	}
 
 	public class Clock extends Pane {
-		LocalTime currnetTime = LocalTime.now();
-		int currnetTimeHour = currnetTime.getHour();
+
+		int currentDateDay = currentDate.getDayOfMonth();
+		int currnetTimeHour = currentTime.getHour();
 		private Timeline animation;
 		private int timeTmp = 1;
 
@@ -307,18 +375,52 @@ public class setController implements Initializable {
 				timeLabel();
 
 				// 방해금지 시간이 아니라면!
-				if (!((currnetTimeHour > startDisturbTime) && (currnetTimeHour < endDisturbTime))) {
-					if (restCycle != 0) {
-						if (!flag) {
-							if (timeTmp % (restCycle * 1800) == 0) {
-								playRest(restType);
-							}
-						} else {
-							// 게임 끝나고 실행 할 수 있게 만들기
-						}
-
+				System.out.println("현재 날짜: " + currentDateDay);
+				System.out.println("현재 시각 : " + currnetTimeHour);
+				System.out.println("방해 시작 시각: " + startDisturbTime);
+				System.out.println("방해 종료 시각: " + endDisturbTime);
+				System.out.println("현재 초 : " + currentTime.getSecond());
+				if (maintainRestEvent) {
+					if(flag == false) {
+						playRest(restType);
+						maintainRestEvent = false;
 					}
 				}
+				// 알람이 내일까지로 설정되어있는지?
+				if (tomarrowFlag) {
+					if (!((currnetTimeHour > startDisturbTime)
+							|| ((nextDay == currentDate.getDayOfMonth()) && (currnetTimeHour < endDisturbTime))))
+						if (restCycle != 0) {
+							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
+							if (!flag) {
+								if (timeTmp % (restCycle * 1800) == 0) {
+									playRest(restType);
+								}
+							} else {
+								maintainRestEvent = true;
+							}
+						}
+				} else {
+					if (!((currnetTimeHour > startDisturbTime) && (currnetTimeHour < endDisturbTime))) {
+						// 알람 설정 주기를 설정하였는가?
+						if (restCycle != 0) {
+							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
+							System.out.println("flag가 false면알람 주기 시작" + flag);
+							if (!flag) {
+								if (timeTmp % (restCycle * 1800) == 0) {
+									playRest(restType);
+								}
+							} else {
+								maintainRestEvent = true;
+
+								// 게임 끝나고 실행 할 수 있게 만들기
+								// 게임이 종료될 때마다 if문을 추가해서 여기서 if문을 실행 했다면 해당 변수를 true값을 바꿔저서 그 게임잉 종료된후 여기에 휴식
+								// 프로그램을 실행 할 수 있도록 구현한다.
+							}
+						}
+					}
+				}
+
 			}));
 			animation.setCycleCount(Timeline.INDEFINITE);
 			animation.play();
