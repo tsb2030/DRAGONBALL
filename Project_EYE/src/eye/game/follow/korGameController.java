@@ -35,7 +35,7 @@ public static Stage currentStage;
 	
 	@FXML
 	private ImageView btnBefore,pauseBtn,reStartBtn;
-	private JFXButton btnarr[] = new JFXButton[25];
+	private JFXButton btnarr[] = new JFXButton[14];
 	
 	@FXML
 	private Pane mainPanel; 
@@ -133,38 +133,45 @@ public static Stage currentStage;
 			 for(int i=0;i<5;i++) {
 				 int lx = 100;
 				 for(int j=0;j<5;j++) {
+					 if(tmp==14)
+						 break;
 					 //버튼에 이벤트를 달아주는 부분
 					 btnarr[tmp].setOnAction(new EventHandler<ActionEvent>() {
 						@Override
 						public void handle(ActionEvent event) {
 							/*버튼의 텍스트를 가져와 그 숫자가 number와 비교해서 같으면 arr2배열에 있는 수를 차례대로 넣어주고 number를 1 더해준다.
 							 * 만약 number가 25보다 클 시에는 number값만 1올려주고 텍스트에 ""을 넣어준다.*/
-							Button btn = (Button) event.getSource();
-							String btnstr = btn.getText();
-							if(btnstr.equals(check[number])) {
-								btn.setText("");
-								number++;
-								System.out.println(number);
-								//number가 51이되면 게임이 끝난 것이므로 타임라인을 멈추고 숫자버튼이 눌리지않게 처리한다.
-								if(number==14) {
-									timeLine.stop();
-									for(int i=0;i<14;i++) {
-										 btnarr[i].setDisable(true);
-									 }
-									currentStage = (Stage) timer.getScene().getWindow();
-									result = timer.getText();
-									FXMLLoader endGamePopup = new FXMLLoader(getClass().getResource("korPopup.fxml"));
-									try {
-										AnchorPane anotherPage = (AnchorPane) endGamePopup.load();
-										Scene endGamePopupScene = new Scene(anotherPage);
-										endGamePopupScene.getStylesheets()
-												.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-										Stage stage = new Stage();
-										stage.setScene(endGamePopupScene);
-										stage.show();
-									} catch (IOException e) {
+							Button btn = new Button();
+							try {
+								btn = (Button) event.getSource();
+								String btnstr = btn.getText();
+								if(btnstr.equals(check[number])) {
+									btn.setText("");
+									number++;
+									System.out.println(number);
+									//number가 51이되면 게임이 끝난 것이므로 타임라인을 멈추고 숫자버튼이 눌리지않게 처리한다.
+									if(number==14) {
+										timeLine.stop();
+										for(int i=0;i<14;i++) {
+											 btnarr[i].setDisable(true);
+										 }
+										currentStage = (Stage) timer.getScene().getWindow();
+										result = timer.getText();
+										FXMLLoader endGamePopup = new FXMLLoader(getClass().getResource("korPopup.fxml"));
+										try {
+											AnchorPane anotherPage = (AnchorPane) endGamePopup.load();
+											Scene endGamePopupScene = new Scene(anotherPage);
+											endGamePopupScene.getStylesheets()
+													.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+											Stage stage = new Stage();
+											stage.setScene(endGamePopupScene);
+											stage.show();
+										} catch (IOException e) {
+										}
 									}
 								}
+							} catch (Exception e) {
+								// TODO: handle exception
 							}
 						}
 					});
@@ -178,28 +185,24 @@ public static Stage currentStage;
 					 }else if(posRand[tmp]==4) {
 						 btnarr[tmp].setAlignment(Pos.BOTTOM_LEFT);
 					 }
-					 if(sizeRand[tmp]==1) {
-						 btnarr[tmp].setStyle("-fx-font-size: 25.0px;");
-					 }else if(sizeRand[tmp]==2) {
-						 btnarr[tmp].setStyle("-fx-font-size: 30.0px;");
-					 }else if (sizeRand[tmp]==3) {
-						 btnarr[tmp].setStyle("-fx-font-size: 43.0px;");
-					 }
 					 if(colorRand[tmp]==1) {
-						 btnarr[tmp].setStyle("-fx-text-fill: black;");
+						 btnarr[tmp].setStyle("-fx-text-fill: black; -fx-font-size: 65.0px;");
 					 }else if(colorRand[tmp]==2) {
-						 btnarr[tmp].setStyle("-fx-text-fill: lightblue;");
+						 btnarr[tmp].setStyle("-fx-text-fill: lightblue; -fx-font-size: 65.0px;");
 					 }else if(colorRand[tmp]==3) {
-						 btnarr[tmp].setStyle("-fx-text-fill: red;");
+						 btnarr[tmp].setStyle("-fx-text-fill: red; -fx-font-size: 45.0px;");
 					 }else if(colorRand[tmp]==4) {
-						 btnarr[tmp].setStyle("-fx-text-fill: pink;");
+						 btnarr[tmp].setStyle("-fx-text-fill: pink; -fx-font-size: 55.0px;");
 					 }else if(colorRand[tmp]==5) {
-						 btnarr[tmp].setStyle("-fx-text-fill: green;");
+						 btnarr[tmp].setStyle("-fx-text-fill: green; -fx-font-size: 45.0px;");
 					 }
 					 //각각 버튼의 크기와 위치를 설정해주기 위한 부분
-					 btnarr[tmp].setPrefSize(100, 100);
+					 btnarr[tmp].setPrefSize(150, 150);
 					 btnarr[tmp].setLayoutX(lx);
 					 btnarr[tmp++].setLayoutY(ly);
+					 if(tmp>9)
+						 lx+=300;
+					 else
 					 lx += 240;
 				 }
 				 ly+=220;
