@@ -40,7 +40,7 @@
                   				</ImageView>
                               <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈 꼭 감기" textFill="#252525" />
                   				<TextFlow fx:id="text1" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
-                  				<ImageView fx:id="closeEyeBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#goClosedEyeIntro" pickOnBounds="true" styleClass="goBtnShadow">
+                  				<ImageView fx:id="closeEyeBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#goClosedEyeInfo" pickOnBounds="true" styleClass="goBtnShadow">
                   					<image>
                   						<Image url="/image/GObtn.png" />
                   					</image>
@@ -62,7 +62,7 @@
                               </ImageView>
                               <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="멀리 보기" textFill="#252525" />
                               <TextFlow fx:id="text2" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
-                              <ImageView fx:id="lookFarBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                              <ImageView fx:id="lookFarBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#goLookAfarInfo" pickOnBounds="true" styleClass="goBtnShadow">
                                  <image>
                                     <Image url="/image/GObtn.png" />
                                  </image>

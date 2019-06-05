@@ -17,7 +17,7 @@ import javafx.scene.text.TextFlow;
 
 public class restController implements Initializable {
 	@FXML
-	AnchorPane restMainPage, mainPage, closedEyeIntroPage; // 휴식 목록 페이지
+	AnchorPane restMainPage, mainPage, closedEyeInfoPage, lookAfarInfoPage; // 휴식 목록 페이지
 	@FXML
 	ImageView backBtn; // 뒤로가기버튼
 	@FXML
@@ -62,34 +62,33 @@ public class restController implements Initializable {
 			}
 		});
 
-//		// 눈 꼭 감기 설명 페이지로 이동
-//		closeEyeBtn.setOnMouseClicked(new EventHandler<Event>() {
-//			@Override
-//			public void handle(Event arg0) {
-//				// TODO Auto-generated method stub
-//				try {
-//					closedEyeIntroPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//				}
-//				restMainPage.getChildren().setAll(closedEyeIntroPage);
-//			}
-//		});
-
 	}
 
 	// 눈 꼭 감기 설명 페이지로 이동
-	public void goClosedEyeIntro() {
+	public void goClosedEyeInfo() {
 		try {
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
-			closedEyeIntroPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
+			closedEyeInfoPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		// 페이지 교체
-		restMainPage.getChildren().setAll(closedEyeIntroPage);
+		restMainPage.getChildren().setAll(closedEyeInfoPage);
 	}
 
+	// 멀리 보기 설명 페이지로 이동
+	public void goLookAfarInfo() {
+		try {
+			// 음악 바꾸기
+			Main.setMusic("mainMusic", true);
+			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
+			lookAfarInfoPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/LookAfarInfo.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		// 페이지 교체
+		restMainPage.getChildren().setAll(lookAfarInfoPage);
+	}
 }

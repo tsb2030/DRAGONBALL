@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="closedEyeInfoPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/rest/view/intro.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.rest.controller.restClosedEyeController">
+<AnchorPane fx:id="lookAfarInfoPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/rest/view/intro.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.rest.controller.restLookAfarController">
 	<children>
 		<VBox prefHeight="720.0" prefWidth="1280.0">
 			<children>
@@ -27,7 +27,7 @@
 								<Image url="/image/backarrow.png" />
 							</image>
 						</ImageView>
-						<Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="눈 꼭 감기" wrappingWidth="170.19499969482422">
+						<Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="멀리 보기" wrappingWidth="170.19499969482422">
 							<HBox.margin>
 								<Insets left="500.0" top="12.0" />
 							</HBox.margin>
@@ -42,7 +42,7 @@
 						<Label layoutX="525.0" layoutY="345.0" prefHeight="50.0" prefWidth="465.0" styleClass="fontStyleL" text="제한시간은 40초입니다." textAlignment="CENTER" textFill="#252525" />
 						<Pane id="shadow" layoutX="525.0" layoutY="539.0" prefHeight="70.0" prefWidth="200.0">
                      <children>
-                        <Button id="shadow" fx:id="ClosedEyeNextBtn" layoutX="3.0" layoutY="8.0" mnemonicParsing="false" onAction="#goClosedEyeRestPage" prefHeight="70.0" prefWidth="194.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" text="시작" textFill="WHITE">
+                        <Button id="shadow" fx:id="lookAfarNextBtn" layoutX="3.0" layoutY="8.0" mnemonicParsing="false" onAction="#goLookAfarRestPage" prefHeight="70.0" prefWidth="194.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" text="시작" textFill="WHITE">
                            <font>
                               <Font name="a소나무M" size="35.0" />
                            </font>
@@ -50,8 +50,8 @@
                      </children>
 						</Pane>
 						<Label layoutX="435.0" layoutY="250.0" prefHeight="50.0" prefWidth="465.0" styleClass="fontStyleL" text="머리는 고정한 채 눈으로만 따라가 주세요." textAlignment="CENTER" textFill="#252525" />
-						<Label layoutX="345.0" layoutY="435.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="효과 : 이 트레이닝을 꾸준히 하면 눈 주위 근육이 단련되고," textAlignment="CENTER" textFill="#252525" />
-						<Label layoutX="485.0" layoutY="475.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="안구 건조증에 도움이 됩니다." textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="345.0" layoutY="435.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="효과 : 이 트레이닝을 꾸준히 하면 초전 조절 능력이" textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="485.0" layoutY="475.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="좋아집니다." textAlignment="CENTER" textFill="#252525" />
 					</children>
 				</Pane>
 			</children>
