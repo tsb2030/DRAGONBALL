@@ -17,7 +17,9 @@ import javafx.scene.text.TextFlow;
 
 public class restController implements Initializable {
 	@FXML
-	AnchorPane restMainPage, mainPage, closedEyeInfoPage, lookAfarInfoPage; // 휴식 목록 페이지
+	AnchorPane restMainPage, mainPage, closedEyeInfoPage, lookAfarInfoPage, eyeMassageInfoPage, eyeRollingInfoPage; // 휴식
+																													// 목록
+																													// 페이지
 	@FXML
 	ImageView backBtn; // 뒤로가기버튼
 	@FXML
@@ -90,5 +92,33 @@ public class restController implements Initializable {
 		}
 		// 페이지 교체
 		restMainPage.getChildren().setAll(lookAfarInfoPage);
+	}
+
+	// 눈 마사지 설명 페이지로 이동
+	public void goEyeMassageInfo() {
+		try {
+			// 음악 바꾸기
+			Main.setMusic("mainMusic", true);
+			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
+			eyeMassageInfoPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/EyeMassageInfo.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		// 페이지 교체
+		restMainPage.getChildren().setAll(eyeMassageInfoPage);
+	}
+
+	// 눈 굴리기 설명 페이지로 이동
+	public void goEyeRollingInfo() {
+		try {
+			// 음악 바꾸기
+			Main.setMusic("mainMusic", true);
+			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
+			eyeRollingInfoPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/EyeRollingInfo.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		// 페이지 교체
+		restMainPage.getChildren().setAll(eyeRollingInfoPage);
 	}
 }

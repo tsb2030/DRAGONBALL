@@ -84,7 +84,7 @@
                               </ImageView>
                               <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈 마사지" textFill="#252525" />
                               <TextFlow fx:id="text3" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
-                              <ImageView fx:id="eyeMassageBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                              <ImageView fx:id="eyeMassageBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#goEyeMassageInfo" pickOnBounds="true" styleClass="goBtnShadow">
                                  <image>
                                     <Image url="/image/GObtn.png" />
                                  </image>
@@ -106,7 +106,7 @@
                               </ImageView>
                               <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈 굴리기" textFill="#252525" />
                               <TextFlow fx:id="text4" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
-                              <ImageView fx:id="rollingEyeBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
+                              <ImageView fx:id="rollingEyeBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#goEyeRollingInfo" pickOnBounds="true" styleClass="goBtnShadow">
                                  <image>
                                     <Image url="/image/GObtn.png" />
                                  </image>
