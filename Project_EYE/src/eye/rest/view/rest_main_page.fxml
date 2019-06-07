@@ -79,7 +79,7 @@
                            <children>
                               <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="/image/restList/closeEye.png" />
+                                    <Image url="/image/restList/eyeMassage.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈 마사지" textFill="#252525" />
@@ -101,7 +101,7 @@
                            <children>
                               <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="/image/restList/closeEye.png" />
+                                    <Image url="/image/restList/rollingEye.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈 굴리기" textFill="#252525" />
