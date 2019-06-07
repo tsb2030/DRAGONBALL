@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 public class dbconn {
 	
@@ -31,5 +32,31 @@ public class dbconn {
 		}
 		pstmt.close();
 		conn.close();
+	}
+	
+	public Double[] getKordata() throws SQLException {
+		System.out.println("getKordata 연결");
+		Connection conn = null;
+		Statement stmt = null;
+		Double arr[] = new Double[3]; 
+		try {
+			getClass().forName("org.sqlite.JDBC");
+			conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+			stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("select * from records order by record");
+			int x=0;
+			while(rs.next()) {
+				if(x==3)
+					break;
+				arr[x] = rs.getDouble("record");
+				x++;
+			}
+		} catch (Exception e) {
+			System.out.println("exception = "+e);
+		}
+		System.out.println("디비끝");
+		stmt.close();
+		conn.close();
+		return arr;
 	}
 }
