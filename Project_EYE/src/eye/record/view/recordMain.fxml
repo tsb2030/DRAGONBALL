@@ -25,7 +25,7 @@
 				<!-- 상단바 -->
 				<Pane prefHeight="60.0" prefWidth="1280.0" style="-fx-border-color: #ffffe4;">
 					<children>
-						<ImageView fx:id="backBtn" id="shadow" fitHeight="47.0" fitWidth="50.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView id="shadow" fx:id="backBtn" fitHeight="47.0" fitWidth="50.0" layoutX="6.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="/image/backarrow.png" />
 							</image>
@@ -118,7 +118,6 @@
 															</image>
 														</ImageView>
 														<Label layoutX="250.0" layoutY="25.0" styleClass="littleTitleM" text="뫼비우스 띠" />
-														<Button id="shadow" layoutX="175.0" layoutY="135.0" mnemonicParsing="false" onAction="#eyeMovementButton" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="자세히" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
 														<Label layoutX="400.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
@@ -134,7 +133,6 @@
 															</image>
 														</ImageView>
 														<Label layoutX="270.0" layoutY="25.0" styleClass="littleTitleM" text="지그재그" />
-														<Button id="shadow" layoutX="175.0" layoutY="135.0" mnemonicParsing="false" onAction="#eyeMovementButton2" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="buttonFontStyle" text="자세히" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
 														<Label layoutX="400.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="70.0" text="Label" />

@@ -51,7 +51,7 @@ public class recordController implements Initializable{
 	// 한달간 휴식 기록 예시 
 	private int[] aMonthRestData = {1,1,3,2,1,1,0,0,0,2,3,3,3,3,3,6,7,2,2,1,3,3,5,2,3,4,1,2,4,2,3};
 
-
+	
 
 	// 주간 기록 버튼
 	public void weekButton(ActionEvent e) {
@@ -89,7 +89,7 @@ public class recordController implements Initializable{
 
 	}
 
-	// 한달간 기록 버튼 일단...
+	// 한달간 기록 버튼 일단....
 	public void monthButton(ActionEvent e) {		
 		// 차트 타이틀 변경
 		recordChart.setTitle("한달간 게임/휴식 기록");
@@ -250,6 +250,27 @@ public class recordController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
+		// 전체 휴식 / 오늘 휴식
+		// 전체 게임 / 오늘 게임
+		
+		// 지그재그 전체 게임 횟수 가져오기
+		// 지그재그 정답 횟수 가져오기
+		
+		// 뫼비우스 전체 게임 횟수 가져오기
+		// 뫼비우스 정답 횟수 가져오기
+		
+		// 5점 카드 트레이닝 전체 게임 횟수 가져오기
+		
+		// 순서대로 전체 횟수
+		
+		// 캐치볼 전체 횟수
+		
+		// 두더지 전체 횟수
+		
+		// 같은 그림 찾기 전체 횟수
+		
+		
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override

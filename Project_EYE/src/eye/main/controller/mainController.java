@@ -42,7 +42,7 @@ public class mainController implements Initializable {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		// 페이지 교체
+		// 페이지 교체 
 		mainPage.getChildren().setAll(gameMainPage);
 	}
 
