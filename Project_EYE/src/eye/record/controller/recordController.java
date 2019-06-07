@@ -89,7 +89,7 @@ public class recordController implements Initializable{
 
 	}
 
-	// 한달간 기록 버튼 일단...
+	// 한달간 기록 버튼 일단....
 	public void monthButton(ActionEvent e) {		
 		// 차트 타이틀 변경
 		recordChart.setTitle("한달간 게임/휴식 기록");
