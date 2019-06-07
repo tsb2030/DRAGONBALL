@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -15,6 +16,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXToggleButton;
 
 import eye.main.Main;
+import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
@@ -24,39 +26,48 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class setController implements Initializable {
 	@FXML
 	private AnchorPane ExplainPage;
-	
+	public static Stage mainPage;
+
 	String timeInterval[] = { "30분", "1시간", "1시간 30분", "2시간", "2시간 30분", "3시간", "3시간 30분", "4시간", "4시간 30분", "5시간" };
-	
-	Clock clock;
+
+	public Clock clock;
 	public static LocalTime currentTime = LocalTime.now();
 	public static LocalDate currentDate = LocalDate.now();
 	int nextDay = currentDate.getDayOfMonth();
 	int today = currentDate.getDayOfMonth();
-	
 
-	private ArrayList<Integer> restList = new ArrayList<Integer>();
+	public static int currentRestCount = 0;
+	public static int totalRestCount = 0;
+	
+	public static ArrayList<Integer> restList = new ArrayList<Integer>();
 	int restCycle = 0;
 	int startDisturbTime;
 	int endDisturbTime;
 	private int varStartDisturbTime;
 	private int varEndDisturbTime;
-	
-	
-	int restType;
+
+	public static int restType;
 	boolean rotateFlag = false;
 	boolean BGMFlag = false;
 	boolean effectFlag = false;
 	boolean flag = false;// 게임이 진행 중인지 받아올 변수
 	boolean tomarrowFlag = false;
+	
+	public static boolean isPause = false;	//현재 pause상태인지?
+	
+	public static boolean isRestStart = false;
+	
 	// 만약 운동중에 휴식 알람을 울려야 한다면
 	public static boolean maintainRestEvent = false;
 
@@ -69,11 +80,6 @@ public class setController implements Initializable {
 	@FXML
 	private JFXComboBox<String> combobox3;
 
-//	@FXML
-//	ComboBox<Integer> combobox1, combobox2;
-//	@FXML
-//	ComboBox<String> combobox3;
-
 	@FXML
 	private JFXToggleButton BGMToggle;
 
@@ -83,74 +89,144 @@ public class setController implements Initializable {
 	ObservableList<Integer> timeList = FXCollections.observableArrayList();
 	ObservableList<String> intervalList = FXCollections.observableArrayList();
 
+	// 초기화 버튼 눌렀을 때
 	@FXML
-	void submit(MouseEvent event) {
-		System.out.println("submit");
+	void cancel(MouseEvent event) throws IOException {
+		if(isPause == false) {
+			// 기존에 알람이 켜져 있다면 멈추는 구문
+			if (clock != null) {
+				if (clock.animation.getStatus() == Status.RUNNING) {
+					System.out.println("기존 알람이 켜져 있는 상태");
+					clock.animation.pause();
+				}else {
+					clock = new Clock();
+				}
+			}
+				
+					
 
-		if(varEndDisturbTime == 0)					//기본 알람 방지 시작 시간 = 9(저녁 9시)
-			varEndDisturbTime = 21;
-		if(varStartDisturbTime == 0)				//기본 알람 방지 종료 시간 = 8(다음날)
-			varStartDisturbTime = 8;
-		if(restCycle == 0)							//기본 알람 주기 = 3시간
-			restCycle = 6;
-		
-		if (varStartDisturbTime > varEndDisturbTime) {	//다음 날짜로 알람이 설정 되었는지?
+			varEndDisturbTime = 21;// 기본 알람 방지 시작 시간 = 9(저녁 9시)
+			varStartDisturbTime = 8;// 기본 알람 방지 종료 시간 = 8(다음날)
 			tomarrowFlag = true;
 			today = currentDate.getDayOfMonth();
 			nextDay = currentDate.getDayOfMonth() + 1;
-		}
-		startDisturbTime = varStartDisturbTime;
-		endDisturbTime = varEndDisturbTime;
-		
-		if (clock != null) {
-			clock.animation.stop();
-			clock = null;
-		}
+			restCycle = 6;// 기본 알람 주기 = 3시간
+			restType = 1;
+			startDisturbTime = varStartDisturbTime;
+			endDisturbTime = varEndDisturbTime;
 
-		clock = new Clock();
+//				this.clock.animation.stop();
+//			clock = null;
+//			if (clock == null)
+				
+			/*
+			 * 
+			 * 창을 이전 페이지(main)페이지로 가게 함
+			 */
+			Main.setMusic("introMusic", true);
+			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
+			ExplainPage.getChildren().setAll(mainPage);
+		}
 		
-		/*
-		 * 
-		 * 창을 이전 페이지(main)페이지로 가게 함
-		 */
 	}
-	
+
+	@FXML
+	void submit(MouseEvent event) throws IOException {
+		if(isPause == false) {
+			System.out.println("submit");
+			// 기존에 알람이 켜져 있다면 멈추는 구문
+			if (clock != null)
+				if (clock.animation.getStatus() == Status.RUNNING)
+					clock.animation.stop();
+
+			if (varEndDisturbTime == 0) // 기본 알람 방지 시작 시간 = 9(저녁 9시)
+				varEndDisturbTime = 21;
+			if (varStartDisturbTime == 0) // 기본 알람 방지 종료 시간 = 8(다음날)
+				varStartDisturbTime = 8;
+			if (restCycle == 0) // 기본 알람 주기 = 3시간
+				restCycle = 6;
+			if (restType == 0)	//없으면 1 = 짧음
+				restType = 1;
+
+			if (varStartDisturbTime > varEndDisturbTime) { // 다음 날짜로 알람이 설정 되었는지?
+				tomarrowFlag = true;
+				today = currentDate.getDayOfMonth();
+				nextDay = currentDate.getDayOfMonth() + 1;
+			}
+			startDisturbTime = varStartDisturbTime;
+			endDisturbTime = varEndDisturbTime;
+
+//			if (clock == null || clock.animation.)
+				clock = new Clock();
+
+			/*
+			 * 
+			 * 창을 이전 페이지(main)페이지로 가게 함
+			 */
+			Main.setMusic("introMusic", true);
+			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
+			ExplainPage.getChildren().setAll(mainPage);
+		}
+		
+	}
+
 	@FXML
 	void backButtonAction(MouseEvent event) throws IOException {
-		Main.setMusic("introMusic", true);
-		Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
-		ExplainPage.getChildren().setAll(mainPage);
+		if(isPause == false) {
+			Main.setMusic("introMusic", true);
+			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
+			ExplainPage.getChildren().setAll(mainPage);
+		}
+		
 	}
 
 	// shorRestplay
-	public void playShorRest() {
+	public static void playShorRest() throws IOException {
+		currentRestCount++;
 		double ran = Math.random();
 		int intValue = (int) (ran * 5) + 1;
-
+		Parent parent;
+		Scene scene;
 		// 이미 배열에 차있으면 다른 변수를 가져오도록 한다.
 		while (restList.contains(intValue))
 			intValue = (int) (ran * 5) + 1;
 
 		switch (intValue) {
 		case 1:
-			// 휴식 페이지 1번을 부르는 기능!
+			// 휴식 페이지 1번을 부르는 기능! 눈꼭 감기
 			restList.add(1);
+			
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
 			break;
 		case 2:
-			// 휴식 페이지 1번을 부르는 기능!
+			// 휴식 페이지 2번을 부르는 기능! 멀리보기
 			restList.add(2);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/LookAfarInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
 			break;
 		case 3:
-			// 휴식 페이지 1번을 부르는 기능!
+			// 휴식 페이지 1번을 부르는 기능! 눈 마사지
 			restList.add(3);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/EyeMassageInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
 			break;
 		case 4:
-			// 휴식 페이지 1번을 부르는 기능!
+			// 휴식 페이지 1번을 부르는 기능! 눈 굴리기
 			restList.add(4);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/EyeRollingInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
 			break;
 		case 5:
-			// 휴식 페이지 1번을 부르는 기능!
+			// 휴식 페이지 1번을 부르는 기능! 눈 꼭 감기
 			restList.add(5);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
 			break;
 
 		default:
@@ -160,57 +236,121 @@ public class setController implements Initializable {
 	}
 
 	// 만약 배열의 크기가 다 찼을 경우( == 5개의 휴식을 모두 취했을 경우) 배열을 비워두도록 한다.
-	public void isSizeFull() {
+	public static void isSizeFull() {
 		if (restList.size() == 5)
 			restList.clear();
 	}
 
 	// LongRestEvent!!
-	public void playLongRest() {
-		// fadeOutRest.fxml로 이동!
+	public static void playLongRest() throws IOException {
+		currentRestCount++;
+		double ran = Math.random();
+		int intValue = (int) (ran * 5) + 1;
+		Parent parent;
+		Scene scene;
+		// 이미 배열에 차있으면 다른 변수를 가져오도록 한다.
+		while (restList.contains(intValue))
+			intValue = (int) (ran * 5) + 1;
+
+		switch (intValue) {
+		case 1:
+			// 휴식 페이지 1번을 부르는 기능! 눈꼭 감기
+			restList.add(1);
+			
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
+			break;
+		case 2:
+			// 휴식 페이지 2번을 부르는 기능! 멀리보기
+			restList.add(2);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/LookAfarInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
+			break;
+		case 3:
+			// 휴식 페이지 1번을 부르는 기능! 눈 마사지
+			restList.add(3);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/EyeMassageInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
+			break;
+		case 4:
+			// 휴식 페이지 1번을 부르는 기능! 눈 굴리기
+			restList.add(4);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/EyeRollingInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
+			break;
+		case 5:
+			// 휴식 페이지 1번을 부르는 기능! 눈 꼭 감기
+			restList.add(5);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
+			scene = new Scene(parent);
+			mainPage.setScene(scene);
+			break;
+
+		default:
+			isSizeFull();
+			break;
+		}
 	}
 
 	// RotateRestEvent!!
-	public void playRotateRest() {
-		if (rotateFlag == false) {
+	public static void playRotateRest() throws IOException {
+		double ran = Math.random();
+		int intValue = (int) (ran * 2) + 1;
+		
+		if (intValue == 1) {
+			totalRestCount = 3;
 			playShorRest();
-			rotateFlag = true;
 		} else {
+			totalRestCount = 5;
 			playLongRest();
-			rotateFlag = false;
 		}
 	}
 
 	@FXML
 	void restTypeIsShort(MouseEvent event) {
-		restType = 1;
-		System.out.println("resType = short");
+		if(isPause == false) {
+			restType = 1;
+			System.out.println("resType = short");			
+		}
+		
 	}
 
 	@FXML
 	void restTypeIsLong(MouseEvent event) {
-		restType = 2;
-		System.out.println("resType = long");
+		if(isPause == false) {
+			restType = 2;
+			System.out.println("resType = long");
+		}
+		
 	}
 
 	@FXML
 	void restTypeIsRotate(MouseEvent event) {
-		restType = 3;
-		System.out.println("resType = rotate");
+		if(isPause == false) {
+			restType = 3;
+			System.out.println("resType = rotate");
+		}
+		
 	}
 
 	// 휴식 이벤트 시작
-	public void playRest(int restType) {
+	public void playRest(int restType) throws IOException {
 		switch (restType) {
 
 		// ShortEvent
 		case 1:
+			totalRestCount = 3;
 			playShorRest();
 			System.out.println("play short Rest");
 			break;
 
 		// LongEvent
 		case 2:
+			totalRestCount = 5;
 			playLongRest();
 			System.out.println("play long Rest");
 			break;
@@ -226,7 +366,7 @@ public class setController implements Initializable {
 		}
 	}
 
-	// 일단 오류때문에 사용금지
+	// 토글 기본 색깔 바꾸기
 	public void setToggleColors() {
 		System.out.println("change Color");
 		Color firstBGMLUnToggleColor = (Color) BGMToggle.getUnToggleColor();
@@ -252,7 +392,7 @@ public class setController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
+		mainPage = (Stage)BGMToggle.getScene().getWindow();
 		// 처음에 켜진 상태이기 때문에 바꿈..
 		setToggleColors();
 
@@ -276,15 +416,18 @@ public class setController implements Initializable {
 	@FXML
 	void BGMToggleAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		if (BGMFlag == false) {
-			System.out.println("BGM music close");
-			Main.closeMusic();
-			BGMFlag = true;
-		} else {
-			System.out.println("BGM music restart");
-			Main.reStartMusic(true);
-			BGMFlag = false;
+		if(isPause == false) {
+			if (BGMFlag == false) {
+				System.out.println("BGM music close");
+				Main.closeMusic();
+				BGMFlag = true;
+			} else {
+				System.out.println("BGM music restart");
+				Main.reStartMusic(true);
+				BGMFlag = false;
+			}			
 		}
+		
 	}
 
 	/**
@@ -304,37 +447,33 @@ public class setController implements Initializable {
 //		}
 	}
 
-	@FXML
-	void cancel(MouseEvent event) {
-		System.out.println("cancel");
-	}
-
-	@FXML
-	void cancelText(MouseEvent event) {
-
-		System.out.println("cancel");
-	}
-
-	
-
 	// 방해금지 종료시간 설정
 	@FXML
 	void setEndDisturbTime(ActionEvent event) {
-		varEndDisturbTime = (int) combobox2.getValue();
+		if(isPause == false) {
+			varEndDisturbTime = (int) combobox2.getValue();	
+		}
+		
 	}
 
 	// 방해금지 시작시간 설정
 	@FXML
 	void setStartDisturbTime(ActionEvent event) {
-		varStartDisturbTime = (int) combobox1.getValue();
+		if(isPause == false	) {
+			varStartDisturbTime = (int) combobox1.getValue();	
+		}
+		
 	}
 
 	// 실행 주기 설정
 	@FXML
 	void setRestCycle(ActionEvent event) {
-		String s = (String) combobox3.getValue();
-		System.out.println(s);
-		findOne(s);
+		if(isPause == false) {
+			String s = (String) combobox3.getValue();
+			System.out.println(s);
+			findOne(s);	
+		}
+		
 	}
 
 	/**
@@ -343,7 +482,7 @@ public class setController implements Initializable {
 	 */
 	public void findOne(String s) {
 		switch (s) {
-		case "30":
+		case "30분":
 			restCycle = 1;
 			break;
 		case "1시간":
@@ -378,6 +517,11 @@ public class setController implements Initializable {
 			break;
 		}
 	}
+	
+	public void pause() {
+		isPause = true;
+		ExplainPage.setOpacity(0.45);
+	}
 
 	public class Clock extends Pane {
 
@@ -398,9 +542,11 @@ public class setController implements Initializable {
 				System.out.println("방해 시작 시각: " + startDisturbTime);
 				System.out.println("방해 종료 시각: " + endDisturbTime);
 				System.out.println("현재 초 : " + currentTime.getSecond());
+				System.out.println("알람 시작 초 : " + (currentTime.getSecond() + restCycle * 3));
 				if (maintainRestEvent) {
-					if(flag == false) {
-						playRest(restType);
+					if (flag == false) {
+						//alarmPopup등장
+						
 						maintainRestEvent = false;
 					}
 				}
@@ -411,8 +557,10 @@ public class setController implements Initializable {
 						if (restCycle != 0) {
 							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
 							if (!flag) {
-								if (timeTmp % (restCycle * 1800) == 0) {
-									playRest(restType);
+								if (timeTmp % (restCycle * 10) == 0) {
+									//alarmPopup등장
+									//현재 윈도우의 투명도를 0.45로 하고
+									//현재 윈도우의 버튼 이벤트를 중지한다.
 								}
 							} else {
 								maintainRestEvent = true;
@@ -425,8 +573,9 @@ public class setController implements Initializable {
 							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
 							System.out.println("flag가 false면알람 주기 시작" + flag);
 							if (!flag) {
-								if (timeTmp % (restCycle * 1800) == 0) {
-									playRest(restType);
+								if (timeTmp % (restCycle * 10) == 0) {
+									//alarmPopup등장
+									
 								}
 							} else {
 								maintainRestEvent = true;
