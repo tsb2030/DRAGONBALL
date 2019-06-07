@@ -22,7 +22,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class recordController implements Initializable{
-
+	
+	@FXML
+	private AnchorPane recordMainPage, achieveMainPage;
+	
 	@FXML
 	private LineChart recordChart;
 	
@@ -51,7 +54,19 @@ public class recordController implements Initializable{
 	// 한달간 휴식 기록 예시 
 	private int[] aMonthRestData = {1,1,3,2,1,1,0,0,0,2,3,3,3,3,3,6,7,2,2,1,3,3,5,2,3,4,1,2,4,2,3};
 
-
+	// 도전과제 버튼을 눌렀을 때 동작할 메소드
+	public void goAchieve() {
+		try {
+			// 음악 바꾸기
+			Main.setMusic("mainMusic", true);
+			// 교체할 페이지인 achieveMainPage.fxml를 가져와서 recordMainPage에 넣어준다.
+			achieveMainPage = FXMLLoader.load(getClass().getResource("/eye/record/view/achieveMain.fxml"));
+		} catch (IOException e) {
+			e.printStackTrace(); 
+		}
+		// 페이지 교체
+		recordMainPage.getChildren().setAll(achieveMainPage);
+	}
 
 	// 주간 기록 버튼
 	public void weekButton(ActionEvent e) {
