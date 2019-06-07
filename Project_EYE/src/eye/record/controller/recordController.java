@@ -28,20 +28,21 @@ public class recordController implements Initializable{
 	@FXML
 	private ImageView backBtn;
 	
-	@FXML
+	@FXML // 라벨
 	Label zigzagTotal,totalRest,totalExercise,todayRest,todayExercise,orderedTotal,mobiusTotal,fiveDotTotal,findPictureTotal,catchMoleTotal,catchBallTotal;
+	
 	//db에서 가져올 값 예시
-	String todayEx = "0";
-	String todayRe = "0";
-	String totalEx = "10";
-	String totalRe = "10";
-	String orderedTot = "1";
-	String mobiusTot = "1";
-	String zigzagTot = "3";
-	String fiveDotTot = "0";
-	String catchMoleTot = "0";
-	String catchballTot = "1";
-	String findPictureTot = "3";
+	String todayEx = "0"; // 오늘 운동
+	String todayRe = "0"; // 오늘 휴식
+	String totalEx = "10"; // 토탈 운동
+	String totalRe = "10"; // 토탈 휴식
+	String orderedTot = "1"; // 순서대로 토탈
+	String mobiusTot = "1"; // 뫼비우스 토탈
+	String zigzagTot = "3"; // 지그재그 토탈
+	String fiveDotTot = "0"; //5점 카드 토탈
+	String catchMoleTot = "0"; // 두더지 토탈
+	String catchballTot = "1"; // 캐치볼 토탈
+	String findPictureTot = "3"; // 같은그림 찾기 토탈
 	
 	
 	
