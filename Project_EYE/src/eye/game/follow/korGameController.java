@@ -29,10 +29,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import eye.db.*;
 public class korGameController implements Initializable{
 public static Stage currentStage;
 	
+    dbconn db = new dbconn();
+    
 	@FXML
 	private ImageView btnBefore,pauseBtn,reStartBtn;
 	private JFXButton btnarr[] = new JFXButton[14];
@@ -149,12 +151,16 @@ public static Stage currentStage;
 									btn.setText("");
 									number++;
 									System.out.println(number);
-									//number가 51이되면 게임이 끝난 것이므로 타임라인을 멈추고 숫자버튼이 눌리지않게 처리한다.
+									//number가 14이되면 게임이 끝난 것이므로 타임라인을 멈추고 숫자버튼이 눌리지않게 처리한다.
 									if(number==14) {
 										timeLine.stop();
 										for(int i=0;i<14;i++) {
 											 btnarr[i].setDisable(true);
 										 }
+										String timeStr = timer.getText();
+										double val = Double.parseDouble(timeStr);
+										System.out.println("val = "+val);
+										db.insert("6/7", "korGame", val);
 										currentStage = (Stage) timer.getScene().getWindow();
 										result = timer.getText();
 										FXMLLoader endGamePopup = new FXMLLoader(getClass().getResource("korPopup.fxml"));
