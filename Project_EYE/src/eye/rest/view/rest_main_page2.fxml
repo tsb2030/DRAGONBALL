@@ -12,9 +12,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-
-<!-- longbreak가 포함된 휴식 목록 페이지.(목록 총 6개)-->
-
+<!-- longbreak 없앤 휴식 목록 페이지.(목록 총 5개) 기능 구현이 안될 경우 대체해서  사용합시당 -->
 
 <AnchorPane fx:id="restMainPage" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #FFFFEE;" stylesheets="/eye/rest/view/restMain.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.rest.controller.restController">
 	<children>
@@ -133,28 +131,6 @@
                               <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈 굴리기" textFill="#252525" />
                               <TextFlow fx:id="text4" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
                               <ImageView fx:id="rollingEyeBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" onMouseClicked="#goEyeRollingInfo" pickOnBounds="true" styleClass="goBtnShadow">
-                                 <image>
-                                    <Image url="/image/GObtn.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <padding>
-                              <Insets bottom="250.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="100.0" right="100.0" />
-                           </VBox.margin>
-                        </Pane>
-                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
-                           <children>
-                              <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
-                                 <image>
-                                    <Image url="/image/restList/closeEye.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="Long Break" textFill="#252525" />
-                              <TextFlow fx:id="text6" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
-                              <ImageView fx:id="longBreakBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
                                  <image>
                                     <Image url="/image/GObtn.png" />
                                  </image>
