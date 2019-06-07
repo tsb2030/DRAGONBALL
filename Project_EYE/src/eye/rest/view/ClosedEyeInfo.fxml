@@ -29,7 +29,7 @@
 						</ImageView>
 						<Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="눈 꼭 감기" wrappingWidth="170.19499969482422">
 							<HBox.margin>
-								<Insets left="500.0" top="12.0" />
+								<Insets left="495.0" top="12.0" />
 							</HBox.margin>
 						</Text>
 					</children>
