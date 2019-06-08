@@ -546,7 +546,18 @@ public class setController implements Initializable {
 				if (maintainRestEvent) {
 					if (flag == false) {
 						//alarmPopup등장
-						
+						isPause = true;
+						FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
+						try {
+							AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
+							Scene scene = new Scene(alarmPopupPane);
+							Stage stage = new Stage();
+							stage.setScene(scene);
+							stage.show();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						maintainRestEvent = false;
 					}
 				}
@@ -561,6 +572,18 @@ public class setController implements Initializable {
 									//alarmPopup등장
 									//현재 윈도우의 투명도를 0.45로 하고
 									//현재 윈도우의 버튼 이벤트를 중지한다.
+									isPause = true;
+									FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
+									try {
+										AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
+										Scene scene = new Scene(alarmPopupPane);
+										Stage stage = new Stage();
+										stage.setScene(scene);
+										stage.show();
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
 								}
 							} else {
 								maintainRestEvent = true;
@@ -575,7 +598,18 @@ public class setController implements Initializable {
 							if (!flag) {
 								if (timeTmp % (restCycle * 10) == 0) {
 									//alarmPopup등장
-									
+									isPause = true;
+									FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
+									try {
+										AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
+										Scene scene = new Scene(alarmPopupPane);
+										Stage stage = new Stage();
+										stage.setScene(scene);
+										stage.show();
+									} catch (IOException e1) {
+										// TODO Auto-generated catch block
+										e1.printStackTrace();
+									}
 								}
 							} else {
 								maintainRestEvent = true;

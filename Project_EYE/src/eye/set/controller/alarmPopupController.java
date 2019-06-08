@@ -28,6 +28,7 @@ public class alarmPopupController implements Initializable{
     private Button doNotAlarm;
     Parent parent;
 	Scene scene;
+	
     @FXML
     void doAlarmAction(ActionEvent event) throws IOException {
     	if(setController.restType == 1) {//short

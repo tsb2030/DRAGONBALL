@@ -14,20 +14,24 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
 public class restController implements Initializable {
+	
+	@FXML
+    private ImageView backBtn;
 	@FXML
 	AnchorPane restMainPage, mainPage, closedEyeInfoPage, lookAfarInfoPage, eyeMassageInfoPage, eyeRollingInfoPage,
 			warmEyeInfoPage; // 휴식 목록 페이지
-	@FXML
-	ImageView backBtn; // 뒤로가기버튼
+//	@FXML
+//	ImageView backBtn; // 뒤로가기버튼
 	@FXML
 	ImageView closeEyeBtn, lookFarBtn, eyeMassageBtn, rollingEyeBtn, blinkBtn, longBreakBtn; // 각 휴식별 실행페이지로 연결할 버튼
 	@FXML
 	TextFlow text1, text2, text3, text4, text5, text6; // 각 휴식별 텍스트
 	// 눈 꼭 감기 - text1, 멀리 보기 - text2, 눈 마사지 - text3, 눈 굴리기 - text4, 손바닥 눈찜질 - text5,
 	// 롱브레이크 - text6
-
+	public static Stage currentStage;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 눈 꼭 감기
@@ -69,6 +73,7 @@ public class restController implements Initializable {
 
 	// 눈 꼭 감기 설명 페이지로 이동
 	public void goClosedEyeInfo() {
+		currentStage = (Stage)backBtn.getScene().getWindow();
 		try {
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true);
@@ -83,6 +88,7 @@ public class restController implements Initializable {
 
 	// 멀리 보기 설명 페이지로 이동
 	public void goLookAfarInfo() {
+		currentStage = (Stage)backBtn.getScene().getWindow();
 		try {
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true);
@@ -97,6 +103,7 @@ public class restController implements Initializable {
 
 	// 눈 마사지 설명 페이지로 이동
 	public void goEyeMassageInfo() {
+		currentStage = (Stage)backBtn.getScene().getWindow();
 		try {
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true);
@@ -111,6 +118,7 @@ public class restController implements Initializable {
 
 	// 눈 굴리기 설명 페이지로 이동
 	public void goEyeRollingInfo() {
+		currentStage = (Stage)backBtn.getScene().getWindow();
 		try {
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true);
@@ -125,6 +133,7 @@ public class restController implements Initializable {
 
 	// 손바닥 온찜질 설명 페이지로 이동
 	public void goWarmEyeInfo() {
+		currentStage = (Stage)backBtn.getScene().getWindow();
 		try {
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true);
