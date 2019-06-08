@@ -2,8 +2,6 @@ package eye.record.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormatSymbols;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import eye.main.Main;
@@ -17,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -28,11 +27,29 @@ public class recordController implements Initializable{
 	
 	@FXML
 	private ImageView backBtn;
+	
+	@FXML // 라벨
+	Label zigzagTotal,totalRest,totalExercise,todayRest,todayExercise,orderedTotal,mobiusTotal,fiveDotTotal,findPictureTotal,catchMoleTotal,catchBallTotal;
+	
+	//db에서 가져올 값 예시
+	String todayEx = "0"; // 오늘 운동
+	String todayRe = "0"; // 오늘 휴식
+	String totalEx = "10"; // 토탈 운동
+	String totalRe = "10"; // 토탈 휴식
+	String orderedTot = "1"; // 순서대로 토탈
+	String mobiusTot = "1"; // 뫼비우스 토탈
+	String zigzagTot = "3"; // 지그재그 토탈
+	String fiveDotTot = "0"; //5점 카드 토탈
+	String catchMoleTot = "0"; // 두더지 토탈
+	String catchballTot = "1"; // 캐치볼 토탈
+	String findPictureTot = "3"; // 같은그림 찾기 토탈
+	
+	
+	
+	// 주간 날짜 배열 예시
+	private String[] weekDays = {"5/1","5/2","5/3","5/4","5/5","5/6","5/7"};
 
-	// (일~토) 배열
-	private String[] weekDays = DateFormatSymbols.getInstance(Locale.KOREAN).getShortWeekdays();
-
-	// 월/일 배열 예시
+	// 월간 날짜 배열 예시
 	private String[] monthDays = {"5/1","5/2","5/3","5/4","5/5","5/6","5/7","5/8","5/9","5/10","5/11","5/12","5/13","5/14","5/15","5/16","5/17","5/18","5/19","5/20","5/21","5/22","5/23","5/24","5/25","5/26","5/27","5/28","5/29","5/30","5/31"};
 
 	// -------게임 기록--------
@@ -51,7 +68,56 @@ public class recordController implements Initializable{
 	// 한달간 휴식 기록 예시 
 	private int[] aMonthRestData = {1,1,3,2,1,1,0,0,0,2,3,3,3,3,3,6,7,2,2,1,3,3,5,2,3,4,1,2,4,2,3};
 
-	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		// TODO Auto-generated method stub
+
+		// 전체 휴식 / 오늘 휴식
+		totalRest.setText(totalRe);
+		todayRest.setText(todayRe);
+		
+		// 전체 게임 / 오늘 게임
+		totalExercise.setText(totalEx);
+		todayExercise.setText(todayEx);
+		
+		// 지그재그 전체 게임 횟수 가져오기
+		zigzagTotal.setText(zigzagTot);
+		// 지그재그 정답 횟수 가져오기
+		
+		// 뫼비우스 전체 게임 횟수 가져오기
+		mobiusTotal.setText(mobiusTot);
+		// 뫼비우스 정답 횟수 가져오기
+		
+		// 5점 카드 트레이닝 전체 게임 횟수 가져오기
+		fiveDotTotal.setText(fiveDotTot);
+		// 순서대로 전체 횟수
+		orderedTotal.setText(orderedTot);
+		// 캐치볼 전체 횟수
+		catchBallTotal.setText(catchballTot);
+		// 두더지 전체 횟수
+		catchMoleTotal.setText(catchMoleTot);
+		// 같은 그림 찾기 전체 횟수
+		findPictureTotal.setText(findPictureTot);
+		
+		backBtn.setOnMouseClicked(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				// TODO Auto-generated method stub
+				try {
+					Main.setMusic("introMusic", true);
+					Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
+					Scene scene = new Scene(recordPage);
+					scene.getStylesheets()
+							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+					Stage primaryStage = (Stage) backBtn.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	// 주간 기록 버튼
 	public void weekButton(ActionEvent e) {
@@ -69,13 +135,13 @@ public class recordController implements Initializable{
 
 		//게임 데이터 삽입
 		for(int i = 0 ; i<aWeekGameData.length ; i++) {
-			gameData.getData().add(new XYChart.Data<String,Integer>(weekDays[i+1], aWeekGameData[i]));
+			gameData.getData().add(new XYChart.Data<String,Integer>(weekDays[i], aWeekGameData[i]));
 
 		}
 
 		//휴식 데이터 삽입
 		for(int i = 0 ; i<aWeekRestData.length ; i++) {
-			restData.getData().add(new XYChart.Data<String,Integer>(weekDays[i+1], aWeekRestData[i]));
+			restData.getData().add(new XYChart.Data<String,Integer>(weekDays[i], aWeekRestData[i]));
 
 		}
 
@@ -89,7 +155,7 @@ public class recordController implements Initializable{
 
 	}
 
-	// 한달간 기록 버튼 일단....
+	// 한달간 기록 버튼 일단...
 	public void monthButton(ActionEvent e) {		
 		// 차트 타이틀 변경
 		recordChart.setTitle("한달간 게임/휴식 기록");
@@ -246,51 +312,6 @@ public class recordController implements Initializable{
 		}
 
 	}
-
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-		// 전체 휴식 / 오늘 휴식
-		// 전체 게임 / 오늘 게임
-		
-		// 지그재그 전체 게임 횟수 가져오기
-		// 지그재그 정답 횟수 가져오기
-		
-		// 뫼비우스 전체 게임 횟수 가져오기
-		// 뫼비우스 정답 횟수 가져오기
-		
-		// 5점 카드 트레이닝 전체 게임 횟수 가져오기
-		
-		// 순서대로 전체 횟수
-		
-		// 캐치볼 전체 횟수
-		
-		// 두더지 전체 횟수
-		
-		// 같은 그림 찾기 전체 횟수
-		
-		
-		backBtn.setOnMouseClicked(new EventHandler<Event>() {
-
-			@Override
-			public void handle(Event event) {
-				// TODO Auto-generated method stub
-				try {
-					Main.setMusic("introMusic", true);
-					Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
-					Scene scene = new Scene(recordPage);
-					scene.getStylesheets()
-							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-					Stage primaryStage = (Stage) backBtn.getScene().getWindow();
-					primaryStage.setScene(scene);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 
 
 
