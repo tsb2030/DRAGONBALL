@@ -38,8 +38,8 @@
 						<Line endX="100.0" layoutX="640.0" layoutY="53.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
 
 						<!-- 도전과제, 시력검사 버튼 -->
-						<Button id="shadow" layoutX="1125.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #108649; -fx-background-radius: 30;" styleClass="buttonFontStyle" text="시력 검사" />
-						<Button id="shadow" layoutX="980.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-radius: 30; -fx-background-color: #bb4b43;" styleClass="buttonFontStyle" text="도전과제" />
+						<Button id="shadow" layoutX="1125.0" layoutY="10.0" mnemonicParsing="false" onAction="#ExamButton" style="-fx-background-color: #108649; -fx-background-radius: 30;" styleClass="buttonFontStyle" text="시력 검사" />
+						<Button id="shadow" layoutX="980.0" layoutY="10.0" mnemonicParsing="false" onAction="#AchievementButton" style="-fx-background-radius: 30; -fx-background-color: #bb4b43;" styleClass="buttonFontStyle" text="도전과제" />
 					</children>
 				</Pane>
 				<ScrollPane hbarPolicy="NEVER" prefHeight="660.0" prefWidth="1280.0" styleClass="edge-to-edge">
