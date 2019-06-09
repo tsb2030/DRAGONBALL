@@ -68,10 +68,12 @@
 								<Image url="/rest/gif/eyeMassage.gif" />
 							</image>
 						</ImageView>
-						<Label alignment="CENTER" layoutX="100.0" layoutY="390.0" styleClass="fontStyleL25" text="1. 오른손 엄지 손가락을 이용하여 왼쪽 눈 아래 근육을 안쪽에서 바깥쪽으로 10초동안 지그시 누르면서 밀어주세요." textAlignment="CENTER" />
-						<Label alignment="CENTER" layoutX="460.0" layoutY="440.0" styleClass="fontStyleL25" text="2. 1번처럼 눈 위 근육도 밀어주세요." textAlignment="CENTER" />
-						<Label alignment="CENTER" layoutX="240.0" layoutY="490.0" styleClass="fontStyleL25" text="3. 양손 엄지 손가락으로 눈썹뼈 아래 움푹 들어간 곳을 10초동안 지그시 눌러주세요." textAlignment="CENTER" />
-						<Label alignment="CENTER" layoutX="515.0" layoutY="540.0" styleClass="fontStyleL25" text="4. 1-3을 2회 반복하세요." textAlignment="CENTER" />
+						<Label alignment="CENTER" layoutX="270.0" layoutY="390.0" styleClass="fontStyleL23" text="1. 오른손 엄지 손가락을 이용하여 왼쪽 눈 아래 근육을 안쪽에서 바깥쪽으로 " textAlignment="CENTER" />
+						<Label alignment="CENTER" layoutX="290.0" layoutY="430.0" styleClass="fontStyleL23" text="10초동안 지그시 누르면서 밀어주세요." textAlignment="CENTER" />
+						<Label alignment="CENTER" layoutX="270.0" layoutY="470.0" styleClass="fontStyleL23" text="2. 1번처럼 눈 위 근육도 밀어주세요." textAlignment="CENTER" />
+						<Label alignment="CENTER" layoutX="270.0" layoutY="510.0" styleClass="fontStyleL23" text="3. 양손 엄지 손가락으로 눈썹뼈 아래 움푹 들어간 곳을 10초동안 지그시 눌러주세요." textAlignment="CENTER" />
+						<Label alignment="CENTER" layoutX="270.0" layoutY="550.0" styleClass="fontStyleL23" text="4. 1-3을 2회 반복하세요." textAlignment="CENTER" />
+						<Label layoutX="850.0" layoutY="620.0" styleClass="fontReference" text="(참고 : 히비노 사와코, 『보기만 해도 눈이 좋아진다』, 시간과공간사)" />
 					</children>
 				</Pane>
 			</children>

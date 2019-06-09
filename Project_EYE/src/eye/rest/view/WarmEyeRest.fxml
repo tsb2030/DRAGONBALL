@@ -71,7 +71,8 @@
 						<Label alignment="CENTER" layoutX="410.0" layoutY="390.0" styleClass="fontStyleL25" text="1. 양 손바닥을 10초 이상 열이 날 정도로 비빕니다." textAlignment="CENTER" />
 						<Label alignment="CENTER" layoutX="400.0" layoutY="440.0" styleClass="fontStyleL25" text="2. 따뜻해진 손바닥으로 8초간 감은 눈을 덮어줍니다." textAlignment="CENTER" />
 						<Label alignment="CENTER" layoutX="510.0" layoutY="490.0" styleClass="fontStyleL25" text="3. 1, 2번을 3회 반복합니다." textAlignment="CENTER" />
-						<Label alignment="CENTER" layoutX="510.0" layoutY="560.0" styleClass="fontStyleL25" text="* 권장 횟수는 10회 입니다." textAlignment="CENTER" />
+						<Label alignment="CENTER" layoutX="490.0" layoutY="560.0" styleClass="fontStyleL25" text="* 하루 권장 횟수는 10회 입니다." textAlignment="CENTER" />
+                 		<Label layoutX="1050.0" layoutY="620.0" styleClass="fontReference" text="(참고 : YTN 원포인트 생활상식)" />
 					</children>
 				</Pane>
 			</children>

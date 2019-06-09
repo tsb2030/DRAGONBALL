@@ -35,19 +35,19 @@ public class restController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 눈 꼭 감기
-		Text t = new Text("\n정해진 시간동안 눈을 꼭 감아보아요" + "\n휴식 중 속도보다는 움직임 자체에 집중해주세요! ");
+		Text t = new Text("\n정해진 시간동안 눈을 꼭 감아보아요." + "\n휴식 중 속도보다는 움직임 자체에 집중해주세요! ");
 		text1.getChildren().add(t);
 		// 멀리 보기
 		t = new Text("\n화면에서 잠시 눈을 떼고 멀리 있는 사물이나 창문을 바라보아요");
 		text2.getChildren().add(t);
 		// 눈 마사지
-		t = new Text("\n피로에 지친 눈을 문질러 마사지 해주세요" + "\n설명글의 순서에 맞춰서 천천히 따라해주세요!");
+		t = new Text("\n피로에 지친 눈을 문질러 마사지 해주세요." + "\n설명글의 순서에 맞춰서 천천히 따라해주세요!");
 		text3.getChildren().add(t);
 		// 눈 굴리기
-		t = new Text("\n눈동자를 시계방향, 반시계방향으로 굴려보아요" + "\n눈동자의 움직임에 집중하는 것이 중요해요!");
+		t = new Text("\n눈동자를 시계방향, 반시계방향으로 굴려보아요." + "\n눈동자의 움직임에 집중하는 것이 중요해요!");
 		text4.getChildren().add(t);
 		// 손바닥 눈찜질
-		t = new Text("\n손바닥 열을 이용하여 눈의 혈액순환을 도와요 " + "\n눈근육의 이완과 수축에 도움을 줘요!");
+		t = new Text("\n손바닥 열을 이용하여 눈의 혈액순환을 도와요. " + "\n안구건조증을 예방해요!");
 		text5.getChildren().add(t);
 		// 롱 브레이크
 		t = new Text("\n화면이 정해진 시간동안 어두워집니다. " + "\n하던 일을 잠시 멈추고 눈을 쉬어주세요~");

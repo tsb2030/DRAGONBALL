@@ -12,9 +12,21 @@ AnchorPane{
 	-fx-font-size: 40.0px;
 
 }
+
+.fontReference{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 15.0px;
+}
+
 .fontStyle{
 	-fx-font-family: "a소나무M";
 	-fx-font-size: 65.0px;
+}
+
+.fontStyleL23{
+	-fx-font-family: "a소나무L";
+	-fx-font-size: 23.0px;
+	-fx-text-fill: #252525;
 }
 
 .fontStyleL25{

@@ -71,7 +71,7 @@
                   <Label alignment="CENTER" layoutX="500.0" layoutY="440.0" styleClass="fontStyleL25" text="1. 눈을 2초간 꼭 감으세요." textAlignment="CENTER" />
                   <Label alignment="CENTER" layoutX="500.0" layoutY="490.0" styleClass="fontStyleL25" text="2. 눈을 2초간 번쩍 뜨세요." textAlignment="CENTER" />
                   <Label alignment="CENTER" layoutX="495.0" layoutY="540.0" styleClass="fontStyleL25" text="3. 1과 2를 10회 반복하세요." textAlignment="CENTER" />
-
+				  <Label layoutX="850.0" layoutY="620.0" styleClass="fontReference" text="(참고 : 히비노 사와코, 『보기만 해도 눈이 좋아진다』, 시간과공간사)" />
 					</children>
 				</Pane>
 			</children>

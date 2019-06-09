@@ -72,6 +72,7 @@
 						<Label alignment="CENTER" layoutX="350.0" layoutY="440.0" styleClass="fontStyleL25" text="2. 눈동자를 시계방향으로 움직이며 각 점마다 1초씩 응시합니다." textAlignment="CENTER" />
 						<Label alignment="CENTER" layoutX="450.0" layoutY="490.0" styleClass="fontStyleL25" text="3. 반시계방향으로 2번을 진행합니다." textAlignment="CENTER" />
 						<Label alignment="CENTER" layoutX="510.0" layoutY="560.0" styleClass="fontStyleL25" text="* 하루에 3-5회 씩 하세요" textAlignment="CENTER" />
+						<Label layoutX="850.0" layoutY="620.0" styleClass="fontReference" text="(참고 : 히비노 사와코, 『보기만 해도 눈이 좋아진다』, 시간과공간사)" />
 					</children>
 				</Pane>
 			</children>

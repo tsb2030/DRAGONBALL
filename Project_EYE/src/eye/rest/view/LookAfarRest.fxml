@@ -72,6 +72,7 @@
 						<Label alignment="CENTER" layoutX="440.0" layoutY="460.0" styleClass="fontStyleL25" text="2. 팔을 뻗어 검지 손톱에 초점을 맞추세요." textAlignment="CENTER" />
 						<Label alignment="CENTER" layoutX="380.0" layoutY="510.0" styleClass="fontStyleL25" text="3. 검지를 세운 채 약 3-5미터 뒤쪽에 있는 벽을 보세요." textAlignment="CENTER" />
 						<Label alignment="CENTER" layoutX="525.0" layoutY="560.0" styleClass="fontStyleL25" text="4. 1-3을 5회 반복하세요." textAlignment="CENTER" />
+						<Label layoutX="850.0" layoutY="620.0" styleClass="fontReference" text="(참고 : 히비노 사와코, 『보기만 해도 눈이 좋아진다』, 시간과공간사)" />
 					</children>
 				</Pane>
 			</children>
