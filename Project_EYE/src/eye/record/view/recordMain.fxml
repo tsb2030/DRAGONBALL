@@ -112,30 +112,42 @@
 												<!-- 뫼비우스 게임 -->
 												<Pane layoutX="530.0" layoutY="90.0" prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
 													<children>
-														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
 															<image>
 																<Image url="/image/gameList/mobius.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="250.0" layoutY="25.0" styleClass="littleTitleM" text="뫼비우스 띠" />
-														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label layoutX="400.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
-														<Label fx:id="mobiusTotal" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
+														<Label layoutX="210.0" layoutY="70.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="400.0" layoutY="70.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="210.0" layoutY="110.0" styleClass="littleTitleL" text="맞춘 횟수 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="110.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
+														<Label layoutX="400.0" layoutY="110.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="210.0" layoutY="150.0" styleClass="littleTitleL" text="승률 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="150.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
+														<Label layoutX="400.0" layoutY="150.0" styleClass="littleTitleL" text="회" />
+														<Label fx:id="mobiusTotal" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="70.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
 													</children>
 												</Pane>
 
 												<!-- 지그재그 게임 -->
 												<Pane layoutX="60.0" layoutY="310.0" prefHeight="200.0" prefWidth="450.0" styleClass="innerPane">
 													<children>
-														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
 															<image>
 																<Image url="/image/gameList/zigzag.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="270.0" layoutY="25.0" styleClass="littleTitleM" text="지그재그" />
-														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label layoutX="400.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
-														<Label fx:id="zigzagTotal" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
+														<Label layoutX="210.0" layoutY="70.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
+														<Label layoutX="400.0" layoutY="70.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="210.0" layoutY="110.0" styleClass="littleTitleL" text="맞춘 횟수 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="110.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
+														<Label layoutX="400.0" layoutY="110.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="210.0" layoutY="150.0" styleClass="littleTitleL" text="승률 : " />
+														<Label alignment="CENTER_RIGHT" layoutX="325.0" layoutY="150.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
+														<Label layoutX="400.0" layoutY="150.0" styleClass="littleTitleL" text="회" />
+														<Label fx:id="zigzagTotal" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="70.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
 													</children>
 												</Pane>
 
