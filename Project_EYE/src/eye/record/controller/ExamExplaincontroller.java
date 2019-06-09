@@ -1,4 +1,4 @@
-package eye.game.eyeMovement2;
+package eye.record.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -11,30 +11,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Explaincontroller implements Initializable {
-
+public class ExamExplaincontroller implements Initializable{
 	@FXML
-	private AnchorPane ExplainPage;
+    private AnchorPane ExplainPage;
 
-	@FXML
-	private ImageView nextBtn;
+    @FXML
+    private ImageView backBtn;
 
-	@FXML
-	private ImageView backBtn;
+    @FXML
+    private Text title;
 
-	@FXML
-	private Text nextBtn2;
+    @FXML
+    private ImageView nextBtn;
+
+    @FXML
+    private Text nextBtn2;
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		//이전 화면 전환 버튼
+	public void initialize(URL location, ResourceBundle resources) {
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -42,11 +41,13 @@ public class Explaincontroller implements Initializable {
 
 				try {
 					Main.setMusic("mainMusic", true);
-					Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/eye/record/view/recordMain.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
 					scene.getStylesheets()
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+					scene.getStylesheets()
+					.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 				}
@@ -54,16 +55,18 @@ public class Explaincontroller implements Initializable {
 			}
 
 		});
-		//다음 화면 전환 버튼
+		
 		nextBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
 
 				try {
-					Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
-					Scene scene = new Scene(root);
-					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
+					Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/record/view/ExamPage.fxml"));
+					Scene scene = new Scene(recordPage);
+					scene.getStylesheets()
+							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+					Stage primaryStage = (Stage) nextBtn.getScene().getWindow();
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -78,16 +81,19 @@ public class Explaincontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
-					Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
-					Scene scene = new Scene(root);
-					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
+					Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/record/view/ExamPage.fxml"));
+					Scene scene = new Scene(recordPage);
+					scene.getStylesheets()
+							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+					Stage primaryStage = (Stage) nextBtn2.getScene().getWindow();
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
 
 			}
-		});
+		});		
 	}
-
+    
+    
 }

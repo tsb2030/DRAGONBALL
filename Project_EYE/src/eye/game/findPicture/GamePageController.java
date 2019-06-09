@@ -74,11 +74,12 @@ public class GamePageController implements Initializable {
 	public ArrayList<WrongImage> wrongImage = new ArrayList<WrongImage>();
 	public Clock clock;
 
-	//pause이벤트
+	// pause이벤트
 	@FXML
 	void pauseAction(MouseEvent event) {
 		pauseEvent();
 	}
+
 	public void pauseEvent() {
 		pauseSwitch = 1;
 		// pauseEvent Start!
@@ -86,12 +87,13 @@ public class GamePageController implements Initializable {
 		findPicturegamePage.setOpacity(0.45);
 	}
 
-	//restart이벤트
+	// restart이벤트
 	@FXML
 	void restartAction(MouseEvent event) {
 		restartEvent();
-		
+
 	}
+
 	public void restartEvent() {
 		pauseSwitch = 0;
 		clock.animation.play();
@@ -101,8 +103,8 @@ public class GamePageController implements Initializable {
 	}
 
 	@FXML
-    void BackBtnAction(MouseEvent event) {
-		if(pauseSwitch == 0) {
+	void BackBtnAction(MouseEvent event) {
+		if (pauseSwitch == 0) {
 			clock.animation.pause();
 			gamePageStage = (Stage) BackBtn.getScene().getWindow();
 			try {
@@ -112,11 +114,11 @@ public class GamePageController implements Initializable {
 			}
 			findPicturegamePage.getChildren().setAll(findPictureStart);
 		}
-		
-    }
+
+	}
 
 	public void restartGame() {
-		if(pauseSwitch == 0) {
+		if (pauseSwitch == 0) {
 			B[0].setOnMouseClicked(new EventHandler<Event>() {
 				@Override
 				public void handle(Event event) {
@@ -391,7 +393,7 @@ public class GamePageController implements Initializable {
 				}
 			});
 		}
-		
+
 	}
 
 	@Override
@@ -437,9 +439,8 @@ public class GamePageController implements Initializable {
 			e.printStackTrace();
 		}
 
-
-		if(pauseSwitch==0) {
-			//난 이렇게 안함 ㅎ
+		if (pauseSwitch == 0) {
+			// 난 이렇게 안함 ㅎ
 
 //			BackBtn.setOnMouseClicked(new EventHandler<Event>() {
 //				@Override
@@ -454,7 +455,7 @@ public class GamePageController implements Initializable {
 //				}
 //			});
 
-			//난 이렇게 안함 ㅎ
+			// 난 이렇게 안함 ㅎ
 
 //			PauseBtn.setOnMouseClicked(new EventHandler<Event>() {
 //				@Override
@@ -471,7 +472,6 @@ public class GamePageController implements Initializable {
 //					}
 //				}
 //			});
-
 
 			B[0].setOnMouseClicked(new EventHandler<Event>() {
 				@Override
@@ -852,7 +852,7 @@ public class GamePageController implements Initializable {
 			if (timeTime <= 0 && flag == false) {
 				pauseSwitch = 1;
 				findPicturegamePage.setOpacity(0.45);
-				for (int i = 0;i >=20;i++) {
+				for (int i = 0; i >= 20; i++) {
 					B[i].setOnMouseClicked(new EventHandler<Event>() {
 						@Override
 						public void handle(Event event) {
@@ -862,7 +862,8 @@ public class GamePageController implements Initializable {
 				clock.animation.stop();
 				currentStage = (Stage) timeLabel.getScene().getWindow();
 				dodugeStage = (Stage) sampleImage.getScene().getWindow();
-				FXMLLoader EndGamePopupLoader = new FXMLLoader(Main.class.getResource("/eye/game/findPicture/EndPopup.fxml")); // �ҷ��� �˾�â
+				FXMLLoader EndGamePopupLoader = new FXMLLoader(
+						Main.class.getResource("/eye/game/findPicture/EndPopup.fxml")); // �ҷ��� �˾�â
 				try {
 					AnchorPane EndGamePopupPane = (AnchorPane) EndGamePopupLoader.load();
 					Scene EndGamePopupScene = new Scene(EndGamePopupPane);

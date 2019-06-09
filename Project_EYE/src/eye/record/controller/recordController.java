@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -22,11 +23,15 @@ import javafx.stage.Stage;
 
 public class recordController implements Initializable{
 
+	
 	@FXML
 	private LineChart recordChart;
 	
 	@FXML
 	private ImageView backBtn;
+	
+	@FXML
+	private AnchorPane ExplainPage,achieveMainPage;
 	
 	@FXML // 라벨
 	Label zigzagTotal,totalRest,totalExercise,todayRest,todayExercise,orderedTotal,mobiusTotal,fiveDotTotal,findPictureTotal,catchMoleTotal,catchBallTotal;
@@ -312,6 +317,34 @@ public class recordController implements Initializable{
 		}
 
 	}
+	
+	public void AchievementButton(ActionEvent e) {
+		try {
+			Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/record/view/achieveMain.fxml"));
+			Scene scene = new Scene(recordPage);
+			scene.getStylesheets()
+					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+			Stage primaryStage = (Stage) backBtn.getScene().getWindow();
+			primaryStage.setScene(scene);
+
+		} catch (IOException e1) {
+		}
+
+	}
+	
+	public void ExamButton(ActionEvent e) {
+		try {
+			Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/record/view/ExamExplain.fxml"));
+			Scene scene = new Scene(recordPage);
+			scene.getStylesheets()
+					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+			Stage primaryStage = (Stage) backBtn.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (IOException e1) {
+		}
+
+	}
+	
 
 
 
