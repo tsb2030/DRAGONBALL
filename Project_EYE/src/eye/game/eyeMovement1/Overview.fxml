@@ -11,7 +11,6 @@
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <!-- 뫼비우스띠 실행 페이지 -->
@@ -31,13 +30,13 @@
                         <Image url="/eye/game/eyeMovement1/backarrow.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" text="SPEED DOWN" textFill="WHITE" styleClass="shadow">
+                  <Button mnemonicParsing="false" onAction="#SpeedDown" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="shadow" text="SPEED DOWN" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="50.0" top="10.0" />
                      </HBox.margin>
   
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" text="SPEED UP" textFill="WHITE" styleClass="shadow">
+                  <Button mnemonicParsing="false" onAction="#SpeedUp" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="shadow" text="SPEED UP" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>

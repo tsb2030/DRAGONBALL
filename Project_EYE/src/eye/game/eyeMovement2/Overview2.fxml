@@ -29,12 +29,12 @@
                         <Image url="/eye/game/eyeMovement2/backarrow.png" />
                      </image>
                   </ImageView>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="SPEED DOWN" styleClass="shadow" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#SpeedDown" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="shadow" text="SPEED DOWN" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="50.0" top="10.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="SPEED UP" styleClass="shadow" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#SpeedUp" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" styleClass="shadow" text="SPEED UP" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </HBox.margin>
