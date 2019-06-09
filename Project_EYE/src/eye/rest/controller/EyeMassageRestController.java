@@ -148,9 +148,7 @@ public class EyeMassageRestController implements Initializable {
 						if (setController.restType == 1) {// short
 							setController.isPause = false; // 뒤에 pause상태를 풀어준다.
 
-							// 현재 창을 닫는다.
-							Stage stage = (Stage) pauseBtn.getScene().getWindow();
-							stage.close();
+							
 
 							// 주사위를 돌린다.
 							setController.playShorRest();
@@ -158,17 +156,13 @@ public class EyeMassageRestController implements Initializable {
 						} else if (setController.restType == 2) {
 							setController.isPause = false;
 
-							// 현재 창을 닫는다.
-							Stage stage = (Stage) pauseBtn.getScene().getWindow();
-							stage.close();
+							
 
 							setController.playLongRest();
 						} else {
 							setController.isPause = false;
 
-							// 현재 창을 닫는다.
-							Stage stage = (Stage) pauseBtn.getScene().getWindow();
-							stage.close();
+							
 
 							setController.playRotateRest();
 						}

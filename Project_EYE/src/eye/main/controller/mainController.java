@@ -20,6 +20,7 @@ import javafx.stage.Stage;
  * main_page.fxml에 연결됨*/
 public class mainController implements Initializable {
 
+	public static Stage currentStage;
 	// 현재 페이인 mainPage와 교체할 페이지인 gameMainPage를 미리 선언
 	@FXML
 	private AnchorPane gameMainPage, mainPage, restMainPage, setMainPage;
@@ -78,6 +79,7 @@ public class mainController implements Initializable {
 	}
 
 	public void goSet() {
+		currentStage = (Stage)main_record.getScene().getWindow();
 		Parent restPage = null;
 		try {
 			// 음악 바꾸기
@@ -89,6 +91,7 @@ public class mainController implements Initializable {
 		}
 		// 페이지 교체
 		mainPage.getChildren().setAll(restMainPage);
+		
 	}
 
 //    @FXML

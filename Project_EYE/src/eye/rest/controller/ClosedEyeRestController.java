@@ -117,10 +117,13 @@ public class ClosedEyeRestController implements Initializable {
 			timeLabel.setText(S);
 			// 한 번의 휴식시간을 마쳤는가?
 			if (timeTime <= 0 && flag == false) {
+				
 				// 알람에 의한 종료인가?
 				if (setController.isRestStart == true) {
+					
 					// 휴식 알람으로 설정했던 횟수를 모두 마쳤는가?
 					if (setController.currentRestCount == setController.totalRestCount) {
+						setController.isRestStart = true;
 						clock.animation.stop();
 						currentStage = (Stage) timeLabel.getScene().getWindow();
 						FXMLLoader endPopupLoader = new FXMLLoader(
@@ -142,13 +145,11 @@ public class ClosedEyeRestController implements Initializable {
 						clock.animation.stop();
 						currentStage = (Stage)closedEyeRestPage.getScene().getWindow();
 
-//						파ㅏㄴ별해야지 지금 restType이 뭐였는지?
+//						지금 restType이 뭐였는지?
 						if (setController.restType == 1) {// short
 							setController.isPause = false; // 뒤에 pause상태를 풀어준다.
 
-							// 현재 창을 닫는다.
-							Stage stage = (Stage) pauseBtn.getScene().getWindow();
-							stage.close();
+							
 
 							// 주사위를 돌린다.
 							setController.playShorRest();
@@ -156,17 +157,13 @@ public class ClosedEyeRestController implements Initializable {
 						} else if (setController.restType == 2) {
 							setController.isPause = false;
 
-							// 현재 창을 닫는다.
-							Stage stage = (Stage) pauseBtn.getScene().getWindow();
-							stage.close();
+							
 
 							setController.playLongRest();
 						} else {
 							setController.isPause = false;
 
-							// 현재 창을 닫는다.
-							Stage stage = (Stage) pauseBtn.getScene().getWindow();
-							stage.close();
+							
 
 							setController.playRotateRest();
 						}

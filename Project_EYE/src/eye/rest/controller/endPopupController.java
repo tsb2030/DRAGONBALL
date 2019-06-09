@@ -3,6 +3,7 @@ package eye.rest.controller;
 import java.io.IOException;
 
 import eye.main.Main;
+import eye.main.controller.mainController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -37,7 +38,7 @@ public class endPopupController {
 		LookAfarRestController.isPause = false;
 		WarmEyeInfoController.isPause = false;
 		WarmEyeRestController.isPause = false;
-		restController.currentStage.setOpacity(1.0);
+		mainController.currentStage.setOpacity(1.0);
 
 		AnchorPane an = FXMLLoader.load(getClass().getResource("/eye/rest/view/rest_main_page.fxml"));
 		Scene scene = new Scene(an);
@@ -45,6 +46,6 @@ public class endPopupController {
 		.add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());				
 		scene.getStylesheets()
 		.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-		restController.currentStage.setScene(scene);
+		mainController.currentStage.setScene(scene);
 	}
 }

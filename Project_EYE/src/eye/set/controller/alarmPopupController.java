@@ -33,7 +33,7 @@ public class alarmPopupController implements Initializable{
     void doAlarmAction(ActionEvent event) throws IOException {
     	if(setController.restType == 1) {//short
     		setController.isPause = false;	//뒤에 pause상태를 풀어준다.
-    		
+    		setController.totalRestCount = 3;
     		//현재 창을 닫는다.
     		Stage stage = (Stage)doAlarm.getScene().getWindow();
 			stage.close();
@@ -44,7 +44,7 @@ public class alarmPopupController implements Initializable{
     		
     	}else if(setController.restType == 2) {
     		setController.isPause = false;
-    		
+    		setController.totalRestCount = 5;
     		//현재 창을 닫는다.
     		Stage stage = (Stage)doAlarm.getScene().getWindow();
 			stage.close();

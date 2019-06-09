@@ -41,7 +41,7 @@ public class setController implements Initializable {
 
 	String timeInterval[] = { "30분", "1시간", "1시간 30분", "2시간", "2시간 30분", "3시간", "3시간 30분", "4시간", "4시간 30분", "5시간" };
 
-	public Clock clock;
+	public static Clock clock;
 	public static LocalTime currentTime = LocalTime.now();
 	public static LocalDate currentDate = LocalDate.now();
 	int nextDay = currentDate.getDayOfMonth();
@@ -92,21 +92,45 @@ public class setController implements Initializable {
 	// 초기화 버튼 눌렀을 때
 	@FXML
 	void cancel(MouseEvent event) throws IOException {
+		mainPage = (Stage)BGMToggle.getScene().getWindow();
 		if(isPause == false) {
+			
+			
 			// 기존에 알람이 켜져 있다면 멈추는 구문
-			if (clock != null) {
-				if (clock.animation.getStatus() == Status.RUNNING) {
+			if (setController.clock != null) {
+				
+				if (setController.clock.animation.getStatus() == Status.RUNNING) {
+					System.out.println("===========================================================");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("알람 시간이 이미 작동중!!!!");
+					System.out.println("===========================================================");
 					System.out.println("기존 알람이 켜져 있는 상태");
-					clock.animation.pause();
+					setController.clock.animation.stop();
+					setController.clock = null;
 				}else {
-					clock = new Clock();
+					setController.clock = new Clock();
 				}
 			}
 				
 					
-
-			varEndDisturbTime = 21;// 기본 알람 방지 시작 시간 = 9(저녁 9시)
+			setController.clock = new Clock();
 			varStartDisturbTime = 8;// 기본 알람 방지 종료 시간 = 8(다음날)
+			varEndDisturbTime = 21;// 기본 알람 방지 시작 시간 = 9(저녁 9시)
 			tomarrowFlag = true;
 			today = currentDate.getDayOfMonth();
 			nextDay = currentDate.getDayOfMonth() + 1;
@@ -126,18 +150,52 @@ public class setController implements Initializable {
 			Main.setMusic("introMusic", true);
 			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 			ExplainPage.getChildren().setAll(mainPage);
+			System.out.println();
+			System.out.println("varStartDisturbTime = " + varStartDisturbTime);
+			System.out.println("varEndDisturbTime = " +varEndDisturbTime);
+			System.out.println("restCycle = "+restCycle);
+			System.out.println("restType = " + restType);
+			System.out.println();
 		}
 		
 	}
 
 	@FXML
 	void submit(MouseEvent event) throws IOException {
+		mainPage = (Stage)BGMToggle.getScene().getWindow();
 		if(isPause == false) {
+			
+			
 			System.out.println("submit");
 			// 기존에 알람이 켜져 있다면 멈추는 구문
-			if (clock != null)
-				if (clock.animation.getStatus() == Status.RUNNING)
-					clock.animation.stop();
+			if (setController.clock != null) {
+				System.out.println("===========================================================");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("알람 시간이 이미 작동중!!!!");
+				System.out.println("===========================================================");
+				if (setController.clock.animation.getStatus() == Status.RUNNING) {
+					
+					setController.clock.animation.stop();
+					setController.clock = null;
+				}
+			}
+				
+					
 
 			if (varEndDisturbTime == 0) // 기본 알람 방지 시작 시간 = 9(저녁 9시)
 				varEndDisturbTime = 21;
@@ -157,7 +215,7 @@ public class setController implements Initializable {
 			endDisturbTime = varEndDisturbTime;
 
 //			if (clock == null || clock.animation.)
-				clock = new Clock();
+			setController.clock = new Clock();
 
 			/*
 			 * 
@@ -166,6 +224,12 @@ public class setController implements Initializable {
 			Main.setMusic("introMusic", true);
 			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 			ExplainPage.getChildren().setAll(mainPage);
+			System.out.println();
+			System.out.println("varStartDisturbTime = " + varStartDisturbTime);
+			System.out.println("varEndDisturbTime = " +varEndDisturbTime);
+			System.out.println("restCycle = "+restCycle);
+			System.out.println("restType = " + restType);
+			System.out.println();
 		}
 		
 	}
@@ -183,6 +247,9 @@ public class setController implements Initializable {
 	// shorRestplay
 	public static void playShorRest() throws IOException {
 		currentRestCount++;
+		isRestStart = true;
+		System.out.println("현재 currentRestCount = " + currentRestCount);
+		System.out.println("현재 totalRestCount = " + totalRestCount);
 		double ran = Math.random();
 		int intValue = (int) (ran * 5) + 1;
 		Parent parent;
@@ -244,6 +311,9 @@ public class setController implements Initializable {
 	// LongRestEvent!!
 	public static void playLongRest() throws IOException {
 		currentRestCount++;
+		isRestStart = true;
+		System.out.println("현재 currentRestCount = " + currentRestCount);
+		System.out.println("현재 totalRestCount = " + totalRestCount);
 		double ran = Math.random();
 		int intValue = (int) (ran * 5) + 1;
 		Parent parent;
@@ -392,7 +462,6 @@ public class setController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		mainPage = (Stage)BGMToggle.getScene().getWindow();
 		// 처음에 켜진 상태이기 때문에 바꿈..
 		setToggleColors();
 
@@ -452,6 +521,7 @@ public class setController implements Initializable {
 	void setEndDisturbTime(ActionEvent event) {
 		if(isPause == false) {
 			varEndDisturbTime = (int) combobox2.getValue();	
+			System.out.println("varEndDisturbTime = "+varEndDisturbTime);
 		}
 		
 	}
@@ -461,6 +531,7 @@ public class setController implements Initializable {
 	void setStartDisturbTime(ActionEvent event) {
 		if(isPause == false	) {
 			varStartDisturbTime = (int) combobox1.getValue();	
+			System.out.println("varStartDisturbTime = "+varStartDisturbTime);
 		}
 		
 	}
@@ -522,6 +593,10 @@ public class setController implements Initializable {
 		isPause = true;
 		ExplainPage.setOpacity(0.45);
 	}
+	
+	public static void timeIsGoing() {
+		
+	}
 
 	public class Clock extends Pane {
 
@@ -531,6 +606,7 @@ public class setController implements Initializable {
 		private int timeTmp = 1;
 
 		public Clock() {
+			
 			animation = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
 
 				// 시간이 째깍 흘러갑니다.
@@ -563,8 +639,7 @@ public class setController implements Initializable {
 				}
 				// 알람이 내일까지로 설정되어있는지?
 				if (tomarrowFlag) {
-					if (!((currnetTimeHour > startDisturbTime)
-							|| ((nextDay == currentDate.getDayOfMonth()) && (currnetTimeHour < endDisturbTime))))
+					if (!((currnetTimeHour > startDisturbTime) || ((nextDay == currentDate.getDayOfMonth()) && (currnetTimeHour < endDisturbTime))))
 						if (restCycle != 0) {
 							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
 							if (!flag) {

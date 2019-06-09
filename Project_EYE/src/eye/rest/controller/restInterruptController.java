@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eye.main.Main;
+import eye.main.controller.mainController;
 import eye.set.controller.setController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ public class restInterruptController implements Initializable{
     @FXML
     private Button alarmInButton;
 
-    //pause풀고 현재 창 닫기
+    //pause풀고 현재 창 닫기 == 지정된 횟수를 모두 마치겠다는 의미
     @FXML
     void alarmInButtonAction(ActionEvent event) {
     	ClosedEyeInfoController.isPause = false;
@@ -40,14 +41,16 @@ public class restInterruptController implements Initializable{
     	LookAfarRestController.isPause = false;
     	WarmEyeInfoController.isPause = false;
     	WarmEyeRestController.isPause = false;
-    	ClosedEyeRestController.currentStage.setOpacity(1.0);
+    	mainController.currentStage.setOpacity(1.0);
+    	
     	Stage stage = (Stage) alarmOutButton.getScene().getWindow();
     	stage.close();
+    	
     }
-
+    
+	//더이상 휴식을 하지 않겠다는 의미
     @FXML
     void alarmOutButtonAction(ActionEvent event) throws IOException {
-    	//더이상 휴식을 하지 않겠다는 의미
     	setController.isRestStart = false;
     	// 음악 바꾸기
 		Main.setMusic("mainMusic", true);
@@ -65,7 +68,7 @@ public class restInterruptController implements Initializable{
     	LookAfarRestController.isPause = false;
     	WarmEyeInfoController.isPause = false;
     	WarmEyeRestController.isPause = false;
-    	ClosedEyeRestController.currentStage.setOpacity(1.0);
+    	mainController.currentStage.setOpacity(1.0);
     	
     	AnchorPane an = FXMLLoader.load(getClass().getResource("/eye/rest/view/rest_main_page.fxml"));
     	Scene scene = new Scene(an);
@@ -73,7 +76,7 @@ public class restInterruptController implements Initializable{
 		.add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());				
 		scene.getStylesheets()
 		.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-    	ClosedEyeRestController.currentStage.setScene(scene);
+		mainController.currentStage.setScene(scene);
     }
     
 	@Override
