@@ -47,6 +47,10 @@ public class Playcontroller implements Initializable {
 	int dx = 0;
 	int duration = 4;
 	int count = 0;
+	double tmp = 0;
+	double i = 4;
+	int cyclecnt = 20;
+	int count2 = 0;
 
 	@FXML
 	private Text score;
@@ -103,7 +107,7 @@ public class Playcontroller implements Initializable {
 
 		// 물체 이동 선언
 		pathTransition = new PathTransition();
-		pathTransition.setDuration(Duration.seconds(Selectcontroller.duration));
+		pathTransition.setDuration(Duration.seconds(i));
 		pathTransition.setNode(cir);
 
 		// 이동 경로 받기
@@ -115,7 +119,7 @@ public class Playcontroller implements Initializable {
 		// 시간을 순간 순간 받아내어서 공색을 변하게 하게 하는 반복문입니다.
 		pathTransition.currentTimeProperty().addListener((observable, oldValue, newValue) -> {
 			double rndValue = Math.random();
-			double tmp = oldValue.toSeconds();
+			tmp = oldValue.toSeconds();
 			if (flag) {
 				if ((tmp >= duration * 0.1225 && tmp <= duration * 0.125)
 						|| (tmp >= duration * 0.3725 && tmp <= duration * 0.375)
@@ -154,22 +158,22 @@ public class Playcontroller implements Initializable {
 			}
 			if (tmp == 0) {
 			
-				score.setText(String.valueOf(count));
-				System.out.println(count);
+				score.setText(String.valueOf(count2));
+				System.out.println(count2);
 				count++;
+				count2++;
 			}
 
-			if (count == 20 && tmp >= Selectcontroller.duration - 0.015) {
+			if (count2 == 20 && tmp >= i - 0.015) {
 				showEndPopUp();
-				score.setText(String.valueOf(count));
+				score.setText(String.valueOf(count2));
 
 			}
 
 		});
 		pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
-		pathTransition.setCycleCount(20);
-		pathTransition.setDelay(new Duration(000));
+		pathTransition.setCycleCount(cyclecnt);
 
 		// 애니메이션 실행
 		pathTransition.play();
@@ -195,5 +199,39 @@ public class Playcontroller implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+
+    @FXML
+    void SpeedDown(ActionEvent event) {
+		i=i*1.1;
+		count--;
+		count2--;
+		pathTransition.setDuration(Duration.seconds(i));
+		pathTransition.stop();
+		System.out.println("down카운트"+count);
+		cyclecnt=cyclecnt-count;
+		System.out.println("남은 회전수"+cyclecnt);
+		pathTransition.setCycleCount(cyclecnt);
+		count = 0;
+		pathTransition.play();
+		pathTransition.jumpTo(Duration.seconds(tmp*1.1));
+    }
+
+    @FXML
+    void SpeedUp(ActionEvent event) {
+		i=i*0.9;
+		pathTransition.setDuration(Duration.seconds(i));
+		count2--;
+		count--;
+		pathTransition.stop();
+		System.out.println("up카운트"+count);
+		cyclecnt=cyclecnt-count;
+		System.out.println("남은 회전수"+cyclecnt);
+		pathTransition.setCycleCount(cyclecnt);
+		count = 0;
+		pathTransition.play();
+		pathTransition.jumpTo(Duration.seconds(tmp*0.9));
+    }
+	
 
 }

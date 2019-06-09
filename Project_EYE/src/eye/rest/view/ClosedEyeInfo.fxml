@@ -13,13 +13,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="closedEyeInfoPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/rest/view/intro.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.rest.controller.restClosedEyeController">
+<AnchorPane fx:id="closedEyeInfoPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/rest/view/intro.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.rest.controller.ClosedEyeInfoController">
 	<children>
 		<VBox prefHeight="720.0" prefWidth="1280.0">
 			<children>
 				<HBox prefHeight="60.0" prefWidth="1280.0">
 					<children>
-						<ImageView id="shadow" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#goRestMainPage1" pickOnBounds="true" preserveRatio="true">
+						<ImageView id="shadow" fx:id="btnBefore" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#goRestMainPage1" pickOnBounds="true" preserveRatio="true">
 							<HBox.margin>
 								<Insets left="10.0" top="10.0" />
 							</HBox.margin>
@@ -29,7 +29,7 @@
 						</ImageView>
 						<Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="눈 꼭 감기" wrappingWidth="170.19499969482422">
 							<HBox.margin>
-								<Insets left="500.0" top="12.0" />
+								<Insets left="495.0" top="12.0" />
 							</HBox.margin>
 						</Text>
 					</children>

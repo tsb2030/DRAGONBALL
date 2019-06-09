@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="restInterruptPopup" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" stylesheets="/eye/rest/view/popup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.rest.controller.restInterruptController">
 	<children>
-		<Button id="shadow" fx:id="closeBtn" layoutX="79.0" layoutY="401.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="네" textFill="WHITE" AnchorPane.rightAnchor="296.0">
+		<Button id="shadow" fx:id="alarmOutButton" layoutX="79.0" layoutY="401.0" mnemonicParsing="false" onAction="#alarmOutButtonAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="네" textFill="WHITE" AnchorPane.rightAnchor="296.0">
 			<font>
 				<Font name="a소나무M" size="21.0" />
 			</font>
@@ -35,7 +35,7 @@
             <Font name="a소나무L" size="24.0" />
          </font>
       </Text>
-      <Button id="shadow" fx:id="closeBtn1" layoutX="297.0" layoutY="401.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="아니오" textFill="WHITE">
+      <Button id="shadow" fx:id="alarmInButton" layoutX="297.0" layoutY="401.0" mnemonicParsing="false" onAction="#alarmInButtonAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="아니오" textFill="WHITE">
          <font>
             <Font name="a소나무M" size="21.0" />
          </font>

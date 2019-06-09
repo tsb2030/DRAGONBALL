@@ -66,7 +66,7 @@
                               <Image url="/image/redbox.png" />
                            </image>
                         </ImageView>
-                        <Text fill="WHITE" layoutX="48.0" layoutY="47.0" onMouseClicked="#cancelText" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="초기화" textAlignment="CENTER" />
+                        <Text fill="WHITE" layoutX="48.0" layoutY="47.0" onMouseClicked="#cancel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="초기화" textAlignment="CENTER" />
                      </children>
                   </Pane>
                   <Pane layoutX="140.0" layoutY="50.0" prefHeight="70.0" prefWidth="150.0">

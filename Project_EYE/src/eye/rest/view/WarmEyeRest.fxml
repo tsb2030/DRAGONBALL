@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="warmEyeRestPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/rest/view/rest.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.rest.controller.WarmEyeRestController">
+	<children>
+		<VBox prefHeight="720.0" prefWidth="1280.0">
+			<children>
+				<HBox fx:id="titleBox" prefHeight="60.0" prefWidth="1280.0">
+					<children>
+						<ImageView id="btn" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#goRestMainPage2" pickOnBounds="true" preserveRatio="true">
+							<HBox.margin>
+								<Insets bottom="10.0" left="10.0" top="10.0" />
+							</HBox.margin>
+							<image>
+								<Image url="/image/backarrow.png" />
+							</image>
+						</ImageView>
+						<ImageView id="btn" fx:id="pauseBtn" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@pause.png" />
+							</image>
+							<HBox.margin>
+								<Insets bottom="10.0" left="50.0" top="10.0" />
+							</HBox.margin>
+						</ImageView>
+						<ImageView id="shadow" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="@restart.png" />
+							</image>
+							<HBox.margin>
+								<Insets left="50.0" top="10.0" />
+							</HBox.margin>
+						</ImageView>
+						<Pane prefHeight="60.0" prefWidth="200.0" styleClass="fontStyle">
+							<HBox.margin>
+								<Insets left="145.0" top="10.0" />
+							</HBox.margin>
+						</Pane>
+						<Text fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="손바닥 온찜질" textAlignment="CENTER" wrappingWidth="359.75521087646484">
+							<HBox.margin>
+								<Insets left="-145.0" top="15.0" />
+							</HBox.margin>
+						</Text>
+						<Pane prefHeight="60.0" prefWidth="430.0" styleClass="fontStyle">  <!-- 점수판 뒤의 원 -->
+							<children>
+								<Arc fill="#c6b351" layoutX="258.0" layoutY="-3.0" length="180.0" radiusX="201.0" radiusY="76.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+								<Text fx:id="timeLabel" layoutX="180.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" />
+							</children>
+						</Pane>
+					</children>
+				</HBox>
+				<Pane fx:id="mainPanel" prefHeight="660.0" prefWidth="1280.0">
+					<children>
+						<Line endX="223.0" endY="-1.52587890625E-5" layoutX="578.0" layoutY="-1.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
+						<ImageView fitHeight="347.0" fitWidth="280.0" layoutX="500.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+							<image>
+								<Image url="/rest/gif/eyeRolling.gif" />
+							</image>
+						</ImageView>
+						<Label alignment="CENTER" layoutX="410.0" layoutY="390.0" styleClass="fontStyleL25" text="1. 양 손바닥을 10초 이상 열이 날 정도로 비빕니다." textAlignment="CENTER" />
+						<Label alignment="CENTER" layoutX="400.0" layoutY="440.0" styleClass="fontStyleL25" text="2. 따뜻해진 손바닥으로 8초간 감은 눈을 덮어줍니다." textAlignment="CENTER" />
+						<Label alignment="CENTER" layoutX="510.0" layoutY="490.0" styleClass="fontStyleL25" text="3. 1, 2번을 3회 반복합니다." textAlignment="CENTER" />
+						<Label alignment="CENTER" layoutX="490.0" layoutY="560.0" styleClass="fontStyleL25" text="* 하루 권장 횟수는 10회 입니다." textAlignment="CENTER" />
+                 		<Label layoutX="1050.0" layoutY="620.0" styleClass="fontReference" text="(참고 : YTN 원포인트 생활상식)" />
+					</children>
+				</Pane>
+			</children>
+		</VBox>
+	</children>
+</AnchorPane>

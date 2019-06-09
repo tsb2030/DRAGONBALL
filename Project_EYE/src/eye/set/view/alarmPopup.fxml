@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<!-- 휴식 알림을 통해 프로그램에 접속하여 실행하는 도중, 나가기 버튼을 눌렀을 때 띄울 팝업창 -->
+
+<AnchorPane fx:id="alarmPopupPage" prefHeight="337.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" stylesheets="/eye/rest/view/popup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.set.controller.alarmPopupController">
+	<children>
+		<Button id="shadow" fx:id="doAlarm" layoutX="79.0" layoutY="250.0" mnemonicParsing="false" onAction="#doAlarmAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="네" textFill="WHITE" AnchorPane.rightAnchor="296.0">
+			<font>
+				<Font name="a소나무M" size="21.0" />
+			</font>
+		</Button>
+		<Label layoutX="98.0" layoutY="104.0" text="휴식하겠습니까?">
+			<font>
+				<Font name="a소나무M" size="44.0" />
+			</font>
+		</Label>
+      <Button id="shadow" fx:id="doNotAlarm" layoutX="307.0" layoutY="250.0" mnemonicParsing="false" onAction="#doNotAlarmAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="아니오" textFill="WHITE">
+         <font>
+            <Font name="a소나무M" size="21.0" />
+         </font>
+      </Button>
+	</children>
+</AnchorPane>

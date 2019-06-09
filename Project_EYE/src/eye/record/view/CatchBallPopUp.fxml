@@ -16,9 +16,9 @@
 			<children>
 				<Label layoutX="180.0" layoutY="14.0" styleClass="fontStyleM28" text="캐치볼 랭킹" />
 				<Line endX="120.0" layoutX="240.0" layoutY="57.0" startX="-100.0" stroke="#707070" />
-				<Button id="shadow" layoutX="116.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="smallButtonFontStyle" text="1단계" />
-				<Button id="shadow" layoutX="210.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="smallButtonFontStyle" text="2단계" />
-				<Button id="shadow" layoutX="309.0" layoutY="80.0" mnemonicParsing="false" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="smallButtonFontStyle" text="3단계" />
+				<Button id="shadow" layoutX="116.0" layoutY="80.0" mnemonicParsing="false" onAction="#step1Button" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="smallButtonFontStyle" text="1단계" />
+				<Button id="shadow" layoutX="210.0" layoutY="80.0" mnemonicParsing="false" onAction="#step2Button" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="smallButtonFontStyle" text="2단계" />
+				<Button id="shadow" layoutX="309.0" layoutY="80.0" mnemonicParsing="false" onAction="#step3Button" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="smallButtonFontStyle" text="3단계" />
 				<Button id="shadow" layoutX="212.0" layoutY="436.0" mnemonicParsing="false" onAction="#exitButton" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="buttonFontStyle" text="닫기" />
 				<ScrollPane layoutX="79.0" layoutY="137.0" prefHeight="280.0" prefWidth="350.0" style="-fx-background-color: #ffffe4;" styleClass="edge-to-edge">
 					<content>
@@ -46,36 +46,36 @@
 									<children>
 										<Label alignment="CENTER" prefHeight="19.0" prefWidth="115.0" styleClass="listTitle" text="점수" GridPane.columnIndex="1" />
 										<Label alignment="CENTER" prefWidth="115.0" styleClass="listContent" text="1" GridPane.rowIndex="1" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+										<Label fx:id="record1" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 										<Label alignment="CENTER" prefHeight="19.0" prefWidth="115.0" styleClass="listTitle" text="날짜" GridPane.columnIndex="2" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+										<Label fx:id="date1" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
 										<Label alignment="CENTER" prefWidth="115.0" text="2" GridPane.rowIndex="2" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+										<Label fx:id="record2" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+										<Label fx:id="date2" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 										<Label alignment="CENTER" prefWidth="115.0" text="3" GridPane.rowIndex="3" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+										<Label fx:id="record3" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+										<Label fx:id="date3" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 										<Label alignment="CENTER" prefWidth="115.0" text="4" GridPane.rowIndex="4" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+										<Label fx:id="record4" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+										<Label fx:id="date4" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="4" />
 										<Label alignment="CENTER" prefWidth="115.0" text="5" GridPane.rowIndex="5" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+										<Label fx:id="record5" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+										<Label fx:id="date5" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="5" />
 										<Label alignment="CENTER" prefWidth="115.0" text="6" GridPane.rowIndex="6" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+										<Label fx:id="record6" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+										<Label fx:id="date6" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="6" />
 										<Label alignment="CENTER" prefWidth="115.0" text="7" GridPane.rowIndex="7" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+										<Label fx:id="record7" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+										<Label fx:id="date7" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="7" />
 										<Label alignment="CENTER" prefWidth="115.0" text="8" GridPane.rowIndex="8" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+										<Label fx:id="record8" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+										<Label fx:id="date8" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="8" />
 										<Label alignment="CENTER" prefWidth="115.0" text="9" GridPane.rowIndex="9" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+										<Label fx:id="record9" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+										<Label fx:id="date9" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="9" />
 										<Label alignment="CENTER" prefWidth="115.0" text="10" GridPane.rowIndex="10" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-										<Label alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="10" />
+										<Label fx:id="record10" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+										<Label fx:id="date10" alignment="CENTER" prefWidth="115.0" text="Label" GridPane.columnIndex="2" GridPane.rowIndex="10" />
 										<Label alignment="CENTER" prefHeight="19.0" prefWidth="115.0" styleClass="listTitle" text="순위" textAlignment="CENTER" />
 									</children>
 								</GridPane>
