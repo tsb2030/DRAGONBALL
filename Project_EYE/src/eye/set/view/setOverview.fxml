@@ -14,7 +14,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<!-- 셋팅창 페이지 -->
+
+
+<!-- (기존)셋팅창 페이지 -->
+
+
 
 <AnchorPane fx:id="ExplainPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/set/view/setPage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.set.controller.setController">
    <children>
@@ -88,21 +92,6 @@
                   <JFXToggleButton fx:id="BGMToggle" layoutX="350.0" layoutY="100.0" onAction="#BGMToggleAction" size="15.0" styleClass="fontStyleL" text="BGM" toggleColor="#108649" toggleLineColor="#7cc59e" />
                   <JFXToggleButton fx:id="effectToggle" layoutX="700.0" layoutY="100.0" onAction="#effectToggleAction" size="15.0" styleClass="fontStyleL" text="효과음" toggleColor="#108649" toggleLineColor="#7cc59e" />
                   <Label layoutX="165.0" layoutY="470.0" styleClass="fontStyleL" text="휴식 프로그램 유형 " />
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="390.0" layoutY="470.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="/image/questionMark.png" />
-                     </image>
-                  </ImageView>
-                  <Pane id="clicked" layoutX="450.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
-                     <children>
-                        <ImageView fitHeight="50.0" fitWidth="120.0" onMouseClicked="#restTypeIsShort" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="/image/yellowbox.png" />
-                           </image>
-                        </ImageView>
-                        <Text fill="WHITE" layoutX="35.0" layoutY="34.0" onMouseClicked="#restTypeIsShort" strokeType="OUTSIDE" strokeWidth="0.0" text="짧게" />
-                     </children>
-                  </Pane>
                   <Pane layoutX="165.0" layoutY="380.0" prefHeight="60.0" prefWidth="500.0" styleClass="fontStyleL">
                      <children>
                         <Label layoutY="15.0" text="방해 금지 시간" />
@@ -122,9 +111,19 @@
                         
                      </children>
                   </Pane>
-                  <Pane id="clicked" layoutX="600.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
+                  <Pane id="clicked" layoutX="400.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
                      <children>
-                        <ImageView fitHeight="50.0" fitWidth="120.0" onMouseClicked="#restTypeIsLong" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="50.0" fitWidth="120.0" onMouseClicked="#restTypeIsShort" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/image/yellowbox.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="35.0" layoutY="34.0" onMouseClicked="#restTypeIsShort" strokeType="OUTSIDE" strokeWidth="0.0" text="짧게" />
+                     </children>
+                  </Pane>
+                  <Pane id="clicked" layoutX="550.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
+                     <children>
+                        <ImageView id="test" fitHeight="50.0" fitWidth="120.0" onMouseClicked="#restTypeIsLong" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="/image/yellowbox.png" />
                            </image>
@@ -132,7 +131,7 @@
                         <Text fill="WHITE" layoutX="35.0" layoutY="34.0" onMouseClicked="#restTypeIsLong" strokeType="OUTSIDE" strokeWidth="0.0" text="길게" />
                      </children>
                   </Pane>
-                  <Pane id="clicked" layoutX="750.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
+                  <Pane id="clicked" layoutX="700.0" layoutY="460.0" opacity="0.5" prefHeight="50.0" prefWidth="120.0" styleClass="fontStyleB">
                      <children>
                         <ImageView fitHeight="50.0" fitWidth="120.0" onMouseClicked="#restTypeIsRotate" pickOnBounds="true" preserveRatio="true">
                            <image>

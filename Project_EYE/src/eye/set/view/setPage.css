@@ -33,6 +33,11 @@ AnchorPane{
 #btn:hover{
 	-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.5) , 0.0, 0.0, 5.0 , 5.0 );
 }
-#clicked:hover{
+#clicked:active{
 	-fx-opacity: 100%;
+	
+}
+#test:active{
+	-fx-opacity: 1.0;
+	
 }
