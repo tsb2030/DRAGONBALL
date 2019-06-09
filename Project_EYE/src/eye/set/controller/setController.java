@@ -49,7 +49,7 @@ public class setController implements Initializable {
 
 	public static int currentRestCount = 0;
 	public static int totalRestCount = 0;
-	
+
 	public static ArrayList<Integer> restList = new ArrayList<Integer>();
 	int restCycle = 0;
 	int startDisturbTime;
@@ -63,11 +63,11 @@ public class setController implements Initializable {
 	boolean effectFlag = false;
 	boolean flag = false;// 게임이 진행 중인지 받아올 변수
 	boolean tomarrowFlag = false;
-	
-	public static boolean isPause = false;	//현재 pause상태인지?
-	
+
+	public static boolean isPause = false; // 현재 pause상태인지?
+
 	public static boolean isRestStart = false;
-	
+
 	// 만약 운동중에 휴식 알람을 울려야 한다면
 	public static boolean maintainRestEvent = false;
 
@@ -92,42 +92,20 @@ public class setController implements Initializable {
 	// 초기화 버튼 눌렀을 때
 	@FXML
 	void cancel(MouseEvent event) throws IOException {
-		mainPage = (Stage)BGMToggle.getScene().getWindow();
-		if(isPause == false) {
-			
-			
+		mainPage = (Stage) BGMToggle.getScene().getWindow();
+		if (isPause == false) {
+
 			// 기존에 알람이 켜져 있다면 멈추는 구문
 			if (setController.clock != null) {
-				
+
 				if (setController.clock.animation.getStatus() == Status.RUNNING) {
-					System.out.println("===========================================================");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("알람 시간이 이미 작동중!!!!");
-					System.out.println("===========================================================");
-					System.out.println("기존 알람이 켜져 있는 상태");
 					setController.clock.animation.stop();
 					setController.clock = null;
-				}else {
+				} else {
 					setController.clock = new Clock();
 				}
 			}
-				
-					
+
 			setController.clock = new Clock();
 			varStartDisturbTime = 8;// 기본 알람 방지 종료 시간 = 8(다음날)
 			varEndDisturbTime = 21;// 기본 알람 방지 시작 시간 = 9(저녁 9시)
@@ -142,7 +120,7 @@ public class setController implements Initializable {
 //				this.clock.animation.stop();
 //			clock = null;
 //			if (clock == null)
-				
+
 			/*
 			 * 
 			 * 창을 이전 페이지(main)페이지로 가게 함
@@ -152,50 +130,27 @@ public class setController implements Initializable {
 			ExplainPage.getChildren().setAll(mainPage);
 			System.out.println();
 			System.out.println("varStartDisturbTime = " + varStartDisturbTime);
-			System.out.println("varEndDisturbTime = " +varEndDisturbTime);
-			System.out.println("restCycle = "+restCycle);
+			System.out.println("varEndDisturbTime = " + varEndDisturbTime);
+			System.out.println("restCycle = " + restCycle);
 			System.out.println("restType = " + restType);
 			System.out.println();
 		}
-		
+
 	}
 
 	@FXML
 	void submit(MouseEvent event) throws IOException {
-		mainPage = (Stage)BGMToggle.getScene().getWindow();
-		if(isPause == false) {
-			
-			
+		mainPage = (Stage) BGMToggle.getScene().getWindow();
+		if (isPause == false) {
+
 			System.out.println("submit");
 			// 기존에 알람이 켜져 있다면 멈추는 구문
 			if (setController.clock != null) {
-				System.out.println("===========================================================");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("알람 시간이 이미 작동중!!!!");
-				System.out.println("===========================================================");
 				if (setController.clock.animation.getStatus() == Status.RUNNING) {
-					
 					setController.clock.animation.stop();
 					setController.clock = null;
 				}
 			}
-				
-					
 
 			if (varEndDisturbTime == 0) // 기본 알람 방지 시작 시간 = 9(저녁 9시)
 				varEndDisturbTime = 21;
@@ -203,7 +158,7 @@ public class setController implements Initializable {
 				varStartDisturbTime = 8;
 			if (restCycle == 0) // 기본 알람 주기 = 3시간
 				restCycle = 6;
-			if (restType == 0)	//없으면 1 = 짧음
+			if (restType == 0) // 없으면 1 = 짧음
 				restType = 1;
 
 			if (varStartDisturbTime > varEndDisturbTime) { // 다음 날짜로 알람이 설정 되었는지?
@@ -226,22 +181,22 @@ public class setController implements Initializable {
 			ExplainPage.getChildren().setAll(mainPage);
 			System.out.println();
 			System.out.println("varStartDisturbTime = " + varStartDisturbTime);
-			System.out.println("varEndDisturbTime = " +varEndDisturbTime);
-			System.out.println("restCycle = "+restCycle);
+			System.out.println("varEndDisturbTime = " + varEndDisturbTime);
+			System.out.println("restCycle = " + restCycle);
 			System.out.println("restType = " + restType);
 			System.out.println();
 		}
-		
+
 	}
 
 	@FXML
 	void backButtonAction(MouseEvent event) throws IOException {
-		if(isPause == false) {
+		if (isPause == false) {
 			Main.setMusic("introMusic", true);
 			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 			ExplainPage.getChildren().setAll(mainPage);
 		}
-		
+
 	}
 
 	// shorRestplay
@@ -255,14 +210,15 @@ public class setController implements Initializable {
 		Parent parent;
 		Scene scene;
 		// 이미 배열에 차있으면 다른 변수를 가져오도록 한다.
-		while (restList.contains(intValue))
-			intValue = (int) (ran * 5) + 1;
-
+		while (restList.contains(intValue)) {
+			double ran2 = Math.random();
+			intValue = (int) (ran2 * 5) + 1;
+		}
 		switch (intValue) {
 		case 1:
 			// 휴식 페이지 1번을 부르는 기능! 눈꼭 감기
 			restList.add(1);
-			
+
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
@@ -319,14 +275,17 @@ public class setController implements Initializable {
 		Parent parent;
 		Scene scene;
 		// 이미 배열에 차있으면 다른 변수를 가져오도록 한다.
-		while (restList.contains(intValue))
-			intValue = (int) (ran * 5) + 1;
+		while (restList.contains(intValue)) {
+			double ran2 = Math.random();
+			intValue = (int) (ran2 * 5) + 1;
+		}
+			
 
 		switch (intValue) {
 		case 1:
 			// 휴식 페이지 1번을 부르는 기능! 눈꼭 감기
 			restList.add(1);
-			
+
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
@@ -370,7 +329,7 @@ public class setController implements Initializable {
 	public static void playRotateRest() throws IOException {
 		double ran = Math.random();
 		int intValue = (int) (ran * 2) + 1;
-		
+
 		if (intValue == 1) {
 			totalRestCount = 3;
 			playShorRest();
@@ -382,29 +341,29 @@ public class setController implements Initializable {
 
 	@FXML
 	void restTypeIsShort(MouseEvent event) {
-		if(isPause == false) {
+		if (isPause == false) {
 			restType = 1;
-			System.out.println("resType = short");			
+			System.out.println("resType = short");
 		}
-		
+
 	}
 
 	@FXML
 	void restTypeIsLong(MouseEvent event) {
-		if(isPause == false) {
+		if (isPause == false) {
 			restType = 2;
 			System.out.println("resType = long");
 		}
-		
+
 	}
 
 	@FXML
 	void restTypeIsRotate(MouseEvent event) {
-		if(isPause == false) {
+		if (isPause == false) {
 			restType = 3;
 			System.out.println("resType = rotate");
 		}
-		
+
 	}
 
 	// 휴식 이벤트 시작
@@ -485,7 +444,7 @@ public class setController implements Initializable {
 	@FXML
 	void BGMToggleAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-		if(isPause == false) {
+		if (isPause == false) {
 			if (BGMFlag == false) {
 				System.out.println("BGM music close");
 				Main.closeMusic();
@@ -494,9 +453,9 @@ public class setController implements Initializable {
 				System.out.println("BGM music restart");
 				Main.reStartMusic(true);
 				BGMFlag = false;
-			}			
+			}
 		}
-		
+
 	}
 
 	/**
@@ -519,32 +478,32 @@ public class setController implements Initializable {
 	// 방해금지 종료시간 설정
 	@FXML
 	void setEndDisturbTime(ActionEvent event) {
-		if(isPause == false) {
-			varEndDisturbTime = (int) combobox2.getValue();	
-			System.out.println("varEndDisturbTime = "+varEndDisturbTime);
+		if (isPause == false) {
+			varEndDisturbTime = (int) combobox2.getValue();
+			System.out.println("varEndDisturbTime = " + varEndDisturbTime);
 		}
-		
+
 	}
 
 	// 방해금지 시작시간 설정
 	@FXML
 	void setStartDisturbTime(ActionEvent event) {
-		if(isPause == false	) {
-			varStartDisturbTime = (int) combobox1.getValue();	
-			System.out.println("varStartDisturbTime = "+varStartDisturbTime);
+		if (isPause == false) {
+			varStartDisturbTime = (int) combobox1.getValue();
+			System.out.println("varStartDisturbTime = " + varStartDisturbTime);
 		}
-		
+
 	}
 
 	// 실행 주기 설정
 	@FXML
 	void setRestCycle(ActionEvent event) {
-		if(isPause == false) {
+		if (isPause == false) {
 			String s = (String) combobox3.getValue();
 			System.out.println(s);
-			findOne(s);	
+			findOne(s);
 		}
-		
+
 	}
 
 	/**
@@ -588,14 +547,14 @@ public class setController implements Initializable {
 			break;
 		}
 	}
-	
+
 	public void pause() {
 		isPause = true;
 		ExplainPage.setOpacity(0.45);
 	}
-	
+
 	public static void timeIsGoing() {
-		
+
 	}
 
 	public class Clock extends Pane {
@@ -606,7 +565,7 @@ public class setController implements Initializable {
 		private int timeTmp = 1;
 
 		public Clock() {
-			
+
 			animation = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
 
 				// 시간이 째깍 흘러갑니다.
@@ -621,7 +580,7 @@ public class setController implements Initializable {
 				System.out.println("알람 시작 초 : " + (currentTime.getSecond() + restCycle * 3));
 				if (maintainRestEvent) {
 					if (flag == false) {
-						//alarmPopup등장
+						// alarmPopup등장
 						isPause = true;
 						FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
 						try {
@@ -639,16 +598,18 @@ public class setController implements Initializable {
 				}
 				// 알람이 내일까지로 설정되어있는지?
 				if (tomarrowFlag) {
-					if (!((currnetTimeHour > startDisturbTime) || ((nextDay == currentDate.getDayOfMonth()) && (currnetTimeHour < endDisturbTime))))
+					if (!((currnetTimeHour > startDisturbTime)
+							|| ((nextDay == currentDate.getDayOfMonth()) && (currnetTimeHour < endDisturbTime))))
 						if (restCycle != 0) {
 							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
 							if (!flag) {
 								if (timeTmp % (restCycle * 10) == 0) {
-									//alarmPopup등장
-									//현재 윈도우의 투명도를 0.45로 하고
-									//현재 윈도우의 버튼 이벤트를 중지한다.
+									// alarmPopup등장
+									// 현재 윈도우의 투명도를 0.45로 하고
+									// 현재 윈도우의 버튼 이벤트를 중지한다.
 									isPause = true;
-									FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
+									FXMLLoader fxmlLoader = new FXMLLoader(
+											Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
 									try {
 										AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
 										Scene scene = new Scene(alarmPopupPane);
@@ -672,9 +633,10 @@ public class setController implements Initializable {
 							System.out.println("flag가 false면알람 주기 시작" + flag);
 							if (!flag) {
 								if (timeTmp % (restCycle * 10) == 0) {
-									//alarmPopup등장
+									// alarmPopup등장
 									isPause = true;
-									FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
+									FXMLLoader fxmlLoader = new FXMLLoader(
+											Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
 									try {
 										AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
 										Scene scene = new Scene(alarmPopupPane);

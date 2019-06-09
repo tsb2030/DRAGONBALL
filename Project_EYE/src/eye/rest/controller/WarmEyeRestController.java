@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eye.main.Main;
+import eye.main.controller.mainController;
 import eye.rest.controller.LookAfarRestController.Clock;
 import eye.set.controller.setController;
 import javafx.animation.KeyFrame;
@@ -61,13 +62,16 @@ public class WarmEyeRestController implements Initializable{
     	if (isPause == false) {
 			if (setController.isRestStart == true) {
 				isPause = true;
-				currentStage = (Stage) pauseBtn.getScene().getWindow();
-				currentStage.setOpacity(0.45);
+				mainController.currentStage.setOpacity(0.45);
 				try {
-					// 교체할 페이지인 rest_main_page.fxml를 가져와서 closedEyeIntroPage에 넣어준다.
-					restMainPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/interruptPopup.fxml"));
-				} catch (IOException e) {
-					e.printStackTrace();
+					AnchorPane interruptPopup = FXMLLoader
+							.load(getClass().getResource("/eye/rest/view/interruptPopup.fxml"));
+					Scene scene = new Scene(interruptPopup);
+					Stage stage = new Stage();
+					stage.setScene(scene);
+					stage.show();
+				} catch (IOException e1) {
+					e1.printStackTrace();
 				}
 			} else {
 				try {
