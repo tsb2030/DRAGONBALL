@@ -10,6 +10,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import eye.Music;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,6 +59,7 @@ public class EndPopupController implements Initializable {
 		Main.setMusic("mainMusic", true, 1);
 		// go main
 		try {
+			setController.isGameStart = false;
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			GamePageController.bigScore = 0;

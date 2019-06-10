@@ -2,6 +2,7 @@ package eye.game.fiveDotGame;
 
 import eye.Music;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,6 +40,7 @@ public class EndPopupController {
 	@FXML
 	void backToGameSelectPage(ActionEvent event) {
 		try {
+			setController.isGameStart = false;
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			Main.setMusic("mainMusic", true, 1);

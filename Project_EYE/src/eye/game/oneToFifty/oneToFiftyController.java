@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXButton;
 
 import eye.Music;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
@@ -198,6 +199,7 @@ public class oneToFiftyController implements Initializable {
 	// 게임메인화면으로 이동
 	public void goGameMainBtn() {
 		try {
+			setController.isGameStart = false;
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			Main.setMusic("mainMusic", true, 1);

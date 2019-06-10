@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import eye.Music;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -148,6 +149,7 @@ public class Controller implements Initializable {
 			public void handle(Event arg0) {
 				// TODO Auto-generated method stub
 				try {
+					setController.isGameStart = false;
 					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 					effectMusic.start();
 					Main.setMusic("mainMusic", true, 1);
