@@ -52,9 +52,7 @@ public class restController implements Initializable {
 		// 손바닥 눈찜질
 		t = new Text("\n손바닥 열을 이용하여 눈의 혈액순환을 도와요. " + "\n안구건조증을 예방해요!");
 		text5.getChildren().add(t);
-		// 롱 브레이크
-		t = new Text("\n화면이 정해진 시간동안 어두워집니다. " + "\n하던 일을 잠시 멈추고 눈을 쉬어주세요~");
-		text6.getChildren().add(t);
+	
 
 		// 메인화면으로 돌아가기
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
