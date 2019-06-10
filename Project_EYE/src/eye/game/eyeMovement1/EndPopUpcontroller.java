@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.game.eyeMovement1.Playcontroller;
 import eye.main.Main;
 import javafx.event.ActionEvent;
@@ -17,7 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class EndPopUpcontroller  {
+public class EndPopUpcontroller {
 
 	@FXML
 	private AnchorPane SuccessPage, EndPopUpPage, stripPage;
@@ -34,6 +35,8 @@ public class EndPopUpcontroller  {
 		int ganswer = Integer.parseInt(getAnswer);
 		if (Playcontroller.cnt == ganswer) {
 			try {
+				Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+				effectMusic.start();
 				stripPage = FXMLLoader.load(getClass().getResource("gameSuccess.fxml"));
 				EndPopUpPage.getChildren().setAll(stripPage);
 				System.out.println(ganswer);
@@ -43,6 +46,8 @@ public class EndPopUpcontroller  {
 
 		} else {
 			try {
+				Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+				effectMusic.start();
 				stripPage = FXMLLoader.load(getClass().getResource("gameFail.fxml"));
 				EndPopUpPage.getChildren().setAll(stripPage);
 				System.out.println(ganswer);
@@ -59,6 +64,5 @@ public class EndPopUpcontroller  {
 	public void ans2() {
 
 	}
-
 
 }

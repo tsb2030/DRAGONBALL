@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -15,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -25,11 +27,11 @@ import javafx.scene.text.TextFlow;
 public class gameMainController implements Initializable {
 	// 화면 전환을 위해 필요한 페이지들을 미리 정의한다.
 	@FXML
-	AnchorPane gameMainPage, mainPage,followPage, catchBallPage, zigzagPage,fiveDotPage,findPictureStart,stripPage;
+	AnchorPane gameMainPage, mainPage, followPage, catchBallPage, zigzagPage, fiveDotPage, findPictureStart, stripPage;
 
 	// 이미지뷰를 버튼화 시키기 위해서 필요한 정의
 	@FXML
-	ImageView followBtn, backBtn, fiveDotBtn,catchBallBtn,findPictureBtn;
+	ImageView followBtn, backBtn, fiveDotBtn, catchBallBtn, findPictureBtn;
 
 	// 운동별 설명문을 넣기 위해서 필요한 정의
 	@FXML
@@ -41,27 +43,28 @@ public class gameMainController implements Initializable {
 
 		// 각 게임별(7개) 설명 넣기
 		// 1to50
-		Text t = new Text(
-				"<순서대로 따라가기>" + "\n\"다음 문자는 어디에 있지?\"" + "\n정해진 시간 안에 흩어져 있는 숫자나 문자를 순서대로 찾아보아요"
-						+ "\n\nTip! 빨리 움직일수록  눈운동 효과 up!");
+		Text t = new Text("<순서대로 따라가기>" + "\n\"다음 문자는 어디에 있지?\"" + "\n정해진 시간 안에 흩어져 있는 숫자나 문자를 순서대로 찾아보아요"
+				+ "\n\nTip! 빨리 움직일수록  눈운동 효과 up!");
 		followText.getChildren().add(t);
 
 		// 뫼비우스띠
-		t = new Text("<뫼비우스 띠>" + "\n\"세상이 빙-빙- 돈다\"" + "\n총 20회 동안 진행되는 첫번째 시선 이동 트레이닝으로, ∞모양을 따라 움직입니다"+ "\n\nTip! 본인의 취향에 맞게 진행 속도를 조절하세요!");
+		t = new Text("<뫼비우스 띠>" + "\n\"세상이 빙-빙- 돈다\"" + "\n총 20회 동안 진행되는 첫번째 시선 이동 트레이닝으로, ∞모양을 따라 움직입니다"
+				+ "\n\nTip! 본인의 취향에 맞게 진행 속도를 조절하세요!");
 		mobiusText.getChildren().add(t);
 
 		// 지그재그
-		t = new Text("<지그재그>" + "\n\"눈을 뗄 수가 없네?\"" + "\n총 20회동안 진행되는 두번째 시선 이동 트레이닝으로, Z자 모양으로 움직입니다."+ "\n\nTip! 본인의 취향에 맞게 진행 속도를 조절하세요!");
+		t = new Text("<지그재그>" + "\n\"눈을 뗄 수가 없네?\"" + "\n총 20회동안 진행되는 두번째 시선 이동 트레이닝으로, Z자 모양으로 움직입니다."
+				+ "\n\nTip! 본인의 취향에 맞게 진행 속도를 조절하세요!");
 		zigzagText.getChildren().add(t);
 
 		// 5점 카드 트레이닝
-		t = new Text("<5점 카드 트레이닝>" + "\n\"눈의 시선이 꼬인 느낌이야\"" + "\n시력 향상 효과가 있다고 알려진 \"15점 카드 트레이닝\"에서 착안한 운동이에요 " +
-						"\n\nTip! 운동 시 안경이나 렌즈는 빼주세요!");
+		t = new Text("<5점 카드 트레이닝>" + "\n\"눈의 시선이 꼬인 느낌이야\"" + "\n시력 향상 효과가 있다고 알려진 \"15점 카드 트레이닝\"에서 착안한 운동이에요 "
+				+ "\n\nTip! 운동 시 안경이나 렌즈는 빼주세요!");
 		fivedotText.getChildren().add(t);
 
 		// 두더지잡기
-		t = new Text("<두더지 잡기>" + "\n\"요놈 잡았다!\"" + "\n여러 군데서 나타나는 두더지를 클릭해보세요!"
-				+ "   한 마리를 잡으면 바로 다른 곳에서 나타납니다" + "\n\nTip! 두더지를 따라 움직이는 눈동자 감각에 집중해주세요!");
+		t = new Text("<두더지 잡기>" + "\n\"요놈 잡았다!\"" + "\n여러 군데서 나타나는 두더지를 클릭해보세요!" + "   한 마리를 잡으면 바로 다른 곳에서 나타납니다"
+				+ "\n\nTip! 두더지를 따라 움직이는 눈동자 감각에 집중해주세요!");
 		catchmoleText.getChildren().add(t);
 
 		// 캐치볼
@@ -81,6 +84,9 @@ public class gameMainController implements Initializable {
 			public void handle(Event event) {
 				try {
 					Main.setMusic("introMusic", true, 1);
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
+
 					mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -100,9 +106,12 @@ public class gameMainController implements Initializable {
 
 				try {
 					Main.setMusic("gameMusic", true, 1);
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
+
 					followPage = FXMLLoader.load(getClass().getResource("/eye/game/follow/gameChoice.fxml"));
 
-				} catch (IOException  e) {
+				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -117,9 +126,12 @@ public class gameMainController implements Initializable {
 			public void handle(Event event) {
 				try {
 					Main.setMusic("gameMusic", true, 1);
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
+
 					fiveDotPage = FXMLLoader.load(getClass().getResource("/eye/game/fiveDotGame/StartPage.fxml"));
 
-				} catch (IOException  e) {
+				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -133,9 +145,12 @@ public class gameMainController implements Initializable {
 			public void handle(Event event) {
 				try {
 					Main.setMusic("gameMusic", true, 1);
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
+
 					findPictureStart = FXMLLoader.load(getClass().getResource("/eye/game/findPicture/StartPage.fxml"));
 
-				} catch (IOException  e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 				}
 				gameMainPage.getChildren().setAll(findPictureStart);
@@ -144,33 +159,95 @@ public class gameMainController implements Initializable {
 	}
 
 	@FXML
-	void catchBallGameAction(MouseEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
+	void backButtonMouseEntered(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
+	}
+
+	@FXML
+	void catchBallButtonMouseEntered(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
+	}
+
+	@FXML
+	void dodugeButtonMouseEntered(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
+	}
+
+	@FXML
+	void fiveDotButtonMouseEntered(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
+	}
+
+	@FXML
+	void followButtonMouseEntered(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
+	}
+
+	@FXML
+	void mbButtonMouseEntered(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
+	}
+
+	@FXML
+	void sameImageButtonMouseEntered(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
+	}
+
+	@FXML
+	void zigzagButtonMouseEntered(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
+	}
+
+	@FXML
+	void catchBallGameAction(MouseEvent event)
+			throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
 		Main.setMusic("gameMusic", true, 1);
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
+
 		catchBallPage = FXMLLoader.load(getClass().getResource("/eye/game/catchBall/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
 	}
 
-
-    @FXML
-    void moleGameAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+	@FXML
+	void moleGameAction(MouseEvent event)
+			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		Main.setMusic("gameMusic", true, 1);
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
+
 		catchBallPage = FXMLLoader.load(getClass().getResource("/eye/game/catchMole/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
-    }
+	}
 
-
-    @FXML
-    void zigzagtrainigAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+	@FXML
+	void zigzagtrainigAction(MouseEvent event)
+			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		Main.setMusic("gameMusic", true, 1);
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
+
 		zigzagPage = FXMLLoader.load(getClass().getResource("/eye/game/eyeMovement2/zz_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(zigzagPage);
-    }
+	}
 
-    @FXML
-    void striptrainingAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+	@FXML
+	void striptrainingAction(MouseEvent event)
+			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 		Main.setMusic("gameMusic", true, 1);
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
+
 		stripPage = FXMLLoader.load(getClass().getResource("/eye/game/eyeMovement1/strip_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(stripPage);
-    }
+	}
 
 }

@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -48,6 +49,9 @@ public class IntroducePageController implements Initializable  {
    			@Override
    			public void handle(Event event) {
    				try {
+   					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+   					effectMusic.start();
+   					
    					gamePage = FXMLLoader.load(getClass().getResource("CatchBallGame.fxml"));
    				} catch (IOException e) {
    					e.printStackTrace();
@@ -61,6 +65,9 @@ public class IntroducePageController implements Initializable  {
    			@Override
    			public void handle(Event event) {
    				try {
+   					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+   					effectMusic.start();
+   					
 					Main.setMusic("mainMusic", true, 1);
    					gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
    				} catch (IOException  e) {
@@ -79,6 +86,9 @@ public class IntroducePageController implements Initializable  {
     	gameSpeed = 5;
     	CatchballGameController.bigScore = 0;
     	try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
+			
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
@@ -95,6 +105,9 @@ public class IntroducePageController implements Initializable  {
     	gameSpeed = 4;
     	CatchballGameController.bigScore = 0;
     	try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
+			
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
@@ -111,6 +124,9 @@ public class IntroducePageController implements Initializable  {
     	gameSpeed = 3;
     	CatchballGameController.bigScore = 0;
     	try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
+			
     		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
 			Scene scene = new Scene(CatchBallGame);
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());

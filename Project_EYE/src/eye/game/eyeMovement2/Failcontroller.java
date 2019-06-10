@@ -3,6 +3,7 @@ package eye.game.eyeMovement2;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,17 +25,20 @@ public class Failcontroller implements Initializable {
 
 	@FXML
 	private Button restartPopUpBtn;
-	//종료 후 게임 목록으로 변환 메소드
+
+	// 종료 후 게임 목록으로 변환 메소드
 	@FXML
 	void closePopUp(ActionEvent event) {
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			Main.setMusic("mainMusic", true, 1);
 			Parent MainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(MainPage);
 
 			Playcontroller.currentStage.setScene(scene);
 			Playcontroller.currentStage.setTitle("game_main_page");
-			
+
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
 			Stage primaryStage = (Stage) FailPage.getScene().getWindow();
@@ -44,10 +48,13 @@ public class Failcontroller implements Initializable {
 		}
 
 	}
-	//트레이닝 다시 시작 버튼
+
+	// 트레이닝 다시 시작 버튼
 	@FXML
 	void numGameRestart(ActionEvent event) {
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
 			Scene scene = new Scene(root);
 
@@ -61,7 +68,6 @@ public class Failcontroller implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 
 	}
 

@@ -3,6 +3,7 @@ package eye.game.eyeMovement2;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -34,13 +35,15 @@ public class Explaincontroller implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		//이전 화면 전환 버튼
+		// 이전 화면 전환 버튼
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
 
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					Main.setMusic("mainMusic", true, 1);
 					Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
@@ -54,13 +57,15 @@ public class Explaincontroller implements Initializable {
 			}
 
 		});
-		//다음 화면 전환 버튼
+		// 다음 화면 전환 버튼
 		nextBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
 
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
@@ -71,13 +76,15 @@ public class Explaincontroller implements Initializable {
 
 			}
 		});
-		//다음 화면 전환 버튼
+		// 다음 화면 전환 버튼
 		nextBtn2.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
 
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();

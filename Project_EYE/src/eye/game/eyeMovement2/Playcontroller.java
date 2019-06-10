@@ -1,5 +1,6 @@
 package eye.game.eyeMovement2;
 
+import eye.Music;
 import eye.main.Main;
 
 import java.io.IOException;
@@ -62,7 +63,7 @@ public class Playcontroller implements Initializable {
 
 	@FXML
 	private Circle cir;
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Moving();
@@ -73,6 +74,8 @@ public class Playcontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage3.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) eyePlayPage.getScene().getWindow();
@@ -86,7 +89,8 @@ public class Playcontroller implements Initializable {
 
 		});
 	}
-	//물체 이동 메소드
+
+	// 물체 이동 메소드
 	public void Moving() {
 
 		// 이동 경로 선언
@@ -157,7 +161,7 @@ public class Playcontroller implements Initializable {
 
 			}
 			if (tmp == 0) {
-			
+
 				score.setText(String.valueOf(count2));
 				System.out.println(count2);
 				count++;
@@ -178,12 +182,13 @@ public class Playcontroller implements Initializable {
 		// 애니메이션 실행
 		pathTransition.play();
 
-
 	}
-	//트레이닝 종료후 확인 팝업
+
+	// 트레이닝 종료후 확인 팝업
 	public void showEndPopUp() {
 		currentStage = (Stage) backBtn.getScene().getWindow();
-		
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
 		FXMLLoader another = new FXMLLoader(Main.class.getResource("/eye/game/eyeMovement2/gameQ&A.fxml"));
 		try {
 			AnchorPane anotherPage = (AnchorPane) another.load();
@@ -199,39 +204,37 @@ public class Playcontroller implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
 
-    @FXML
-    void SpeedDown(ActionEvent event) {
-		i=i*1.1;
+	@FXML
+	void SpeedDown(ActionEvent event) {
+		i = i * 1.1;
 		count--;
 		count2--;
 		pathTransition.setDuration(Duration.seconds(i));
 		pathTransition.stop();
-		System.out.println("down카운트"+count);
-		cyclecnt=cyclecnt-count;
-		System.out.println("남은 회전수"+cyclecnt);
+		System.out.println("down카운트" + count);
+		cyclecnt = cyclecnt - count;
+		System.out.println("남은 회전수" + cyclecnt);
 		pathTransition.setCycleCount(cyclecnt);
 		count = 0;
 		pathTransition.play();
-		pathTransition.jumpTo(Duration.seconds(tmp*1.1));
-    }
+		pathTransition.jumpTo(Duration.seconds(tmp * 1.1));
+	}
 
-    @FXML
-    void SpeedUp(ActionEvent event) {
-		i=i*0.9;
+	@FXML
+	void SpeedUp(ActionEvent event) {
+		i = i * 0.9;
 		pathTransition.setDuration(Duration.seconds(i));
 		count2--;
 		count--;
 		pathTransition.stop();
-		System.out.println("up카운트"+count);
-		cyclecnt=cyclecnt-count;
-		System.out.println("남은 회전수"+cyclecnt);
+		System.out.println("up카운트" + count);
+		cyclecnt = cyclecnt - count;
+		System.out.println("남은 회전수" + cyclecnt);
 		pathTransition.setCycleCount(cyclecnt);
 		count = 0;
 		pathTransition.play();
-		pathTransition.jumpTo(Duration.seconds(tmp*0.9));
-    }
-	
+		pathTransition.jumpTo(Duration.seconds(tmp * 0.9));
+	}
 
 }

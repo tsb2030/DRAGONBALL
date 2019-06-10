@@ -3,6 +3,7 @@ package eye.game.eyeMovement2;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.game.catchBall.CatchballGameController;
 import eye.game.eyeMovement2.Playcontroller;
 import eye.main.Main;
@@ -16,7 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class Successcontroller implements Initializable{
+public class Successcontroller implements Initializable {
 	@FXML
 	private Button closeBtn;
 
@@ -24,11 +25,13 @@ public class Successcontroller implements Initializable{
 	private Button restartPopUpBtn;
 
 	@FXML
-	private AnchorPane SuccessPage,eyePlayPage;
+	private AnchorPane SuccessPage, eyePlayPage;
 
 	@FXML
 	void numGameRestart(ActionEvent event) {
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
 			Scene scene = new Scene(root);
 
@@ -48,13 +51,15 @@ public class Successcontroller implements Initializable{
 	@FXML
 	void closePopUp(ActionEvent event) {
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			Main.setMusic("mainMusic", true, 1);
 			Parent MainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(MainPage);
 
 			Playcontroller.currentStage.setScene(scene);
 			Playcontroller.currentStage.setTitle("game_main_page");
-			
+
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
 			Stage primaryStage = (Stage) SuccessPage.getScene().getWindow();

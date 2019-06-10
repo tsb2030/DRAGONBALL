@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
@@ -192,6 +193,8 @@ public class CatchballGameController implements Initializable {
 			@Override
 			public void handle(Event event) {
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					timer.animation.pause();
 					Parent SelectSpeedPage = FXMLLoader.load(getClass().getResource("IntroducePage.fxml"));
 					Scene scene = new Scene(SelectSpeedPage);
@@ -209,6 +212,8 @@ public class CatchballGameController implements Initializable {
 		PauseBtn.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
+				Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+				effectMusic.start();
 				// pauseEvent Start!
 				timer.animation.pause();
 				bigPanne.setOpacity(0.45);
@@ -223,6 +228,8 @@ public class CatchballGameController implements Initializable {
 		startButton.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
+				Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+				effectMusic.start();
 				timer.animation.play();
 				bigPanne.setOpacity(1.0);
 				flag = true;
@@ -374,6 +381,8 @@ public class CatchballGameController implements Initializable {
 
 	// 한판을 실패했을 때 이벤트
 	public void oneStageFailEvent(Circle catchCircle, double currentX, double currentY) {
+		Music effectMusic = new Music("gameStartEffect", false, 2);
+		effectMusic.start();
 		//실패하면 초기화
 		eyeAchivementCatchBallHexaKill = 0;
 		// 빨간 공의 스피드를 초기 스피드로 롤백시킴

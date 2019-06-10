@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,7 +35,8 @@ public class EndGamePopupController implements Initializable {
 	void backGameAction(ActionEvent event) {
 
 		try {
-
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			Stage primaryStage = (Stage) backGame.getScene().getWindow();
 			primaryStage.close();
 			Parent DodugeGame2 = FXMLLoader.load(getClass().getResource("DodugeGame2.fxml"));
@@ -54,7 +56,8 @@ public class EndGamePopupController implements Initializable {
 	@FXML
 	void goMainButtonAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
 		Main.setMusic("mainMusic", true, 1);
 		// go main
 		try {

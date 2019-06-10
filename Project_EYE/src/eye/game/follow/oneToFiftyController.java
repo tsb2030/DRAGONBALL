@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,20 +16,23 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 //숫자게임 인트로 페이지 컨트롤러
-public class oneToFiftyController implements Initializable{
-	
+public class oneToFiftyController implements Initializable {
+
 	@FXML
-	private AnchorPane choicePage,introPage;
-	
+	private AnchorPane choicePage, introPage;
+
 	@FXML
 	private ImageView backBtn;
-	
+
 	@FXML
 	private Button goNumGameBtn;
 
 	public void numGameStart() {
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			Parent gameInfo = FXMLLoader.load(getClass().getResource("gamePageNum.fxml")); // 불러올 페이지 지정
 			Scene scene = new Scene(gameInfo);
 			scene.getStylesheets().add(getClass().getResource("game.css").toExternalForm()); // css 지정

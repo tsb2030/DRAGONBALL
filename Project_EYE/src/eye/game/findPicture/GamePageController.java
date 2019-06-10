@@ -107,7 +107,8 @@ public class GamePageController implements Initializable {
 		if (pauseSwitch == 0) {
 			clock.animation.pause();
 			gamePageStage = (Stage) BackBtn.getScene().getWindow();
-			try {
+			try {Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 				findPictureStart = FXMLLoader.load(getClass().getResource("StartPage.fxml"));
 			} catch (IOException e) {
 				e.printStackTrace();

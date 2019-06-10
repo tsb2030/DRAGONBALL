@@ -10,6 +10,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import com.jfoenix.controls.JFXButton;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,6 +36,9 @@ public class EndGamePopupController implements Initializable {
 	@FXML
 	void backGameAction(ActionEvent event) {
 
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
+		
 		try {
 			Parent CatchballGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));
 			Scene scene = new Scene(CatchballGame);
@@ -59,6 +63,9 @@ public class EndGamePopupController implements Initializable {
 	void goMainButtonAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
+		
 		Main.setMusic("mainMusic", true, 1);
 		// go main
 		try {

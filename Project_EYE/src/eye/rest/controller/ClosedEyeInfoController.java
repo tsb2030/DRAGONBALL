@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import eye.set.controller.setController;
 import javafx.event.ActionEvent;
@@ -19,41 +20,46 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class ClosedEyeInfoController implements Initializable {
-	
+
 	public static Stage currentStage;
 
 	public static boolean isPause = false;
 
-    @FXML
-    private AnchorPane closedEyeInfoPage;
+	@FXML
+	private AnchorPane closedEyeInfoPage;
 
-    @FXML
-    private ImageView btnBefore;
+	@FXML
+	private ImageView btnBefore;
 
-    @FXML
-    private Text title;
+	@FXML
+	private Text title;
 
-    @FXML
-    private Button ClosedEyeNextBtn;
+	@FXML
+	private Button ClosedEyeNextBtn;
 
-    @FXML//휴식 장면으로 가기
-    void goClosedEyeRestPage(ActionEvent event) throws IOException {
-    	currentStage = (Stage) btnBefore.getScene().getWindow();
-    	AnchorPane ClosedEyeRestPane = null;
-    	ClosedEyeRestPane = FXMLLoader.load(getClass().getResource("/eye/rest/view/ClosedEyeRest.fxml"));
-    	
-    	Scene scene = new Scene(ClosedEyeRestPane);
-		scene.getStylesheets().add(getClass().getResource("/eye/rest/view/rest.css").toExternalForm());				
+	@FXML // 휴식 장면으로 가기
+	void goClosedEyeRestPage(ActionEvent event) throws IOException {
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
+		currentStage = (Stage) btnBefore.getScene().getWindow();
+		AnchorPane ClosedEyeRestPane = null;
+		ClosedEyeRestPane = FXMLLoader.load(getClass().getResource("/eye/rest/view/ClosedEyeRest.fxml"));
+
+		Scene scene = new Scene(ClosedEyeRestPane);
+		scene.getStylesheets().add(getClass().getResource("/eye/rest/view/rest.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-		
+
 		currentStage.setScene(scene);
 		currentStage.show();
-    }
+	}
 
-    @FXML//backMain
-    void goRestMainPage1(MouseEvent event) {
-    	currentStage = (Stage) btnBefore.getScene().getWindow();
-    	if (isPause == false) {
+	@FXML // backMain
+	void goRestMainPage1(MouseEvent event) {
+
+		currentStage = (Stage) btnBefore.getScene().getWindow();
+		if (isPause == false) {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			if (setController.isRestStart == true) {
 				isPause = true;
 				currentStage.setOpacity(0.45);
@@ -79,19 +85,18 @@ public class ClosedEyeInfoController implements Initializable {
 				}
 				// 페이지 교체
 				Scene scene = new Scene(restMainAnchorPane);
+				scene.getStylesheets().add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());
 				scene.getStylesheets()
-				.add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());				
-				scene.getStylesheets()
-				.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+						.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 				currentStage.setScene(scene);
 			}
 		}
-    }
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

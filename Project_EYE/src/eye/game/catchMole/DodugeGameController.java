@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -117,17 +118,23 @@ public class DodugeGameController implements Initializable {
 
 	@FXML
 	void pauseAction(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
 		pause();
 	}
 
 	@FXML
 	void restartAction(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
 		restart();
 	}
 
 	@FXML
 	void backToStartAction(MouseEvent event) {
 		if (isPause == false) {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			try {
 				score = 0;
 				gameMainPage = FXMLLoader.load(getClass().getResource("IntroducePage.fxml"));

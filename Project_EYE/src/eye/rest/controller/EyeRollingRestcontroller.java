@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import eye.main.controller.mainController;
 import eye.rest.controller.EyeMassageRestController.Clock;
@@ -32,34 +33,36 @@ public class EyeRollingRestcontroller implements Initializable {
 	public static int timeTime;
 
 	public Clock clock;
-	
+
 	AnchorPane restMainPage;
-	
-    @FXML
-    private AnchorPane eyeRollingRestPage;
 
-    @FXML
-    private HBox titleBox;
+	@FXML
+	private AnchorPane eyeRollingRestPage;
 
-    @FXML
-    private ImageView backBtn;
+	@FXML
+	private HBox titleBox;
 
-    @FXML
-    private ImageView pauseBtn;
+	@FXML
+	private ImageView backBtn;
 
-    @FXML
-    private Text title;
+	@FXML
+	private ImageView pauseBtn;
 
-    @FXML
-    private Text timeLabel;
+	@FXML
+	private Text title;
 
-    @FXML
-    private Pane mainPanel;
+	@FXML
+	private Text timeLabel;
 
-    @FXML
-    void goRestMainPage2(MouseEvent event) {
-    	clock.animation.stop();
-    	if (isPause == false) {
+	@FXML
+	private Pane mainPanel;
+
+	@FXML
+	void goRestMainPage2(MouseEvent event) {
+		clock.animation.stop();
+		if (isPause == false) {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			if (setController.isRestStart == true) {
 				isPause = true;
 				mainController.currentStage.setOpacity(0.45);
@@ -86,7 +89,7 @@ public class EyeRollingRestcontroller implements Initializable {
 				eyeRollingRestPage.getChildren().setAll(restMainPage);
 			}
 		}
-    }
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -119,7 +122,7 @@ public class EyeRollingRestcontroller implements Initializable {
 			if (timeTmp > 0)
 				timeTmp--;
 			timeTime = timeTmp;
-			S = timeTmp+"";
+			S = timeTmp + "";
 			timeLabel.setText(S);
 			// 한 번의 휴식시간을 마쳤는가?
 			if (timeTime <= 0 && flag == false) {
@@ -146,13 +149,11 @@ public class EyeRollingRestcontroller implements Initializable {
 						// 휴식 알람으로 설정했던 횟수가 남았을 경우
 					} else {
 						clock.animation.stop();
-						currentStage = (Stage)eyeRollingRestPage.getScene().getWindow();
+						currentStage = (Stage) eyeRollingRestPage.getScene().getWindow();
 
 //						파ㅏㄴ별해야지 지금 restType이 뭐였는지?
 						if (setController.restType == 1) {// short
 							setController.isPause = false; // 뒤에 pause상태를 풀어준다.
-
-							
 
 							// 주사위를 돌린다.
 							setController.playShorRest();
@@ -160,13 +161,9 @@ public class EyeRollingRestcontroller implements Initializable {
 						} else if (setController.restType == 2) {
 							setController.isPause = false;
 
-							
-
 							setController.playLongRest();
 						} else {
 							setController.isPause = false;
-
-							
 
 							setController.playRotateRest();
 						}
@@ -193,5 +190,5 @@ public class EyeRollingRestcontroller implements Initializable {
 
 		}
 	}
-	
+
 }

@@ -1,5 +1,6 @@
 package eye.game.eyeMovement1;
 
+import eye.Music;
 import eye.main.Main;
 
 import java.io.IOException;
@@ -67,6 +68,8 @@ public class Playcontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					Parent root = FXMLLoader.load(getClass().getResource("strip_priorPage3.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) eyePlayPage1.getScene().getWindow();
@@ -90,11 +93,10 @@ public class Playcontroller implements Initializable {
 		MoveTo moveTo = new MoveTo(0, 0);
 
 		// 공의 방향을 선언
-		ArcTo line1 = new  ArcTo(200, 200, 180, -500, 0, true, false);
-		ArcTo line2 = new  ArcTo(200, 200, 180, 0, 0, true, false);
-		ArcTo line3 = new  ArcTo(200, 200, 180, 500, 0, true, true);
-		ArcTo line4 = new  ArcTo(200, 200, 180, 0, 0, true, true);
-
+		ArcTo line1 = new ArcTo(200, 200, 180, -500, 0, true, false);
+		ArcTo line2 = new ArcTo(200, 200, 180, 0, 0, true, false);
+		ArcTo line3 = new ArcTo(200, 200, 180, 500, 0, true, true);
+		ArcTo line4 = new ArcTo(200, 200, 180, 0, 0, true, true);
 
 		// Adding all the elements to the path
 		path.getElements().add(moveTo);
@@ -107,7 +109,7 @@ public class Playcontroller implements Initializable {
 
 		// Setting the path for the transition
 		pathTransition.setPath(path);
-		//시간을 입력받게합니다.
+		// 시간을 입력받게합니다.
 		pathTransition.cycleDurationProperty();
 		// Setting the orientation of the path
 
@@ -152,7 +154,7 @@ public class Playcontroller implements Initializable {
 
 			}
 			if (tmp == 0) {
-				
+
 				score.setText(String.valueOf(count2));
 				System.out.println(count2);
 				count++;
@@ -165,7 +167,6 @@ public class Playcontroller implements Initializable {
 
 			}
 
-
 		});
 		pathTransition.setOrientation(PathTransition.OrientationType.ORTHOGONAL_TO_TANGENT);
 
@@ -174,10 +175,11 @@ public class Playcontroller implements Initializable {
 		// Playing the animation
 		pathTransition.play();
 
-
 	}
 
 	public void showEndPopUp() {
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
 		currentStage = (Stage) backBtn.getScene().getWindow();
 		FXMLLoader another = new FXMLLoader(Main.class.getResource("/eye/game/eyeMovement1/gameQ&A.fxml"));
 		try {
@@ -195,38 +197,35 @@ public class Playcontroller implements Initializable {
 		}
 	}
 
-	
-
-
-    @FXML
-    void SpeedDown(ActionEvent event) {
-		i=i*1.1;
+	@FXML
+	void SpeedDown(ActionEvent event) {
+		i = i * 1.1;
 		count--;
 		count2--;
 		pathTransition.setDuration(Duration.seconds(i));
 		pathTransition.stop();
-		System.out.println("down카운트"+count);
-		cyclecnt=cyclecnt-count;
-		System.out.println("남은 회전수"+cyclecnt);
+		System.out.println("down카운트" + count);
+		cyclecnt = cyclecnt - count;
+		System.out.println("남은 회전수" + cyclecnt);
 		pathTransition.setCycleCount(cyclecnt);
 		count = 0;
 		pathTransition.play();
-		pathTransition.jumpTo(Duration.seconds(tmp*1.1));
-    }
+		pathTransition.jumpTo(Duration.seconds(tmp * 1.1));
+	}
 
-    @FXML
-    void SpeedUp(ActionEvent event) {
-		i=i*0.9;
+	@FXML
+	void SpeedUp(ActionEvent event) {
+		i = i * 0.9;
 		pathTransition.setDuration(Duration.seconds(i));
 		count2--;
 		count--;
 		pathTransition.stop();
-		System.out.println("up카운트"+count);
-		cyclecnt=cyclecnt-count;
-		System.out.println("남은 회전수"+cyclecnt);
+		System.out.println("up카운트" + count);
+		cyclecnt = cyclecnt - count;
+		System.out.println("남은 회전수" + cyclecnt);
 		pathTransition.setCycleCount(cyclecnt);
 		count = 0;
 		pathTransition.play();
-		pathTransition.jumpTo(Duration.seconds(tmp*0.9));
-    }
+		pathTransition.jumpTo(Duration.seconds(tmp * 0.9));
+	}
 }

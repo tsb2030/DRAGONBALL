@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import eye.main.controller.mainController;
 import eye.rest.controller.ClosedEyeRestController.Clock;
@@ -24,7 +25,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class EyeMassageRestController implements Initializable {
-	
+
 	public static Stage currentStage;
 
 	public static boolean isPause = false;
@@ -32,9 +33,9 @@ public class EyeMassageRestController implements Initializable {
 	public static int timeTime;
 
 	public Clock clock;
-	
+
 	AnchorPane restMainPage;
-	
+
 	@FXML
 	private AnchorPane eyeMassageRestPage;
 
@@ -60,6 +61,8 @@ public class EyeMassageRestController implements Initializable {
 	void goRestMainPage2(MouseEvent event) {
 		clock.animation.stop();
 		if (isPause == false) {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			if (setController.isRestStart == true) {
 				isPause = true;
 				mainController.currentStage.setOpacity(0.45);
@@ -93,7 +96,7 @@ public class EyeMassageRestController implements Initializable {
 		// TODO Auto-generated method stub
 		clock = new Clock();
 	}
-	
+
 	public class Clock extends Pane {
 
 		private Timeline animation;
@@ -119,7 +122,7 @@ public class EyeMassageRestController implements Initializable {
 			if (timeTmp > 0)
 				timeTmp--;
 			timeTime = timeTmp;
-			S = timeTmp+"";
+			S = timeTmp + "";
 			timeLabel.setText(S);
 			// 한 번의 휴식시간을 마쳤는가?
 			if (timeTime <= 0 && flag == false) {
@@ -146,13 +149,11 @@ public class EyeMassageRestController implements Initializable {
 						// 휴식 알람으로 설정했던 횟수가 남았을 경우
 					} else {
 						clock.animation.stop();
-						currentStage = (Stage)eyeMassageRestPage.getScene().getWindow();
+						currentStage = (Stage) eyeMassageRestPage.getScene().getWindow();
 
 //						파ㅏㄴ별해야지 지금 restType이 뭐였는지?
 						if (setController.restType == 1) {// short
 							setController.isPause = false; // 뒤에 pause상태를 풀어준다.
-
-							
 
 							// 주사위를 돌린다.
 							setController.playShorRest();
@@ -160,13 +161,9 @@ public class EyeMassageRestController implements Initializable {
 						} else if (setController.restType == 2) {
 							setController.isPause = false;
 
-							
-
 							setController.playLongRest();
 						} else {
 							setController.isPause = false;
-
-							
 
 							setController.playRotateRest();
 						}

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -17,9 +18,9 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 public class restController implements Initializable {
-	
+
 	@FXML
-    private ImageView backBtn;
+	private ImageView backBtn;
 	@FXML
 	AnchorPane restMainPage, mainPage, closedEyeInfoPage, lookAfarInfoPage, eyeMassageInfoPage, eyeRollingInfoPage,
 			warmEyeInfoPage; // 휴식 목록 페이지
@@ -32,6 +33,7 @@ public class restController implements Initializable {
 	// 눈 꼭 감기 - text1, 멀리 보기 - text2, 눈 마사지 - text3, 눈 굴리기 - text4, 손바닥 눈찜질 - text5,
 	// 롱브레이크 - text6
 	public static Stage currentStage;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 눈 꼭 감기
@@ -59,6 +61,8 @@ public class restController implements Initializable {
 			@Override
 			public void handle(Event event) {
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -73,8 +77,10 @@ public class restController implements Initializable {
 
 	// 눈 꼭 감기 설명 페이지로 이동
 	public void goClosedEyeInfo() {
-		currentStage = (Stage)backBtn.getScene().getWindow();
+		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
@@ -88,8 +94,10 @@ public class restController implements Initializable {
 
 	// 멀리 보기 설명 페이지로 이동
 	public void goLookAfarInfo() {
-		currentStage = (Stage)backBtn.getScene().getWindow();
+		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
@@ -103,8 +111,10 @@ public class restController implements Initializable {
 
 	// 눈 마사지 설명 페이지로 이동
 	public void goEyeMassageInfo() {
-		currentStage = (Stage)backBtn.getScene().getWindow();
+		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
@@ -118,8 +128,10 @@ public class restController implements Initializable {
 
 	// 눈 굴리기 설명 페이지로 이동
 	public void goEyeRollingInfo() {
-		currentStage = (Stage)backBtn.getScene().getWindow();
+		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
@@ -133,8 +145,10 @@ public class restController implements Initializable {
 
 	// 손바닥 온찜질 설명 페이지로 이동
 	public void goWarmEyeInfo() {
-		currentStage = (Stage)backBtn.getScene().getWindow();
+		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.

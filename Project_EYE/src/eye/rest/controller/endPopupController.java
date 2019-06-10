@@ -2,6 +2,7 @@ package eye.rest.controller;
 
 import java.io.IOException;
 
+import eye.Music;
 import eye.main.Main;
 import eye.main.controller.mainController;
 import javafx.event.ActionEvent;
@@ -22,6 +23,8 @@ public class endPopupController {
 
 	@FXML
 	void closeBtnAction(ActionEvent event) throws IOException {
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
 		// 음악 바꾸기
 		Main.setMusic("mainMusic", true, 1);
 
@@ -42,10 +45,8 @@ public class endPopupController {
 
 		AnchorPane an = FXMLLoader.load(getClass().getResource("/eye/rest/view/rest_main_page.fxml"));
 		Scene scene = new Scene(an);
-		scene.getStylesheets()
-		.add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());				
-		scene.getStylesheets()
-		.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 		mainController.currentStage.setScene(scene);
 	}
 }

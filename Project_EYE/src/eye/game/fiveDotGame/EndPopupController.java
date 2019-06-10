@@ -1,5 +1,6 @@
 package eye.game.fiveDotGame;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,8 @@ public class EndPopupController {
 	// 다시하기 버튼 누를 때 실행
 	public void tryAgain(ActionEvent e) {
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			Parent root = FXMLLoader.load(getClass().getResource("GamePage.fxml"));
 			Scene scene = new Scene(root);
 			GamePageController.gamePageStage.setScene(scene);
@@ -36,6 +39,8 @@ public class EndPopupController {
 	@FXML
 	void backToGameSelectPage(ActionEvent event) {
 		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			Main.setMusic("mainMusic", true, 1);
 			Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(root);

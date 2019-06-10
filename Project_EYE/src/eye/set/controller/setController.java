@@ -15,6 +15,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXToggleButton;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
@@ -94,7 +95,8 @@ public class setController implements Initializable {
 	void cancel(MouseEvent event) throws IOException {
 		mainPage = (Stage) BGMToggle.getScene().getWindow();
 		if (isPause == false) {
-
+			Music effectMusic = new Music("setButtonClickEffect", false, 2);
+			effectMusic.start();
 			// 기존에 알람이 켜져 있다면 멈추는 구문
 			if (setController.clock != null) {
 
@@ -140,6 +142,8 @@ public class setController implements Initializable {
 
 	@FXML
 	void submit(MouseEvent event) throws IOException {
+		Music effectMusic = new Music("setButtonClickEffect", false, 2);
+		effectMusic.start();
 		mainPage = (Stage) BGMToggle.getScene().getWindow();
 		if (isPause == false) {
 
@@ -192,6 +196,8 @@ public class setController implements Initializable {
 	@FXML
 	void backButtonAction(MouseEvent event) throws IOException {
 		if (isPause == false) {
+			Music effectMusic = new Music("setButtonClickEffect", false, 2);
+			effectMusic.start();
 			Main.setMusic("introMusic", true, 1);
 			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 			ExplainPage.getChildren().setAll(mainPage);
@@ -279,7 +285,6 @@ public class setController implements Initializable {
 			double ran2 = Math.random();
 			intValue = (int) (ran2 * 5) + 1;
 		}
-			
 
 		switch (intValue) {
 		case 1:
@@ -341,6 +346,8 @@ public class setController implements Initializable {
 
 	@FXML
 	void restTypeIsShort(MouseEvent event) {
+		Music effectMusic = new Music("setButtonClickEffect", false, 2);
+		effectMusic.start();
 		if (isPause == false) {
 			restType = 1;
 			System.out.println("resType = short");
@@ -350,6 +357,8 @@ public class setController implements Initializable {
 
 	@FXML
 	void restTypeIsLong(MouseEvent event) {
+		Music effectMusic = new Music("setButtonClickEffect", false, 2);
+		effectMusic.start();
 		if (isPause == false) {
 			restType = 2;
 			System.out.println("resType = long");
@@ -359,6 +368,8 @@ public class setController implements Initializable {
 
 	@FXML
 	void restTypeIsRotate(MouseEvent event) {
+		Music effectMusic = new Music("setButtonClickEffect", false, 2);
+		effectMusic.start();
 		if (isPause == false) {
 			restType = 3;
 			System.out.println("resType = rotate");
@@ -445,12 +456,16 @@ public class setController implements Initializable {
 	void BGMToggleAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException {
 		if (isPause == false) {
+			Music effectMusic = new Music("setButtonClickEffect", false, 2);
+			effectMusic.start();
 			if (BGMFlag == false) {
 				System.out.println("BGM music close");
 				Main.closeMusic();
+				Music.BGMFlag = false;
 				BGMFlag = true;
 			} else {
 				System.out.println("BGM music restart");
+				Music.BGMFlag = true;
 				Main.reStartMusic(true, 1);
 				BGMFlag = false;
 			}
@@ -464,20 +479,26 @@ public class setController implements Initializable {
 	 */
 	@FXML
 	void effectToggleAction(ActionEvent event) {
-//		if (effectFlag == false) {
-//			System.out.println("effect music close");
-//			Main.closeMusic();
-//			effectFlag = true;
-//		} else {
-//			System.out.println("effect music restart");
-//			Main.reStartMusic(true);
-//			effectFlag = false;
-//		}
+		if (isPause == false) {
+			Music effectMusic = new Music("setButtonClickEffect", false, 2);
+			effectMusic.start();
+			if (effectFlag == false) {
+				System.out.println("effect music close");
+				Music.effectFlag = false;
+				effectFlag = true;
+			} else {
+				System.out.println("effect music restart");
+				Music.effectFlag = true;
+				effectFlag = false;
+			}
+		}
 	}
 
 	// 방해금지 종료시간 설정
 	@FXML
 	void setEndDisturbTime(ActionEvent event) {
+		Music effectMusic = new Music("setButtonClickEffect", false, 2);
+		effectMusic.start();
 		if (isPause == false) {
 			varEndDisturbTime = (int) combobox2.getValue();
 			System.out.println("varEndDisturbTime = " + varEndDisturbTime);
@@ -488,6 +509,8 @@ public class setController implements Initializable {
 	// 방해금지 시작시간 설정
 	@FXML
 	void setStartDisturbTime(ActionEvent event) {
+		Music effectMusic = new Music("setButtonClickEffect", false, 2);
+		effectMusic.start();
 		if (isPause == false) {
 			varStartDisturbTime = (int) combobox1.getValue();
 			System.out.println("varStartDisturbTime = " + varStartDisturbTime);
@@ -498,6 +521,8 @@ public class setController implements Initializable {
 	// 실행 주기 설정
 	@FXML
 	void setRestCycle(ActionEvent event) {
+		Music effectMusic = new Music("setButtonClickEffect", false, 2);
+		effectMusic.start();
 		if (isPause == false) {
 			String s = (String) combobox3.getValue();
 			System.out.println(s);
@@ -549,6 +574,8 @@ public class setController implements Initializable {
 	}
 
 	public void pause() {
+		Music effectMusic = new Music("setButtonClickEffect", false, 2);
+		effectMusic.start();
 		isPause = true;
 		ExplainPage.setOpacity(0.45);
 	}

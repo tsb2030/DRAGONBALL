@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXRadioButton;
 
+import eye.Music;
 import javafx.animation.PathTransition;
 import javafx.animation.Animation.Status;
 import javafx.event.Event;
@@ -168,6 +169,8 @@ public class Selectcontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					Parent root = FXMLLoader.load(getClass().getResource("zz_priorPage1.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) acpane.getScene().getWindow();
@@ -185,6 +188,8 @@ public class Selectcontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) acpane.getScene().getWindow();
@@ -202,6 +207,8 @@ public class Selectcontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					Parent root = FXMLLoader.load(getClass().getResource("Overview2.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) acpane.getScene().getWindow();

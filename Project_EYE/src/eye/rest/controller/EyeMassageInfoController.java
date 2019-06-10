@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import eye.set.controller.setController;
 import javafx.event.ActionEvent;
@@ -18,42 +19,46 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class EyeMassageInfoController implements Initializable{
-	
+public class EyeMassageInfoController implements Initializable {
+
 	public static Stage currentStage;
 
 	public static boolean isPause = false;
 
-    @FXML
-    private AnchorPane eyeMassageInfoPage;
+	@FXML
+	private AnchorPane eyeMassageInfoPage;
 
-    @FXML
-    private ImageView backBtn;
+	@FXML
+	private ImageView backBtn;
 
-    @FXML
-    private Text title;
+	@FXML
+	private Text title;
 
-    @FXML
-    private Button eyeMassageNextBtn;
+	@FXML
+	private Button eyeMassageNextBtn;
 
-    @FXML
-    void goEyeMassageRestPage(ActionEvent event) throws IOException {
-    	currentStage = (Stage) eyeMassageNextBtn.getScene().getWindow();
-    	AnchorPane ClosedEyeRestPane = null;
-    	ClosedEyeRestPane = FXMLLoader.load(getClass().getResource("/eye/rest/view/EyeMassageRest.fxml"));
-    	
-    	Scene scene = new Scene(ClosedEyeRestPane);
-		scene.getStylesheets().add(getClass().getResource("/eye/rest/view/rest.css").toExternalForm());				
+	@FXML
+	void goEyeMassageRestPage(ActionEvent event) throws IOException {
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
+		currentStage = (Stage) eyeMassageNextBtn.getScene().getWindow();
+		AnchorPane ClosedEyeRestPane = null;
+		ClosedEyeRestPane = FXMLLoader.load(getClass().getResource("/eye/rest/view/EyeMassageRest.fxml"));
+
+		Scene scene = new Scene(ClosedEyeRestPane);
+		scene.getStylesheets().add(getClass().getResource("/eye/rest/view/rest.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-		
+
 		currentStage.setScene(scene);
 		currentStage.show();
-    }
+	}
 
-    @FXML
-    void goRestMainPage1(MouseEvent event) {
-    	currentStage = (Stage) eyeMassageNextBtn.getScene().getWindow();
-    	if (isPause == false) {
+	@FXML
+	void goRestMainPage1(MouseEvent event) {
+		currentStage = (Stage) eyeMassageNextBtn.getScene().getWindow();
+		if (isPause == false) {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			if (setController.isRestStart == true) {
 				isPause = true;
 				currentStage.setOpacity(0.45);
@@ -79,19 +84,18 @@ public class EyeMassageInfoController implements Initializable{
 				}
 				// 페이지 교체
 				Scene scene = new Scene(restMainAnchorPane);
+				scene.getStylesheets().add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());
 				scene.getStylesheets()
-				.add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());				
-				scene.getStylesheets()
-				.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+						.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 				currentStage.setScene(scene);
 			}
 		}
-    }
+	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

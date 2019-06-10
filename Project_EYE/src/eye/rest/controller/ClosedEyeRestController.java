@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
 import eye.main.Main;
 import eye.main.controller.mainController;
 import eye.set.controller.setController;
@@ -25,28 +26,28 @@ import javafx.util.Duration;
 
 public class ClosedEyeRestController implements Initializable {
 
-    @FXML
-    private AnchorPane closedEyeRestPage;
+	@FXML
+	private AnchorPane closedEyeRestPage;
 
-    @FXML
-    private HBox titleBox;
+	@FXML
+	private HBox titleBox;
 
-    @FXML
-    private ImageView backBtn;
+	@FXML
+	private ImageView backBtn;
 
-    @FXML
-    private ImageView pauseBtn;
+	@FXML
+	private ImageView pauseBtn;
 
-    @FXML
-    private Text title;
+	@FXML
+	private Text title;
 
-    @FXML
-    private Text timeLabel;	
+	@FXML
+	private Text timeLabel;
 
-    @FXML
-    private Pane mainPanel;
-    
-    public static Stage currentStage;
+	@FXML
+	private Pane mainPanel;
+
+	public static Stage currentStage;
 
 	public static boolean isPause = false;
 
@@ -54,10 +55,13 @@ public class ClosedEyeRestController implements Initializable {
 
 	public Clock clock;
 	AnchorPane restMainPage;
-    @FXML//backMain
-    void goRestMainPage2(MouseEvent event) {
-    	clock.animation.stop();
-    	if (isPause == false) {
+
+	@FXML // backMain
+	void goRestMainPage2(MouseEvent event) {
+		clock.animation.stop();
+		if (isPause == false) {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			if (setController.isRestStart == true) {
 				isPause = true;
 				mainController.currentStage.setOpacity(0.45);
@@ -84,7 +88,7 @@ public class ClosedEyeRestController implements Initializable {
 				closedEyeRestPage.getChildren().setAll(restMainPage);
 			}
 		}
-    }
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -117,14 +121,14 @@ public class ClosedEyeRestController implements Initializable {
 			if (timeTmp > 0)
 				timeTmp--;
 			timeTime = timeTmp;
-			S = timeTmp+"";
+			S = timeTmp + "";
 			timeLabel.setText(S);
 			// 한 번의 휴식시간을 마쳤는가?
 			if (timeTime <= 0 && flag == false) {
-				
+
 				// 알람에 의한 종료인가?
 				if (setController.isRestStart == true) {
-					
+
 					// 휴식 알람으로 설정했던 횟수를 모두 마쳤는가?
 					if (setController.currentRestCount == setController.totalRestCount) {
 						setController.isRestStart = true;
@@ -147,13 +151,11 @@ public class ClosedEyeRestController implements Initializable {
 						// 휴식 알람으로 설정했던 횟수가 남았을 경우
 					} else {
 						clock.animation.stop();
-						currentStage = (Stage)closedEyeRestPage.getScene().getWindow();
+						currentStage = (Stage) closedEyeRestPage.getScene().getWindow();
 
 //						지금 restType이 뭐였는지?
 						if (setController.restType == 1) {// short
 							setController.isPause = false; // 뒤에 pause상태를 풀어준다.
-
-							
 
 							// 주사위를 돌린다.
 							setController.playShorRest();
@@ -161,13 +163,9 @@ public class ClosedEyeRestController implements Initializable {
 						} else if (setController.restType == 2) {
 							setController.isPause = false;
 
-							
-
 							setController.playLongRest();
 						} else {
 							setController.isPause = false;
-
-							
 
 							setController.playRotateRest();
 						}

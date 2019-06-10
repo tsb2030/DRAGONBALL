@@ -2,6 +2,7 @@ package eye.rest.controller;
 
 import java.io.IOException;
 
+import eye.Music;
 import eye.main.Main;
 import eye.set.controller.setController;
 import javafx.event.ActionEvent;
@@ -21,36 +22,40 @@ public class LookAfarInfoController {
 
 	public static boolean isPause = false;
 
-    @FXML
-    private AnchorPane lookAfarInfoPage;
+	@FXML
+	private AnchorPane lookAfarInfoPage;
 
-    @FXML
-    private ImageView backBtn;
+	@FXML
+	private ImageView backBtn;
 
-    @FXML
-    private Text title;
+	@FXML
+	private Text title;
 
-    @FXML
-    private Button lookAfarNextBtn;
+	@FXML
+	private Button lookAfarNextBtn;
 
-    @FXML
-    void goLookAfarRestPage(ActionEvent event) throws IOException {
-    	currentStage = (Stage) backBtn.getScene().getWindow();
-    	AnchorPane ClosedEyeRestPane = null;
-    	ClosedEyeRestPane = FXMLLoader.load(getClass().getResource("/eye/rest/view/LookAfarRest.fxml"));
-    	
-    	Scene scene = new Scene(ClosedEyeRestPane);
-		scene.getStylesheets().add(getClass().getResource("/eye/rest/view/rest.css").toExternalForm());				
+	@FXML
+	void goLookAfarRestPage(ActionEvent event) throws IOException {
+		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+		effectMusic.start();
+		currentStage = (Stage) backBtn.getScene().getWindow();
+		AnchorPane ClosedEyeRestPane = null;
+		ClosedEyeRestPane = FXMLLoader.load(getClass().getResource("/eye/rest/view/LookAfarRest.fxml"));
+
+		Scene scene = new Scene(ClosedEyeRestPane);
+		scene.getStylesheets().add(getClass().getResource("/eye/rest/view/rest.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-		
+
 		currentStage.setScene(scene);
 		currentStage.show();
-    }
+	}
 
-    @FXML
-    void goRestMainPage1(MouseEvent event) {
-    	currentStage = (Stage) backBtn.getScene().getWindow();
-    	if (isPause == false) {
+	@FXML
+	void goRestMainPage1(MouseEvent event) {
+		currentStage = (Stage) backBtn.getScene().getWindow();
+		if (isPause == false) {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
 			if (setController.isRestStart == true) {
 				isPause = true;
 				currentStage.setOpacity(0.45);
@@ -76,13 +81,12 @@ public class LookAfarInfoController {
 				}
 				// 페이지 교체
 				Scene scene = new Scene(restMainAnchorPane);
+				scene.getStylesheets().add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());
 				scene.getStylesheets()
-				.add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());				
-				scene.getStylesheets()
-				.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+						.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 				currentStage.setScene(scene);
 			}
 		}
-    }
+	}
 
 }

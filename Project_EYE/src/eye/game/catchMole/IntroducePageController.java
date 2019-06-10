@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
+import eye.Music;
 import eye.main.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -21,46 +22,50 @@ import javafx.scene.layout.Pane;
 public class IntroducePageController implements Initializable {
 
 	@FXML
-	AnchorPane gamePage,startPage,gameMainPage;
+	AnchorPane gamePage, startPage, gameMainPage;
 
 	@FXML
 	Pane nextBtn;
 
-    @FXML
-    ImageView backBtn;
-    
-    @Override
+	@FXML
+	ImageView backBtn;
+
+	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-    	System.out.println("java version: "+System.getProperty("java.version"));
+		System.out.println("java version: " + System.getProperty("java.version"));
 		System.out.println("javafx.version: " + System.getProperty("javafx.version"));
 		nextBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					gamePage = FXMLLoader.load(getClass().getResource("DodugeGame2.fxml"));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				
+
 				startPage.getChildren().setAll(gamePage);
 			}
 		});
-		
+
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
 				try {
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
 					Main.setMusic("mainMusic", true, 1);
 					gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
-				} catch (IOException  e) {
+				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				
+
 				startPage.getChildren().setAll(gameMainPage);
 			}
 		});
-		
+
 	}
 
 }
