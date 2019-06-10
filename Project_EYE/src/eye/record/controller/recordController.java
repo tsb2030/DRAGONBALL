@@ -39,6 +39,9 @@ public class recordController implements Initializable{
 	@FXML // 라벨
 	Label zigzagTotal,totalRest,totalExercise,todayRest,todayExercise,orderedTotal,mobiusTotal,fiveDotTotal,findPictureTotal,catchMoleTotal,catchBallTotal;
 	
+	@FXML
+	Label mobCorrect,mobWinningAvg,zigCorrect,zigWinningAvg;
+	
 	//db에서 가져올 값 예시
 	String todayEx = "0"; // 오늘 운동
 	String todayRe = "0"; // 오늘 휴식
@@ -51,6 +54,10 @@ public class recordController implements Initializable{
 	String catchMoleTot = "0"; // 두더지 토탈
 	String catchballTot = "1"; // 캐치볼 토탈
 	String findPictureTot = "3"; // 같은그림 찾기 토탈
+	String mobCor = "0";
+	String mobWinAvg = "0";
+	String zigCor = "0";
+	String zigWinAvg = "0";
 	
 	
 	
@@ -120,6 +127,10 @@ public class recordController implements Initializable{
 		zigzagTotal.setText(zigzagTot);
 		
 		// 지그재그 정답 횟수 가져오기
+		zigCorrect.setText(zigCor);
+		
+		// 지그재그 승률
+		zigWinningAvg.setText(zigWinAvg);
 		
 		// 뫼비우스 전체 게임 횟수 가져오기
 		try {
@@ -132,6 +143,10 @@ public class recordController implements Initializable{
 		mobiusTotal.setText(mobiusTot);
 		
 		// 뫼비우스 정답 횟수 가져오기
+		mobCorrect.setText(mobCor);
+		
+		// 뫼비우스 승률
+		mobWinningAvg.setText(mobWinAvg);
 		
 		// 5점 카드 트레이닝 전체 게임 횟수 가져오기
 		try {
