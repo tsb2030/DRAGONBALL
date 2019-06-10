@@ -159,10 +159,10 @@ public class dbconn {
 		case "follow":
 			kinds = "exercise";
 			break;
-		case "eyeMove1":
+		case "zigzag":
 			kinds = "exercise";
 			break;
-		case "eyeMove2":
+		case "mobius":
 			kinds = "exercise";
 			break;
 		case "fiveDot":
