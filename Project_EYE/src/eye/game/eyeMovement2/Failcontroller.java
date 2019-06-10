@@ -3,6 +3,7 @@ package eye.game.eyeMovement2;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.db.AchievementDB;
 import eye.Music;
 import eye.main.Main;
 import javafx.event.ActionEvent;
@@ -16,6 +17,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Failcontroller implements Initializable {
+	
+	AchievementDB aDB = new AchievementDB();
 
 	@FXML
 	private AnchorPane FailPage;
@@ -25,10 +28,14 @@ public class Failcontroller implements Initializable {
 
 	@FXML
 	private Button restartPopUpBtn;
+	
+	public static boolean eyeAchievementVoidValue = false;
 
 	// 종료 후 게임 목록으로 변환 메소드
 	@FXML
 	void closePopUp(ActionEvent event) {
+		eyeAchievementVoidValue = true;
+		aDB.ach();
 		try {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
@@ -52,6 +59,8 @@ public class Failcontroller implements Initializable {
 	// 트레이닝 다시 시작 버튼
 	@FXML
 	void numGameRestart(ActionEvent event) {
+		eyeAchievementVoidValue = true;
+		aDB.ach();
 		try {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();

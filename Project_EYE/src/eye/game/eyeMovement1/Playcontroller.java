@@ -1,6 +1,7 @@
 package eye.game.eyeMovement1;
 
 import eye.Music;
+import eye.db.AchievementDB;
 import eye.main.Main;
 
 import java.io.IOException;
@@ -29,6 +30,8 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Playcontroller implements Initializable {
+	AchievementDB aDB = new AchievementDB();
+
 	@FXML
 	private AnchorPane eyePlayPage1;
 
@@ -46,6 +49,8 @@ public class Playcontroller implements Initializable {
 	int cyclecnt = 20;
 	int count2 = 0;
 	double tmp = 0;
+	public static boolean eyeAchievementNoviceValue = false;
+	public static boolean eyeAchievementFreshValue = false;
 
 	@FXML
 	private Text score;
@@ -70,7 +75,7 @@ public class Playcontroller implements Initializable {
 				try {
 					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 					effectMusic.start();
-					Parent root = FXMLLoader.load(getClass().getResource("strip_priorPage3.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("strip_priorPage1.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) eyePlayPage1.getScene().getWindow();
 					primaryStage.setScene(scene);
@@ -162,6 +167,9 @@ public class Playcontroller implements Initializable {
 			}
 
 			if (count2 == 20 && tmp >= i - 0.015) {
+				eyeAchievementNoviceValue = true;
+				eyeAchievementFreshValue = true;
+				aDB.ach();
 				showEndPopUp();
 				score.setText(String.valueOf(count2));
 

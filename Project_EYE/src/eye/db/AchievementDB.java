@@ -1,6 +1,5 @@
 package eye.db;
 
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -9,11 +8,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.ResourceBundle;
 
-import javafx.fxml.Initializable;
+import eye.game.eyeMovement1.Playcontroller;
+import eye.game.eyeMovement1.Successcontroller;
+import eye.game.eyeMovement2.Failcontroller;
 
-public class AchievementDB implements Initializable{
+public class AchievementDB {
 	
 	public void ach() {
 		Connection c = null;
@@ -44,7 +44,7 @@ public class AchievementDB implements Initializable{
 		int Monthcnt2 = 0;
 		int Weekcnt = 0;
 		int Weekcnt2 = 0;
-
+		
 		SimpleDateFormat Day = new SimpleDateFormat("yyyy-MM-dd");
 		Date currentTime = new Date();
 		String Java_Day = Day.format(currentTime);
@@ -56,7 +56,7 @@ public class AchievementDB implements Initializable{
 
 		try {
 			Class.forName("org.sqlite.JDBC");
-			c = DriverManager.getConnection("jdbc:sqlite:Achievement.db");
+			c = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
 
 			stmt = c.createStatement();
 
@@ -377,7 +377,7 @@ public class AchievementDB implements Initializable{
 			}
 			rs13.close();
 
-			if (Easycnt != 5) {
+			if (Easycnt != 5 && Successcontroller.eyeAchievementEasyValue == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 13;";
 				stmt.executeUpdate(sql);
 			} else if (Easycnt == 5) {
@@ -391,7 +391,7 @@ public class AchievementDB implements Initializable{
 			}
 			rs14.close();
 
-			if (Novicecnt != 1) {
+			if (Novicecnt != 1 && Playcontroller.eyeAchievementNoviceValue == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 14;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 14;";
@@ -407,7 +407,7 @@ public class AchievementDB implements Initializable{
 			}
 			rs15.close();
 
-			if (Freshcnt != 20) {
+			if (Freshcnt != 20 &&(Playcontroller.eyeAchievementFreshValue == true || eye.game.eyeMovement2.Playcontroller.eyeAchievementFreshValue == true)) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 15;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 15;";
@@ -423,7 +423,7 @@ public class AchievementDB implements Initializable{
 			}
 			rs16.close();
 
-			if (Colorcnt != 7) {
+			if (Colorcnt != 7 && Successcontroller.eyeAchievementEasyValue == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 16;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 16;";
@@ -439,7 +439,7 @@ public class AchievementDB implements Initializable{
 			}
 			rs17.close();
 
-			if (Voidcnt != 7) {
+			if (Voidcnt != 7 && Failcontroller.eyeAchievementVoidValue == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 17;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 17;";
@@ -505,8 +505,5 @@ public class AchievementDB implements Initializable{
 		System.out.println("tsuccess");
 	}
 
-	@Override
-	public void initialize(URL location, ResourceBundle resources) {
-		ach();
-	}
+
 }

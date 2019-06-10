@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import eye.Music;
+import eye.db.AchievementDB;
 import eye.game.eyeMovement1.Playcontroller;
 import eye.main.Main;
 import javafx.event.ActionEvent;
@@ -17,6 +18,8 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Successcontroller implements Initializable {
+	AchievementDB aDB = new AchievementDB();
+
 	@FXML
 	private Button closeBtn;
 
@@ -25,9 +28,13 @@ public class Successcontroller implements Initializable {
 
 	@FXML
 	private AnchorPane SuccessPage, eyePlayPage1;
+	
+	public static boolean eyeAchievementEasyValue = false;
 
 	@FXML
 	void numGameRestart(ActionEvent event) {
+		eyeAchievementEasyValue = true;
+		aDB.ach();
 		try {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
@@ -35,7 +42,7 @@ public class Successcontroller implements Initializable {
 			Scene scene = new Scene(root);
 
 			Playcontroller.currentStage.setScene(scene);
-			Playcontroller.currentStage.setTitle("시선이동트레이닝1");
+			
 
 			Stage primaryStage = (Stage) SuccessPage.getScene().getWindow();
 			primaryStage.close();
@@ -49,6 +56,8 @@ public class Successcontroller implements Initializable {
 
 	@FXML
 	void closePopUp(ActionEvent event) {
+		eyeAchievementEasyValue = true;
+		aDB.ach();
 		try {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
