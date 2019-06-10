@@ -5,6 +5,7 @@ import java.io.IOException;
 import eye.Music;
 import eye.main.Main;
 import eye.main.controller.mainController;
+import eye.set.controller.setController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +24,7 @@ public class endPopupController {
 
 	@FXML
 	void closeBtnAction(ActionEvent event) throws IOException {
+		setController.isRestStart = false;
 		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 		effectMusic.start();
 		// 음악 바꾸기

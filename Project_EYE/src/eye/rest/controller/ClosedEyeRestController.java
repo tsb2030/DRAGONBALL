@@ -77,6 +77,7 @@ public class ClosedEyeRestController implements Initializable {
 				}
 			} else {
 				try {
+					setController.isRestStart = false;
 					// 음악 바꾸기
 					Main.setMusic("mainMusic", true, 1);
 					// 교체할 페이지인 rest_main_page.fxml를 가져와서 closedEyeIntroPage에 넣어준다.
@@ -131,7 +132,6 @@ public class ClosedEyeRestController implements Initializable {
 
 					// 휴식 알람으로 설정했던 횟수를 모두 마쳤는가?
 					if (setController.currentRestCount == setController.totalRestCount) {
-						setController.isRestStart = true;
 						clock.animation.stop();
 						currentStage = (Stage) timeLabel.getScene().getWindow();
 						FXMLLoader endPopupLoader = new FXMLLoader(
