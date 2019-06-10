@@ -144,12 +144,42 @@ public class recordController implements Initializable{
 		fiveDotTotal.setText(fiveDotTot);
 		
 		// 순서대로 전체 횟수
+		try {
+			orderedTot = Integer.toString(db.getTotalEx("follow"));
+			System.out.println("orderedTot = "+orderedTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		orderedTotal.setText(orderedTot);
+		
 		// 캐치볼 전체 횟수
+		try {
+			catchballTot = Integer.toString(db.getTotalEx("catchBall"));
+			System.out.println("catchballTot = "+catchballTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		catchBallTotal.setText(catchballTot);
+		
 		// 두더지 전체 횟수
+		try {
+			catchMoleTot = Integer.toString(db.getTotalEx("catchMole"));
+			System.out.println("catchMoleTot = "+catchMoleTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		catchMoleTotal.setText(catchMoleTot);
 		// 같은 그림 찾기 전체 횟수
+		try {
+			findPictureTot = Integer.toString(db.getTotalEx("findPicture"));
+			System.out.println("findPictureTot = "+findPictureTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		findPictureTotal.setText(findPictureTot);
 		
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
