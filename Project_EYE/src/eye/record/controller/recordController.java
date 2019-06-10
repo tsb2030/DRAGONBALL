@@ -125,7 +125,7 @@ public class recordController implements Initializable{
 			public void handle(Event event) {
 				// TODO Auto-generated method stub
 				try {
-					Main.setMusic("introMusic", true);
+					Main.setMusic("introMusic", true, 1);
 					Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 					Scene scene = new Scene(recordPage);
 					scene.getStylesheets()

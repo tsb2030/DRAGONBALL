@@ -125,7 +125,7 @@ public class setController implements Initializable {
 			 * 
 			 * 창을 이전 페이지(main)페이지로 가게 함
 			 */
-			Main.setMusic("introMusic", true);
+			Main.setMusic("introMusic", true, 1);
 			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 			ExplainPage.getChildren().setAll(mainPage);
 			System.out.println();
@@ -176,7 +176,7 @@ public class setController implements Initializable {
 			 * 
 			 * 창을 이전 페이지(main)페이지로 가게 함
 			 */
-			Main.setMusic("introMusic", true);
+			Main.setMusic("introMusic", true, 1);
 			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 			ExplainPage.getChildren().setAll(mainPage);
 			System.out.println();
@@ -192,7 +192,7 @@ public class setController implements Initializable {
 	@FXML
 	void backButtonAction(MouseEvent event) throws IOException {
 		if (isPause == false) {
-			Main.setMusic("introMusic", true);
+			Main.setMusic("introMusic", true, 1);
 			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 			ExplainPage.getChildren().setAll(mainPage);
 		}
@@ -451,7 +451,7 @@ public class setController implements Initializable {
 				BGMFlag = true;
 			} else {
 				System.out.println("BGM music restart");
-				Main.reStartMusic(true);
+				Main.reStartMusic(true, 1);
 				BGMFlag = false;
 			}
 		}

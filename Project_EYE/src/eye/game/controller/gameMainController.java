@@ -80,7 +80,7 @@ public class gameMainController implements Initializable {
 			@Override
 			public void handle(Event event) {
 				try {
-					Main.setMusic("introMusic", true);
+					Main.setMusic("introMusic", true, 1);
 					mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -99,7 +99,7 @@ public class gameMainController implements Initializable {
 				// TODO Auto-generated method stub
 
 				try {
-					Main.setMusic("gameMusic", true);
+					Main.setMusic("gameMusic", true, 1);
 					followPage = FXMLLoader.load(getClass().getResource("/eye/game/follow/gameChoice.fxml"));
 
 				} catch (IOException  e) {
@@ -116,7 +116,7 @@ public class gameMainController implements Initializable {
 			@Override
 			public void handle(Event event) {
 				try {
-					Main.setMusic("gameMusic", true);
+					Main.setMusic("gameMusic", true, 1);
 					fiveDotPage = FXMLLoader.load(getClass().getResource("/eye/game/fiveDotGame/StartPage.fxml"));
 
 				} catch (IOException  e) {
@@ -132,7 +132,7 @@ public class gameMainController implements Initializable {
 			@Override
 			public void handle(Event event) {
 				try {
-					Main.setMusic("gameMusic", true);
+					Main.setMusic("gameMusic", true, 1);
 					findPictureStart = FXMLLoader.load(getClass().getResource("/eye/game/findPicture/StartPage.fxml"));
 
 				} catch (IOException  e) {
@@ -145,7 +145,7 @@ public class gameMainController implements Initializable {
 
 	@FXML
 	void catchBallGameAction(MouseEvent event) throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
-		Main.setMusic("gameMusic", true);
+		Main.setMusic("gameMusic", true, 1);
 		catchBallPage = FXMLLoader.load(getClass().getResource("/eye/game/catchBall/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
 	}
@@ -153,7 +153,7 @@ public class gameMainController implements Initializable {
 
     @FXML
     void moleGameAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		Main.setMusic("gameMusic", true);
+		Main.setMusic("gameMusic", true, 1);
 		catchBallPage = FXMLLoader.load(getClass().getResource("/eye/game/catchMole/IntroducePage.fxml"));
 		gameMainPage.getChildren().setAll(catchBallPage);
     }
@@ -161,14 +161,14 @@ public class gameMainController implements Initializable {
 
     @FXML
     void zigzagtrainigAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		Main.setMusic("gameMusic", true);
+		Main.setMusic("gameMusic", true, 1);
 		zigzagPage = FXMLLoader.load(getClass().getResource("/eye/game/eyeMovement2/zz_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(zigzagPage);
     }
 
     @FXML
     void striptrainingAction(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		Main.setMusic("gameMusic", true);
+		Main.setMusic("gameMusic", true, 1);
 		stripPage = FXMLLoader.load(getClass().getResource("/eye/game/eyeMovement1/strip_priorPage1.fxml"));
 		gameMainPage.getChildren().setAll(stripPage);
     }

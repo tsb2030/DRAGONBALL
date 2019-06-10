@@ -71,7 +71,7 @@ public class ClosedEyeInfoController implements Initializable {
 				AnchorPane restMainAnchorPane = null;
 				try {
 					// 음악 바꾸기
-					Main.setMusic("mainMusic", true);
+					Main.setMusic("mainMusic", true, 1);
 					// 교체할 페이지인 rest_main_page.fxml를 가져와서 closedEyeIntroPage에 넣어준다.
 					restMainAnchorPane = FXMLLoader.load(getClass().getResource("/eye/rest/view/rest_main_page.fxml"));
 				} catch (IOException e) {

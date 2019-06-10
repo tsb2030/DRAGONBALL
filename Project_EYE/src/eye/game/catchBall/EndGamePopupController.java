@@ -59,7 +59,7 @@ public class EndGamePopupController implements Initializable {
 	void goMainButtonAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
 
-		Main.setMusic("mainMusic", true);
+		Main.setMusic("mainMusic", true, 1);
 		// go main
 		try {
 			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));

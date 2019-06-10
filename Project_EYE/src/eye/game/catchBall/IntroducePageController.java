@@ -61,7 +61,7 @@ public class IntroducePageController implements Initializable  {
    			@Override
    			public void handle(Event event) {
    				try {
-					Main.setMusic("mainMusic", true);
+					Main.setMusic("mainMusic", true, 1);
    					gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
    				} catch (IOException  e) {
    					// TODO Auto-generated catch block
