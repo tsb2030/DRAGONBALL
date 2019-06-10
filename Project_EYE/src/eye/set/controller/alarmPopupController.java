@@ -73,6 +73,15 @@ public class alarmPopupController implements Initializable{
 		
     }
     
+    @FXML
+    void noMoreAlarmAction(ActionEvent event) {
+    	setController.isPause = false;
+    	setController.isStop = true;
+    	//현재 창을 닫는다.
+		Stage stage = (Stage)doAlarm.getScene().getWindow();
+		stage.close();
+    }
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		

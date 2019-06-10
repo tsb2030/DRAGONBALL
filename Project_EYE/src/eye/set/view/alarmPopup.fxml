@@ -31,7 +31,7 @@
          </font>
       </Label>
       <Line endX="16.0" layoutX="292.0" layoutY="62.0" startX="-100.0" stroke="#707070" />
-      <Button id="shadow" fx:id="doNotAlarm1" layoutX="332.0" layoutY="375.0" mnemonicParsing="false" onAction="#doNotAlarmAction" prefHeight="51.0" prefWidth="117.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="알람 그만" textFill="WHITE">
+      <Button id="shadow" fx:id="doNotAlarm1" layoutX="332.0" layoutY="375.0" mnemonicParsing="false" onAction="#noMoreAlarmAction" prefHeight="51.0" prefWidth="117.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="알람 그만" textFill="WHITE">
          <font>
             <Font name="a소나무M" size="21.0" />
          </font>

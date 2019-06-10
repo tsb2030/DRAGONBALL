@@ -66,6 +66,7 @@ public class setController implements Initializable {
 	boolean tomarrowFlag = false;
 
 	public static boolean isPause = false; // 현재 pause상태인지?
+	public static boolean isStop = false; // 알람 stop변수
 
 	public static boolean isRestStart = false;
 	public static boolean isGameStart = false;
@@ -96,6 +97,7 @@ public class setController implements Initializable {
 	void cancel(MouseEvent event) throws IOException {
 		mainPage = (Stage) BGMToggle.getScene().getWindow();
 		if (isPause == false) {
+			isStop = false;
 			Music effectMusic = new Music("setButtonClickEffect", false, 2);
 			effectMusic.start();
 			// 기존에 알람이 켜져 있다면 멈추는 구문
@@ -112,10 +114,10 @@ public class setController implements Initializable {
 			setController.clock = new Clock();
 			varStartDisturbTime = 8;// 기본 알람 방지 종료 시간 = 8(다음날)
 			varEndDisturbTime = 21;// 기본 알람 방지 시작 시간 = 9(저녁 9시)
-			tomarrowFlag = true;
+//			tomarrowFlag = true;
 			today = currentDate.getDayOfMonth();
 			nextDay = currentDate.getDayOfMonth() + 1;
-			restCycle = 6;// 기본 알람 주기 = 3시간
+			restCycle = 1;// 기본 알람 주기 = 3시간
 			restType = 1;
 			startDisturbTime = varStartDisturbTime;
 			endDisturbTime = varEndDisturbTime;
@@ -143,11 +145,11 @@ public class setController implements Initializable {
 
 	@FXML
 	void submit(MouseEvent event) throws IOException {
-		Music effectMusic = new Music("setButtonClickEffect", false, 2);
-		effectMusic.start();
 		mainPage = (Stage) BGMToggle.getScene().getWindow();
 		if (isPause == false) {
-
+			Music effectMusic = new Music("setButtonClickEffect", false, 2);
+			effectMusic.start();
+			isStop = false;
 			System.out.println("submit");
 			// 기존에 알람이 켜져 있다면 멈추는 구문
 			if (setController.clock != null) {
@@ -157,20 +159,20 @@ public class setController implements Initializable {
 				}
 			}
 
-			if (varEndDisturbTime == 0) // 기본 알람 방지 시작 시간 = 9(저녁 9시)
-				varEndDisturbTime = 21;
 			if (varStartDisturbTime == 0) // 기본 알람 방지 종료 시간 = 8(다음날)
 				varStartDisturbTime = 8;
+			if (varEndDisturbTime == 0) // 기본 알람 방지 시작 시간 = 9(저녁 9시)
+				varEndDisturbTime = 21;
 			if (restCycle == 0) // 기본 알람 주기 = 3시간
-				restCycle = 6;
+				restCycle = 1;
 			if (restType == 0) // 없으면 1 = 짧음
 				restType = 1;
 
-			if (varStartDisturbTime > varEndDisturbTime) { // 다음 날짜로 알람이 설정 되었는지?
-				tomarrowFlag = true;
-				today = currentDate.getDayOfMonth();
-				nextDay = currentDate.getDayOfMonth() + 1;
-			}
+//			if (varStartDisturbTime > varEndDisturbTime) { // 다음 날짜로 알람이 설정 되었는지?
+//				tomarrowFlag = true;
+//				today = currentDate.getDayOfMonth();
+//				nextDay = currentDate.getDayOfMonth() + 1;
+//			}
 			startDisturbTime = varStartDisturbTime;
 			endDisturbTime = varEndDisturbTime;
 
@@ -606,6 +608,10 @@ public class setController implements Initializable {
 				System.out.println("방해 종료 시각: " + endDisturbTime);
 				System.out.println("현재 초 : " + currentTime.getSecond());
 				System.out.println("알람 시작 초 : " + (currentTime.getSecond() + restCycle * 3));
+				if (isStop == true) {
+					clock.animation.stop();
+					clock = null;
+				}
 				if (maintainRestEvent) {
 					if (isRestStart == false && isGameStart == false) {
 						// alarmPopup등장
@@ -625,67 +631,67 @@ public class setController implements Initializable {
 					}
 				}
 				// 알람이 내일까지로 설정되어있는지?
-				if (tomarrowFlag) {
-					if (!((currnetTimeHour > startDisturbTime)
-							|| ((nextDay == currentDate.getDayOfMonth()) && (currnetTimeHour < endDisturbTime))))
-						if (restCycle != 0) {
-							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
-							if (isRestStart == false && isGameStart == false) {
-								if (timeTmp % (restCycle * 10) == 0) {
-									// alarmPopup등장
-									// 현재 윈도우의 투명도를 0.45로 하고
-									// 현재 윈도우의 버튼 이벤트를 중지한다.
-									isPause = true;
-									FXMLLoader fxmlLoader = new FXMLLoader(
-											Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
-									try {
-										AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
-										Scene scene = new Scene(alarmPopupPane);
-										Stage stage = new Stage();
-										stage.setScene(scene);
-										stage.show();
-									} catch (IOException e1) {
-										// TODO Auto-generated catch block
-										e1.printStackTrace();
-									}
+//				if (tomarrowFlag) {
+//					if (!((currnetTimeHour > startDisturbTime)
+//							|| ((nextDay == currentDate.getDayOfMonth()) && (currnetTimeHour < endDisturbTime))))
+//						if (restCycle != 0) {
+//							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
+//							if (isRestStart == false && isGameStart == false) {
+//								if (timeTmp % (restCycle * 10) == 0) {
+//									// alarmPopup등장
+//									// 현재 윈도우의 투명도를 0.45로 하고
+//									// 현재 윈도우의 버튼 이벤트를 중지한다.
+//									isPause = true;
+//									FXMLLoader fxmlLoader = new FXMLLoader(
+//											Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
+//									try {
+//										AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
+//										Scene scene = new Scene(alarmPopupPane);
+//										Stage stage = new Stage();
+//										stage.setScene(scene);
+//										stage.show();
+//									} catch (IOException e1) {
+//										// TODO Auto-generated catch block
+//										e1.printStackTrace();
+//									}
+//								}
+//							} else {
+//								maintainRestEvent = true;
+//							}
+//						}
+//				} else {
+				if (!((currnetTimeHour > startDisturbTime) && (currnetTimeHour < endDisturbTime))) {
+					// 알람 설정 주기를 설정하였는가?
+					if (restCycle != 0) {
+						// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
+						System.out.println("flag가 false면알람 주기 시작" + flag);
+						if (isRestStart == false && isGameStart == false) {
+							if (timeTmp % (restCycle * 10) == 0) {
+								// alarmPopup등장
+								isPause = true;
+								FXMLLoader fxmlLoader = new FXMLLoader(
+										Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
+								try {
+									AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
+									Scene scene = new Scene(alarmPopupPane);
+									Stage stage = new Stage();
+									stage.setScene(scene);
+									stage.show();
+								} catch (IOException e1) {
+									// TODO Auto-generated catch block
+									e1.printStackTrace();
 								}
-							} else {
-								maintainRestEvent = true;
 							}
-						}
-				} else {
-					if (!((currnetTimeHour > startDisturbTime) && (currnetTimeHour < endDisturbTime))) {
-						// 알람 설정 주기를 설정하였는가?
-						if (restCycle != 0) {
-							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
-							System.out.println("flag가 false면알람 주기 시작" + flag);
-							if (isRestStart == false && isGameStart == false) {
-								if (timeTmp % (restCycle * 10) == 0) {
-									// alarmPopup등장
-									isPause = true;
-									FXMLLoader fxmlLoader = new FXMLLoader(
-											Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
-									try {
-										AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
-										Scene scene = new Scene(alarmPopupPane);
-										Stage stage = new Stage();
-										stage.setScene(scene);
-										stage.show();
-									} catch (IOException e1) {
-										// TODO Auto-generated catch block
-										e1.printStackTrace();
-									}
-								}
-							} else {
-								maintainRestEvent = true;
+						} else {
+							maintainRestEvent = true;
 
-								// 게임 끝나고 실행 할 수 있게 만들기
-								// 게임이 종료될 때마다 if문을 추가해서 여기서 if문을 실행 했다면 해당 변수를 true값을 바꿔저서 그 게임잉 종료된후 여기에 휴식
-								// 프로그램을 실행 할 수 있도록 구현한다.
-							}
+							// 게임 끝나고 실행 할 수 있게 만들기
+							// 게임이 종료될 때마다 if문을 추가해서 여기서 if문을 실행 했다면 해당 변수를 true값을 바꿔저서 그 게임잉 종료된후 여기에 휴식
+							// 프로그램을 실행 할 수 있도록 구현한다.
 						}
 					}
 				}
+//				}
 			}));
 			animation.setCycleCount(Timeline.INDEFINITE);
 			animation.play();
