@@ -12,6 +12,7 @@ import com.jfoenix.controls.JFXButton;
 
 import eye.Music;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,14 +39,13 @@ public class EndGamePopupController implements Initializable {
 
 		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 		effectMusic.start();
-		
+
 		try {
 			Parent CatchballGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));
 			Scene scene = new Scene(CatchballGame);
 
 			// css
-			scene.getStylesheets()
-					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
 			CatchballGameController.currentStage.setScene(scene);
 			CatchballGameController.currentStage.setTitle("CatchballGame");
@@ -65,16 +65,16 @@ public class EndGamePopupController implements Initializable {
 
 		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 		effectMusic.start();
-		
+
 		Main.setMusic("mainMusic", true, 1);
 		// go main
 		try {
+			setController.isGameStart = false;
 			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(selectSpeedPage);
 
 			// css
-			scene.getStylesheets()
-					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������
 

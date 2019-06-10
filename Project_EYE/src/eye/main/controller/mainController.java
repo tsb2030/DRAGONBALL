@@ -35,6 +35,7 @@ public class mainController implements Initializable {
 
 	// 게임 버튼을 눌렀을 때 동작할 메소드
 	public void goGameMain() {
+		currentStage = (Stage) main_record.getScene().getWindow();
 		try {
 			// 음악 바꾸기
 			Main.setMusic("mainMusic", true, 1);
@@ -56,6 +57,7 @@ public class mainController implements Initializable {
 	}
 
 	public void goRecord() {
+		currentStage = (Stage) main_record.getScene().getWindow();
 		Parent recordPage = null;
 		try {
 			// 음악 바꾸기
@@ -82,6 +84,7 @@ public class mainController implements Initializable {
 	}
 
 	public void goRest() {
+		currentStage = (Stage) main_record.getScene().getWindow();
 		Parent restPage = null;
 		try {
 			// 음악 바꾸기
