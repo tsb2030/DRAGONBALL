@@ -1,13 +1,12 @@
 package eye.game.eyeMovement1;
 
-import eye.Music;
-import eye.db.AchievementDB;
-import eye.main.Main;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import eye.Music;
+import eye.db.AchievementDB;
+import eye.main.Main;
 import javafx.animation.PathTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -17,8 +16,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.ArcTo;
@@ -88,6 +88,11 @@ public class Playcontroller implements Initializable {
 
 		});
 	}
+	@FXML
+    void speedSound(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
+    }
 
 	public void Moving() {
 

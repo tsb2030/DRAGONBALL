@@ -1,16 +1,13 @@
 package eye.game.eyeMovement2;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import eye.Music;
 import eye.db.AchievementDB;
 import eye.main.Main;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.Optional;
-import java.util.ResourceBundle;
-
 import javafx.animation.PathTransition;
-import javafx.animation.Animation.Status;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -19,11 +16,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.image.ImageView;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -32,12 +27,11 @@ import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 public class Playcontroller implements Initializable {
 	AchievementDB aDB = new AchievementDB();
-	
+
 	@FXML
 	private AnchorPane eyePlayPage;
 
@@ -209,6 +203,12 @@ public class Playcontroller implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	@FXML
+	void speedSound(MouseEvent event) {
+		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
+		effectMusic.start();
 	}
 
 	@FXML

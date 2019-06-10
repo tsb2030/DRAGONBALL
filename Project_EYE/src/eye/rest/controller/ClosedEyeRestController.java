@@ -2,6 +2,9 @@ package eye.rest.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import eye.Music;
@@ -23,9 +26,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import eye.db.*;
 public class ClosedEyeRestController implements Initializable {
-
+	dbconn db = new dbconn();
+	
 	@FXML
 	private AnchorPane closedEyeRestPage;
 
@@ -126,7 +130,16 @@ public class ClosedEyeRestController implements Initializable {
 			timeLabel.setText(S);
 			// 한 번의 휴식시간을 마쳤는가?
 			if (timeTime <= 0 && flag == false) {
-
+				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+				Date currentTime = new Date();
+				String cTime = sDateForm.format(currentTime);
+				
+				try {
+					db.insertTimes("ClosedEyeRest", cTime);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				// 알람에 의한 종료인가?
 				if (setController.isRestStart == true) {
 
