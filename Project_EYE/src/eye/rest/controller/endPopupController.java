@@ -23,7 +23,7 @@ public class endPopupController {
 	@FXML
 	void closeBtnAction(ActionEvent event) throws IOException {
 		// 음악 바꾸기
-		Main.setMusic("mainMusic", true);
+		Main.setMusic("mainMusic", true, 1);
 
 		Stage stage = (Stage) restEndingPopup.getScene().getWindow();
 		stage.close();

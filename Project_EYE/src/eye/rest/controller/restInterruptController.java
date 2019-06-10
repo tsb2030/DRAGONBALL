@@ -53,7 +53,7 @@ public class restInterruptController implements Initializable{
     void alarmOutButtonAction(ActionEvent event) throws IOException {
     	setController.isRestStart = false;
     	// 음악 바꾸기
-		Main.setMusic("mainMusic", true);
+		Main.setMusic("mainMusic", true, 1);
     	
     	Stage stage = (Stage) alarmOutButton.getScene().getWindow();
     	stage.close();

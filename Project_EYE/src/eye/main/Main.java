@@ -31,7 +31,7 @@ public class Main extends Application {
 			primaryStage.show();
 			
 			//introMusic 시작
-			mainMusic = new Music("introMusic", true);
+			mainMusic = new Music("introMusic", true, 1);
 			mainMusic.start();
 //			
 			//사용할 음악 목록들을 selectedSong이라는 ArrayList<Song>에 하나씩 넣어준다.
@@ -47,9 +47,9 @@ public class Main extends Application {
 		}
 	}
 	
-	public static void setMusic(String name, boolean isLoop) {
+	public static void setMusic(String name, boolean isLoop, int musicType) {
 		mainMusic.close();
-		mainMusic = new Music(name, isLoop);
+		mainMusic = new Music(name, isLoop, musicType);
 		mainMusic.start();
 	}
 	public static String currentMusicName;
@@ -59,8 +59,8 @@ public class Main extends Application {
 		mainMusic.close();
 	}
 	
-	public static void reStartMusic(boolean isLoop) {
-		mainMusic = new Music(currentMusicName, isLoop);
+	public static void reStartMusic(boolean isLoop, int musicType) {
+		mainMusic = new Music(currentMusicName, isLoop, musicType);
 		mainMusic.start();
 	}
 

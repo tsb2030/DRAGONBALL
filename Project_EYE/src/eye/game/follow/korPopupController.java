@@ -50,7 +50,7 @@ public class korPopupController implements Initializable{
 		// 팝업창 닫기
 		public void closePopUp() {
 			try {
-				Main.setMusic("mainMusic", true);
+				Main.setMusic("mainMusic", true, 1);
 				Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) closeBtn.getScene().getWindow();
