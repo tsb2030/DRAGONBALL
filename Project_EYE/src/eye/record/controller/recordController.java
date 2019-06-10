@@ -26,22 +26,26 @@ import javafx.stage.Stage;
 import eye.db.*;
 public class recordController implements Initializable{
 	dbconn db = new dbconn();
-	
+
 	@FXML
 	private LineChart recordChart;
-	
+
 	@FXML
 	private ImageView backBtn;
-	
+
 	@FXML
 	private AnchorPane ExplainPage,achieveMainPage;
-	
+
 	@FXML // 라벨
 	Label zigzagTotal,totalRest,totalExercise,todayRest,todayExercise,orderedTotal,mobiusTotal,fiveDotTotal,findPictureTotal,catchMoleTotal,catchBallTotal;
-	
+
 	@FXML
 	Label mobCorrect,mobWinningAvg,zigCorrect,zigWinningAvg;
-	
+
+	//휴식 라벨
+	@FXML
+	Label closeEye,seeFar,massage,rollEye,winkEye,longBreak;
+
 	//db에서 가져올 값 예시
 	String todayEx = "0"; // 오늘 운동
 	String todayRe = "0"; // 오늘 휴식
@@ -58,9 +62,17 @@ public class recordController implements Initializable{
 	String mobWinAvg = "0";
 	String zigCor = "0";
 	String zigWinAvg = "0";
-	
-	
-	
+
+	// 휴식 값 예시
+	String clolseEyeTotal = "0";
+	String seeFarTotal = "0";
+	String massageTotal = "0";
+	String rollEyeTotal = "0";
+	String winkEyeTotal = "0";
+	String longBreakTotal = "0";
+
+
+
 	// 주간 날짜 배열 예시
 	private String[] weekDays = {"5/1","5/2","5/3","5/4","5/5","5/6","5/7"};
 
@@ -90,7 +102,7 @@ public class recordController implements Initializable{
 		SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
 		Date currentTime = new Date();
 		String cTime = sDateForm.format(currentTime);
-		
+
 		// 전체 휴식 / 오늘 휴식
 		try {
 			totalRe = Integer.toString(db.getTotalRest());
@@ -102,7 +114,7 @@ public class recordController implements Initializable{
 		}
 		totalRest.setText(totalRe);
 		todayRest.setText(todayRe);
-		
+
 		// 전체 게임 / 오늘 게임
 		try {
 			totalEx = Integer.toString(db.getTotalEx());
@@ -114,8 +126,8 @@ public class recordController implements Initializable{
 		}
 		totalExercise.setText(totalEx);
 		todayExercise.setText(todayEx);
-		
-		
+
+
 		// 지그재그 전체 게임 횟수 가져오기
 		try {
 			zigzagTot = Integer.toString(db.getTotalEx("zigzag"));
@@ -125,13 +137,13 @@ public class recordController implements Initializable{
 			e1.printStackTrace();
 		}
 		zigzagTotal.setText(zigzagTot);
-		
+
 		// 지그재그 정답 횟수 가져오기
 		zigCorrect.setText(zigCor);
-		
+
 		// 지그재그 승률
 		zigWinningAvg.setText(zigWinAvg);
-		
+
 		// 뫼비우스 전체 게임 횟수 가져오기
 		try {
 			mobiusTot = Integer.toString(db.getTotalEx("mobius"));
@@ -141,13 +153,13 @@ public class recordController implements Initializable{
 			e1.printStackTrace();
 		}
 		mobiusTotal.setText(mobiusTot);
-		
+
 		// 뫼비우스 정답 횟수 가져오기
 		mobCorrect.setText(mobCor);
-		
+
 		// 뫼비우스 승률
 		mobWinningAvg.setText(mobWinAvg);
-		
+
 		// 5점 카드 트레이닝 전체 게임 횟수 가져오기
 		try {
 			fiveDotTot = Integer.toString(db.getTotalEx("fiveDot"));
@@ -157,7 +169,7 @@ public class recordController implements Initializable{
 			e1.printStackTrace();
 		}
 		fiveDotTotal.setText(fiveDotTot);
-		
+
 		// 순서대로 전체 횟수
 		try {
 			orderedTot = Integer.toString(db.getTotalEx("follow"));
@@ -167,7 +179,7 @@ public class recordController implements Initializable{
 			e1.printStackTrace();
 		}
 		orderedTotal.setText(orderedTot);
-		
+
 		// 캐치볼 전체 횟수
 		try {
 			catchballTot = Integer.toString(db.getTotalEx("catchBall"));
@@ -177,7 +189,7 @@ public class recordController implements Initializable{
 			e1.printStackTrace();
 		}
 		catchBallTotal.setText(catchballTot);
-		
+
 		// 두더지 전체 횟수
 		try {
 			catchMoleTot = Integer.toString(db.getTotalEx("catchMole"));
@@ -196,7 +208,26 @@ public class recordController implements Initializable{
 			e1.printStackTrace();
 		}
 		findPictureTotal.setText(findPictureTot);
-		
+
+		// 휴식 total
+		// 눈 꼭 감기
+		closeEye.setText(clolseEyeTotal);
+
+		// 멀리보기
+		seeFar.setText(seeFarTotal);
+
+		// 눈 마사지
+		massage.setText(massageTotal);
+
+		// 눈 굴리기
+		rollEye.setText(rollEyeTotal);
+
+		// 빨리 깜빡이
+		winkEye.setText(winkEyeTotal);
+
+		// 롱 브레이크
+		longBreak.setText(longBreakTotal);
+
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -207,7 +238,7 @@ public class recordController implements Initializable{
 					Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 					Scene scene = new Scene(recordPage);
 					scene.getStylesheets()
-							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage primaryStage = (Stage) backBtn.getScene().getWindow();
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
@@ -327,25 +358,25 @@ public class recordController implements Initializable{
 	}
 
 
-			// 시선이동트레이닝 - 지그재그 record 팝업 띄우기
-			public void eyeMovementButton2(ActionEvent e) {
-				FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/ZigzagPopUp.fxml"));
-				
-				try {
+	// 시선이동트레이닝 - 지그재그 record 팝업 띄우기
+	public void eyeMovementButton2(ActionEvent e) {
+		FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/eye/record/view/ZigzagPopUp.fxml"));
+
+		try {
 			AnchorPane anotherPage = (AnchorPane) fxmlloader.load();
 			Scene Scene = new Scene(anotherPage);
 			Scene.getStylesheets()
-					.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
+			.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
 			Stage stage = new Stage();
 			stage.setScene(Scene);
 			stage.show();
-	//
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-	
-				}
-			}
+			//
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+
+		}
+	}
 
 
 
@@ -410,13 +441,13 @@ public class recordController implements Initializable{
 		}
 
 	}
-	
+
 	public void AchievementButton(ActionEvent e) {
 		try {
 			Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/record/view/achieveMain.fxml"));
 			Scene scene = new Scene(recordPage);
 			scene.getStylesheets()
-					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+			.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) backBtn.getScene().getWindow();
 			primaryStage.setScene(scene);
 
@@ -424,20 +455,20 @@ public class recordController implements Initializable{
 		}
 
 	}
-	
+
 	public void ExamButton(ActionEvent e) {
 		try {
 			Parent recordPage = FXMLLoader.load(getClass().getResource("/eye/record/view/ExamExplain.fxml"));
 			Scene scene = new Scene(recordPage);
 			scene.getStylesheets()
-					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+			.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) backBtn.getScene().getWindow();
 			primaryStage.setScene(scene);
 		} catch (IOException e1) {
 		}
 
 	}
-	
+
 
 
 
