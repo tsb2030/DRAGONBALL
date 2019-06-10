@@ -2,7 +2,9 @@ package eye.game.follow;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -160,9 +162,14 @@ public static Stage currentStage;
 										String timeStr = timer.getText();
 										double val = Double.parseDouble(timeStr);
 										System.out.println("val = "+val);
-										db.insert("6/7", "korGame", val);
+										SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+										Date currentTime = new Date();
+										String cTime = sDateForm.format(currentTime);
+										db.insertKorGame(cTime, "korGame", val);
+										db.insertTimes("follow", cTime);
 										currentStage = (Stage) timer.getScene().getWindow();
 										result = timer.getText();
+										System.out.println("창전환");
 										FXMLLoader endGamePopup = new FXMLLoader(getClass().getResource("korPopup.fxml"));
 										try {
 											AnchorPane anotherPage = (AnchorPane) endGamePopup.load();
@@ -173,6 +180,7 @@ public static Stage currentStage;
 											stage.setScene(endGamePopupScene);
 											stage.show();
 										} catch (IOException e) {
+											System.out.println("오류남 : "+e);
 										}
 									}
 								}

@@ -4,6 +4,7 @@ import java.io.IOException;
 import eye.db.*;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import eye.main.Main;
@@ -76,8 +77,18 @@ public class korPopupController implements Initializable{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			first.setText("1위 : "+Double.toString(recordData[0]));
-			second.setText("2위 : "+Double.toString(recordData[1]));
-			third.setText("3위 : "+Double.toString(recordData[2]));
+			System.out.println(Arrays.toString(recordData));
+			if(recordData[0]!=null)
+				first.setText("1위 : "+Double.toString(recordData[0]));
+			else
+				first.setText("1위 : --:--");
+			if(recordData[1]!=null)
+				second.setText("2위 : "+Double.toString(recordData[1]));
+			else
+				second.setText("2위 : --:--");
+			if(recordData[2]!=null)
+				third.setText("3위 : "+Double.toString(recordData[2]));
+			else
+				third.setText("3위 : --:--");
 		}
 }

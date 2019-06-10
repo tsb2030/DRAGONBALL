@@ -2,6 +2,9 @@ package eye.record.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import eye.main.Main;
@@ -20,9 +23,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+import eye.db.*;
 public class recordController implements Initializable{
-
+	dbconn db = new dbconn();
 	
 	@FXML
 	private LineChart recordChart;
@@ -77,11 +80,23 @@ public class recordController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 
+		SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+		Date currentTime = new Date();
+		String cTime = sDateForm.format(currentTime);
+		
 		// 전체 휴식 / 오늘 휴식
 		totalRest.setText(totalRe);
 		todayRest.setText(todayRe);
 		
 		// 전체 게임 / 오늘 게임
+		try {
+			totalEx = Integer.toString(db.getTotalEx());
+			todayEx = Integer.toString(db.getTodayEx(cTime));
+			System.out.println("totalEx = "+totalEx+" todayEx= "+todayEx);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		totalExercise.setText(totalEx);
 		todayExercise.setText(todayEx);
 		
