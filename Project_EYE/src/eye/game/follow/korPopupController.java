@@ -81,14 +81,14 @@ public class korPopupController implements Initializable{
 			if(recordData[0]!=null)
 				first.setText("1위 : "+Double.toString(recordData[0]));
 			else
-				first.setText("1위 : --:--");
+				first.setText("1위 : --.--");
 			if(recordData[1]!=null)
 				second.setText("2위 : "+Double.toString(recordData[1]));
 			else
-				second.setText("2위 : --:--");
+				second.setText("2위 : --.--");
 			if(recordData[2]!=null)
 				third.setText("3위 : "+Double.toString(recordData[2]));
 			else
-				third.setText("3위 : --:--");
+				third.setText("3위 : --.--");
 		}
 }

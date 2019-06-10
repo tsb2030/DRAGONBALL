@@ -85,6 +85,14 @@ public class recordController implements Initializable{
 		String cTime = sDateForm.format(currentTime);
 		
 		// 전체 휴식 / 오늘 휴식
+		try {
+			totalRe = Integer.toString(db.getTotalRest());
+			todayRe = Integer.toString(db.getTodayRest(cTime));
+			System.out.println("totalRe = "+totalRe+" todayRe= "+todayRe);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		totalRest.setText(totalRe);
 		todayRest.setText(todayRe);
 		
@@ -100,7 +108,15 @@ public class recordController implements Initializable{
 		totalExercise.setText(totalEx);
 		todayExercise.setText(todayEx);
 		
+		
 		// 지그재그 전체 게임 횟수 가져오기
+		try {
+			zigzagTot = Integer.toString(db.getTotalEx());
+			System.out.println("totalEx = "+totalEx+" todayEx= "+todayEx);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		zigzagTotal.setText(zigzagTot);
 		// 지그재그 정답 횟수 가져오기
 		

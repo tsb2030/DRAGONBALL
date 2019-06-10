@@ -101,6 +101,31 @@ public class dbconn {
 		
 		return n;
 	}
+	
+	//게임 종류별 총 횟수 가져오기
+	public int getTotalEx(String name) throws SQLException {
+		System.out.println("getTodayEx연결");
+		int n =0;
+		try {
+			getClass().forName("org.sqlite.JDBC");
+			conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+			String sql = "select count(*) as totalEx from times where name=?";
+			System.out.println("sql= "+sql+" name="+name);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				n = rs.getInt("totalEx");
+			}
+		} catch (Exception e) {
+			System.out.println(" today exception = "+e);
+		}
+		stmt.close();
+		conn.close();
+		
+		return n;
+	}
+	
 	//실행 횟수 입력
 	public void insertTimes(String name,String date) throws SQLException {
 		System.out.println("insertTimes연결");
