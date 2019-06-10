@@ -39,7 +39,7 @@
                            <children>
                               <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="/image/restList/closeEye.png" />
+                                    <Image url="/image/restList/eyeWarm.png" />
                                  </image>
                               </ImageView>
                               <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="손바닥 온찜질" textFill="#252525" />
@@ -145,28 +145,7 @@
                               <Insets bottom="20.0" left="100.0" right="100.0" />
                            </VBox.margin>
                         </Pane>
-                        <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
-                           <children>
-                              <ImageView fitHeight="180.0" fitWidth="300.0" layoutX="38.0" layoutY="35.0" pickOnBounds="true">
-                                 <image>
-                                    <Image url="/image/restList/closeEye.png" />
-                                 </image>
-                              </ImageView>
-                              <Label layoutX="381.0" layoutY="40.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="Long Break" textFill="#252525" />
-                              <TextFlow fx:id="text6" layoutX="381.0" layoutY="90.0" lineSpacing="5.0" prefHeight="120.0" prefWidth="500.0" styleClass="fontStyleL" textAlignment="LEFT" />
-                              <ImageView fx:id="longBreakBtn" fitHeight="60.0" fitWidth="100.0" layoutX="941.0" layoutY="95.0" pickOnBounds="true" styleClass="goBtnShadow">
-                                 <image>
-                                    <Image url="/image/GObtn.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                           <padding>
-                              <Insets bottom="250.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="100.0" right="100.0" />
-                           </VBox.margin>
-                        </Pane>
+                        
                      </children>
                   </VBox>
                </content>
