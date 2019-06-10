@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 
 import eye.Music;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -79,6 +80,7 @@ public class restController implements Initializable {
 	public void goClosedEyeInfo() {
 		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			setController.isRestStart = true;
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기
@@ -96,6 +98,7 @@ public class restController implements Initializable {
 	public void goLookAfarInfo() {
 		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			setController.isRestStart = true;
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기
@@ -113,6 +116,7 @@ public class restController implements Initializable {
 	public void goEyeMassageInfo() {
 		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			setController.isRestStart = true;
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기
@@ -130,6 +134,7 @@ public class restController implements Initializable {
 	public void goEyeRollingInfo() {
 		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			setController.isRestStart = true;
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기
@@ -147,6 +152,7 @@ public class restController implements Initializable {
 	public void goWarmEyeInfo() {
 		currentStage = (Stage) backBtn.getScene().getWindow();
 		try {
+			setController.isRestStart = true;
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기

@@ -75,6 +75,7 @@ public class EyeRollingInfoController implements Initializable {
 			} else {
 				AnchorPane restMainAnchorPane = null;
 				try {
+					setController.isRestStart = false;
 					// 음악 바꾸기
 					Main.setMusic("mainMusic", true, 1);
 					// 교체할 페이지인 rest_main_page.fxml를 가져와서 closedEyeIntroPage에 넣어준다.

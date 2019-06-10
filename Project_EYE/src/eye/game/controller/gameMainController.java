@@ -10,6 +10,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 import eye.Music;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -105,6 +106,7 @@ public class gameMainController implements Initializable {
 				// TODO Auto-generated method stub
 
 				try {
+					setController.isGameStart = true;
 					Main.setMusic("gameMusic", true, 1);
 					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 					effectMusic.start();
@@ -125,6 +127,7 @@ public class gameMainController implements Initializable {
 			@Override
 			public void handle(Event event) {
 				try {
+					setController.isGameStart = true;
 					Main.setMusic("gameMusic", true, 1);
 					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 					effectMusic.start();
@@ -144,6 +147,7 @@ public class gameMainController implements Initializable {
 			@Override
 			public void handle(Event event) {
 				try {
+					setController.isGameStart = true;
 					Main.setMusic("gameMusic", true, 1);
 					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 					effectMusic.start();
@@ -209,6 +213,7 @@ public class gameMainController implements Initializable {
 	@FXML
 	void catchBallGameAction(MouseEvent event)
 			throws IOException, UnsupportedAudioFileException, LineUnavailableException, URISyntaxException {
+		setController.isGameStart = true;
 		Main.setMusic("gameMusic", true, 1);
 		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 		effectMusic.start();
@@ -220,6 +225,7 @@ public class gameMainController implements Initializable {
 	@FXML
 	void moleGameAction(MouseEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+		setController.isGameStart = true;
 		Main.setMusic("gameMusic", true, 1);
 		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 		effectMusic.start();
@@ -231,6 +237,7 @@ public class gameMainController implements Initializable {
 	@FXML
 	void zigzagtrainigAction(MouseEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+		setController.isGameStart = true;
 		Main.setMusic("gameMusic", true, 1);
 		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 		effectMusic.start();
@@ -242,6 +249,7 @@ public class gameMainController implements Initializable {
 	@FXML
 	void striptrainingAction(MouseEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+		setController.isGameStart = true;
 		Main.setMusic("gameMusic", true, 1);
 		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 		effectMusic.start();

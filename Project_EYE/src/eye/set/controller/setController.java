@@ -68,6 +68,7 @@ public class setController implements Initializable {
 	public static boolean isPause = false; // 현재 pause상태인지?
 
 	public static boolean isRestStart = false;
+	public static boolean isGameStart = false;
 
 	// 만약 운동중에 휴식 알람을 울려야 한다면
 	public static boolean maintainRestEvent = false;
@@ -606,7 +607,7 @@ public class setController implements Initializable {
 				System.out.println("현재 초 : " + currentTime.getSecond());
 				System.out.println("알람 시작 초 : " + (currentTime.getSecond() + restCycle * 3));
 				if (maintainRestEvent) {
-					if (flag == false) {
+					if (isRestStart == false && isGameStart == false) {
 						// alarmPopup등장
 						isPause = true;
 						FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
@@ -629,7 +630,7 @@ public class setController implements Initializable {
 							|| ((nextDay == currentDate.getDayOfMonth()) && (currnetTimeHour < endDisturbTime))))
 						if (restCycle != 0) {
 							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
-							if (!flag) {
+							if (isRestStart == false && isGameStart == false) {
 								if (timeTmp % (restCycle * 10) == 0) {
 									// alarmPopup등장
 									// 현재 윈도우의 투명도를 0.45로 하고
@@ -658,7 +659,7 @@ public class setController implements Initializable {
 						if (restCycle != 0) {
 							// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
 							System.out.println("flag가 false면알람 주기 시작" + flag);
-							if (!flag) {
+							if (isRestStart == false && isGameStart == false) {
 								if (timeTmp % (restCycle * 10) == 0) {
 									// alarmPopup등장
 									isPause = true;
