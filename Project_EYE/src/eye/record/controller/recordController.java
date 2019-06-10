@@ -111,28 +111,75 @@ public class recordController implements Initializable{
 		
 		// 지그재그 전체 게임 횟수 가져오기
 		try {
-			zigzagTot = Integer.toString(db.getTotalEx());
-			System.out.println("totalEx = "+totalEx+" todayEx= "+todayEx);
+			zigzagTot = Integer.toString(db.getTotalEx("zigzag"));
+			System.out.println("zigzagTot = "+zigzagTot);
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		zigzagTotal.setText(zigzagTot);
+		
 		// 지그재그 정답 횟수 가져오기
 		
 		// 뫼비우스 전체 게임 횟수 가져오기
+		try {
+			mobiusTot = Integer.toString(db.getTotalEx("mobius"));
+			System.out.println("mobiusTot = "+mobiusTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		mobiusTotal.setText(mobiusTot);
+		
 		// 뫼비우스 정답 횟수 가져오기
 		
 		// 5점 카드 트레이닝 전체 게임 횟수 가져오기
+		try {
+			fiveDotTot = Integer.toString(db.getTotalEx("fiveDot"));
+			System.out.println("fiveDotTot = "+fiveDotTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		fiveDotTotal.setText(fiveDotTot);
+		
 		// 순서대로 전체 횟수
+		try {
+			orderedTot = Integer.toString(db.getTotalEx("follow"));
+			System.out.println("orderedTot = "+orderedTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		orderedTotal.setText(orderedTot);
+		
 		// 캐치볼 전체 횟수
+		try {
+			catchballTot = Integer.toString(db.getTotalEx("catchBall"));
+			System.out.println("catchballTot = "+catchballTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		catchBallTotal.setText(catchballTot);
+		
 		// 두더지 전체 횟수
+		try {
+			catchMoleTot = Integer.toString(db.getTotalEx("catchMole"));
+			System.out.println("catchMoleTot = "+catchMoleTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		catchMoleTotal.setText(catchMoleTot);
 		// 같은 그림 찾기 전체 횟수
+		try {
+			findPictureTot = Integer.toString(db.getTotalEx("findPicture"));
+			System.out.println("findPictureTot = "+findPictureTot);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		findPictureTotal.setText(findPictureTot);
 		
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
