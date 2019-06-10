@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import eye.Music;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -45,6 +46,7 @@ public class Explaincontroller implements Initializable {
 			public void handle(Event event) {
 
 				try {
+					setController.isGameStart = false;
 					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 					effectMusic.start();
 					Main.setMusic("mainMusic", true, 1);

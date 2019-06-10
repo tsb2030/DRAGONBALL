@@ -7,6 +7,7 @@ import eye.Music;
 import eye.db.AchievementDB;
 import eye.game.eyeMovement2.Playcontroller;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,6 +59,7 @@ public class Successcontroller implements Initializable {
 	void closePopUp(ActionEvent event) {
 		eyeAchievementcolorValue = true;
 		try {
+			setController.isGameStart = false;
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			Main.setMusic("mainMusic", true, 1);

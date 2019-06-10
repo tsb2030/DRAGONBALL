@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,6 +52,7 @@ public class korPopupController implements Initializable{
 		// 팝업창 닫기
 		public void closePopUp() {
 			try {
+				setController.isGameStart = false;
 				Main.setMusic("mainMusic", true, 1);
 				Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 				Scene scene = new Scene(root);
