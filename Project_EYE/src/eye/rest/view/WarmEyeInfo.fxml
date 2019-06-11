@@ -37,9 +37,9 @@
 				<Pane prefHeight="660.0" prefWidth="1280.0">
 					<children>
 						<Line endX="225.0" layoutX="570.0" layoutY="-1.0" startX="-98.0" stroke="#707070" strokeWidth="3.0" />
-						<Pane id="backBorder" layoutX="140.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" />
-						<Label alignment="CENTER" layoutX="250.0" layoutY="150.0" prefHeight="50.0" prefWidth="785.0" styleClass="fontStyleL" text="손바닥을 비벼 열을 발생시켜 눈을 찜질합니다. " textAlignment="CENTER" textFill="#252525" />
-						<Label layoutX="510.0" layoutY="345.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="제한시간은 54초 입니다." textAlignment="CENTER" textFill="#252525" />
+						<Pane id="backBorder" layoutX="140.0" layoutY="50.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" />
+						<Label alignment="CENTER" layoutX="250.0" layoutY="100.0" prefHeight="50.0" prefWidth="785.0" styleClass="fontStyleL" text="손바닥을 비벼 열을 발생시켜 눈을 찜질합니다. " textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="510.0" layoutY="370.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="제한시간은 54초 입니다." textAlignment="CENTER" textFill="#252525" />
 						<Pane id="shadow" layoutX="525.0" layoutY="539.0" prefHeight="70.0" prefWidth="200.0">
                      <children>
                         <Button id="shadow" fx:id="warmEyeNextBtn" layoutX="3.0" layoutY="8.0" mnemonicParsing="false" onAction="#goWarmEyeRestPage" prefHeight="70.0" prefWidth="194.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" text="시작" textFill="WHITE">
@@ -49,7 +49,9 @@
                         </Button>
                      </children>
 						</Pane>
-						<Label layoutX="350.0" layoutY="250.0" prefHeight="50.0" prefWidth="700.0" styleClass="fontStyleL" text="직접 손을 사용하므로 손을 깨끗이 씻고 진행해주세요." textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="320.0" layoutY="170.0" prefHeight="50.0" prefWidth="700.0" styleClass="fontStyleL" text="온찜질 후 눈물막의 지방층이 증가하고 기름샘이 열리게 됩니다." textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="330.0" layoutY="240.0" prefHeight="50.0" prefWidth="700.0" styleClass="fontStyleL" text="기름샘이 열리고 지방층이 증가하면 눈의 건조함이 줄어듭니다." textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="350.0" layoutY="310.0" prefHeight="50.0" prefWidth="700.0" styleClass="fontStyleL" text="직접 손을 사용하므로 손을 깨끗이 씻고 진행해주세요." textAlignment="CENTER" textFill="#252525" />
 						<Label layoutX="300.0" layoutY="435.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="효과 : 이 트레이닝을 꾸준히 하면 눈가의 혈관을 확장시켜 혈액순환을" textAlignment="CENTER" textFill="#252525" />
 						<Label layoutX="365.0" layoutY="475.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="원활하게 해주고, 혈류가 증가되어 노폐물의 빠른 배출을 돕습니다." textAlignment="CENTER" textFill="#252525" />
 					</children>

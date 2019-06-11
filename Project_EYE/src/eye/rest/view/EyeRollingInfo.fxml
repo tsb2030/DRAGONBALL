@@ -39,7 +39,7 @@
 						<Line endX="225.0" layoutX="570.0" layoutY="-1.0" startX="-98.0" stroke="#707070" strokeWidth="3.0" />
 						<Pane id="backBorder" layoutX="140.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" />
 						<Label alignment="CENTER" layoutX="250.0" layoutY="150.0" prefHeight="50.0" prefWidth="785.0" styleClass="fontStyleL" text="눈을 꼭 감고 뜨면서 수정체를 조절해 초점을 맞추는 트레이닝입니다. " textAlignment="CENTER" textFill="#252525" />
-						<Label layoutX="250.0" layoutY="345.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="이렇게 하면 눈 주위에 있는 외안근이 움직이면서 눈의 혈액 순환이 좋아집니다." textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="250.0" layoutY="220.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="이렇게 하면 눈 주위에 있는 외안근이 움직이면서 눈의 혈액 순환이 좋아집니다." textAlignment="CENTER" textFill="#252525" />
 						<Pane id="shadow" layoutX="525.0" layoutY="539.0" prefHeight="70.0" prefWidth="200.0">
                      <children>
                         <Button id="shadow" fx:id="eyeRollingNextBtn" layoutX="3.0" layoutY="8.0" mnemonicParsing="false" onAction="#goEyeRollingRestPage" prefHeight="70.0" prefWidth="194.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" text="시작" textFill="WHITE">
@@ -49,7 +49,8 @@
                         </Button>
                      </children>
 						</Pane>
-						<Label layoutX="410.0" layoutY="250.0" prefHeight="50.0" prefWidth="465.0" styleClass="fontStyleL" text="얼굴은 정면을 보고 눈동자만 크게 돌려주세요." textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="410.0" layoutY="290.0" prefHeight="50.0" prefWidth="465.0" styleClass="fontStyleL" text="얼굴은 정면을 보고 눈동자만 크게 돌려주세요." textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="510.0" layoutY="360.0" prefHeight="50.0" prefWidth="465.0" styleClass="fontStyleL" text="제한시간은 16초입니다." textAlignment="CENTER" textFill="#252525" />
 						<Label layoutX="350.0" layoutY="435.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="효과 : 이 트레이닝을 꾸준히 하면 눈 주위 근육이 단련되고," textAlignment="CENTER" textFill="#252525" />
 						<Label layoutX="510.0" layoutY="475.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="혈액순환이 좋아집니다." textAlignment="CENTER" textFill="#252525" />
 					</children>

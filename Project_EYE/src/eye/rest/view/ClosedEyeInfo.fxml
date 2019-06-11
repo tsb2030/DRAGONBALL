@@ -38,8 +38,8 @@
 					<children>
 						<Line endX="225.0" layoutX="570.0" layoutY="-1.0" startX="-98.0" stroke="#707070" strokeWidth="3.0" />
 						<Pane id="backBorder" layoutX="140.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" />
-						<Label alignment="CENTER" layoutX="250.0" layoutY="150.0" prefHeight="50.0" prefWidth="785.0" styleClass="fontStyleL" text="눈을 꼭 감고 뜨면서 수정체를 조절해 초점을 맞추는 트레이닝입니다. " textAlignment="CENTER" textFill="#252525" />
-						<Label layoutX="525.0" layoutY="345.0" prefHeight="50.0" prefWidth="465.0" styleClass="fontStyleL" text="제한시간은 40초입니다." textAlignment="CENTER" textFill="#252525" />
+						<Label alignment="CENTER" layoutX="250.0" layoutY="130.0" prefHeight="50.0" prefWidth="785.0" styleClass="fontStyleL" text="눈을 꼭 감고 뜨면서 수정체를 조절해 초점을 맞추는 트레이닝입니다. " textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="500.0" layoutY="370.0" prefHeight="50.0" prefWidth="465.0" styleClass="fontStyleL" text="제한시간은 40초입니다." textAlignment="CENTER" textFill="#252525" />
 						<Pane id="shadow" layoutX="525.0" layoutY="539.0" prefHeight="70.0" prefWidth="200.0">
                      <children>
                         <Button id="shadow" fx:id="ClosedEyeNextBtn" layoutX="3.0" layoutY="8.0" mnemonicParsing="false" onAction="#goClosedEyeRestPage" prefHeight="70.0" prefWidth="194.0" style="-fx-background-color: #bb4b43; -fx-background-radius: 50;" text="시작" textFill="WHITE">
@@ -49,7 +49,9 @@
                         </Button>
                      </children>
 						</Pane>
-						<Label layoutX="435.0" layoutY="250.0" prefHeight="50.0" prefWidth="465.0" styleClass="fontStyleL" text="머리는 고정한 채 눈으로만 따라가 주세요." textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="290.0" layoutY="200.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="눈을 반복해서 감고 뜨면 수정체를 조절하여 초점을 맞추는 모양체근과" textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="370.0" layoutY="250.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="눈 주위의 안륜근이 단련되고 눈물 분비가 촉진됩니다." textAlignment="CENTER" textFill="#252525" />
+						<Label layoutX="435.0" layoutY="310.0" prefHeight="50.0" prefWidth="465.0" styleClass="fontStyleL" text="머리는 고정한 채 눈으로만 따라가 주세요." textAlignment="CENTER" textFill="#252525" />
 						<Label layoutX="345.0" layoutY="435.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="효과 : 이 트레이닝을 꾸준히 하면 눈 주위 근육이 단련되고," textAlignment="CENTER" textFill="#252525" />
 						<Label layoutX="485.0" layoutY="475.0" prefHeight="50.0" prefWidth="852.0" styleClass="fontEffect" text="안구 건조증에 도움이 됩니다." textAlignment="CENTER" textFill="#252525" />
 					</children>
