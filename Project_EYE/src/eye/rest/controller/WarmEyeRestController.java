@@ -60,9 +60,9 @@ public class WarmEyeRestController implements Initializable {
 
 	@FXML
 	private Pane mainPanel;
-
-	@FXML
-	void goRestMainPage2(MouseEvent event) {
+    @FXML
+    void goRestMainPage2(MouseEvent event) {
+    	System.out.println("move?");
 		clock.animation.stop();
 		if (isPause == false) {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
@@ -81,20 +81,35 @@ public class WarmEyeRestController implements Initializable {
 					e1.printStackTrace();
 				}
 			} else {
+				System.out.println("else");
 				try {
+					setController.isGameStart = false;
 					setController.isRestStart = false;
 					// 음악 바꾸기
 					Main.setMusic("mainMusic", true, 1);
 					// 교체할 페이지인 rest_main_page.fxml를 가져와서 closedEyeIntroPage에 넣어준다.
+					System.out.println("set rest_main_page.fxml");
 					restMainPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/rest_main_page.fxml"));
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 				// 페이지 교체
+				System.out.println("get children setAll restMainPage");
 				warmEyeRestPage.getChildren().setAll(restMainPage);
+				System.out.println("end!");
 			}
 		}
-	}
+    }
+    @FXML
+    void exitButtonMouseEnteredAction(MouseEvent event) {
+    	System.out.println("this is work??");
+    }
+    
+    @FXML
+    void pauseButtonMouseClickedAction(MouseEvent event) {
+    	System.out.println("puaseButton!!");
+    }
+
 
 	public class Clock extends Pane {
 
@@ -203,6 +218,6 @@ public class WarmEyeRestController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		clock = new Clock();
-
+System.out.println("야호");
 	}
 }

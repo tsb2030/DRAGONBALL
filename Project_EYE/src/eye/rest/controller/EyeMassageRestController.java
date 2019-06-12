@@ -82,6 +82,7 @@ public class EyeMassageRestController implements Initializable {
 				}
 			} else {
 				try {
+					setController.isGameStart = false;
 					setController.isRestStart = false;
 					// 음악 바꾸기
 					Main.setMusic("mainMusic", true, 1);

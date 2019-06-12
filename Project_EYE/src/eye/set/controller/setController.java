@@ -437,7 +437,10 @@ public class setController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// 처음에 켜진 상태이기 때문에 바꿈..
 		setToggleColors();
-
+		setToggleLocation();
+		//토글 위치 검사 함수
+		
+		
 		for (int i = 0; i < 24; i++) {
 			timeList.add(i);
 		}
@@ -450,7 +453,18 @@ public class setController implements Initializable {
 		// 실행주기 간격 콤보박스에 timeInterval배열 값들 추가
 		combobox3.setItems(intervalList);
 	}
-
+	
+	/*
+	 * 토글위치 재조정 함수
+	 */
+	public void setToggleLocation() {
+		if(Music.BGMFlag == false) {
+			BGMToggle.fire();
+		}
+		if(Music.effectFlag == false) {
+			effectToggle.fire();
+		}
+	}
 	/**
 	 * 
 	 * t --> BGMToggleFlag

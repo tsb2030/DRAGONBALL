@@ -18,7 +18,7 @@
 			<children>
 				<HBox fx:id="titleBox" prefHeight="60.0" prefWidth="1280.0">
 					<children>
-						<ImageView id="btn" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#goRestMainPage2" pickOnBounds="true" preserveRatio="true">
+						<ImageView id="btn" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#goRestMainPage2" onMouseEntered="#exitButtonMouseEnteredAction" pickOnBounds="true" preserveRatio="true">
 							<HBox.margin>
 								<Insets bottom="10.0" left="10.0" top="10.0" />
 							</HBox.margin>
@@ -26,7 +26,7 @@
 								<Image url="/image/backarrow.png" />
 							</image>
 						</ImageView>
-						<ImageView id="btn" fx:id="pauseBtn" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+						<ImageView id="btn" fx:id="pauseBtn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#pauseButtonMouseClickedAction" pickOnBounds="true" preserveRatio="true">
 							<image>
 								<Image url="@pause.png" />
 							</image>
@@ -63,7 +63,7 @@
 				<Pane fx:id="mainPanel" prefHeight="660.0" prefWidth="1280.0">
                <children>
                   <Line endX="223.0" endY="-1.52587890625E-5" layoutX="578.0" layoutY="-1.0" startX="-100.0" stroke="#707070" strokeWidth="3.0" />
-                  <ImageView fitHeight="600.0" fitWidth="600.0" layoutX="430.0" layoutY="-120.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="398.0" fitWidth="301.0" layoutX="462.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="/rest/gif/eyeWarm.gif" />
                      </image>
