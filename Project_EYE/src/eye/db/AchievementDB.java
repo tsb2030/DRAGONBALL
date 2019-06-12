@@ -14,7 +14,25 @@ import eye.game.eyeMovement1.Successcontroller;
 import eye.game.eyeMovement2.Failcontroller;
 
 public class AchievementDB {
-	
+	public static double WeekPlay = 0;
+	public static double WeekRest = 0;
+	public static double MonthPlay = 0;
+	public static double MonthRest = 0;
+	public static double Record = 0;
+	public static double Lucky = 0;
+	public static double Human = 0;
+	public static double Double = 0;
+	public static double Evolution = 0;
+	public static double Saryunan = 0;
+	public static double Easy = 0;
+	public static double Novice = 0;
+	public static double Fresh = 0;
+	public static double Color = 0;
+	public static double Void = 0;
+	public static double Perfect = 0;
+	public static double Mistake = 0;
+	public static double Dangerous = 0;
+
 	public void ach() {
 		Connection c = null;
 		Statement stmt = null;
@@ -44,7 +62,7 @@ public class AchievementDB {
 		int Monthcnt2 = 0;
 		int Weekcnt = 0;
 		int Weekcnt2 = 0;
-		
+
 		SimpleDateFormat Day = new SimpleDateFormat("yyyy-MM-dd");
 		Date currentTime = new Date();
 		String Java_Day = Day.format(currentTime);
@@ -407,7 +425,8 @@ public class AchievementDB {
 			}
 			rs15.close();
 
-			if (Freshcnt != 20 &&(Playcontroller.eyeAchievementFreshValue == true || eye.game.eyeMovement2.Playcontroller.eyeAchievementFreshValue == true)) {
+			if (Freshcnt != 20 && (Playcontroller.eyeAchievementFreshValue == true
+					|| eye.game.eyeMovement2.Playcontroller.eyeAchievementFreshValue == true)) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 15;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 15;";
@@ -505,5 +524,129 @@ public class AchievementDB {
 		System.out.println("tsuccess");
 	}
 
+	public void achcnt() {
+		Connection c = null;
+		Statement stmt = null;
 
+		try {
+			Class.forName("org.sqlite.JDBC");
+			c = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+
+			stmt = c.createStatement();
+
+			ResultSet rs = stmt.executeQuery("SELECT * FROM achievement where ID = 3;");
+			while (rs.next()) {
+				WeekPlay = rs.getInt("Playcount");
+			}
+			rs.close();
+
+			ResultSet rs1 = stmt.executeQuery("SELECT * FROM achievement where ID = 4;");
+			while (rs1.next()) {
+				WeekRest = rs1.getInt("Playcount");
+			}
+			rs1.close();
+
+			ResultSet rs2 = stmt.executeQuery("SELECT * FROM achievement where ID = 5;");
+			while (rs2.next()) {
+				MonthPlay = rs2.getInt("Playcount");
+			}
+			rs2.close();
+
+			ResultSet rs3 = stmt.executeQuery("SELECT * FROM achievement where ID = 6;");
+			while (rs3.next()) {
+				MonthRest = rs3.getInt("Playcount");
+			}
+			rs3.close();
+
+			ResultSet rs4 = stmt.executeQuery("SELECT * FROM achievement where ID = 7;");
+			while (rs4.next()) {
+				Record = rs4.getInt("Playcount");
+			}
+			rs4.close();
+
+			ResultSet rs5 = stmt.executeQuery("SELECT * FROM achievement where ID = 8;");
+			while (rs5.next()) {
+				Lucky = rs5.getInt("Playcount");
+			}
+			rs5.close();
+
+			ResultSet rs6 = stmt.executeQuery("SELECT * FROM achievement where ID = 9;");
+			while (rs6.next()) {
+				Human = rs6.getInt("Playcount");
+			}
+			rs6.close();
+
+			ResultSet rs7 = stmt.executeQuery("SELECT * FROM achievement where ID = 10;");
+			while (rs7.next()) {
+				Double = rs7.getInt("Playcount");
+			}
+			rs7.close();
+
+			ResultSet rs8 = stmt.executeQuery("SELECT * FROM achievement where ID = 11;");
+			while (rs8.next()) {
+				Evolution = rs8.getInt("Playcount");
+			}
+			rs8.close();
+
+			ResultSet rs9 = stmt.executeQuery("SELECT * FROM achievement where ID = 12;");
+			while (rs9.next()) {
+				Saryunan = rs9.getInt("Playcount");
+			}
+			rs9.close();
+
+			ResultSet rs10 = stmt.executeQuery("SELECT * FROM achievement where ID = 13;");
+			while (rs10.next()) {
+				Easy = rs10.getInt("Playcount");
+			}
+			rs10.close();
+
+			ResultSet rs11 = stmt.executeQuery("SELECT * FROM achievement where ID = 14;");
+			while (rs11.next()) {
+				Novice = rs11.getInt("Playcount");
+			}
+			rs11.close();
+
+			ResultSet rs12 = stmt.executeQuery("SELECT * FROM achievement where ID = 15;");
+			while (rs12.next()) {
+				Fresh = rs12.getInt("Playcount");
+			}
+			rs12.close();
+
+			ResultSet rs13 = stmt.executeQuery("SELECT * FROM achievement where ID = 16;");
+			while (rs13.next()) {
+				Color = rs13.getInt("Playcount");
+			}
+			rs13.close();
+
+			ResultSet rs14 = stmt.executeQuery("SELECT * FROM achievement where ID = 17;");
+			while (rs14.next()) {
+				Void = rs14.getInt("Playcount");
+			}
+			rs14.close();
+
+			ResultSet rs15 = stmt.executeQuery("SELECT * FROM achievement where ID = 18;");
+			while (rs15.next()) {
+				Perfect = rs15.getInt("Playcount");
+			}
+			rs15.close();
+
+			ResultSet rs16 = stmt.executeQuery("SELECT * FROM achievement where ID = 19;");
+			while (rs16.next()) {
+				Mistake = rs16.getInt("Playcount");
+			}
+			rs16.close();
+
+			ResultSet rs17 = stmt.executeQuery("SELECT * FROM achievement where ID = 20;");
+			while (rs17.next()) {
+				Dangerous = rs17.getInt("Playcount");
+			}
+			rs17.close();
+
+			stmt.close();
+			c.close();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
 }
