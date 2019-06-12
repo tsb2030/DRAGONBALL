@@ -2,7 +2,9 @@ package eye.game.follow;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -29,10 +31,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import eye.db.*;
 public class engGameController implements Initializable {
 	public static Stage currentStage;
 
+	dbconn db= new dbconn();
+	
 	@FXML
 	private ImageView btnBefore, pauseBtn, reStartBtn;
 	private JFXButton btnarr[] = new JFXButton[25];
@@ -188,12 +192,20 @@ public class engGameController implements Initializable {
 
 								number++;
 								System.out.println(number);
-								// number가 51이되면 게임이 끝난 것이므로 타임라인을 멈추고 숫자버튼이 눌리지않게 처리한다.
+								// number가 26이되면 게임이 끝난 것이므로 타임라인을 멈추고 숫자버튼이 눌리지않게 처리한다.
 								if (number == 26) {
 									timeLine.stop();
 									for (int i = 0; i < 25; i++) {
 										btnarr[i].setDisable(true);
 									}
+									String timeStr = timer.getText();
+									double val = Double.parseDouble(timeStr);
+									System.out.println("val = "+val);
+									SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+									Date currentTime = new Date();
+									String cTime = sDateForm.format(currentTime);
+									db.insertKorGame(cTime, "engGame", val);
+									db.insertTimes("follow", cTime);
 									currentStage = (Stage) timer.getScene().getWindow();
 									result = timer.getText();
 									FXMLLoader endGamePopup = new FXMLLoader(getClass().getResource("engPopup.fxml"));

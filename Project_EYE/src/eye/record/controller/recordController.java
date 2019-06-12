@@ -44,7 +44,7 @@ public class recordController implements Initializable{
 
 	//휴식 라벨
 	@FXML
-	Label closeEye,seeFar,massage,rollEye,winkEye,longBreak;
+	Label closeEye,seeFar,massage,rollEye,hotEye;
 
 	//db에서 가져올 값 예시
 	String todayEx = "0"; // 오늘 운동
@@ -68,8 +68,7 @@ public class recordController implements Initializable{
 	String seeFarTotal = "0";
 	String massageTotal = "0";
 	String rollEyeTotal = "0";
-	String winkEyeTotal = "0";
-	String longBreakTotal = "0";
+	String hotEyeTotal = "0";
 
 
 
@@ -223,10 +222,7 @@ public class recordController implements Initializable{
 		rollEye.setText(rollEyeTotal);
 
 		// 빨리 깜빡이
-		winkEye.setText(winkEyeTotal);
-
-		// 롱 브레이크
-		longBreak.setText(longBreakTotal);
+		hotEye.setText(hotEyeTotal);
 
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 

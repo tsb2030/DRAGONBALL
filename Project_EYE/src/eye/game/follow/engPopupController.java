@@ -2,6 +2,8 @@ package eye.game.follow;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import eye.Music;
@@ -14,18 +16,24 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
+import eye.db.*;
 //1to50 팝업창 컨트롤러 - 게임3개 다 사용가능할듯?
 public class engPopupController implements Initializable {
 
+	dbconn db = new dbconn();
+	
 	@FXML
 	private Button closeBtn, restartPopUpBtn;
 
 	@FXML
 	private Text timer, result;
+	
+	@FXML
+	private Label first,second,third;
 
 	// 팝업창에서 게임 재시작
 	public void numGameRestart(ActionEvent event) {
@@ -69,5 +77,25 @@ public class engPopupController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		result.setText("게임 시간 : " + String.valueOf(engGameController.result) + "초");
+		Double recordData[] = null;
+		try {
+			recordData = db.getFollowdata("engGame");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(Arrays.toString(recordData));
+		if(recordData[0]!=null)
+			first.setText("1위 : "+Double.toString(recordData[0]));
+		else
+			first.setText("1위 : --.--");
+		if(recordData[1]!=null)
+			second.setText("2위 : "+Double.toString(recordData[1]));
+		else
+			second.setText("2위 : --.--");
+		if(recordData[2]!=null)
+			third.setText("3위 : "+Double.toString(recordData[2]));
+		else
+			third.setText("3위 : --.--");
 	}
 }

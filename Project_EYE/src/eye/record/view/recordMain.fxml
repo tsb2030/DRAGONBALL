@@ -284,7 +284,7 @@
 													</children>
 												</Pane>
 
-												<!-- 빨리 깜빡이기 -->
+												<!-- 손바닥 온찜질 -->
 												<Pane layoutX="60.0" layoutY="390.0" prefHeight="130.0" prefWidth="450.0" styleClass="innerPane">
 													<children>
 														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
@@ -292,24 +292,9 @@
 																<Image url="/image/gameList/findpicture.png" />
 															</image>
 														</ImageView>
-														<Label layoutX="245.0" layoutY="25.0" styleClass="littleTitleM" text="빨리 깜빡이기" />
+														<Label layoutX="245.0" layoutY="25.0" styleClass="littleTitleM" text="손바닥 온찜질" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label fx:id="winkEye" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
-														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
-													</children>
-												</Pane>
-
-												<!-- 롱 브레이크 -->
-												<Pane layoutX="530.0" layoutY="390.0" prefHeight="130.0" prefWidth="450.0" styleClass="innerPane">
-													<children>
-														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
-															<image>
-																<Image url="/image/gameList/findpicture.png" />
-															</image>
-														</ImageView>
-														<Label layoutX="250.0" layoutY="25.0" styleClass="littleTitleM" text="롱 브레이크" />
-														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label fx:id="longBreak" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
+														<Label fx:id="hotEye" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>

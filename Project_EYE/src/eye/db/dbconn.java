@@ -223,24 +223,27 @@ public class dbconn {
 		conn.close();
 	}
 	
-	//한글 따라가기 기록 가져오기
-	public Double[] getKordata() throws SQLException {
-		System.out.println("getKordata 연결");
+	//따라가기 기록 가져오기
+	public Double[] getFollowdata(String name) throws SQLException {
+		System.out.println("getFollowdata 연결");
 		Double arr[] = new Double[3]; 
+		int n =0;
 		try {
 			getClass().forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
-			stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("select * from records order by record LIMIT 3");
-			int x=0;
+			String sql = "select record from records where name = ? order by record limit 3";
+			System.out.println("sql= "+sql);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
-				arr[x++] = rs.getDouble("record");
+				arr[n++] = rs.getDouble("record");
 			}
+			System.out.println("디비끝");
 		} catch (Exception e) {
 			System.out.println("exception = "+e);
 		}
-		System.out.println("디비끝");
-		stmt.close();
+		pstmt.close();
 		conn.close();
 		return arr;
 	}

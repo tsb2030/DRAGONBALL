@@ -74,7 +74,7 @@ public class korPopupController implements Initializable{
 			result.setText("게임 시간 : "+String.valueOf(korGameController.result)+"초");
 			Double recordData[] = null;
 			try {
-				recordData = db.getKordata();
+				recordData = db.getFollowdata("korGame");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
