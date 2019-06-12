@@ -294,7 +294,7 @@
 														</ImageView>
 														<Label layoutX="245.0" layoutY="25.0" styleClass="littleTitleM" text="손바닥 온찜질" />
 														<Label layoutX="210.0" layoutY="80.0" styleClass="littleTitleL" text="총 플레이 횟수 : " />
-														<Label fx:id="hotEye" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
+														<Label fx:id="warmEye" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="80.0" prefHeight="19.0" prefWidth="55.0" text="label" />
 														<Label layoutX="385.0" layoutY="80.0" styleClass="littleTitleL" text="회" />
 													</children>
 												</Pane>

@@ -57,6 +57,30 @@ public class dbconn {
 		return n;
 	}
 	
+	//종류별 휴식 총 횟수
+	public int getRest(String name) throws SQLException {
+		System.out.println("getTodayEx연결");
+		int n =0;
+		try {
+			getClass().forName("org.sqlite.JDBC");
+			conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+			String sql = "select count(*) as restCnt from times where name=?";
+			System.out.println("sql= "+sql+" name="+name);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				n = rs.getInt("restCnt");
+			}
+		} catch (Exception e) {
+			System.out.println(" today exception = "+e);
+		}
+		stmt.close();
+		conn.close();
+		
+		return n;
+	}
+	
 	//총 운동횟수
 	public int getTotalEx() throws SQLException {
 		System.out.println("getTotalEx연결");
@@ -201,6 +225,7 @@ public class dbconn {
 		pstmt.close();
 		conn.close();
 	}
+	
 	//한글 따라가기 기록 전송
 	public void insertKorGame(String date,String name,double val) throws SQLException{
 		System.out.println("insertKorGame연결");

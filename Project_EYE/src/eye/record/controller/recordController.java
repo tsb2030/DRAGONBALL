@@ -44,7 +44,7 @@ public class recordController implements Initializable{
 
 	//휴식 라벨
 	@FXML
-	Label closeEye,seeFar,massage,rollEye,hotEye;
+	Label closeEye,seeFar,massage,rollEye,warmEye;
 
 	//db에서 가져올 값 예시
 	String todayEx = "0"; // 오늘 운동
@@ -68,7 +68,7 @@ public class recordController implements Initializable{
 	String seeFarTotal = "0";
 	String massageTotal = "0";
 	String rollEyeTotal = "0";
-	String hotEyeTotal = "0";
+	String warmEyeTotal = "0";
 
 
 
@@ -210,19 +210,54 @@ public class recordController implements Initializable{
 
 		// 휴식 total
 		// 눈 꼭 감기
+		try {
+			clolseEyeTotal = Integer.toString(db.getRest("ClosedEyeRest"));
+			System.out.println("clolseEyeTotal = "+clolseEyeTotal);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		closeEye.setText(clolseEyeTotal);
 
 		// 멀리보기
+		try {
+			seeFarTotal = Integer.toString(db.getRest("lookAfarRest"));
+			System.out.println("seeFarTotal = "+seeFarTotal);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		seeFar.setText(seeFarTotal);
 
 		// 눈 마사지
+		try {
+			massageTotal = Integer.toString(db.getRest("eyeMassageRest"));
+			System.out.println("massageTotal = "+massageTotal);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		massage.setText(massageTotal);
 
 		// 눈 굴리기
+		try {
+			rollEyeTotal = Integer.toString(db.getRest("eyeRollingRest"));
+			System.out.println("rollEyeTotal = "+rollEyeTotal);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		rollEye.setText(rollEyeTotal);
 
-		// 빨리 깜빡이
-		hotEye.setText(hotEyeTotal);
+		// 온찜질
+		try {
+			warmEyeTotal = Integer.toString(db.getRest("warmEyeRest"));
+			System.out.println("warmEyeTotal = "+warmEyeTotal);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		warmEye.setText(warmEyeTotal);
 
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
