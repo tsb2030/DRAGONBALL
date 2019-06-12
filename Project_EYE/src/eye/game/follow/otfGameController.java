@@ -49,6 +49,16 @@ public class otfGameController implements Initializable {
 	private Pane mainPanel;
 
 	public static int bul = 3;
+	
+	public static boolean numHuman = false;
+	public static boolean numMistake = false;
+	public static boolean numPerfect = false;
+	public static boolean bestRate = false;
+	public static boolean luckyS = false;
+	
+	public int checkPerfect=0;
+	public int checkLucky=0;
+	
 	// arr1은 1~25 랜덤수, arr2는 26~50까지의 랜덤수를 가지기 위해 정의
 	@FXML
 	private Text timer;
@@ -159,6 +169,8 @@ public class otfGameController implements Initializable {
 						try {
 							btn = (Button) event.getSource();
 							String btnstr = btn.getText();
+							if(Integer.parseInt(btnstr)==7)
+								checkLucky++;
 							if (Integer.parseInt(btnstr) == number) {
 								if (number <= 25) {
 									btn.setText(arr2[number - 1] + "");
@@ -197,7 +209,13 @@ public class otfGameController implements Initializable {
 									for (int i = 0; i < 25; i++) {
 										btnarr[i].setDisable(true);
 									}
+									if(checkLucky==3)
+										luckyS=true;
 									String timeStr = timer.getText();
+									if(Integer.parseInt(timeStr)<=15)
+										numHuman=true;
+									if(checkPerfect==0)
+										numPerfect=true;
 									double val = Double.parseDouble(timeStr);
 									System.out.println("val = "+val);
 									SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
@@ -220,6 +238,10 @@ public class otfGameController implements Initializable {
 									} catch (IOException e) {
 									}
 								}
+							}else {
+								checkLucky=0;
+								checkPerfect++;
+								numMistake=true;
 							}
 						} catch (Exception e) {
 							// TODO: handle exception

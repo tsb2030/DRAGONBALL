@@ -46,6 +46,12 @@ public static Stage currentStage;
 	
 	public static int bul = 2;
 	
+	public static boolean korHuman = false;
+	public static boolean korMistake = false;
+	public static boolean korPerfect = false;
+	
+	public int checkPerfect=0;
+	
 	//arr1은 1~25 랜덤수, arr2는 26~50까지의 랜덤수를 가지기 위해 정의
 	@FXML
 	private Text timer;
@@ -160,6 +166,11 @@ public static Stage currentStage;
 											 btnarr[i].setDisable(true);
 										 }
 										String timeStr = timer.getText();
+										int check = Integer.parseInt(timeStr);
+										if(check<=5)
+											korHuman=true;
+										if(checkPerfect==0)
+											korPerfect=true;
 										double val = Double.parseDouble(timeStr);
 										System.out.println("val = "+val);
 										SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
@@ -183,6 +194,9 @@ public static Stage currentStage;
 											System.out.println("오류남 : "+e);
 										}
 									}
+								}else {
+									checkPerfect++;
+									korMistake=true;
 								}
 							} catch (Exception e) {
 								// TODO: handle exception

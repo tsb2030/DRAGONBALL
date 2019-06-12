@@ -67,6 +67,11 @@ public class engGameController implements Initializable {
 	private DoubleProperty timeSeconds = new SimpleDoubleProperty();
 	private Duration time = Duration.ZERO;
 
+	public static boolean engHuman = false;
+	public static boolean engMistake = false;
+	public static boolean engPerfect = false;
+	
+	public int checkPerfect=0;
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
@@ -199,6 +204,10 @@ public class engGameController implements Initializable {
 										btnarr[i].setDisable(true);
 									}
 									String timeStr = timer.getText();
+									if(Integer.parseInt(timeStr)<=10)
+										engHuman=true;
+									if(checkPerfect==0)
+										engPerfect=true;
 									double val = Double.parseDouble(timeStr);
 									System.out.println("val = "+val);
 									SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
@@ -220,6 +229,9 @@ public class engGameController implements Initializable {
 									} catch (IOException e) {
 									}
 								}
+							}else {
+								engMistake=true;
+								checkPerfect++;
 							}
 						} catch (Exception e) {
 							// TODO: handle exception
