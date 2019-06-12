@@ -229,7 +229,7 @@
 													<children>
 														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
 															<image>
-																<Image url="/image/gameList/findpicture.png" />
+																<Image url="/image/restList/closeEye.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0" styleClass="littleTitleM" text="눈 꼭 감기" />
@@ -244,7 +244,7 @@
 													<children>
 														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
 															<image>
-																<Image url="/image/gameList/findpicture.png" />
+																<Image url="/image/restList/lookFar.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0" styleClass="littleTitleM" text="멀리 보기" />
@@ -259,7 +259,7 @@
 													<children>
 														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
 															<image>
-																<Image url="/image/gameList/findpicture.png" />
+																<Image url="/image/restList/eyeMassage.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0" styleClass="littleTitleM" text="눈 마사지" />
@@ -274,7 +274,7 @@
 													<children>
 														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
 															<image>
-																<Image url="/image/gameList/findpicture.png" />
+																<Image url="/image/restList/rollingEye.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="260.0" layoutY="25.0" styleClass="littleTitleM" text="눈 굴리기" />
@@ -289,7 +289,7 @@
 													<children>
 														<ImageView fitHeight="120.0" fitWidth="160.0" layoutX="20.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
 															<image>
-																<Image url="/image/gameList/findpicture.png" />
+																<Image url="/image/restList/eyeWarm.png" />
 															</image>
 														</ImageView>
 														<Label layoutX="245.0" layoutY="25.0" styleClass="littleTitleM" text="손바닥 온찜질" />
