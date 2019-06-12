@@ -21,30 +21,14 @@ public class eyeExamcontroller implements Initializable{
 	private AnchorPane eyePlayPage;
 
 	@FXML
-	private ImageView nextBtn;
+	private ImageView backBtn, nextBtn, nextBtn1;
 
 	@FXML
-	private Text nextBtn2;
+	private Text nextBtn2, nextBtn21,title,score,score1,score2,score3;
 
-	@FXML
-	private ImageView backBtn;
-
-	@FXML
-	private Text title;
-
-	@FXML
-	private Text score;
-
-	@FXML
-	private Text score1;
-
-	@FXML
-	private Text score2;
-
-	@FXML
-	private Text score3;
 
 	public int cnt = 1;
+	public static double Vis = 0;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -101,6 +85,42 @@ public class eyeExamcontroller implements Initializable{
 
 			}
 		});
+		
+		nextBtn1.setOnMouseClicked(new EventHandler<Event>() {
+			FXMLLoader another = new FXMLLoader(Main.class.getResource("/eye/record/view/ExamEndPopup.fxml"));
+			@Override
+			public void handle(Event event) {
+
+				try {
+					AnchorPane anotherPage = (AnchorPane) another.load();
+					Scene anotherScene = new Scene(anotherPage);
+					Stage stage = new Stage();
+					stage.setScene(anotherScene);
+					stage.show();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+			}
+		});
+		
+		nextBtn21.setOnMouseClicked(new EventHandler<Event>() {
+			FXMLLoader another = new FXMLLoader(Main.class.getResource("/eye/record/view/ExamEndPopup.fxml"));
+			@Override
+			public void handle(Event event) {
+
+				try {
+					AnchorPane anotherPage = (AnchorPane) another.load();
+					Scene anotherScene = new Scene(anotherPage);
+					Stage stage = new Stage();
+					stage.setScene(anotherScene);
+					stage.show();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+
+			}
+		});
 
 	}
 
@@ -126,7 +146,7 @@ public class eyeExamcontroller implements Initializable{
 		score2.setText(String.valueOf(Random[1]));
 		score3.setText(String.valueOf(Random[2]));
 		score.setText(String.valueOf(0.02));
-
+		Vis = 0.02;
 	}
 
 	public void Exam2() {
@@ -149,6 +169,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 1) {
+			Vis = 0.03;
 			score.setText(String.valueOf(0.03));
 			score1.setStyle("-fx-font-size: 10px;");
 			score2.setStyle("-fx-font-size: 10px;");
@@ -159,6 +180,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 2) {
+			Vis = 0.10;
 			score.setText(String.valueOf(0.10));
 			score1.setStyle("-fx-font-size: 5px;");
 			score2.setStyle("-fx-font-size: 5px;");
@@ -169,6 +191,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 3) {
+			Vis = 0.13;
 			score.setText(String.valueOf(0.13));
 			score1.setStyle("-fx-font-size: 2.5px;");
 			score2.setStyle("-fx-font-size: 2.5px;");
@@ -179,6 +202,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 4) {
+			Vis = 0.16;
 			score.setText(String.valueOf(0.16));
 			score1.setStyle("-fx-font-size: 2px;");
 			score2.setStyle("-fx-font-size: 2px;");
@@ -189,6 +213,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 5) {
+			Vis = 0.20;
 			score.setText(String.valueOf(0.20));
 			score1.setStyle("-fx-font-size: 1.5px;");
 			score2.setStyle("-fx-font-size: 1.5px;");
@@ -199,6 +224,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 6) {
+			Vis = 0.25;
 			score.setText(String.valueOf(0.25));
 			score1.setStyle("-fx-font-size: 1.25px;");
 			score2.setStyle("-fx-font-size: 1.25px;");
@@ -209,6 +235,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 7) {
+			Vis = 0.32;
 			score.setText(String.valueOf(0.32));
 			score1.setStyle("-fx-font-size: 1px;");
 			score2.setStyle("-fx-font-size: 1px;");
@@ -219,6 +246,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 8) {
+			Vis = 0.40;
 			score.setText(String.valueOf(0.40));
 			score1.setStyle("-fx-font-size: 0.9px;");
 			score2.setStyle("-fx-font-size: 0.9px;");
@@ -229,6 +257,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 9) {
+			Vis = 0.50;
 			score.setText(String.valueOf(0.50));
 			score1.setStyle("-fx-font-size: 0.6px;");
 			score2.setStyle("-fx-font-size: 0.6px;");
@@ -239,6 +268,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 10) {
+			Vis = 0.63;
 			score.setText(String.valueOf(0.63));
 			score1.setStyle("-fx-font-size: 0.5px;");
 			score2.setStyle("-fx-font-size: 0.5px;");
@@ -249,6 +279,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 11) {
+			Vis = 0.80;
 			score.setText(String.valueOf(0.80));
 			score1.setStyle("-fx-font-size: 0.4px;");
 			score2.setStyle("-fx-font-size: 0.4px;");
@@ -259,6 +290,7 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 		if (cnt == 12) {
+			Vis = 1.00;
 			score.setText(String.valueOf(1.00));
 			score1.setStyle("-fx-font-size: 0.3px;");
 			score2.setStyle("-fx-font-size: 0.3px;");
@@ -269,4 +301,5 @@ public class eyeExamcontroller implements Initializable{
 		}
 
 	}
+	
 }

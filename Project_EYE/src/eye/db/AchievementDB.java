@@ -15,9 +15,7 @@ import eye.game.eyeMovement2.Failcontroller;
 
 public class AchievementDB {
 	public static double WeekPlay = 0;
-	public static double WeekRest = 0;
 	public static double MonthPlay = 0;
-	public static double MonthRest = 0;
 	public static double Record = 0;
 	public static double Lucky = 0;
 	public static double Human = 0;
@@ -183,7 +181,7 @@ public class AchievementDB {
 			}
 			rs3.close();
 
-			if (Weekcnt < 1 && DayPlaycnt == 2 && WeekPlaycnt != 7
+			if (Weekcnt < 1 && DayPlaycnt == 2 && DayRestcnt == 2 && WeekPlaycnt != 7
 					&& (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString()))) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 3;";
 				stmt.executeUpdate(sql);
@@ -194,47 +192,47 @@ public class AchievementDB {
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 23;";
 				stmt.executeUpdate(sql);
 			} else if (Java_Day.equals(Sql_Day.toString()) && DayPlaycnt <= 3) {
-				System.out.println("주간플레이카운트 오늘은그만");
+				System.out.println("주간카운트 오늘은그만");
 			} else if (WeekPlaycnt == 7) {
-				System.out.println("주간플레이 도전 성공");
+				System.out.println("개근 도전 성공");
 			} else if (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString())) {
 
 			} else {
-				sql = "UPDATE achievement set Playcount = 1 where ID = 3;";
+				sql = "UPDATE achievement set Playcount = 0 where ID = 3;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 3;";
 				stmt.executeUpdate(sql);
 			}
 
-			ResultSet rs4 = stmt.executeQuery("SELECT * FROM achievement where ID = 4;");
-			while (rs4.next()) {
-				WeekRestcnt = rs4.getInt("Playcount");
-				Sql_Day = rs4.getString("Day_time");
-			}
-			rs4.close();
+//			ResultSet rs4 = stmt.executeQuery("SELECT * FROM achievement where ID = 4;");
+//			while (rs4.next()) {
+//				WeekRestcnt = rs4.getInt("Playcount");
+//				Sql_Day = rs4.getString("Day_time");
+//			}
+//			rs4.close();
 
-			if (Weekcnt2 < 1 && DayRestcnt == 2 && WeekRestcnt != 7
-					&& (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString()))) {
-				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 4;";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 24";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 4;";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 24;";
-				stmt.executeUpdate(sql);
-			} else if (Java_Day.equals(Sql_Day.toString()) && DayRestcnt <= 3) {
-				System.out.println("주간레스트카운트 오늘은그만");
-			} else if (WeekRestcnt == 7) {
-				System.out.println("주간레스트 도전성공");
-			} else if (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString())) {
-
-			} else {
-				sql = "UPDATE achievement set Playcount = 1 where ID = 4;";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 4;";
-				stmt.executeUpdate(sql);
-			}
+//			if (Weekcnt2 < 1 && DayRestcnt == 2 && WeekRestcnt != 7
+//					&& (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString()))) {
+//				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 4;";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 24";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 4;";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 24;";
+//				stmt.executeUpdate(sql);
+//			} else if (Java_Day.equals(Sql_Day.toString()) && DayRestcnt <= 3) {
+//				System.out.println("주간레스트카운트 오늘은그만");
+//			} else if (WeekRestcnt == 7) {
+//				System.out.println("주간레스트 도전성공");
+//			} else if (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString())) {
+//
+//			} else {
+//				sql = "UPDATE achievement set Playcount = 1 where ID = 4;";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 4;";
+//				stmt.executeUpdate(sql);
+//			}
 
 			ResultSet rs5 = stmt.executeQuery("SELECT * FROM achievement where ID = 5;");
 			while (rs5.next()) {
@@ -243,7 +241,7 @@ public class AchievementDB {
 			}
 			rs5.close();
 
-			if (Monthcnt < 1 & DayPlaycnt == 2 && MonthPlaycnt != 30
+			if (Monthcnt < 1 & DayPlaycnt == 2 && DayRestcnt ==2 && MonthPlaycnt != 30
 					&& (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString()))) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 5;";
 				stmt.executeUpdate(sql);
@@ -254,47 +252,47 @@ public class AchievementDB {
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 21;";
 				stmt.executeUpdate(sql);
 			} else if (Java_Day.equals(Sql_Day.toString())) {
-				System.out.println("월간플레이카운트 오늘은그만");
+				System.out.println("월간카운트 오늘은그만");
 			} else if (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString())) {
 
 			} else if (MonthPlaycnt == 30) {
-				System.out.println("월간플레이 도전성공");
+				System.out.println("개근30 도전성공");
 			} else {
-				sql = "UPDATE achievement set Playcount = 1 where ID = 5;";
+				sql = "UPDATE achievement set Playcount = 0 where ID = 5;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 5;";
 				stmt.executeUpdate(sql);
 			}
 
-			ResultSet rs6 = stmt.executeQuery("SELECT * FROM achievement where ID = 6;");
-			while (rs6.next()) {
-				MonthRestcnt = rs6.getInt("Playcount");
-				Sql_Day = rs6.getString("Day_time");
-			}
-			rs6.close();
-
-			if (Monthcnt2 < 1 && DayRestcnt == 2 && MonthRestcnt != 30
-					&& (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString()))) {
-				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 6;";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 22";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 6;";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 22;";
-				stmt.executeUpdate(sql);
-			} else if (Java_Day.equals(Sql_Day.toString())) {
-				System.out.println("월간레스트카운트 오늘은그만");
-			} else if (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString())) {
-
-			} else if (MonthRestcnt == 30) {
-				System.out.println("월간레스트 도전성공");
-			} else {
-				sql = "UPDATE achievement set Playcount = 1 where ID = 6;";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 6;";
-				stmt.executeUpdate(sql);
-			}
+//			ResultSet rs6 = stmt.executeQuery("SELECT * FROM achievement where ID = 6;");
+//			while (rs6.next()) {
+//				MonthRestcnt = rs6.getInt("Playcount");
+//				Sql_Day = rs6.getString("Day_time");
+//			}
+//			rs6.close();
+//
+//			if (Monthcnt2 < 1 && DayRestcnt == 2 && MonthRestcnt != 30
+//					&& (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString()))) {
+//				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 6;";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 22";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 6;";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 22;";
+//				stmt.executeUpdate(sql);
+//			} else if (Java_Day.equals(Sql_Day.toString())) {
+//				System.out.println("월간레스트카운트 오늘은그만");
+//			} else if (Java_yesDay.equals(Sql_Day.toString()) || Java_Day.equals(Sql_Day.toString())) {
+//
+//			} else if (MonthRestcnt == 30) {
+//				System.out.println("월간레스트 도전성공");
+//			} else {
+//				sql = "UPDATE achievement set Playcount = 1 where ID = 6;";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 6;";
+//				stmt.executeUpdate(sql);
+//			}
 
 			ResultSet rs7 = stmt.executeQuery("SELECT * FROM achievement where ID = 7;");
 			while (rs7.next()) {
@@ -540,23 +538,12 @@ public class AchievementDB {
 			}
 			rs.close();
 
-			ResultSet rs1 = stmt.executeQuery("SELECT * FROM achievement where ID = 4;");
-			while (rs1.next()) {
-				WeekRest = rs1.getInt("Playcount");
-			}
-			rs1.close();
 
 			ResultSet rs2 = stmt.executeQuery("SELECT * FROM achievement where ID = 5;");
 			while (rs2.next()) {
 				MonthPlay = rs2.getInt("Playcount");
 			}
 			rs2.close();
-
-			ResultSet rs3 = stmt.executeQuery("SELECT * FROM achievement where ID = 6;");
-			while (rs3.next()) {
-				MonthRest = rs3.getInt("Playcount");
-			}
-			rs3.close();
 
 			ResultSet rs4 = stmt.executeQuery("SELECT * FROM achievement where ID = 7;");
 			while (rs4.next()) {

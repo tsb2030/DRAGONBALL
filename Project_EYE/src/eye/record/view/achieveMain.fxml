@@ -378,8 +378,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                           <ProgressIndicator fx:id="Dangerous" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text15" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="어머, 실수" textFill="#252525" />                           
-                              <Label fx:id="text16" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="아슬아슬" textFill="#252525" />
+                           <ProgressIndicator fx:id="Dangerous" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text15" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="아슬아슬" textFill="#252525" />                           
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="순서대로 따라가기 게임에서" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="59초대에 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
