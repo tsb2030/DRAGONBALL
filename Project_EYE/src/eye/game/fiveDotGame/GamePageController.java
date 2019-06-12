@@ -28,6 +28,7 @@ import eye.db.*;
 public class GamePageController implements Initializable {
 
 	dbconn db = new dbconn();
+	AchievementDB aDB = new AchievementDB();
 	
 	// 운동을 위해 필요함
 	@FXML
@@ -217,6 +218,9 @@ public class GamePageController implements Initializable {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				//오늘 하루 운동횟수 추가
+				AchievementDB.DayPlaycount = true;
+				aDB.ach();
 				//디비에 운동횟수 저장
 				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
 				Date currentTime = new Date();

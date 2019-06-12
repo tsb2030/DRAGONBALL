@@ -32,6 +32,7 @@ import eye.db.*;
 public class DodugeGameController implements Initializable {
 
 	dbconn db = new dbconn();
+	AchievementDB aDB = new AchievementDB();
 	
 	public static Stage dodugeStage;
 
@@ -73,6 +74,7 @@ public class DodugeGameController implements Initializable {
 				if (r1 == sameR1 && r2 == sameR2) {
 					sameUpDodugeCount++;
 					eyeAchievementCatchMoleValue = eyeAchievementCatchMole();
+					aDB.ach();
 //					if(eyeAchievementCatchMoleValue == true)
 //						이벤트 발생!
 				} else
@@ -183,6 +185,9 @@ public class DodugeGameController implements Initializable {
 					e1.printStackTrace();
 				}
 				
+				//오늘 하루 운동횟수 추가
+				AchievementDB.DayPlaycount = true;
+				aDB.ach();
 				clock.animation.stop();
 				dodugeStage = (Stage) TimerLabel.getScene().getWindow();
 				FXMLLoader EndGamePopupLoader = new FXMLLoader(
