@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="endPopup" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.fiveDotGame.EndPopupController">
+<AnchorPane fx:id="endPopup" prefHeight="500.0" prefWidth="500.0" stylesheets="/eye/game/fiveDotGame/mobius_main.css"  style="-fx-background-color: #ffffe4;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.fiveDotGame.EndPopupController">
 	<children>
-		<Button id="shadow" layoutX="295.0" layoutY="400.0" mnemonicParsing="false" onAction="#backToGameSelectPage" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="그만하기" textFill="WHITE" AnchorPane.rightAnchor="100.0">
+		<Button id="btn" layoutX="295.0" layoutY="400.0" mnemonicParsing="false" onAction="#backToGameSelectPage" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="그만하기" textFill="WHITE" AnchorPane.rightAnchor="100.0">
 			<font>
 				<Font name="a소나무M" size="21.0" />
 			</font>
@@ -18,7 +18,7 @@
 				<Font name="A소나무M" size="44.0" />
 			</font>
 		</Label>
-		<Button id="shadow" layoutX="99.0" layoutY="400.0" mnemonicParsing="false" onAction="#tryAgain" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="다시하기" textFill="WHITE" AnchorPane.leftAnchor="100.0">
+		<Button id="btn" layoutX="99.0" layoutY="400.0" mnemonicParsing="false" onAction="#tryAgain" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="다시하기" textFill="WHITE" AnchorPane.leftAnchor="100.0">
 			<font>
 				<Font name="A소나무M" size="21.0" />
 			</font>

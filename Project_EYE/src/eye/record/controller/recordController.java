@@ -138,10 +138,22 @@ public class recordController implements Initializable{
 		zigzagTotal.setText(zigzagTot);
 
 		// 지그재그 정답 횟수 가져오기
+		try {
+			zigCor = Integer.toString(db.getCorRecord("zigzag"));
+			System.out.println("zigCor = "+zigCor);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		zigCorrect.setText(zigCor);
 
 		// 지그재그 승률
-		zigWinningAvg.setText(zigWinAvg);
+		Double zigCorNum = Double.parseDouble(zigCor);
+		Double zigzagTotNum = Double.parseDouble(zigzagTot);
+		Double zigavg = ((Double)zigCorNum/(Double)zigzagTotNum)*100;
+		zigWinAvg = Double.toString(zigavg);
+		System.out.println("지그재그 승률 = "+zigWinAvg);
+		zigWinningAvg.setText(zigWinAvg+" %");
 
 		// 뫼비우스 전체 게임 횟수 가져오기
 		try {
@@ -154,9 +166,20 @@ public class recordController implements Initializable{
 		mobiusTotal.setText(mobiusTot);
 
 		// 뫼비우스 정답 횟수 가져오기
+		try {
+			mobCor = Integer.toString(db.getCorRecord("mobius"));
+			System.out.println("mobCor = "+mobCor);
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		mobCorrect.setText(mobCor);
 
 		// 뫼비우스 승률
+		Double mobCorNum = Double.parseDouble(mobCor);
+		Double mobiusTotNum = Double.parseDouble(mobiusTot);
+		Double mobavg = ((Double)mobCorNum/(Double)mobiusTotNum)*100;
+		mobWinAvg = Double.toString(mobavg);
 		mobWinningAvg.setText(mobWinAvg);
 
 		// 5점 카드 트레이닝 전체 게임 횟수 가져오기
