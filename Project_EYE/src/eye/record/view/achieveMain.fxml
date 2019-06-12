@@ -44,7 +44,7 @@
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="일주일 하루 게임, 휴식 최소 3개" textFill="#252525" />
                              <Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="attendance7" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="attendance7" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/attendance7.png" />
 										</image>
@@ -66,7 +66,7 @@
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="한 달 하루 게임, 휴식 최소 3개" textFill="#252525" />
                   		    <Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="attendance30" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="attendance30" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                    		<image>
 											<Image url="/image/achieve/attendance30.png" />
 										</image>
@@ -88,7 +88,7 @@
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="1 to 50 연속 최고기록 3회, 7회, 10회" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="trophy" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="trophy" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                    		<image>
 											<Image url="/image/achieve/trophy.png" />
 										</image>
@@ -110,7 +110,7 @@
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="1 To 50 숫자 7을 세번 연속 클릭하기" textFill="#252525" />
                   				<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="luckySeven" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="luckySeven" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/luckySeven.png" />
 										</image>
@@ -134,7 +134,7 @@
                             <Label layoutX="300.0" layoutY="160.0" styleClass="fontStyleL" text="A To Z 10초 이내에 클리어" textFill="#252525" />
                   				<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="AI" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="AI" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/AI.png" />
 										</image>
@@ -157,7 +157,7 @@
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="두더지가 2번 등장" textFill="#252525" />
                   				<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="docTrio" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="docTrio" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/docTrio.png" />
 										</image>
@@ -180,7 +180,7 @@
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="호모 사피엔스, 휴먼 순으로 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="humanEvol" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="humanEvol" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/humanEvol.png" />
 										</image>
@@ -202,7 +202,7 @@
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="캐치볼 게임을 최고난이도 6회 연속 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="fourPoint" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="fourPoint" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/fourPoint.png" />
 										</image>
@@ -225,7 +225,7 @@
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="5회이상 성공" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="baekJW" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="baekJW" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                    		<image>
 											<Image url="/image/achieve/baekJW.png" />
 										</image>
@@ -247,7 +247,7 @@
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="뫼비우스의 띠 게임 최초 플레이" textFill="#252525" />
                   			 <Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="baby" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="baby" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
                                    		<image>
 											<Image url="/image/achieve/baby.png" />
 										</image>
@@ -270,7 +270,7 @@
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="20회 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="glowEye" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="glowEye" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/glowEye.png" />
 										</image>
@@ -292,7 +292,7 @@
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="지그재그 게임을 7회 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="starNight" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="starNight" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/starNight.png" />
 										</image>
@@ -314,7 +314,7 @@
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="지그재그 게임을 7회 실패" textFill="#252525" />
                   				<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="bat" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="bat" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/bat.png" />
 										</image>
@@ -337,7 +337,7 @@
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="한번도 틀리지 않고 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="perfect2" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="perfect2" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/perfect.png" />
 										</image>
@@ -360,7 +360,7 @@
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="1회 잘못 누르기" textFill="#252525" />
                   				<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="mistake2" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="mistake2" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/mistake.png" />
 										</image>
@@ -384,7 +384,7 @@
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="59초대에 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
-                                    <ImageView fx:id="timeBomb" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.3;">
+                                    <ImageView fx:id="timeBomb" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/timeBomb.png" />
 										</image>

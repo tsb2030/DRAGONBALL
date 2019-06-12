@@ -42,6 +42,22 @@ public class AchieveController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		attendance7.setOpacity(0.3);
+		attendance30.setOpacity(0.3);
+		trophy.setOpacity(0.3);
+		luckySeven.setOpacity(0.3);
+		AI.setOpacity(0.3);
+		docTrio.setOpacity(0.3);
+		humanEvol.setOpacity(0.3);
+		fourPoint.setOpacity(0.3);
+		baekJW.setOpacity(0.3);
+		baby.setOpacity(0.3);
+		glowEye.setOpacity(0.3);
+		starNight.setOpacity(0.3);
+		bat.setOpacity(0.3);
+		perfect2.setOpacity(0.3);
+		mistake2.setOpacity(0.3);
+		timeBomb.setOpacity(0.3);
 		aDB.achcnt();
 		Opa();
 		// TODO Auto-generated method stub
@@ -84,25 +100,27 @@ public class AchieveController implements Initializable {
 	public void Opa() {
 		aDB.achcnt();
 		if (AchievementDB.WeekPlay == 7) {
-			attendance7.setOpacity(1);
+			attendance7.setOpacity(1.0);
 		}
 		if (AchievementDB.MonthPlay == 30) {
-			attendance30.setOpacity(1);
+			attendance30.setOpacity(1.0);
 		}
 		if (AchievementDB.Record == 1) {
-			trophy.setOpacity(1);
+			System.out.println("종호가하라고해서");
+			trophy.setOpacity(1.0);
 		}
 		if (AchievementDB.Lucky == 1) {
-			luckySeven.setOpacity(1);
+			System.out.println("종호가하라고해서");
+			luckySeven.setOpacity(1.0);
 		}
 		if (AchievementDB.Human == 1) {
-			AI.setOpacity(1);
+			AI.setOpacity(1.0);
 		}
 		if (AchievementDB.Double == 1) {
-			docTrio.setOpacity(1);
+			docTrio.setOpacity(1.0);
 		}
 		if (AchievementDB.Evolution == 1) {
-			humanEvol.setOpacity(1);
+			humanEvol.setOpacity(1.0);
 		}
 		if (AchievementDB.Saryunan == 1) {
 			fourPoint.setOpacity(1);
