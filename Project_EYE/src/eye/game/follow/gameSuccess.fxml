@@ -49,17 +49,17 @@
 				<Font name="a소나무L" size="18" />
 			</font>
 		</Label>
-		<Label layoutX="215.0" layoutY="265.0" text="1위 1.11초">
+		<Label fx:id="first" layoutX="215.0" layoutY="265.0" text="1위 1.11초">
 			<font>
 				<Font name="a소나무L" size="16"/>
 			</font>
 		</Label>
-		<Label layoutX="215.0" layoutY="290.0" text="2위 2.11초">
+		<Label fx:id="second" layoutX="215.0" layoutY="290.0" text="2위 2.11초">
 			<font>
 				<Font name="a소나무L" size="16"/>
 			</font>
 		</Label>
-		<Label layoutX="215.0" layoutY="315.0" text="3위 3.11초">
+		<Label fx:id="third" layoutX="215.0" layoutY="315.0" text="3위 3.11초">
 			<font>
 				<Font name="a소나무L" size="16"/>
 			</font>

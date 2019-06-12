@@ -226,7 +226,7 @@ public class dbconn {
 		conn.close();
 	}
 	
-	//한글 따라가기 기록 전송
+	//한글 따라가기 기록 저장
 	public void insertKorGame(String date,String name,double val) throws SQLException{
 		System.out.println("insertKorGame연결");
 		try {
@@ -248,9 +248,31 @@ public class dbconn {
 		conn.close();
 	}
 	
-	//따라가기 기록 가져오기
-	public Double[] getFollowdata(String name) throws SQLException {
-		System.out.println("getFollowdata 연결");
+	//캐치볼 기록 저장
+		public void insertcatchball(String date,String name,int val) throws SQLException{
+			System.out.println("insertcatchball연결");
+			try {
+				getClass().forName("org.sqlite.JDBC");
+				conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+				String sql = "insert into records(date,name,record) values(?,?,?)";
+				System.out.println("sql= "+sql);
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, date);
+				pstmt.setString(2, name);
+				pstmt.setDouble(3, val);
+				int r = pstmt.executeUpdate();
+				System.out.println("변경 row: "+r);
+				System.out.println("디비끝");
+			} catch (Exception e) {
+				System.out.println("exception = "+e);
+			}
+			pstmt.close();
+			conn.close();
+		}
+	
+	//게임 기록 가져오기
+	public Double[] getGameData(String name) throws SQLException {
+		System.out.println("getGameData 연결");
 		Double arr[] = new Double[3]; 
 		int n =0;
 		try {

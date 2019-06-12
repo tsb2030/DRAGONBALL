@@ -79,7 +79,7 @@ public class engPopupController implements Initializable {
 		result.setText("게임 시간 : " + String.valueOf(engGameController.result) + "초");
 		Double recordData[] = null;
 		try {
-			recordData = db.getFollowdata("engGame");
+			recordData = db.getGameData("engGame");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
