@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!-- 휴식 완료 후 띄워질 팝업창 -->
+
+<AnchorPane fx:id="ExamEndingPopup" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: #ffffe4;" stylesheets="/eye/rest/view/popup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.record.controller.ExamEndpopupcontroller">
+	<children>
+		<Button id="shadow" fx:id="closeBtn" layoutX="187.0" layoutY="401.0" mnemonicParsing="false" onAction="#closeBtnAction" prefHeight="44.0" prefWidth="125.0" style="-fx-background-color: #50af49; -fx-background-radius: 30;" text="확인" textFill="WHITE" AnchorPane.rightAnchor="188.0">
+			<font>
+				<Font name="a소나무M" size="21.0" />
+			</font>
+		</Button>
+		<Label layoutX="178.0" layoutY="106.0" text="검사 끝!">
+			<font>
+				<Font name="a소나무M" size="44.0" />
+			</font>
+		</Label>
+		<Text layoutX="174.0" layoutY="317.0" strokeType="OUTSIDE" strokeWidth="0.0" text="수고하셨습니다.">
+			<font>
+				<Font name="a소나무L" size="24.0" />
+			</font>
+		</Text>
+      <Text layoutX="46.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="자세한 검사는 근처 안과를 방문해주세요~">
+         <font>
+            <Font name="a소나무L" size="24.0" />
+         </font>
+      </Text>
+      <Label layoutX="78.0" layoutY="199.0" text="현재 시력">
+         <font>
+            <Font name="a소나무M" size="44.0" />
+         </font>
+      </Label>
+      <Label fx:id="score" layoutX="277.0" layoutY="199.0">
+         <font>
+            <Font name="a소나무M" size="44.0" />
+         </font>
+      </Label>
+	</children>
+</AnchorPane>
