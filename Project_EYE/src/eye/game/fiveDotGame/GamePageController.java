@@ -201,16 +201,7 @@ public class GamePageController implements Initializable {
 			endText.setVisible(true); // 게임 끝나면 FINISH 문구 뜸
 			gamePageStage = (Stage) gamePage.getScene().getWindow();
 
-			//디비에 운동횟수 저장
-			SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
-			Date currentTime = new Date();
-			String cTime = sDateForm.format(currentTime);
-			try {
-				db.insertTimes("fiveDot", cTime);
-			} catch (SQLException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+	
 			// 운동 끝나면 팝업(뒤로가기 & 다시하기)
 			if (a == true) {
 				FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("EndPopup.fxml"));
@@ -223,6 +214,16 @@ public class GamePageController implements Initializable {
 					stage.show();
 
 				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				//디비에 운동횟수 저장
+				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+				Date currentTime = new Date();
+				String cTime = sDateForm.format(currentTime);
+				try {
+					db.insertTimes("fiveDot", cTime);
+				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
