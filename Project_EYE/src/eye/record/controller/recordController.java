@@ -4,10 +4,15 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import eye.main.Main;
+import eye.record.model.recordModel;
+import eye.record.model.timesModel;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -73,26 +78,25 @@ public class recordController implements Initializable{
 
 
 	// 주간 날짜 배열 예시
-	private String[] weekDays = {"5/1","5/2","5/3","5/4","5/5","5/6","5/7"};
+	private String[] weekDays = new String[7];
 
 	// 월간 날짜 배열 예시
-	private String[] monthDays = {"5/1","5/2","5/3","5/4","5/5","5/6","5/7","5/8","5/9","5/10","5/11","5/12","5/13","5/14","5/15","5/16","5/17","5/18","5/19","5/20","5/21","5/22","5/23","5/24","5/25","5/26","5/27","5/28","5/29","5/30","5/31"};
-
+	private String[] monthDays = new String[30];
 	// -------게임 기록--------
 
 	// 주간 게임 기록 예시
-	private int[] aWeekGameData = {3,4,6,7,9,1,2};
+	private int[] aWeekGameData = new int[7];
 
 	// 한달간 게임 기록 예시 
-	private int[] aMonthGameData = {3,4,6,3,3,6,7,8,8,1,3,4,6,3,8,6,7,2,8,1,3,5,5,2,3,4,1,2,4,2,3};
+	private int[] aMonthGameData = new int[30];
 
 	// -------휴식 기록--------
 
 	// 주간 휴식 기록 에시
-	private int[] aWeekRestData = {2,1,4,5,1,2,3};
+	private int[] aWeekRestData = new int[7];
 
 	// 한달간 휴식 기록 예시 
-	private int[] aMonthRestData = {1,1,3,2,1,1,0,0,0,2,3,3,3,3,3,6,7,2,2,1,3,3,5,2,3,4,1,2,4,2,3};
+	private int[] aMonthRestData = new int[30];
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -304,7 +308,36 @@ public class recordController implements Initializable{
 
 	// 주간 기록 버튼
 	public void weekButton(ActionEvent e) {
-
+		//운동
+		List<timesModel> exer =  new ArrayList<timesModel>();
+		try {
+			exer = db.getWeekData("exercise");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		System.out.println("출력");
+		for(int i =0;i<exer.size();i++) {
+			timesModel rcm = exer.get(i);
+			System.out.println("date = "+rcm.getDate()+" num = "+rcm.getCnt());
+			weekDays[i]=rcm.getDate();
+			aWeekGameData[i] = rcm.getCnt();
+		}
+		//휴식
+		List<timesModel> restM =  new ArrayList<timesModel>();
+		try {
+			restM = db.getWeekData("rest");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		System.out.println("출력");
+		for(int i =0;i<restM.size();i++) {
+			timesModel rcm = restM.get(i);
+			System.out.println("date = "+rcm.getDate()+" num = "+rcm.getCnt());
+			weekDays[i]=rcm.getDate();
+			aWeekRestData[i] = rcm.getCnt();
+		}
 		//차트 타이틀 변경
 		recordChart.setTitle("주간 게임/휴식 기록");
 
@@ -339,7 +372,38 @@ public class recordController implements Initializable{
 	}
 
 	// 한달간 기록 버튼 일단...
-	public void monthButton(ActionEvent e) {		
+	public void monthButton(ActionEvent e) {	
+		//운동
+				List<timesModel> exer =  new ArrayList<timesModel>();
+				try {
+					exer = db.getMonthData("exercise");
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				System.out.println("출력");
+				for(int i =0;i<exer.size();i++) {
+					timesModel rcm = exer.get(i);
+					System.out.println("date = "+rcm.getDate()+" num = "+rcm.getCnt());
+					monthDays[i]=rcm.getDate();
+					aMonthGameData[i] = rcm.getCnt();
+				}
+				//휴식
+				List<timesModel> restM =  new ArrayList<timesModel>();
+				try {
+					restM = db.getMonthData("rest");
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				System.out.println("출력");
+				for(int i =0;i<restM.size();i++) {
+					timesModel rcm = restM.get(i);
+					System.out.println("date = "+rcm.getDate()+" num = "+rcm.getCnt());
+					monthDays[i]=rcm.getDate();
+					aMonthRestData[i] = rcm.getCnt();
+				}
+				
 		// 차트 타이틀 변경
 		recordChart.setTitle("한달간 게임/휴식 기록");
 

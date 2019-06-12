@@ -6,10 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import eye.record.model.recordModel;
+import eye.record.model.timesModel;
 
 public class dbconn {
 	Connection conn = null;
@@ -397,6 +401,136 @@ public class dbconn {
 							rmt.setDate(rs.getString("date"));
 							rm.add(rmt);
 						}
+					} catch (Exception e) {
+						System.out.println(" topRecord = "+e);
+					}
+					pstmt.close();
+					conn.close();
+					
+					return rm;
+				}
+				
+				//일주일 데이터 가져오기
+				public List<timesModel> getWeekData(String name) throws SQLException {
+					System.out.println("getWeekData연결");
+					SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+					Date currentTime = new Date();
+					Calendar cal = Calendar.getInstance();
+					cal.setTime(currentTime);
+					cal.add(Calendar.DATE,-7);
+					String before = sDateForm.format(cal.getTime());
+					String now = sDateForm.format(currentTime);
+					System.out.println("7일 전 = "+before+" 현재 = "+now);
+					
+					List<timesModel> rm =  new ArrayList<timesModel>();
+					List<timesModel> weekData =  new ArrayList<timesModel>();
+					int n =0;
+					int i = -7;
+					try {
+						getClass().forName("org.sqlite.JDBC");
+						conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+						String sql = "SELECT date,count(kinds) as num from times where date >= ? and date <= ? and kinds = ? group by date ORDER by date";
+						System.out.println("sql= "+sql+" name="+name);
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, before);
+						pstmt.setString(2, now);
+						pstmt.setString(3, name);
+						ResultSet rs = pstmt.executeQuery();
+						System.out.println("-----------------------------------------------");
+						while(rs.next()) {
+							//날짜비교
+							while(true) {
+								cal = Calendar.getInstance();
+								cal.setTime(currentTime);
+								cal.add(Calendar.DATE,i);
+								before = sDateForm.format(cal.getTime());
+								if(before.equals(rs.getString("date"))) {
+									System.out.println("before date = "+before);
+									System.out.println("db date="+rs.getString("date")+"db num="+rs.getInt("num"));
+									timesModel rmt = new timesModel();
+								rmt.setCnt(rs.getInt("num"));
+								rmt.setDate(rs.getString("date"));
+								rm.add(rmt);
+								i++;
+								break;
+								}else {
+									System.out.println("--before date = "+before);
+									System.out.println("--db date="+rs.getString("date")+"db num="+rs.getInt("num"));
+									timesModel rmt = new timesModel();
+									rmt.setCnt(0);
+									rmt.setDate(before);
+									rm.add(rmt);
+									i++;
+								}
+							}
+						}
+						System.out.println("-----------------------------------------------");
+						
+					} catch (Exception e) {
+						System.out.println(" topRecord = "+e);
+					}
+					pstmt.close();
+					conn.close();
+					
+					return rm;
+				}
+				
+				//한달 데이터 가져오기
+				public List<timesModel> getMonthData(String name) throws SQLException {
+					System.out.println("getMonthData연결");
+					SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+					Date currentTime = new Date();
+					Calendar cal = Calendar.getInstance();
+					cal.setTime(currentTime);
+					cal.add(Calendar.DATE,-30);
+					String before = sDateForm.format(cal.getTime());
+					String now = sDateForm.format(currentTime);
+					System.out.println("30일 전 = "+before+" 현재 = "+now);
+					
+					List<timesModel> rm =  new ArrayList<timesModel>();
+					List<timesModel> monthData =  new ArrayList<timesModel>();
+					int n =0;
+					int i = -30;
+					try {
+						getClass().forName("org.sqlite.JDBC");
+						conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+						String sql = "SELECT date,count(kinds) as num from times where date >= ? and date <= ? and kinds = ? group by date ORDER by date";
+						System.out.println("sql= "+sql+" name="+name);
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, before);
+						pstmt.setString(2, now);
+						pstmt.setString(3, name);
+						ResultSet rs = pstmt.executeQuery();
+						System.out.println("-----------------------------------------------");
+						while(rs.next()) {
+							//날짜비교
+							while(true) {
+								cal = Calendar.getInstance();
+								cal.setTime(currentTime);
+								cal.add(Calendar.DATE,i);
+								before = sDateForm.format(cal.getTime());
+								if(before.equals(rs.getString("date"))) {
+									System.out.println("before date = "+before);
+									System.out.println("db date="+rs.getString("date")+"db num="+rs.getInt("num"));
+									timesModel rmt = new timesModel();
+								rmt.setCnt(rs.getInt("num"));
+								rmt.setDate(rs.getString("date"));
+								rm.add(rmt);
+								i++;
+								break;
+								}else {
+									System.out.println("--before date = "+before);
+									System.out.println("--db date="+rs.getString("date")+"db num="+rs.getInt("num"));
+									timesModel rmt = new timesModel();
+									rmt.setCnt(0);
+									rmt.setDate(before);
+									rm.add(rmt);
+									i++;
+								}
+							}
+						}
+						System.out.println("-----------------------------------------------");
+						
 					} catch (Exception e) {
 						System.out.println(" topRecord = "+e);
 					}
