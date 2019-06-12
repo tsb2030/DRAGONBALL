@@ -3,6 +3,9 @@ package eye.game.catchBall;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -41,9 +44,11 @@ import javafx.scene.shape.Polyline;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import eye.db.*;
 public class CatchballGameController implements Initializable {
 
+	dbconn db = new dbconn();
+	
 	private String[] humans = { "Animal", "Australopithecus", "Homo sapiens", "Human", "" };
 	private int humanIndex = 0;
 	public static boolean eyeAchivementCatchBallHumanEvalutionValue = false;
@@ -248,6 +253,20 @@ public class CatchballGameController implements Initializable {
 		currentStage = (Stage) PauseBtn.getScene().getWindow();
 		if (justOne == false) { // 종료 메소드가 한번 실행 되었다면 두번 반복되지 않기 위해 boolean값을 이용하였다.
 			if (timer.getTime() <= 0 || falseCount > 2) {
+				
+				//디비에 데이터 넣는 부분
+				System.out.println("val = "+bigScore);
+				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+				Date currentTime = new Date();
+				String cTime = sDateForm.format(currentTime);
+				try {
+					db.insertKorGame(cTime, "catchball", bigScore);
+					db.insertTimes("catchBall", cTime);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				timer.animation.pause();
 				bigPanne.setOpacity(0.45);
 				if (followBalltransition.getStatus() == Status.RUNNING)

@@ -2,7 +2,9 @@ package eye.game.follow;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -31,10 +33,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import eye.db.*;
 //숫자게임페이지에 달려있는 컨트롤러
 public class otfGameController implements Initializable {
 
+	dbconn db = new dbconn();
+	
 	public static Stage currentStage;
 
 	@FXML
@@ -193,6 +197,14 @@ public class otfGameController implements Initializable {
 									for (int i = 0; i < 25; i++) {
 										btnarr[i].setDisable(true);
 									}
+									String timeStr = timer.getText();
+									double val = Double.parseDouble(timeStr);
+									System.out.println("val = "+val);
+									SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+									Date currentTime = new Date();
+									String cTime = sDateForm.format(currentTime);
+									db.insertKorGame(cTime, "numGame", val);
+									db.insertTimes("follow", cTime);
 									currentStage = (Stage) timer.getScene().getWindow();
 									result = timer.getText();
 									FXMLLoader endGamePopup = new FXMLLoader(
