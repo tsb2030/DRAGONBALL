@@ -2,6 +2,9 @@ package eye.game.catchMole;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import eye.Music;
@@ -25,9 +28,11 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import eye.db.*;
 public class DodugeGameController implements Initializable {
 
+	dbconn db = new dbconn();
+	
 	public static Stage dodugeStage;
 
 	@FXML
@@ -165,6 +170,19 @@ public class DodugeGameController implements Initializable {
 				timeTime = timeTmp;
 			}
 			if (timeTime <= 0 && flag == false) {
+				
+				//디비 저장
+				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+				Date currentTime = new Date();
+				String cTime = sDateForm.format(currentTime);
+				try {
+					db.insertUpGame(cTime, "catchMole", score);
+					db.insertTimes("catchMole", cTime);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				clock.animation.stop();
 				dodugeStage = (Stage) TimerLabel.getScene().getWindow();
 				FXMLLoader EndGamePopupLoader = new FXMLLoader(
