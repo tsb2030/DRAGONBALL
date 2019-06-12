@@ -6,6 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import eye.record.model.recordModel;
 
 public class dbconn {
 	Connection conn = null;
@@ -321,4 +325,84 @@ public class dbconn {
 		conn.close();
 		return arr;
 	}
+	
+	//정답인 기록 가져오기
+		public int getCorRecord(String name) throws SQLException {
+			System.out.println("getCorRecord연결");
+			int n =0;
+			try {
+				getClass().forName("org.sqlite.JDBC");
+				conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+				String sql = "select count(*) as totalCorRecord from records where name=? and record = 1";
+				System.out.println("sql= "+sql+" name="+name);
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, name);
+				ResultSet rs = pstmt.executeQuery();
+				while(rs.next()) {
+					n = rs.getInt("totalCorRecord");
+				}
+			} catch (Exception e) {
+				System.out.println(" totalCorRecord = "+e);
+			}
+			stmt.close();
+			conn.close();
+			
+			return n;
+		}
+		
+		//랭킹10위 가져오기 오름차순
+				public List<recordModel> getTopRecordASC(String name) throws SQLException {
+					System.out.println("getTopRecordASC연결");
+					List<recordModel> rm =  new ArrayList<recordModel>();
+					int n =0;
+					try {
+						getClass().forName("org.sqlite.JDBC");
+						conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+						String sql = "select * from records where name=? order by record limit 10";
+						System.out.println("sql= "+sql+" name="+name);
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, name);
+						ResultSet rs = pstmt.executeQuery();
+						while(rs.next()) {
+							recordModel rmt = new recordModel();
+							rmt.setRecord(rs.getInt("record"));
+							rmt.setDate(rs.getString("date"));
+							rm.add(rmt);
+						}
+					} catch (Exception e) {
+						System.out.println(" topRecord = "+e);
+					}
+					pstmt.close();
+					conn.close();
+					
+					return rm;
+				}
+				
+				//랭킹10위 가져오기 내림차순
+				public List<recordModel> getTopRecordDESC(String name) throws SQLException {
+					System.out.println("getTopRecordDESC연결");
+					List<recordModel> rm =  new ArrayList<recordModel>();
+					int n =0;
+					try {
+						getClass().forName("org.sqlite.JDBC");
+						conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
+						String sql = "select * from records where name=? order by record desc limit 10";
+						System.out.println("sql= "+sql+" name="+name);
+						pstmt = conn.prepareStatement(sql);
+						pstmt.setString(1, name);
+						ResultSet rs = pstmt.executeQuery();
+						while(rs.next()) {
+							recordModel rmt = new recordModel();
+							rmt.setRecord(rs.getInt("record"));
+							rmt.setDate(rs.getString("date"));
+							rm.add(rmt);
+						}
+					} catch (Exception e) {
+						System.out.println(" topRecord = "+e);
+					}
+					pstmt.close();
+					conn.close();
+					
+					return rm;
+				}
 }

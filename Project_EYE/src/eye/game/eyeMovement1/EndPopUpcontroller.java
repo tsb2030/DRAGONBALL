@@ -47,13 +47,9 @@ public class EndPopUpcontroller {
 		if (Playcontroller.cnt == ganswer) {
 			try {
 				//정답시 디비저장
-				try {
-					db.insertUpGame(cTime, "mobius", 1);
-					db.insertTimes("mobius", cTime);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				System.out.println("정답");
+				db.insertUpGame(cTime, "mobius", 1);
+				db.insertTimes("mobius", cTime);
 				
 				Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 				effectMusic.start();
@@ -67,13 +63,9 @@ public class EndPopUpcontroller {
 		} else {
 			try {
 				//오답시 디비저장
-				try {
-					db.insertUpGame(cTime, "mobius", 0);
-					db.insertTimes("mobius", cTime);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				System.out.println("오답");
+				db.insertUpGame(cTime, "mobius", 0);
+				db.insertTimes("mobius", cTime);
 				
 				Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 				effectMusic.start();

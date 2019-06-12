@@ -1,17 +1,23 @@
 package eye.record.controller;
 
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import eye.record.model.recordModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+import eye.db.*;
 public class CatchBallRecordController implements Initializable {
+	
+	dbconn db = new dbconn();
 	
 	@FXML
 	AnchorPane catchBallRecord;
@@ -25,16 +31,28 @@ public class CatchBallRecordController implements Initializable {
 	
 	
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		//디비연결 데이터가져오기
+		List<recordModel> recordm =  new ArrayList<recordModel>();
+		try {
+			recordm = db.getTopRecordDESC("catchball1");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		// default step1 record
 		String top10Record[] = new String[10];
 		String top10Date[] = new String[10];
 		
 		// db에서 값 가져와야 합니다. 임의의 값으로 일단 함
-		for(int i = 5 ; i>0 ; i--) {
-			top10Record[5-i] = Integer.toString(i*10);
+		for(int i = 0;i<recordm.size();i++) {
+			recordModel rm = recordm.get(i);
+			top10Record[i] = Integer.toString(rm.getRecord());
+			top10Date[i] = rm.getDate();
 		}
-		for(int i = 5 ; i>0 ; i--) {
-			top10Date[5-i] = "6/1";
+		for(int i = recordm.size();i<10;i++) {
+			top10Record[i] = "";
+			top10Date[i] = "";
 		}
 	
 		
@@ -73,14 +91,25 @@ public class CatchBallRecordController implements Initializable {
 	
 
 	public void step1Button(ActionEvent e) {
+		List<recordModel> recordm =  new ArrayList<recordModel>();
+		try {
+			recordm = db.getTopRecordDESC("catchball1");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		String top10Record[] = new String[10];
 		String top10Date[] = new String[10];
 		// db에서 값 가져와야 합니다. 임의의 값으로 일단 함
-		for(int i = 5 ; i>0 ; i--) {
-			top10Record[5-i] = Integer.toString(i*10);
+		for(int i = 0;i<recordm.size();i++) {
+			recordModel rm = recordm.get(i);
+			top10Record[i] = Integer.toString(rm.getRecord());
+			top10Date[i] = rm.getDate();
 		}
-		for(int i = 5 ; i>0 ; i--) {
-			top10Date[5-i] = "6/1";
+		for(int i = recordm.size();i<10;i++) {
+			top10Record[i] = "";
+			top10Date[i] = "";
 		}
 		
 		
@@ -110,14 +139,25 @@ public class CatchBallRecordController implements Initializable {
 	
 
 	public void step2Button(ActionEvent e) {
+		List<recordModel> recordm =  new ArrayList<recordModel>();
+		try {
+			recordm = db.getTopRecordDESC("catchball2");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		String top10Record[] = new String[10];
 		String top10Date[] = new String[10];
 		// db에서 값 가져와야 합니다. 임의의 값으로 일단 함
-		for(int i = 7 ; i>0 ; i--) {
-			top10Record[7-i] = Integer.toString(i*5);
+		for(int i = 0;i<recordm.size();i++) {
+			recordModel rm = recordm.get(i);
+			top10Record[i] = Integer.toString(rm.getRecord());
+			top10Date[i] = rm.getDate();
 		}
-		for(int i = 7 ; i>0 ; i--) {
-			top10Date[7-i] = "6/2";
+		for(int i = recordm.size();i<10;i++) {
+			top10Record[i] = "";
+			top10Date[i] = "";
 		}
 		
 		
@@ -147,14 +187,25 @@ public class CatchBallRecordController implements Initializable {
 	
 
 	public void step3Button(ActionEvent e) {
+		List<recordModel> recordm =  new ArrayList<recordModel>();
+		try {
+			recordm = db.getTopRecordDESC("catchball3");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		String top10Record[] = new String[10];
 		String top10Date[] = new String[10];
 		// db에서 값 가져와야 합니다. 임의의 값으로 일단 함
-		for(int i = 7 ; i>0 ; i--) {
-			top10Record[7-i] = Integer.toString(i*3);
+		for(int i = 0;i<recordm.size();i++) {
+			recordModel rm = recordm.get(i);
+			top10Record[i] = Integer.toString(rm.getRecord());
+			top10Date[i] = rm.getDate();
 		}
-		for(int i = 7 ; i>0 ; i--) {
-			top10Date[7-i] = "6/3";
+		for(int i = recordm.size();i<10;i++) {
+			top10Record[i] = "";
+			top10Date[i] = "";
 		}
 		
 		

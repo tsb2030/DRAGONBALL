@@ -123,9 +123,9 @@
 														<Label layoutX="210.0" layoutY="110.0" styleClass="littleTitleL" text="맞춘 횟수 : " />
 														<Label fx:id="mobCorrect" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="110.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
 														<Label layoutX="400.0" layoutY="110.0" styleClass="littleTitleL" text="회" />
-														<Label layoutX="210.0" layoutY="150.0" styleClass="littleTitleL" text="승률 : " />
+														<Label layoutX="210.0" layoutY="150.0" styleClass="littleTitleL" text="정답률 : " />
 														<Label fx:id="mobWinningAvg" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="150.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
-														<Label layoutX="400.0" layoutY="150.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="400.0" layoutY="150.0" styleClass="littleTitleL" text="" />
 														<Label fx:id="mobiusTotal" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="70.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
 													</children>
 												</Pane>
@@ -144,9 +144,9 @@
 														<Label layoutX="210.0" layoutY="110.0" styleClass="littleTitleL" text="맞춘 횟수 : " />
 														<Label fx:id="zigCorrect" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="110.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
 														<Label layoutX="400.0" layoutY="110.0" styleClass="littleTitleL" text="회" />
-														<Label layoutX="210.0" layoutY="150.0" styleClass="littleTitleL" text="승률 : " />
+														<Label layoutX="210.0" layoutY="150.0" styleClass="littleTitleL" text="정답률 : " />
 														<Label fx:id="zigWinningAvg" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="150.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
-														<Label layoutX="400.0" layoutY="150.0" styleClass="littleTitleL" text="회" />
+														<Label layoutX="400.0" layoutY="150.0" styleClass="littleTitleL" text="" />
 														<Label fx:id="zigzagTotal" alignment="CENTER_RIGHT" layoutX="325.0" layoutY="70.0" prefHeight="19.0" prefWidth="70.0" text="Label" />
 													</children>
 												</Pane>
