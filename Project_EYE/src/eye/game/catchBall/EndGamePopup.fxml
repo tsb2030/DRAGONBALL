@@ -51,7 +51,7 @@
      	</Label>
       
 		<Pane id="backBorder" layoutX="164.0" layoutY="211.0" prefHeight="150.0" prefWidth="180.0" />
-		<Label layoutX="235.0" layoutY="231.0" text="기록">
+		<Label fx:id="level" layoutX="235.0" layoutY="231.0" text="기록">
 			<font>
 				<Font name="a소나무L" size="18" />
 			</font>

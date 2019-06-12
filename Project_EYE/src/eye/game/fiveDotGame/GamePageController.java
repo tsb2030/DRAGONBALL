@@ -2,6 +2,9 @@ package eye.game.fiveDotGame;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import eye.Music;
@@ -21,9 +24,11 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import eye.db.*;
 public class GamePageController implements Initializable {
 
+	dbconn db = new dbconn();
+	
 	// 운동을 위해 필요함
 	@FXML
 	Circle circle1, circle2, circle3, circle4, circle5;
@@ -196,6 +201,7 @@ public class GamePageController implements Initializable {
 			endText.setVisible(true); // 게임 끝나면 FINISH 문구 뜸
 			gamePageStage = (Stage) gamePage.getScene().getWindow();
 
+	
 			// 운동 끝나면 팝업(뒤로가기 & 다시하기)
 			if (a == true) {
 				FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("EndPopup.fxml"));
@@ -208,6 +214,16 @@ public class GamePageController implements Initializable {
 					stage.show();
 
 				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				//디비에 운동횟수 저장
+				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+				Date currentTime = new Date();
+				String cTime = sDateForm.format(currentTime);
+				try {
+					db.insertTimes("fiveDot", cTime);
+				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}

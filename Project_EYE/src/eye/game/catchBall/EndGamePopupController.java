@@ -36,7 +36,7 @@ public class EndGamePopupController implements Initializable {
 	private Label gameTime,first,second,third;
 
 	@FXML
-	private Label gameScore;
+	private Label gameScore,level;
 
 	@FXML
 	void backGameAction(ActionEvent event) {
@@ -97,9 +97,21 @@ public class EndGamePopupController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		gameScore.setText(String.valueOf(CatchballGameController.bigScore));
 		gameTime.setText(String.valueOf(CatchballGameController.timeTime));
+		int speed = (int) IntroducePageController.gameSpeed;
 		Double recordData[] = null;
 		try {
-			recordData = db.getGameData("catchball");
+			if(speed==5) {
+			recordData = db.getGameData("catchball1",1);
+			level.setText("기록(Easy)");
+			}
+			if(speed==4) {
+				recordData = db.getGameData("catchball2",1);
+				level.setText("기록(Normal)");
+			}
+			if(speed==3) {
+				recordData = db.getGameData("catchball3",1);
+				level.setText("기록(Hard)");
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -79,7 +79,7 @@ public class otfSucController implements Initializable {
 		result.setText("게임 시간 : " + String.valueOf(otfGameController.result) + "초");
 		Double recordData[] = null;
 		try {
-			recordData = db.getGameData("numGame");
+			recordData = db.getGameData("numGame",0);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

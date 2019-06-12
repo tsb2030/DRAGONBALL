@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -30,9 +33,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import eye.db.*;
 public class GamePageController implements Initializable {
 
+	dbconn db = new dbconn();
+	
 	@FXML
 	AnchorPane findPicturegamePage;
 
@@ -860,6 +865,19 @@ public class GamePageController implements Initializable {
 						}
 					});
 				}
+				
+				//디비에 점수 저장
+				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+				Date currentTime = new Date();
+				String cTime = sDateForm.format(currentTime);
+				try {
+					db.insertUpGame(cTime, "findPicture", bigScore);
+					db.insertTimes("findPicture", cTime);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 				clock.animation.stop();
 				currentStage = (Stage) timeLabel.getScene().getWindow();
 				dodugeStage = (Stage) sampleImage.getScene().getWindow();

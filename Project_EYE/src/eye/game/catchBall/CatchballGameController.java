@@ -255,12 +255,18 @@ public class CatchballGameController implements Initializable {
 			if (timer.getTime() <= 0 || falseCount > 2) {
 				
 				//디비에 데이터 넣는 부분
+				int speed = (int) IntroducePageController.gameSpeed;
 				System.out.println("val = "+bigScore);
 				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
 				Date currentTime = new Date();
 				String cTime = sDateForm.format(currentTime);
 				try {
-					db.insertKorGame(cTime, "catchball", bigScore);
+					if(speed==5) 
+					db.insertKorGame(cTime, "catchball1", bigScore);
+					if(speed==4) 
+						db.insertKorGame(cTime, "catchball2", bigScore);
+					if(speed==3) 
+						db.insertKorGame(cTime, "catchball3", bigScore);
 					db.insertTimes("catchBall", cTime);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block

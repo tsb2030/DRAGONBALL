@@ -3,6 +3,8 @@ package eye.game.findPicture;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import javax.sound.sampled.LineUnavailableException;
@@ -21,9 +23,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+import eye.db.*;
 public class EndPopupController implements Initializable {
 
+	dbconn db = new dbconn();
+	
 	@FXML
 	private Button goMainButton, backGame;
 
@@ -31,7 +35,7 @@ public class EndPopupController implements Initializable {
 	AnchorPane endPopup;
 
 	@FXML
-	private Label gameScore;
+	private Label gameScore,first,second,third;
 
 	@FXML
 	void backGameAction(ActionEvent event) {
@@ -81,6 +85,26 @@ public class EndPopupController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		gameScore.setText(String.valueOf(GamePageController.bigScore));
+		Double recordData[] = null;
+		try {
+			recordData = db.getGameData("findPicture",1);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(Arrays.toString(recordData));
+		if(recordData[0]!=null)
+			first.setText("1위 : "+Double.toString(recordData[0])+"점");
+		else
+			first.setText("1위 : ");
+		if(recordData[1]!=null)
+			second.setText("2위 : "+Double.toString(recordData[1])+"점");
+		else
+			second.setText("2위 : ");
+		if(recordData[2]!=null)
+			third.setText("3위 : "+Double.toString(recordData[2])+"점");
+		else
+			third.setText("3위 : ");
 	}
 
 }
