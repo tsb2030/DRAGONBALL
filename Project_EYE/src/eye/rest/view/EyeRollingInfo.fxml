@@ -21,7 +21,7 @@
 					<children>
 						<ImageView id="shadow" fx:id="backBtn" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#goRestMainPage1" pickOnBounds="true" preserveRatio="true">
 							<HBox.margin>
-								<Insets left="10.0" top="10.0" />
+								<Insets left="10.0" top="5.0" />
 							</HBox.margin>
 							<image>
 								<Image url="/image/backarrow.png" />
