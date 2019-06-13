@@ -92,7 +92,7 @@ public class setController implements Initializable {
 	ObservableList<Integer> timeList = FXCollections.observableArrayList();
 	ObservableList<String> intervalList = FXCollections.observableArrayList();
 
-	// 초기화 버튼 눌렀을 때
+	// 초기화 버튼 액션 이벤트
 	@FXML
 	void cancel(MouseEvent event) throws IOException {
 		mainPage = (Stage) BGMToggle.getScene().getWindow();
@@ -143,6 +143,7 @@ public class setController implements Initializable {
 
 	}
 
+	//확인 버튼 액션 이벤트
 	@FXML
 	void submit(MouseEvent event) throws IOException {
 		mainPage = (Stage) BGMToggle.getScene().getWindow();
@@ -196,6 +197,7 @@ public class setController implements Initializable {
 
 	}
 
+	//backButton Action
 	@FXML
 	void backButtonAction(MouseEvent event) throws IOException {
 		if (isPause == false) {
@@ -347,6 +349,7 @@ public class setController implements Initializable {
 		}
 	}
 
+	//짧은 버튼 눌렀을 경우 type지정
 	@FXML
 	void restTypeIsShort(MouseEvent event) {
 		Music effectMusic = new Music("setButtonClickEffect", false, 2);
@@ -358,6 +361,7 @@ public class setController implements Initializable {
 
 	}
 
+	//긴 버튼을 눌렀을 경우 type지정
 	@FXML
 	void restTypeIsLong(MouseEvent event) {
 		Music effectMusic = new Music("setButtonClickEffect", false, 2);
@@ -369,6 +373,7 @@ public class setController implements Initializable {
 
 	}
 
+	//보통 버튼을 눌렀을 경우 type지정
 	@FXML
 	void restTypeIsRotate(MouseEvent event) {
 		Music effectMusic = new Music("setButtonClickEffect", false, 2);
@@ -433,6 +438,7 @@ public class setController implements Initializable {
 		effectToggle.setToggleLineColor(firstEffectLUnToggleLineColor);
 	}
 
+	//초기화 할때 사용하는 메소드
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 처음에 켜진 상태이기 때문에 바꿈..
@@ -454,9 +460,7 @@ public class setController implements Initializable {
 		combobox3.setItems(intervalList);
 	}
 	
-	/*
-	 * 토글위치 재조정 함수
-	 */
+	//토글위치 재조정 함수
 	public void setToggleLocation() {
 		if(Music.BGMFlag == false) {
 			BGMToggle.fire();
@@ -465,10 +469,8 @@ public class setController implements Initializable {
 			effectToggle.fire();
 		}
 	}
-	/**
-	 * 
-	 * t --> BGMToggleFlag
-	 */
+	
+	// BGMToggle
 	@FXML
 	void BGMToggleAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException {
@@ -490,10 +492,7 @@ public class setController implements Initializable {
 
 	}
 
-	/**
-	 * 
-	 * 위랑 같이 변경
-	 */
+	// effectToggle
 	@FXML
 	void effectToggleAction(ActionEvent event) {
 		if (isPause == false) {
@@ -548,10 +547,8 @@ public class setController implements Initializable {
 
 	}
 
-	/**
-	 * 
-	 * 입력된 값에 따라 integer값을 restCycle에 저장해 둔다.
-	 */
+	
+	//입력된 값에 따라 integer값을 restCycle에 저장해 둔다.
 	public void findOne(String s) {
 		switch (s) {
 		case "30분":
@@ -590,6 +587,7 @@ public class setController implements Initializable {
 		}
 	}
 
+	//pause Button
 	public void pause() {
 		Music effectMusic = new Music("setButtonClickEffect", false, 2);
 		effectMusic.start();
@@ -597,10 +595,7 @@ public class setController implements Initializable {
 		ExplainPage.setOpacity(0.45);
 	}
 
-	public static void timeIsGoing() {
-
-	}
-
+	//타이머
 	public class Clock extends Pane {
 
 		int currentDateDay = currentDate.getDayOfMonth();

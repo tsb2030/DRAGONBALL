@@ -2,9 +2,6 @@ package eye.game.catchMole;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import eye.Music;
@@ -28,12 +25,9 @@ import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import eye.db.*;
+
 public class DodugeGameController implements Initializable {
 
-	dbconn db = new dbconn();
-	AchievementDB aDB = new AchievementDB();
-	
 	public static Stage dodugeStage;
 
 	@FXML
@@ -74,7 +68,6 @@ public class DodugeGameController implements Initializable {
 				if (r1 == sameR1 && r2 == sameR2) {
 					sameUpDodugeCount++;
 					eyeAchievementCatchMoleValue = eyeAchievementCatchMole();
-					aDB.ach();
 //					if(eyeAchievementCatchMoleValue == true)
 //						이벤트 발생!
 				} else
@@ -173,21 +166,10 @@ public class DodugeGameController implements Initializable {
 			}
 			if (timeTime <= 0 && flag == false) {
 				
-				//디비 저장
-				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
-				Date currentTime = new Date();
-				String cTime = sDateForm.format(currentTime);
-				try {
-					db.insertUpGame(cTime, "catchMole", score);
-					db.insertTimes("catchMole", cTime);
-				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
 				
-				//오늘 하루 운동횟수 추가
-				AchievementDB.DayPlaycount = true;
-				aDB.ach();
+				//게임이 끝나는 부분
+				
+				
 				clock.animation.stop();
 				dodugeStage = (Stage) TimerLabel.getScene().getWindow();
 				FXMLLoader EndGamePopupLoader = new FXMLLoader(

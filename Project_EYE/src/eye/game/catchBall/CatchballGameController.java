@@ -48,7 +48,6 @@ import eye.db.*;
 public class CatchballGameController implements Initializable {
 
 	dbconn db = new dbconn();
-	AchievementDB aDB = new AchievementDB();
 	
 	private String[] humans = { "Animal", "Australopithecus", "Homo sapiens", "Human", "" };
 	private int humanIndex = 0;
@@ -63,7 +62,6 @@ public class CatchballGameController implements Initializable {
 			humanIndex = 0;
 		if (humanIndex == 4) {
 			eyeAchivementCatchBallHumanEvalutionValue = true;
-			aDB.ach();
 		}
 	}
 	
@@ -252,26 +250,20 @@ public class CatchballGameController implements Initializable {
 	// 게임이 종료되었을 때 호출되는 이벤트
 	public void gameOver()
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
-		//오늘 하루 운동횟수 추가
-		AchievementDB.DayPlaycount = true;
-		aDB.ach();
 		currentStage = (Stage) PauseBtn.getScene().getWindow();
 		if (justOne == false) { // 종료 메소드가 한번 실행 되었다면 두번 반복되지 않기 위해 boolean값을 이용하였다.
 			if (timer.getTime() <= 0 || falseCount > 2) {
 				
+				//게임이 끝나는 부분
+				
+				
 				//디비에 데이터 넣는 부분
-				int speed = (int) IntroducePageController.gameSpeed;
 				System.out.println("val = "+bigScore);
 				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
 				Date currentTime = new Date();
 				String cTime = sDateForm.format(currentTime);
 				try {
-					if(speed==5) 
-					db.insertKorGame(cTime, "catchball1", bigScore);
-					if(speed==4) 
-						db.insertKorGame(cTime, "catchball2", bigScore);
-					if(speed==3) 
-						db.insertKorGame(cTime, "catchball3", bigScore);
+					db.insertKorGame(cTime, "catchball", bigScore);
 					db.insertTimes("catchBall", cTime);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
@@ -373,10 +365,9 @@ public class CatchballGameController implements Initializable {
 		} else { // 넷째 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.RED);
 			eyeAchivementCatchBallHexaKill++;
-			if(eyeAchivementCatchBallHexaKill == 6) {
+			if(eyeAchivementCatchBallHexaKill == 6)
 				eyeAchivementCatchBallHexaKillValue = true;	
-				aDB.ach();
-			}
+
 		}
 
 		ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(5));
@@ -404,8 +395,6 @@ public class CatchballGameController implements Initializable {
 	public void oneStageSuccesEvent(Circle catchCircle) {
 		// 빨간 공 스피드 올리고
 		changedSpeedValue = speedIncreaseValue * 0.75;
-
-//		catchBall이 살짝 커졌다다시 작아짐 -> 시발 안 해 않 해 안 해 안 해 안 해 ㅁ시바러비러ㅣㅓ이ㅣㅏㄹ빙
 		changeNode(catchCircle);
 
 	}
@@ -775,7 +764,8 @@ public class CatchballGameController implements Initializable {
 		}
 
 	}
-
+	
+	//빨간 공의 이동
 	public void followCircleStart() {
 
 		catchCircle.setVisible(false);
@@ -1523,6 +1513,7 @@ public class CatchballGameController implements Initializable {
 
 	}
 
+	//타이머
 	public class Clock extends Pane {
 
 		private Timeline animation;
