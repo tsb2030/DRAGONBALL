@@ -35,7 +35,7 @@ public class ClosedEyeInfoController implements Initializable {
 	private Text title;
 
 	@FXML
-	private Button ClosedEyeNextBtn;
+	private Button ClosedEyeNextBtn;  // 시작 버튼
 
 	@FXML // 휴식 장면으로 가기
 	void goClosedEyeRestPage(ActionEvent event) throws IOException {
@@ -53,7 +53,7 @@ public class ClosedEyeInfoController implements Initializable {
 		currentStage.show();
 	}
 
-	@FXML // backMain
+	@FXML // 눈 꼭 감기 설명 페이지에서 뒤로가기 버튼 누르면 휴식 메인 페이지로 이동
 	void goRestMainPage1(MouseEvent event) {
 
 		currentStage = (Stage) btnBefore.getScene().getWindow();

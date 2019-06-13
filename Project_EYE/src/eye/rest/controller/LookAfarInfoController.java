@@ -31,10 +31,10 @@ public class LookAfarInfoController {
 	@FXML
 	private Text title;
 
-	@FXML
-	private Button lookAfarNextBtn;
+	@FXML 
+	private Button lookAfarNextBtn;  // 시작 버튼
 
-	@FXML
+	@FXML  /* 멀리 보기 설명 페이지에서 시작버튼 누르면 실행 페이지로 이동 */
 	void goLookAfarRestPage(ActionEvent event) throws IOException {
 		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 		effectMusic.start();
@@ -50,7 +50,7 @@ public class LookAfarInfoController {
 		currentStage.show();
 	}
 
-	@FXML
+	@FXML  /* 멀리 보기 설명 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
 	void goRestMainPage1(MouseEvent event) {
 		currentStage = (Stage) backBtn.getScene().getWindow();
 		if (isPause == false) {

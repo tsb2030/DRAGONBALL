@@ -32,9 +32,9 @@ public class WarmEyeInfoController {
 	private Text title;
 
 	@FXML
-	private Button warmEyeNextBtn;
+	private Button warmEyeNextBtn;  // 시작 버튼
 
-	@FXML
+	@FXML   /* 손바닥 온찜질 설명 페이지에서 시작버튼 누르면 실행 페이지로 이동 */
 	void goRestMainPage1(MouseEvent event) throws IOException {
 		currentStage = (Stage) backBtn.getScene().getWindow();
 		if (isPause == false) {
@@ -75,7 +75,7 @@ public class WarmEyeInfoController {
 		}
 	}
 
-	@FXML
+	@FXML  /* 손바닥 온찜질 설명 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
 	void goWarmEyeRestPage(ActionEvent event) throws IOException {
 		Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 		effectMusic.start();

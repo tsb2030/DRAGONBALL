@@ -12,6 +12,8 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
+<!-- 멀리 보기 실행 페이지 -->
+
 <AnchorPane fx:id="lookAfarRestPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/rest/view/rest.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.rest.controller.LookAfarRestController">
 	<children>
 		<VBox prefHeight="720.0" prefWidth="1280.0">

@@ -63,7 +63,7 @@ public class WarmEyeRestController implements Initializable {
 	@FXML
 	private Pane mainPanel;
 
-	@FXML
+	@FXML  /* 손바닥 온찜질 실행 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
 	void goRestMainPage2(MouseEvent event) {
 		System.out.println("move?");
 		clock.animation.stop();

@@ -62,7 +62,7 @@ public class EyeMassageRestController implements Initializable {
 	@FXML
 	private Pane mainPanel;
 
-	@FXML
+	@FXML   /* 눈 마사지 실행 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
 	void goRestMainPage2(MouseEvent event) {
 		clock.animation.stop();
 		if (isPause == false) {
