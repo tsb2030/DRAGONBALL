@@ -67,6 +67,7 @@ public class engGameController implements Initializable {
 	private DoubleProperty timeSeconds = new SimpleDoubleProperty();
 	private Duration time = Duration.ZERO;
 
+	//도전과제 체크변수
 	public static boolean engHuman = false;
 	public static boolean engMistake = false;
 	public static boolean engPerfect = false;

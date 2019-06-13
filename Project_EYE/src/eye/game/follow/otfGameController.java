@@ -50,6 +50,7 @@ public class otfGameController implements Initializable {
 
 	public static int bul = 3;
 	
+	//도전과제 체크변수
 	public static boolean numHuman = false;
 	public static boolean numMistake = false;
 	public static boolean numPerfect = false;

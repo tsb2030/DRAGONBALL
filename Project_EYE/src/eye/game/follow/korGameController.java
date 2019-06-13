@@ -46,6 +46,7 @@ public static Stage currentStage;
 	
 	public static int bul = 2;
 	
+	//도전과제 체크변수
 	public static boolean korHuman = false;
 	public static boolean korMistake = false;
 	public static boolean korPerfect = false;
