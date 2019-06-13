@@ -9,11 +9,10 @@
 <AnchorPane prefHeight="500.0" prefWidth="500.0"
 	style="-fx-background-color: #ffffe4;"
 	xmlns="http://javafx.com/javafx/8.0.171"
-	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="eye.game.follow.Controller">
+	xmlns:fx="http://javafx.com/fxml/1">
 	<children>
-		<Button id="shadow" fx:id="closeBtn" layoutX="295.0"
-			layoutY="400.0" mnemonicParsing="false" onAction="#closePopUp"
+		<Button onAction="#closePopUp" id="shadow" fx:id="closeBtn" layoutX="295.0"
+			layoutY="400.0" mnemonicParsing="false"
 			prefHeight="44.0" prefWidth="125.0"
 			style="-fx-background-color: #50af49; -fx-background-radius: 30;"
 			text="그만하기" textFill="WHITE" AnchorPane.rightAnchor="100.0">
@@ -26,8 +25,8 @@
 				<Font name="a소나무M" size="44.0" />
 			</font>
 		</Label>
-		<Button id="shadow" fx:id="restartPopUpBtn" layoutX="99.0"
-			layoutY="400.0" mnemonicParsing="false" onAction="#numGameRestart"
+		<Button onAction="restart" id="shadow" fx:id="restartPopUpBtn" layoutX="99.0"
+			layoutY="400.0" mnemonicParsing="false"
 			prefHeight="44.0" prefWidth="125.0"
 			style="-fx-background-color: #50af49; -fx-background-radius: 30;"
 			text="다시하기" textFill="WHITE" AnchorPane.leftAnchor="100.0">

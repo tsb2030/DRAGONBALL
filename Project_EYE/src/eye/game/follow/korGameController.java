@@ -2,6 +2,7 @@ package eye.game.follow;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -10,6 +11,8 @@ import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 
+import eye.db.AchievementDB;
+import eye.db.dbconn;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
@@ -27,14 +30,12 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import eye.db.*;
 public class korGameController implements Initializable{
 public static Stage currentStage;
-	
+	public static int korGame=0;
     dbconn db = new dbconn();
     AchievementDB aDB = new AchievementDB();
     
@@ -84,7 +85,7 @@ public static Stage currentStage;
 			
 			mainPanel.getChildren().add(btnarr[i]);
 		}
-		timeLine = new Timeline(); // timeLine 객체 초기화
+		timeLine = new Timeline(new KeyFrame(Duration.seconds(1), e -> timeCheck())); // timeLine 객체 초기화
         timeLine.setCycleCount(Timeline.INDEFINITE);
         timeLine.play();
         
@@ -131,6 +132,59 @@ public static Stage currentStage;
 		});
 		
 		start();
+	}
+	
+	//시간검사
+	public void timeCheck() {
+		String str = timer.getText();
+		System.out.println("시간: "+str);
+		double checkTime = Double.parseDouble(str);
+		if(checkTime>60) {
+			timeLine.stop();
+			for(int i=0;i<14;i++) {
+				 btnarr[i].setDisable(true);
+			 }
+			String timeStr = timer.getText();
+			double check = Double.parseDouble(timeStr);
+			System.out.println("체크");
+			if(check<=5) {
+				korHuman=true;
+				aDB.ach();
+			}
+			System.out.println("체크 후");
+			if(checkPerfect==0) {
+				korPerfect=true;
+				aDB.ach();
+			}
+			System.out.println("체펙 후");
+			double val = Double.parseDouble(timeStr);
+			System.out.println("val = "+val);
+			SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+			Date currentTime = new Date();
+			String cTime = sDateForm.format(currentTime);
+			try {
+				db.insertTimes("follow", cTime);
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			currentStage = (Stage) timer.getScene().getWindow();
+			result = timer.getText();
+			System.out.println("창전환");
+			korGame=1;
+			FXMLLoader endGamePopup = new FXMLLoader(getClass().getResource("gameFail.fxml"));
+			try {
+				AnchorPane anotherPage = (AnchorPane) endGamePopup.load();
+				Scene endGamePopupScene = new Scene(anotherPage);
+				endGamePopupScene.getStylesheets()
+						.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+				Stage stage = new Stage();
+				stage.setScene(endGamePopupScene);
+				stage.show();
+			} catch (IOException e) {
+				System.out.println("오류남 : "+e);
+			}
+		}
 	}
 	
 	  //버튼을 정의와 이벤트핸들러를 달아주고 1~25까지의 랜덤수를 각각의 버튼에 달아준다.

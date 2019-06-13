@@ -2,6 +2,7 @@ package eye.game.follow;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -38,6 +39,8 @@ import eye.db.*;
 //숫자게임페이지에 달려있는 컨트롤러
 public class otfGameController implements Initializable {
 
+	public static int otfGame=0;
+	
 	dbconn db = new dbconn();
 	AchievementDB aDB = new AchievementDB();
 
@@ -92,7 +95,7 @@ public class otfGameController implements Initializable {
 
 			mainPanel.getChildren().add(btnarr[i]);
 		}
-		timeLine = new Timeline(); // timeLine 객체 초기화
+		timeLine = new Timeline(new KeyFrame(Duration.seconds(1), e -> timeCheck())); // timeLine 객체 초기화
 		timeLine.setCycleCount(Timeline.INDEFINITE);
 		timeLine.play();
 
@@ -147,6 +150,59 @@ public class otfGameController implements Initializable {
 		start();
 	}
 
+	//시간검사
+			public void timeCheck() {
+				String str = timer.getText();
+				System.out.println("시간: "+str);
+				double checkTime = Double.parseDouble(str);
+				if(checkTime>60) {
+					otfGame=1;
+					timeLine.stop();
+					for (int i = 0; i < 25; i++) {
+						btnarr[i].setDisable(true);
+					}
+					if (checkLucky == 3) {
+						luckyS = true;
+						aDB.ach();
+					}
+					String timeStr = timer.getText();
+					double check = Double.parseDouble(timeStr);
+					if (check <= 15) {
+						numHuman = true;
+						aDB.ach();
+					}
+					if (checkPerfect == 0) {
+						numPerfect = true;
+						aDB.ach();
+					}
+					double val = Double.parseDouble(timeStr);
+					System.out.println("val = " + val);
+					SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
+					Date currentTime = new Date();
+					String cTime = sDateForm.format(currentTime);
+					try {
+						db.insertTimes("follow", cTime);
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					currentStage = (Stage) timer.getScene().getWindow();
+					result = timer.getText();
+					FXMLLoader endGamePopup = new FXMLLoader(
+							getClass().getResource("gameSuccess.fxml"));
+					try {
+						AnchorPane anotherPage = (AnchorPane) endGamePopup.load();
+						Scene endGamePopupScene = new Scene(anotherPage);
+						endGamePopupScene.getStylesheets().add(getClass()
+								.getResource("/eye/main/controller/application.css").toExternalForm());
+						Stage stage = new Stage();
+						stage.setScene(endGamePopupScene);
+						stage.show();
+					} catch (IOException e) {
+					}
+				}
+			}
+			
 	// 버튼을 정의와 이벤트핸들러를 달아주고 1~25까지의 랜덤수를 각각의 버튼에 달아준다.
 	public void buttonSetting() {
 		System.out.println("버튼세팅");
