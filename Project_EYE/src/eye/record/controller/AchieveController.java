@@ -33,18 +33,17 @@ public class AchieveController implements Initializable {
 	private LineChart recordChart;
 
 	@FXML
-	private ImageView backBtn, attendance7, attendance30, trophy, luckySeven, AI, docTrio, humanEvol, fourPoint, baekJW,
-			baby, glowEye, starNight, bat, perfect2, mistake2, timeBomb;
+	private ImageView backBtn, attendance7, attendance30, luckySeven, AI, docTrio, humanEvol, fourPoint, baekJW,
+			baby, glowEye, starNight, bat, perfect2, mistake2;
 
 	@FXML
-	private ProgressIndicator Week, Month, Record, Seven, Human, Double, Evolution, Saryunan, Easy, Novice, Fresh,
-			Color, Void, Perfect, Mistake, Dangerous;
+	private ProgressIndicator Week, Month, Seven, Human, Double, Evolution, Saryunan, Easy, Novice, Fresh,
+			Color, Void, Perfect, Mistake;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		attendance7.setOpacity(0.3);
 		attendance30.setOpacity(0.3);
-		trophy.setOpacity(0.3);
 		luckySeven.setOpacity(0.3);
 		AI.setOpacity(0.3);
 		docTrio.setOpacity(0.3);
@@ -57,7 +56,6 @@ public class AchieveController implements Initializable {
 		bat.setOpacity(0.3);
 		perfect2.setOpacity(0.3);
 		mistake2.setOpacity(0.3);
-		timeBomb.setOpacity(0.3);
 		aDB.achcnt();
 		Opa();
 		// TODO Auto-generated method stub
@@ -81,7 +79,6 @@ public class AchieveController implements Initializable {
 		});
 		Week.setProgress(AchievementDB.WeekPlay / 7);
 		Month.setProgress(AchievementDB.MonthPlay / 30);
-		Record.setProgress(AchievementDB.Record);
 		Seven.setProgress(AchievementDB.Lucky);
 		Human.setProgress(AchievementDB.Human);
 		Double.setProgress(AchievementDB.Double);
@@ -94,7 +91,6 @@ public class AchieveController implements Initializable {
 		Void.setProgress(AchievementDB.Void / 7);
 		Perfect.setProgress(AchievementDB.Perfect);
 		Mistake.setProgress(AchievementDB.Mistake);
-		Dangerous.setProgress(AchievementDB.Dangerous);
 	}
 
 	public void Opa() {
@@ -104,10 +100,6 @@ public class AchieveController implements Initializable {
 		}
 		if (AchievementDB.MonthPlay == 30) {
 			attendance30.setOpacity(1.0);
-		}
-		if (AchievementDB.Record == 1) {
-			System.out.println("종호가하라고해서");
-			trophy.setOpacity(1.0);
 		}
 		if (AchievementDB.Lucky == 1) {
 			System.out.println("종호가하라고해서");
@@ -145,9 +137,6 @@ public class AchieveController implements Initializable {
 		}
 		if (AchievementDB.Mistake == 1) {
 			mistake2.setOpacity(1);
-		}
-		if (AchievementDB.Dangerous == 1) {
-			timeBomb.setOpacity(1);
 		}
 	}
 

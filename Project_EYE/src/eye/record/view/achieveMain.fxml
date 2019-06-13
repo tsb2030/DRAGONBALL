@@ -40,7 +40,7 @@
                      
                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                            <ProgressIndicator fx:id="Week" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text1" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="개근상 (7일)" textFill="#252525" />
+                            <ProgressIndicator fx:id="Week" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text1" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="개근상 (7일)" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="일주일 하루 게임, 휴식 최소 3개" textFill="#252525" />
                              <Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
@@ -62,7 +62,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Month" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text2" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="개근상 (30일)" textFill="#252525" />
+                              <ProgressIndicator fx:id="Month" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text2" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="개근상 (30일)" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="한 달 하루 게임, 휴식 최소 3개" textFill="#252525" />
                   		    <Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
@@ -82,31 +82,11 @@
                            </padding>
                         </Pane>
                         
-                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
-                           <children>
-                              <ProgressIndicator fx:id="Record" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text3" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="Record Master Lv.1" textFill="#252525" />
-                            <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="1 to 50 연속 최고기록 3회, 7회, 10회" textFill="#252525" />
-                  			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
-                                 <children>
-                                    <ImageView fx:id="trophy" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                   		<image>
-											<Image url="/image/achieve/trophy.png" />
-										</image>
-									</ImageView>
-                                 </children>
-                              </Pane>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="250.0" />
-                           </padding>
-                        </Pane>
+                         
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Seven" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text4" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="럭키 세븐" textFill="#252525" />
+                              <ProgressIndicator fx:id="Seven" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text4" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="럭키 세븐" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="1 To 50 숫자 7을 세번 연속 클릭하기" textFill="#252525" />
                   				<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
@@ -128,7 +108,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Human" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text5" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="인간입니까 휴먼?" textFill="#252525" />
+                              <ProgressIndicator fx:id="Human" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text5" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="인간입니까 휴먼?" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="ㄱ To ㅎ 5초 이내에 클리어" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="1 To 50 15초 이내 클리어" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="160.0" styleClass="fontStyleL" text="A To Z 10초 이내에 클리어" textFill="#252525" />
@@ -152,7 +132,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Double" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text6" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="클릭이 더블" textFill="#252525" />
+                              <ProgressIndicator fx:id="Double" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text6" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="클릭이 더블" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="두더지 잡기에서 연속으로 같은자리에" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="두더지가 2번 등장" textFill="#252525" />
                   				<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
@@ -175,7 +155,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Evolution" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text7" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="인류의 진화" textFill="#252525" />
+                              <ProgressIndicator fx:id="Evolution" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text7" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="인류의 진화" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="캐치볼 게임을 애니멀, 오트랄로피테쿠스," textFill="#252525" />
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="호모 사피엔스, 휴먼 순으로 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
@@ -198,7 +178,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Saryunan" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text8" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="사륜안" textFill="#252525" />
+                              <ProgressIndicator fx:id="Saryunan" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text8" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="사륜안" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="캐치볼 게임을 최고난이도 6회 연속 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
@@ -220,7 +200,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Easy" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text9" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈운동 쉽쥬" textFill="#252525" />
+                              <ProgressIndicator fx:id="Easy" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text9" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="눈운동 쉽쥬" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="뫼비우스의 띠 게임에서 색깔 맞추기" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="5회이상 성공" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
@@ -243,7 +223,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Novice" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text10" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="초보운동가" textFill="#252525" />
+                              <ProgressIndicator fx:id="Novice" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text10" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="초보운동가" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="뫼비우스의 띠 게임 최초 플레이" textFill="#252525" />
                   			 <Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
@@ -265,7 +245,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Fresh" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text11" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="상쾌한 눈동자" textFill="#252525" />
+                              <ProgressIndicator fx:id="Fresh" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text11" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="상쾌한 눈동자" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="두 시선이동 게임 모두를 중단 없이" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="20회 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
@@ -288,7 +268,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Color" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text12" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="Color Artist" textFill="#252525" />
+                              <ProgressIndicator fx:id="Color" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text12" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="Color Artist" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="지그재그 게임을 7회 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
@@ -310,7 +290,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Void" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text13" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="안보여..." textFill="#252525" />
+                              <ProgressIndicator fx:id="Void" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text13" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="안보여..." textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="지그재그 게임을 7회 실패" textFill="#252525" />
                   				<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
                                  <children>
@@ -332,7 +312,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Perfect" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text14" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="완벽주의자" textFill="#252525" />
+                              <ProgressIndicator fx:id="Perfect" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text14" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="완벽주의자" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="순서대로 따라가기 게임을 " textFill="#252525" />
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="한번도 틀리지 않고 클리어" textFill="#252525" />
                   			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
@@ -355,7 +335,7 @@
                         
                          <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
                            <children>
-                              <ProgressIndicator fx:id="Mistake" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text15" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="어머, 실수" textFill="#252525" />
+                              <ProgressIndicator fx:id="Mistake" layoutX="60.0" layoutY="55.0" minHeight="120.0" minWidth="120.0" prefHeight="150.0" prefWidth="150.0" progress="0.0" /> <Label fx:id="text15" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="어머, 실수" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="순서대로 따라가기 게임에서" textFill="#252525" />
                             <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="1회 잘못 누르기" textFill="#252525" />
                   				<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
@@ -363,29 +343,6 @@
                                     <ImageView fx:id="mistake2" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
                                    		<image>
 											<Image url="/image/achieve/mistake.png" />
-										</image>
-									</ImageView>
-                                 </children>
-                              </Pane>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="250.0" />
-                           </padding>
-                        </Pane>
-                        
-                         <Pane prefHeight="200.0" prefWidth="800.0" styleClass="paneBack">
-                           <children>
-                           <ProgressIndicator fx:id="Dangerous" layoutX="20.0" layoutY="30.0" minHeight="150.0" minWidth="150.0" prefHeight="200.0" prefWidth="200.0" progress="0.0" /> <Label fx:id="text15" layoutX="300.0" layoutY="20.0" prefHeight="50.0" prefWidth="500.0" styleClass="fontStyleM" text="아슬아슬" textFill="#252525" />                           
-                            <Label layoutX="300.0" layoutY="100.0" styleClass="fontStyleL" text="순서대로 따라가기 게임에서" textFill="#252525" />
-                            <Label layoutX="300.0" layoutY="130.0" styleClass="fontStyleL" text="59초대에 클리어" textFill="#252525" />
-                  			<Pane layoutX="833.0" layoutY="25.0" prefHeight="200.0" prefWidth="200.0" style="-fx-border-color: gray; -fx-border-radius: 10; -fx-background-color: white; -fx-border-width: 4; -fx-border-style: dashed;">
-                                 <children>
-                                    <ImageView fx:id="timeBomb" fitHeight="191.0" fitWidth="200.0" layoutY="5.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" >
-                                   		<image>
-											<Image url="/image/achieve/timeBomb.png" />
 										</image>
 									</ImageView>
                                  </children>
