@@ -169,10 +169,14 @@ public static Stage currentStage;
 										 }
 										String timeStr = timer.getText();
 										int check = Integer.parseInt(timeStr);
-										if(check<=5)
+										if(check<=5) {
 											korHuman=true;
-										if(checkPerfect==0)
+											aDB.ach();
+										}
+										if(checkPerfect==0) {
 											korPerfect=true;
+											aDB.ach();
+										}
 										double val = Double.parseDouble(timeStr);
 										System.out.println("val = "+val);
 										SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
@@ -199,6 +203,7 @@ public static Stage currentStage;
 								}else {
 									checkPerfect++;
 									korMistake=true;
+									aDB.ach();
 								}
 							} catch (Exception e) {
 								// TODO: handle exception

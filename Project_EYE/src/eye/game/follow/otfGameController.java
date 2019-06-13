@@ -34,12 +34,13 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import eye.db.*;
+
 //숫자게임페이지에 달려있는 컨트롤러
 public class otfGameController implements Initializable {
 
 	dbconn db = new dbconn();
 	AchievementDB aDB = new AchievementDB();
-	
+
 	public static Stage currentStage;
 
 	@FXML
@@ -50,17 +51,17 @@ public class otfGameController implements Initializable {
 	private Pane mainPanel;
 
 	public static int bul = 3;
-	
-	//도전과제 체크변수
+
+	// 도전과제 체크변수
 	public static boolean numHuman = false;
 	public static boolean numMistake = false;
 	public static boolean numPerfect = false;
 	public static boolean bestRate = false;
 	public static boolean luckyS = false;
-	
-	public int checkPerfect=0;
-	public int checkLucky=0;
-	
+
+	public int checkPerfect = 0;
+	public int checkLucky = 0;
+
 	// arr1은 1~25 랜덤수, arr2는 26~50까지의 랜덤수를 가지기 위해 정의
 	@FXML
 	private Text timer;
@@ -171,7 +172,7 @@ public class otfGameController implements Initializable {
 						try {
 							btn = (Button) event.getSource();
 							String btnstr = btn.getText();
-							if(Integer.parseInt(btnstr)==7)
+							if (Integer.parseInt(btnstr) == 7)
 								checkLucky++;
 							if (Integer.parseInt(btnstr) == number) {
 								if (number <= 25) {
@@ -211,15 +212,21 @@ public class otfGameController implements Initializable {
 									for (int i = 0; i < 25; i++) {
 										btnarr[i].setDisable(true);
 									}
-									if(checkLucky==3)
-										luckyS=true;
+									if (checkLucky == 3) {
+										luckyS = true;
+										aDB.ach();
+									}
 									String timeStr = timer.getText();
-									if(Integer.parseInt(timeStr)<=15)
-										numHuman=true;
-									if(checkPerfect==0)
-										numPerfect=true;
+									if (Integer.parseInt(timeStr) <= 15) {
+										numHuman = true;
+										aDB.ach();
+									}
+									if (checkPerfect == 0) {
+										numPerfect = true;
+										aDB.ach();
+									}
 									double val = Double.parseDouble(timeStr);
-									System.out.println("val = "+val);
+									System.out.println("val = " + val);
 									SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
 									Date currentTime = new Date();
 									String cTime = sDateForm.format(currentTime);
@@ -240,10 +247,10 @@ public class otfGameController implements Initializable {
 									} catch (IOException e) {
 									}
 								}
-							}else {
-								checkLucky=0;
+							} else {
+								checkLucky = 0;
 								checkPerfect++;
-								numMistake=true;
+								numMistake = true;
 							}
 						} catch (Exception e) {
 							// TODO: handle exception
@@ -361,7 +368,7 @@ public class otfGameController implements Initializable {
 	// 팝업창 부분
 	// 게임 종료시 나오는 완료창
 	public void showEndPopUp() {
-		//오늘 하루 운동횟수 추가
+		// 오늘 하루 운동횟수 추가
 		AchievementDB.DayPlaycount = true;
 		aDB.ach();
 		FXMLLoader another = new FXMLLoader(getClass().getResource("gameSuccess.fxml")); // 불러올 팝업창 지정

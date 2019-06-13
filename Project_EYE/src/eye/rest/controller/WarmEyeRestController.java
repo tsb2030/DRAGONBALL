@@ -27,8 +27,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import eye.db.*;
+
 public class WarmEyeRestController implements Initializable {
 	dbconn db = new dbconn();
+	AchievementDB aDB = new AchievementDB();
 
 	public static Stage currentStage;
 
@@ -60,9 +62,10 @@ public class WarmEyeRestController implements Initializable {
 
 	@FXML
 	private Pane mainPanel;
-    @FXML
-    void goRestMainPage2(MouseEvent event) {
-    	System.out.println("move?");
+
+	@FXML
+	void goRestMainPage2(MouseEvent event) {
+		System.out.println("move?");
 		clock.animation.stop();
 		if (isPause == false) {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
@@ -99,17 +102,17 @@ public class WarmEyeRestController implements Initializable {
 				System.out.println("end!");
 			}
 		}
-    }
-    @FXML
-    void exitButtonMouseEnteredAction(MouseEvent event) {
-    	System.out.println("this is work??");
-    }
-    
-    @FXML
-    void pauseButtonMouseClickedAction(MouseEvent event) {
-    	System.out.println("puaseButton!!");
-    }
+	}
 
+	@FXML
+	void exitButtonMouseEnteredAction(MouseEvent event) {
+		System.out.println("this is work??");
+	}
+
+	@FXML
+	void pauseButtonMouseClickedAction(MouseEvent event) {
+		System.out.println("puaseButton!!");
+	}
 
 	public class Clock extends Pane {
 
@@ -143,13 +146,17 @@ public class WarmEyeRestController implements Initializable {
 				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
 				Date currentTime = new Date();
 				String cTime = sDateForm.format(currentTime);
-				
+
 				try {
 					db.insertTimes("warmEyeRest", cTime);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				// 휴식카운트 증가
+				AchievementDB.DayRestcount = true;
+				aDB.ach();
+
 				// 알람에 의한 종료인가?
 				if (setController.isRestStart == true) {
 					// 휴식 알람으로 설정했던 횟수를 모두 마쳤는가?
@@ -218,6 +225,6 @@ public class WarmEyeRestController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		clock = new Clock();
-System.out.println("야호");
+		System.out.println("야호");
 	}
 }

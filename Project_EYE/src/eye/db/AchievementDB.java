@@ -14,6 +14,9 @@ import eye.game.catchMole.DodugeGameController;
 import eye.game.eyeMovement1.Playcontroller;
 import eye.game.eyeMovement1.Successcontroller;
 import eye.game.eyeMovement2.Failcontroller;
+import eye.game.follow.engGameController;
+import eye.game.follow.korGameController;
+import eye.game.follow.otfGameController;
 
 public class AchievementDB {
 	public static double WeekPlay = 0;
@@ -321,7 +324,7 @@ public class AchievementDB {
 			}
 			rs8.close();
 
-			if (Luckycnt != 1) {
+			if (Luckycnt != 1 && otfGameController.luckyS==true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 8;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 8;";
@@ -336,7 +339,7 @@ public class AchievementDB {
 				Sql_Day = rs9.getString("Day_time");
 			}
 			rs9.close();
-			if (Humancnt != 1) {
+			if (Humancnt != 1 &&engGameController.engHuman==true &&korGameController.korHuman==true &&otfGameController.numHuman==true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 9;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 9;";
@@ -401,6 +404,7 @@ public class AchievementDB {
 			if (Easycnt != 5 && Successcontroller.eyeAchievementEasyValue == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 13;";
 				stmt.executeUpdate(sql);
+				Successcontroller.eyeAchievementEasyValue = false;
 			} else if (Easycnt == 5) {
 				System.out.println("쉽죠 도전과제 성공");
 			}
@@ -428,12 +432,14 @@ public class AchievementDB {
 			}
 			rs15.close();
 
-			if (Freshcnt != 20 && (Playcontroller.eyeAchievementFreshValue == true
+			if (Freshcnt != 20 && (eye.game.eyeMovement1.Playcontroller.eyeAchievementFreshValue == true
 					|| eye.game.eyeMovement2.Playcontroller.eyeAchievementFreshValue == true)) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 15;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 15;";
 				stmt.executeUpdate(sql);
+				eye.game.eyeMovement1.Playcontroller.eyeAchievementFreshValue = false;
+				eye.game.eyeMovement2.Playcontroller.eyeAchievementFreshValue = false;
 			} else if (Freshcnt == 20) {
 				System.out.println("깨끗한 도전과제 성공");
 			}
@@ -450,6 +456,7 @@ public class AchievementDB {
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 16;";
 				stmt.executeUpdate(sql);
+				Successcontroller.eyeAchievementEasyValue = false;
 			} else if (Colorcnt == 7) {
 				System.out.println("컬러아티스트 도전과제 성공");
 			}
@@ -466,6 +473,7 @@ public class AchievementDB {
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 17;";
 				stmt.executeUpdate(sql);
+				Failcontroller.eyeAchievementVoidValue = false;
 			} else if (Voidcnt == 7) {
 				System.out.println("안보여 도전과제 성공");
 			}
@@ -477,7 +485,7 @@ public class AchievementDB {
 			}
 			rs18.close();
 
-			if (Perfectcnt != 1) {
+			if (Perfectcnt != 1 &&(engGameController.engPerfect ==true || korGameController.korPerfect==true || otfGameController.numPerfect==true)) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 18;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 18;";
@@ -493,7 +501,7 @@ public class AchievementDB {
 			}
 			rs19.close();
 
-			if (Mistakecnt != 1) {
+			if (Mistakecnt != 1 &&(engGameController.engMistake==true || korGameController.korMistake==true || otfGameController.numMistake==true)) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 19;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 19;";

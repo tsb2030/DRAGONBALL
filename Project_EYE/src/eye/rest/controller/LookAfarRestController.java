@@ -27,8 +27,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import eye.db.*;
+
 public class LookAfarRestController implements Initializable {
 	dbconn db = new dbconn();
+	AchievementDB aDB = new AchievementDB();
 
 	public static Stage currentStage;
 
@@ -129,13 +131,18 @@ public class LookAfarRestController implements Initializable {
 				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
 				Date currentTime = new Date();
 				String cTime = sDateForm.format(currentTime);
-				
+
 				try {
 					db.insertTimes("lookAfarRest", cTime);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+
+				// 휴식카운트 증가
+				AchievementDB.DayRestcount = true;
+				aDB.ach();
+
 				// 알람에 의한 종료인가?
 				if (setController.isRestStart == true) {
 					// 휴식 알람으로 설정했던 횟수를 모두 마쳤는가?

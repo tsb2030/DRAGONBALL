@@ -206,10 +206,14 @@ public class engGameController implements Initializable {
 										btnarr[i].setDisable(true);
 									}
 									String timeStr = timer.getText();
-									if(Integer.parseInt(timeStr)<=10)
+									if(Integer.parseInt(timeStr)<=10) {
 										engHuman=true;
-									if(checkPerfect==0)
+										aDB.ach();
+									}
+									if(checkPerfect==0) {
 										engPerfect=true;
+										aDB.ach();
+									}
 									double val = Double.parseDouble(timeStr);
 									System.out.println("val = "+val);
 									SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
@@ -233,6 +237,7 @@ public class engGameController implements Initializable {
 								}
 							}else {
 								engMistake=true;
+								aDB.ach();
 								checkPerfect++;
 							}
 						} catch (Exception e) {
