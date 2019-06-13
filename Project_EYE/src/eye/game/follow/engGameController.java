@@ -36,6 +36,7 @@ public class engGameController implements Initializable {
 	public static Stage currentStage;
 
 	dbconn db= new dbconn();
+	AchievementDB aDB = new AchievementDB();
 	
 	@FXML
 	private ImageView btnBefore, pauseBtn, reStartBtn;
@@ -368,6 +369,9 @@ public class engGameController implements Initializable {
 	// 팝업창 부분
 	// 게임 종료시 나오는 완료창
 	public void showEndPopUp() {
+		//오늘 하루 운동횟수 추가
+		AchievementDB.DayPlaycount = true;
+		aDB.ach();
 		FXMLLoader another = new FXMLLoader(getClass().getResource("gameSuccess.fxml")); // 불러올 팝업창 지정
 		try {
 			AnchorPane anotherPage = (AnchorPane) another.load();

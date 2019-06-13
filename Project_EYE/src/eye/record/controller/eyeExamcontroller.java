@@ -39,7 +39,7 @@ public class eyeExamcontroller implements Initializable{
 
 				try {
 					Main.setMusic("mainMusic", true, 1);
-					Parent root = FXMLLoader.load(getClass().getResource("/eye/record/view/recordMain.fxml"));
+					Parent root = FXMLLoader.load(getClass().getResource("/eye/record/view/ExamExplain.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) eyePlayPage.getScene().getWindow();
 					scene.getStylesheets()

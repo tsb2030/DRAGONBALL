@@ -37,6 +37,7 @@ import eye.db.*;
 public class GamePageController implements Initializable {
 
 	dbconn db = new dbconn();
+	AchievementDB aDB = new AchievementDB();
 	
 	@FXML
 	AnchorPane findPicturegamePage;
@@ -878,6 +879,9 @@ public class GamePageController implements Initializable {
 					e1.printStackTrace();
 				}
 				
+				//오늘 하루 운동횟수 추가
+				AchievementDB.DayPlaycount = true;
+				aDB.ach();
 				clock.animation.stop();
 				currentStage = (Stage) timeLabel.getScene().getWindow();
 				dodugeStage = (Stage) sampleImage.getScene().getWindow();

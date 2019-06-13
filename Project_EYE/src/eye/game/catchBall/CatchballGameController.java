@@ -48,6 +48,7 @@ import eye.db.*;
 public class CatchballGameController implements Initializable {
 
 	dbconn db = new dbconn();
+	AchievementDB aDB = new AchievementDB();
 	
 	private String[] humans = { "Animal", "Australopithecus", "Homo sapiens", "Human", "" };
 	private int humanIndex = 0;
@@ -62,6 +63,7 @@ public class CatchballGameController implements Initializable {
 			humanIndex = 0;
 		if (humanIndex == 4) {
 			eyeAchivementCatchBallHumanEvalutionValue = true;
+			aDB.ach();
 		}
 	}
 	
@@ -250,6 +252,9 @@ public class CatchballGameController implements Initializable {
 	// 게임이 종료되었을 때 호출되는 이벤트
 	public void gameOver()
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {
+		//오늘 하루 운동횟수 추가
+		AchievementDB.DayPlaycount = true;
+		aDB.ach();
 		currentStage = (Stage) PauseBtn.getScene().getWindow();
 		if (justOne == false) { // 종료 메소드가 한번 실행 되었다면 두번 반복되지 않기 위해 boolean값을 이용하였다.
 			if (timer.getTime() <= 0 || falseCount > 2) {
@@ -368,9 +373,10 @@ public class CatchballGameController implements Initializable {
 		} else { // 넷째 바퀴 성공했을 때
 			catchCircle.setFill(javafx.scene.paint.Color.RED);
 			eyeAchivementCatchBallHexaKill++;
-			if(eyeAchivementCatchBallHexaKill == 6)
+			if(eyeAchivementCatchBallHexaKill == 6) {
 				eyeAchivementCatchBallHexaKillValue = true;	
-
+				aDB.ach();
+			}
 		}
 
 		ScaleTransition scaleTransition = new ScaleTransition(Duration.millis(5));

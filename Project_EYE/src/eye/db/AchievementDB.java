@@ -9,6 +9,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import eye.game.catchBall.CatchballGameController;
+import eye.game.catchMole.DodugeGameController;
 import eye.game.eyeMovement1.Playcontroller;
 import eye.game.eyeMovement1.Successcontroller;
 import eye.game.eyeMovement2.Failcontroller;
@@ -30,6 +32,8 @@ public class AchievementDB {
 	public static double Perfect = 0;
 	public static double Mistake = 0;
 	public static double Dangerous = 0;
+	public static boolean DayPlaycount = false;
+	public static boolean DayRestcount = false;
 
 	public void ach() {
 		Connection c = null;
@@ -142,10 +146,10 @@ public class AchievementDB {
 				Sql_Day = rs.getString("Day_time");
 			}
 			rs.close();
-			if (Java_Day.equals(Sql_Day.toString()) && DayPlaycnt != 3) {
+			if (Java_Day.equals(Sql_Day.toString()) && DayPlaycnt != 3 && DayPlaycount == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 1;";
 				stmt.executeUpdate(sql);
-
+				DayPlaycount = false;
 			} else if (Java_Day.equals(Sql_Day.toString()) && DayPlaycnt == 3) {
 				System.out.println("데이플레이카운트 오늘은그만");
 			} else {
@@ -162,9 +166,10 @@ public class AchievementDB {
 			}
 			rs2.close();
 
-			if (Java_Day.equals(Sql_Day.toString()) && DayRestcnt != 3) {
+			if (Java_Day.equals(Sql_Day.toString()) && DayRestcnt != 3 && DayRestcount == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 2;";
 				stmt.executeUpdate(sql);
+				DayRestcount = false;
 			} else if (Java_Day.equals(Sql_Day.toString()) && DayRestcnt == 3) {
 				System.out.println("데이레스트카운트 오늘은그만");
 			} else {
@@ -346,7 +351,7 @@ public class AchievementDB {
 				Sql_Day = rs10.getString("Day_time");
 			}
 			rs10.close();
-			if (Doublecnt != 1) {
+			if (Doublecnt != 1 && DodugeGameController.eyeAchievementCatchMoleValue == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 10;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 10;";
@@ -361,7 +366,7 @@ public class AchievementDB {
 				Sql_Day = rs11.getString("Day_time");
 			}
 			rs11.close();
-			if (Evolutioncnt != 1) {
+			if (Evolutioncnt != 1 && CatchballGameController.eyeAchivementCatchBallHumanEvalutionValue == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 11;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 11;";
@@ -377,7 +382,7 @@ public class AchievementDB {
 			}
 			rs12.close();
 
-			if (Saryunancnt != 1) {
+			if (Saryunancnt != 1 && CatchballGameController.eyeAchivementCatchBallHexaKillValue == true) {
 				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 12;";
 				stmt.executeUpdate(sql);
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 12;";

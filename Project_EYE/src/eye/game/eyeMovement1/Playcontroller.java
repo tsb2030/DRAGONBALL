@@ -174,6 +174,7 @@ public class Playcontroller implements Initializable {
 			if (count2 == 20 && tmp >= i - 0.015) {
 				eyeAchievementNoviceValue = true;
 				eyeAchievementFreshValue = true;
+				AchievementDB.DayPlaycount = true;
 				aDB.ach();
 				showEndPopUp();
 				score.setText(String.valueOf(count2));
