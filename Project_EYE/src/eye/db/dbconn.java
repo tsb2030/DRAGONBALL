@@ -425,7 +425,7 @@ public class dbconn {
 					List<timesModel> rm =  new ArrayList<timesModel>();
 					List<timesModel> weekData =  new ArrayList<timesModel>();
 					int n =0;
-					int i = -7;
+					int i = -6;
 					try {
 						getClass().forName("org.sqlite.JDBC");
 						conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
@@ -490,7 +490,7 @@ public class dbconn {
 					List<timesModel> rm =  new ArrayList<timesModel>();
 					List<timesModel> monthData =  new ArrayList<timesModel>();
 					int n =0;
-					int i = -30;
+					int i = -29;
 					try {
 						getClass().forName("org.sqlite.JDBC");
 						conn = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
