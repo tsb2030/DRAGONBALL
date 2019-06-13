@@ -47,7 +47,7 @@ public class Playcontroller implements Initializable {
 	int count = 0;
 	double tmp = 0;
 	double i = 4;
-	int cyclecnt = 20;
+	int cyclecnt = 5;
 	int count2 = 0;
 	public static boolean eyeAchievementFreshValue = false;
 
@@ -132,14 +132,14 @@ public class Playcontroller implements Initializable {
 							cir.setFill(Color.GREY);
 							dx = 1;
 						} else if (rndValue > 0.03 && rndValue <= 0.06 && dx != 2) {
-							cir.setFill(Color.SEAGREEN);
+							cir.setFill(Color.CHARTREUSE);
 							dx = 2;
 
 						} else if (rndValue > 0.06 && rndValue <= 0.09 && dx != 3) {
 							cir.setFill(Color.CORAL);
 							dx = 3;
 						} else if (rndValue > 0.09 && rndValue <= 0.12 && dx != 4) {
-							cir.setFill(Color.DEEPPINK);
+							cir.setFill(Color.CORNFLOWERBLUE);
 							dx = 4;
 						} else if (rndValue > 0.12 && rndValue <= 0.14 && dx != 5) {
 							cir.setFill(Color.BLACK);
@@ -166,7 +166,7 @@ public class Playcontroller implements Initializable {
 				count2++;
 			}
 
-			if (count2 == 20 && tmp >= i - 0.015) {
+			if (count2 == 5 && tmp >= i - 0.015) {
 				AchievementDB.DayPlaycount = true;
 				eyeAchievementFreshValue = true;
 				aDB.ach();
@@ -211,7 +211,7 @@ public class Playcontroller implements Initializable {
 		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
 		effectMusic.start();
 	}
-
+	//속도조절버튼
 	@FXML
 	void SpeedDown(ActionEvent event) {
 		i = i * 1.1;

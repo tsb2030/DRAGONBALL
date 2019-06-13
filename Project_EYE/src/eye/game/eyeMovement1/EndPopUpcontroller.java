@@ -78,12 +78,4 @@ public class EndPopUpcontroller {
 		}
 	}
 
-	public void ans() {
-
-	}
-
-	public void ans2() {
-
-	}
-
 }

@@ -42,6 +42,7 @@ public class AchieveController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		//도전과제 이미지 오퍼시티 설정
 		attendance7.setOpacity(0.3);
 		attendance30.setOpacity(0.3);
 		luckySeven.setOpacity(0.3);
@@ -58,7 +59,7 @@ public class AchieveController implements Initializable {
 		mistake2.setOpacity(0.3);
 		aDB.achcnt();
 		Opa();
-		// TODO Auto-generated method stub
+		//뒤로가기버튼구현
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -77,6 +78,7 @@ public class AchieveController implements Initializable {
 				}
 			}
 		});
+		//도전과제 진행률
 		Week.setProgress(AchievementDB.WeekPlay / 7);
 		Month.setProgress(AchievementDB.MonthPlay / 30);
 		Seven.setProgress(AchievementDB.Lucky);
@@ -92,7 +94,7 @@ public class AchieveController implements Initializable {
 		Perfect.setProgress(AchievementDB.Perfect);
 		Mistake.setProgress(AchievementDB.Mistake);
 	}
-
+	//도전과제 오퍼시티1로변경
 	public void Opa() {
 		aDB.achcnt();
 		if (AchievementDB.WeekPlay == 7) {
@@ -102,7 +104,6 @@ public class AchieveController implements Initializable {
 			attendance30.setOpacity(1.0);
 		}
 		if (AchievementDB.Lucky == 1) {
-			System.out.println("종호가하라고해서");
 			luckySeven.setOpacity(1.0);
 		}
 		if (AchievementDB.Human == 1) {

@@ -38,6 +38,7 @@ public class AchievementDB {
 	public static boolean DayPlaycount = false;
 	public static boolean DayRestcount = false;
 
+	//도전과제 DB연동 메소드
 	public void ach() {
 		Connection c = null;
 		Statement stmt = null;
@@ -68,6 +69,7 @@ public class AchievementDB {
 		int Weekcnt = 0;
 		int Weekcnt2 = 0;
 
+		//날짜 받아오기
 		SimpleDateFormat Day = new SimpleDateFormat("yyyy-MM-dd");
 		Date currentTime = new Date();
 		String Java_Day = Day.format(currentTime);
@@ -78,18 +80,20 @@ public class AchievementDB {
 		String Java_yesDay = Day.format(c1.getTime()); // String으로 저장
 
 		try {
+			//DB값 받아오는과정
 			Class.forName("org.sqlite.JDBC");
 			c = DriverManager.getConnection("jdbc:sqlite:eyeDB.db");
 
 			stmt = c.createStatement();
-
+			
+			
 			ResultSet rst = stmt.executeQuery("SELECT*FROM achievement where ID = 21;");
 			while (rst.next()) {
 				Monthcnt = rst.getInt("Playcount");
 				Sql_Day = rst.getString("Day_time");
 			}
 			rst.close();
-
+			//MONTH도전과제 하루에 한번만 카운트되게 하는 값 받아오기
 			if (!Java_Day.equals(Sql_Day.toString()) && Monthcnt == 1) {
 				sql = "UPDATE achievement set Playcount = 0 where ID = 21;";
 				stmt.executeUpdate(sql);
@@ -97,7 +101,7 @@ public class AchievementDB {
 				stmt.executeUpdate(sql);
 				Monthcnt = 0;
 			}
-
+			//MONTH도전과제 하루에 한번만 카운트되게 하는 값 받아오기
 			ResultSet rst2 = stmt.executeQuery("SELECT*FROM achievement where ID = 22;");
 			while (rst.next()) {
 				Monthcnt2 = rst2.getInt("Playcount");
@@ -112,7 +116,7 @@ public class AchievementDB {
 				stmt.executeUpdate(sql);
 				Monthcnt2 = 0;
 			}
-
+			//WEEK도전과제 하루에 한번만 카운트되게 하는 값 받아오기
 			ResultSet rst3 = stmt.executeQuery("SELECT*FROM achievement where ID = 23;");
 			while (rst.next()) {
 				Weekcnt = rst3.getInt("Playcount");
@@ -127,7 +131,7 @@ public class AchievementDB {
 				stmt.executeUpdate(sql);
 				Weekcnt = 0;
 			}
-
+			//WEEK도전과제 하루에 한번만 카운트되게 하는 값 받아오기
 			ResultSet rst4 = stmt.executeQuery("SELECT*FROM achievement where ID = 24;");
 			while (rst.next()) {
 				Weekcnt2 = rst4.getInt("Playcount");
@@ -142,7 +146,7 @@ public class AchievementDB {
 				stmt.executeUpdate(sql);
 				Weekcnt2 = 0;
 			}
-
+			//하루 운동 횟수 카운트
 			ResultSet rs = stmt.executeQuery("SELECT * FROM achievement where ID = 1;");
 			while (rs.next()) {
 				DayPlaycnt = rs.getInt("Playcount");
@@ -161,7 +165,7 @@ public class AchievementDB {
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 1;";
 				stmt.executeUpdate(sql);
 			}
-
+			//하루 휴식 카운트
 			ResultSet rs2 = stmt.executeQuery("SELECT * FROM achievement where ID = 2;");
 			while (rs2.next()) {
 				DayRestcnt = rs2.getInt("Playcount");
@@ -181,7 +185,7 @@ public class AchievementDB {
 				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 2;";
 				stmt.executeUpdate(sql);
 			}
-
+			//개근7도전과제 카운트
 			ResultSet rs3 = stmt.executeQuery("SELECT * FROM achievement where ID = 3;");
 			while (rs3.next()) {
 				WeekPlaycnt = rs3.getInt("Playcount");
@@ -241,7 +245,7 @@ public class AchievementDB {
 //				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 4;";
 //				stmt.executeUpdate(sql);
 //			}
-
+			//개근30 도전과제 카운트
 			ResultSet rs5 = stmt.executeQuery("SELECT * FROM achievement where ID = 5;");
 			while (rs5.next()) {
 				MonthPlaycnt = rs5.getInt("Playcount");
@@ -301,22 +305,22 @@ public class AchievementDB {
 //				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 6;";
 //				stmt.executeUpdate(sql);
 //			}
-
-			ResultSet rs7 = stmt.executeQuery("SELECT * FROM achievement where ID = 7;");
-			while (rs7.next()) {
-				Recordcnt = rs7.getInt("Playcount");
-				Sql_Day = rs7.getString("Day_time");
-			}
-			rs7.close();
-			if (Recordcnt != 1) {
-				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 7;";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 7;";
-				stmt.executeUpdate(sql);
-			} else if (Recordcnt == 1) {
-				System.out.println("기록 도전과제 성공");
-			}
-
+//			ResultSet rs7 = stmt.executeQuery("SELECT * FROM achievement where ID = 7;");
+//			while (rs7.next()) {
+//				Recordcnt = rs7.getInt("Playcount");
+//				Sql_Day = rs7.getString("Day_time");
+//			}
+//			rs7.close();
+//			if (Recordcnt != 1) {
+//				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 7;";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 7;";
+//				stmt.executeUpdate(sql);
+//			} else if (Recordcnt == 1) {
+//				System.out.println("기록 도전과제 성공");
+//			}
+			
+			//럭키세븐 도전과제 카운트
 			ResultSet rs8 = stmt.executeQuery("SELECT * FROM achievement where ID = 8;");
 			while (rs8.next()) {
 				Luckycnt = rs8.getInt("Playcount");
@@ -332,7 +336,7 @@ public class AchievementDB {
 			} else if (Luckycnt == 1) {
 				System.out.println("럭키세븐 도전과제 성공");
 			}
-
+			//인간 도전과제 카운트
 			ResultSet rs9 = stmt.executeQuery("SELECT * FROM achievement where ID = 9;");
 			while (rs9.next()) {
 				Humancnt = rs9.getInt("Playcount");
@@ -347,7 +351,7 @@ public class AchievementDB {
 			} else if (Humancnt == 1) {
 				System.out.println("사람인가 도전과제 성공");
 			}
-
+			//클릭이더블 도전과제 카운트
 			ResultSet rs10 = stmt.executeQuery("SELECT * FROM achievement where ID = 10;");
 			while (rs10.next()) {
 				Doublecnt = rs10.getInt("Playcount");
@@ -362,7 +366,7 @@ public class AchievementDB {
 			} else if (Doublecnt == 1) {
 				System.out.println("클릭이더블 도전과제 성공");
 			}
-
+			//인류의진화 도전과제 카운트
 			ResultSet rs11 = stmt.executeQuery("SELECT * FROM achievement where ID = 11;");
 			while (rs11.next()) {
 				Evolutioncnt = rs11.getInt("Playcount");
@@ -377,7 +381,7 @@ public class AchievementDB {
 			} else if (Evolutioncnt == 1) {
 				System.out.println("인류의진화 도전과제 성공");
 			}
-
+			//사륜안 도전과제 카운트
 			ResultSet rs12 = stmt.executeQuery("SELECT * FROM achievement where ID = 12;");
 			while (rs12.next()) {
 				Saryunancnt = rs12.getInt("Playcount");
@@ -393,7 +397,7 @@ public class AchievementDB {
 			} else if (Saryunancnt == 1) {
 				System.out.println("사륜안 도전과제 성공");
 			}
-
+			//참쉽죠 도전과제 카운트
 			ResultSet rs13 = stmt.executeQuery("SELECT * FROM achievement where ID = 13;");
 			while (rs13.next()) {
 				Easycnt = rs13.getInt("Playcount");
@@ -408,7 +412,7 @@ public class AchievementDB {
 			} else if (Easycnt == 5) {
 				System.out.println("쉽죠 도전과제 성공");
 			}
-
+			//초보자 도전과제 카운트
 			ResultSet rs14 = stmt.executeQuery("SELECT * FROM achievement where ID = 14;");
 			while (rs14.next()) {
 				Novicecnt = rs14.getInt("Playcount");
@@ -424,7 +428,7 @@ public class AchievementDB {
 			} else if (Novicecnt == 1) {
 				System.out.println("초보자 도전과제 성공");
 			}
-
+			//깨끗한 도전과제 카운트
 			ResultSet rs15 = stmt.executeQuery("SELECT * FROM achievement where ID = 15;");
 			while (rs15.next()) {
 				Freshcnt = rs15.getInt("Playcount");
@@ -443,7 +447,7 @@ public class AchievementDB {
 			} else if (Freshcnt == 20) {
 				System.out.println("깨끗한 도전과제 성공");
 			}
-
+			//ARTIST 도전과제 카운트
 			ResultSet rs16 = stmt.executeQuery("SELECT * FROM achievement where ID = 16;");
 			while (rs16.next()) {
 				Colorcnt = rs16.getInt("Playcount");
@@ -460,7 +464,7 @@ public class AchievementDB {
 			} else if (Colorcnt == 7) {
 				System.out.println("컬러아티스트 도전과제 성공");
 			}
-
+			//안보여 도전과제 카운트
 			ResultSet rs17 = stmt.executeQuery("SELECT * FROM achievement where ID = 17;");
 			while (rs17.next()) {
 				Voidcnt = rs17.getInt("Playcount");
@@ -477,7 +481,7 @@ public class AchievementDB {
 			} else if (Voidcnt == 7) {
 				System.out.println("안보여 도전과제 성공");
 			}
-
+			//완벽주의자 도전과제 카운트
 			ResultSet rs18 = stmt.executeQuery("SELECT * FROM achievement where ID = 18;");
 			while (rs18.next()) {
 				Perfectcnt = rs18.getInt("Playcount");
@@ -493,7 +497,7 @@ public class AchievementDB {
 			} else if (Perfectcnt == 1) {
 				System.out.println("완벽주의자 도전과제 성공");
 			}
-
+			//어머,실수 도전과제 카운트
 			ResultSet rs19 = stmt.executeQuery("SELECT * FROM achievement where ID = 19;");
 			while (rs19.next()) {
 				Mistakecnt = rs19.getInt("Playcount");
@@ -510,21 +514,21 @@ public class AchievementDB {
 				System.out.println("실수 도전과제 성공");
 			}
 
-			ResultSet rs20 = stmt.executeQuery("SELECT * FROM achievement where ID = 20;");
-			while (rs20.next()) {
-				Dangerouscnt = rs20.getInt("Playcount");
-				Sql_Day = rs20.getString("Day_time");
-			}
-			rs20.close();
-
-			if (Dangerouscnt != 1) {
-				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 20;";
-				stmt.executeUpdate(sql);
-				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 20;";
-				stmt.executeUpdate(sql);
-			} else if (Dangerouscnt == 1) {
-				System.out.println("아슬아슬 도전과제 성공");
-			}
+//			ResultSet rs20 = stmt.executeQuery("SELECT * FROM achievement where ID = 20;");
+//			while (rs20.next()) {
+//				Dangerouscnt = rs20.getInt("Playcount");
+//				Sql_Day = rs20.getString("Day_time");
+//			}
+//			rs20.close();
+//
+//			if (Dangerouscnt != 1) {
+//				sql = "UPDATE achievement set Playcount = Playcount +1 where ID = 20;";
+//				stmt.executeUpdate(sql);
+//				sql = "UPDATE achievement set Day_time = Date('now','localtime') where ID = 20;";
+//				stmt.executeUpdate(sql);
+//			} else if (Dangerouscnt == 1) {
+//				System.out.println("아슬아슬 도전과제 성공");
+//			}
 
 			stmt.close();
 			c.close();
@@ -534,7 +538,8 @@ public class AchievementDB {
 		}
 		System.out.println("tsuccess");
 	}
-
+	
+	//도전과제 카운트 체크
 	public void achcnt() {
 		Connection c = null;
 		Statement stmt = null;
@@ -558,11 +563,11 @@ public class AchievementDB {
 			}
 			rs2.close();
 
-			ResultSet rs4 = stmt.executeQuery("SELECT * FROM achievement where ID = 7;");
-			while (rs4.next()) {
-				Record = rs4.getInt("Playcount");
-			}
-			rs4.close();
+//			ResultSet rs4 = stmt.executeQuery("SELECT * FROM achievement where ID = 7;");
+//			while (rs4.next()) {
+//				Record = rs4.getInt("Playcount");
+//			}
+//			rs4.close();
 
 			ResultSet rs5 = stmt.executeQuery("SELECT * FROM achievement where ID = 8;");
 			while (rs5.next()) {
@@ -636,11 +641,11 @@ public class AchievementDB {
 			}
 			rs16.close();
 
-			ResultSet rs17 = stmt.executeQuery("SELECT * FROM achievement where ID = 20;");
-			while (rs17.next()) {
-				Dangerous = rs17.getInt("Playcount");
-			}
-			rs17.close();
+//			ResultSet rs17 = stmt.executeQuery("SELECT * FROM achievement where ID = 20;");
+//			while (rs17.next()) {
+//				Dangerous = rs17.getInt("Playcount");
+//			}
+//			rs17.close();
 
 			stmt.close();
 			c.close();

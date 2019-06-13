@@ -46,7 +46,7 @@ public class Playcontroller implements Initializable {
 	int duration = 4;
 	int count = 0;
 	double i = 4;
-	int cyclecnt = 20;
+	int cyclecnt = 5;
 	int count2 = 0;
 	double tmp = 0;
 	public static boolean eyeAchievementNoviceValue = false;
@@ -93,13 +93,13 @@ public class Playcontroller implements Initializable {
 		Music effectMusic = new Music("generalMouseEnteredEffect", false, 2);
 		effectMusic.start();
     }
-
+	//공 움직임 표현
 	public void Moving() {
 
-		// Creating a Path
+		// 경로 설정
 		Path path = new Path();
 
-		// Moving to the starting point
+		// 시작점으로 공이동
 		MoveTo moveTo = new MoveTo(0, 0);
 
 		// 공의 방향을 선언
@@ -108,16 +108,16 @@ public class Playcontroller implements Initializable {
 		ArcTo line3 = new ArcTo(200, 200, 180, 500, 0, true, true);
 		ArcTo line4 = new ArcTo(200, 200, 180, 0, 0, true, true);
 
-		// Adding all the elements to the path
+		// 이동 경로 추가
 		path.getElements().add(moveTo);
 		path.getElements().addAll(line1, line2, line3, line4);
 
-		// Creating the path transition
+		// 트랜지션 생성
 		pathTransition = new PathTransition();
 		pathTransition.setDuration(Duration.seconds(i));
 		pathTransition.setNode(pointer);
 
-		// Setting the path for the transition
+		// 경로 선언
 		pathTransition.setPath(path);
 		// 시간을 입력받게합니다.
 		pathTransition.cycleDurationProperty();
@@ -137,14 +137,14 @@ public class Playcontroller implements Initializable {
 							pointer.setFill(Color.GREY);
 							dx = 1;
 						} else if (rndValue > 0.03 && rndValue <= 0.06 && dx != 2) {
-							pointer.setFill(Color.ANTIQUEWHITE);
+							pointer.setFill(Color.CHARTREUSE);
 							dx = 2;
 
 						} else if (rndValue > 0.06 && rndValue <= 0.09 && dx != 3) {
 							pointer.setFill(Color.CORAL);
 							dx = 3;
 						} else if (rndValue > 0.09 && rndValue <= 0.12 && dx != 4) {
-							pointer.setFill(Color.WHITE);
+							pointer.setFill(Color.CORNFLOWERBLUE);
 							dx = 4;
 						} else if (rndValue > 0.12 && rndValue <= 0.14 && dx != 5) {
 							pointer.setFill(Color.BLACK);
@@ -170,8 +170,8 @@ public class Playcontroller implements Initializable {
 				count++;
 				count2++;
 			}
-
-			if (count2 == 20 && tmp >= i - 0.015) {
+			//운동 종료 및 도전과제 DB연동
+			if (count2 == 5 && tmp >= i - 0.015) {
 				eyeAchievementNoviceValue = true;
 				eyeAchievementFreshValue = true;
 				AchievementDB.DayPlaycount = true;
@@ -210,7 +210,7 @@ public class Playcontroller implements Initializable {
 			e.printStackTrace();
 		}
 	}
-
+	//속도 조절 버튼
 	@FXML
 	void SpeedDown(ActionEvent event) {
 		i = i * 1.1;

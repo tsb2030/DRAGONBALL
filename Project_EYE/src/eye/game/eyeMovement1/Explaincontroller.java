@@ -39,7 +39,7 @@ public class Explaincontroller implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		//뒤로가기
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -62,6 +62,7 @@ public class Explaincontroller implements Initializable {
 			}
 
 		});
+		//다음페이지
 		nextBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
