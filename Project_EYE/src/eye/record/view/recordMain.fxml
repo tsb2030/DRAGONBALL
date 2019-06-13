@@ -65,7 +65,7 @@
 														<CategoryAxis animated="false" side="BOTTOM" />
 													</xAxis>
 													<yAxis>
-														<NumberAxis autoRanging="false" side="LEFT" upperBound="10.0" />
+														<NumberAxis side="LEFT" upperBound="10.0" />
 													</yAxis>
 												</LineChart>
 												<Button id="shadow" layoutX="437.0" layoutY="30.0" mnemonicParsing="false" onAction="#weekButton" style="-fx-background-color: #bb4b43; -fx-background-radius: 30;" styleClass="buttonFontStyle" text="주간" textFill="WHITE" />
