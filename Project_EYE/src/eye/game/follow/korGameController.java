@@ -168,15 +168,18 @@ public static Stage currentStage;
 											 btnarr[i].setDisable(true);
 										 }
 										String timeStr = timer.getText();
-										int check = Integer.parseInt(timeStr);
+										double check = Double.parseDouble(timeStr);
+										System.out.println("체크");
 										if(check<=5) {
 											korHuman=true;
 											aDB.ach();
 										}
+										System.out.println("체크 후");
 										if(checkPerfect==0) {
 											korPerfect=true;
 											aDB.ach();
 										}
+										System.out.println("체펙 후");
 										double val = Double.parseDouble(timeStr);
 										System.out.println("val = "+val);
 										SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
@@ -206,7 +209,7 @@ public static Stage currentStage;
 									aDB.ach();
 								}
 							} catch (Exception e) {
-								// TODO: handle exception
+								System.out.println("이유= "+e);
 							}
 						}
 					});

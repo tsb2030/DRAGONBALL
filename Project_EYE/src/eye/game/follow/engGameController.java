@@ -206,7 +206,8 @@ public class engGameController implements Initializable {
 										btnarr[i].setDisable(true);
 									}
 									String timeStr = timer.getText();
-									if(Integer.parseInt(timeStr)<=10) {
+									double check = Double.parseDouble(timeStr);
+									if(check<=10) {
 										engHuman=true;
 										aDB.ach();
 									}

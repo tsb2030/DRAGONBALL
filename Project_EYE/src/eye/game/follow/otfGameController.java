@@ -217,7 +217,8 @@ public class otfGameController implements Initializable {
 										aDB.ach();
 									}
 									String timeStr = timer.getText();
-									if (Integer.parseInt(timeStr) <= 15) {
+									double check = Double.parseDouble(timeStr);
+									if (check <= 15) {
 										numHuman = true;
 										aDB.ach();
 									}
