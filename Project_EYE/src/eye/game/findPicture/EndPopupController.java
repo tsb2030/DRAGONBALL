@@ -37,6 +37,7 @@ public class EndPopupController implements Initializable {
 	@FXML
 	private Label gameScore,first,second,third;
 
+	// 다시시작 버튼
 	@FXML
 	void backGameAction(ActionEvent event) {
 		try {
@@ -57,6 +58,7 @@ public class EndPopupController implements Initializable {
 		}
 	}
 
+	// 메인으로 가는 버튼
 	@FXML
 	void goMainButtonAction(ActionEvent event)
 			throws UnsupportedAudioFileException, IOException, LineUnavailableException, URISyntaxException {

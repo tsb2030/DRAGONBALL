@@ -100,6 +100,7 @@ public class GamePageController implements Initializable {
 
 	}
 
+	// 일시정지에서 재생시 누르는 버튼
 	public void restartEvent() {
 		pauseSwitch = 0;
 		clock.animation.play();
@@ -108,6 +109,7 @@ public class GamePageController implements Initializable {
 
 	}
 
+	// 뒤로가기 버튼
 	@FXML
 	void BackBtnAction(MouseEvent event) {
 		if (pauseSwitch == 0) {
@@ -124,6 +126,7 @@ public class GamePageController implements Initializable {
 
 	}
 
+	// 게임 시작시 각 버튼에 기능연결
 	public void restartGame() {
 		if (pauseSwitch == 0) {
 			B[0].setOnMouseClicked(new EventHandler<Event>() {
@@ -447,38 +450,6 @@ public class GamePageController implements Initializable {
 		}
 
 		if (pauseSwitch == 0) {
-			// 난 이렇게 안함 ㅎ
-
-//			BackBtn.setOnMouseClicked(new EventHandler<Event>() {
-//				@Override
-//				public void handle(Event event) {
-//					try {
-//						findPictureStart = FXMLLoader.load(getClass().getResource("StartPage.fxml"));
-//					} catch (IOException e) {
-//						e.printStackTrace();
-//					}
-//
-//					gamePage.getChildren().setAll(findPictureStart);
-//				}
-//			});
-
-			// 난 이렇게 안함 ㅎ
-
-//			PauseBtn.setOnMouseClicked(new EventHandler<Event>() {
-//				@Override
-//				public void handle(Event event) {
-//					if (pauseSwitch == 0) {
-//						pauseSwitch = 1;
-//						// pauseEvent Start!
-//						timer.animation.pause();
-//						gamePage.setOpacity(0.45);
-//					} else if (pauseSwitch == 1) {
-//						pauseSwitch = 0;
-//						timer.animation.play();
-//						gamePage.setOpacity(1.0);
-//					}
-//				}
-//			});
 
 			B[0].setOnMouseClicked(new EventHandler<Event>() {
 				@Override
