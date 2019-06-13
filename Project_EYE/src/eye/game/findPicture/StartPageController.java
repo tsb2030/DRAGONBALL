@@ -38,6 +38,7 @@ public class StartPageController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
+		// 게임시작 버튼
 		nextBtn.setOnMouseClicked(new EventHandler<Event>() {
 
 			@Override
@@ -55,6 +56,7 @@ public class StartPageController implements Initializable {
 			}
 		});
 
+		// 뒤로가기 버튼
 		backBtn.setOnMouseClicked(new EventHandler<Event>() {
 			@Override
 			public void handle(Event event) {
