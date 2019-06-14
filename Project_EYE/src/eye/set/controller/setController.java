@@ -113,8 +113,8 @@ public class setController implements Initializable {
 					setController.clock = new Clock();
 				}
 			}
-			mainController.alarmOnImageView.setOpacity(1);
-			mainController.alarmOffImageView.setOpacity(0);
+//			mainController.alarmOnImageView.setOpacity(1);
+//			mainController.alarmOffImageView.setOpacity(0);
 			setController.clock = new Clock();
 			varStartDisturbTime = 8;// 기본 알람 방지 종료 시간 = 8(다음날)
 			varEndDisturbTime = 21;// 기본 알람 방지 시작 시간 = 9(저녁 9시)
@@ -156,8 +156,8 @@ public class setController implements Initializable {
 					setController.clock = null;
 				}
 			}
-			mainController.alarmOnImageView.setOpacity(1);
-			mainController.alarmOffImageView.setOpacity(0);
+//			mainController.alarmOnImageView.setOpacity(1);
+//			mainController.alarmOffImageView.setOpacity(0);
 			
 			if (!isStartComboboxSet) // 기본 알람 방지 종료 시간 = 8(다음날)
 				varStartDisturbTime = 8;
