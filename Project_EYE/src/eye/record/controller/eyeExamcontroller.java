@@ -46,6 +46,7 @@ public class eyeExamcontroller implements Initializable{
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					scene.getStylesheets()
 					.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 				}
@@ -95,6 +96,7 @@ public class eyeExamcontroller implements Initializable{
 					AnchorPane anotherPage = (AnchorPane) another.load();
 					Scene anotherScene = new Scene(anotherPage);
 					Stage stage = new Stage();
+					stage.setResizable(false);
 					stage.setScene(anotherScene);
 					stage.show();
 				} catch (Exception e) {
@@ -113,6 +115,7 @@ public class eyeExamcontroller implements Initializable{
 					AnchorPane anotherPage = (AnchorPane) another.load();
 					Scene anotherScene = new Scene(anotherPage);
 					Stage stage = new Stage();
+					stage.setResizable(false);
 					stage.setScene(anotherScene);
 					stage.show();
 				} catch (Exception e) {

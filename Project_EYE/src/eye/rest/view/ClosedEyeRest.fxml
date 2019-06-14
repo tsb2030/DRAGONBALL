@@ -57,7 +57,7 @@
 						<Pane prefHeight="60.0" prefWidth="430.0" styleClass="fontStyle">  <!-- 점수판 뒤의 원 -->
 							<children>
 								<Arc fill="#c6b351" layoutX="258.0" layoutY="-3.0" length="180.0" radiusX="201.0" radiusY="76.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
-								<Text fx:id="timeLabel" layoutX="180.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="40" />
+								<Text fx:id="timeLabel" layoutX="180.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="25" />
 							</children>
 						</Pane>
 					</children>

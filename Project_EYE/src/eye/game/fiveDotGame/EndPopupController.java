@@ -23,6 +23,7 @@ public class EndPopupController {
 			effectMusic.start();
 			Parent root = FXMLLoader.load(getClass().getResource("GamePage.fxml"));
 			Scene scene = new Scene(root);
+			GamePageController.gamePageStage.setResizable(false);
 			GamePageController.gamePageStage.setScene(scene);
 			GamePageController.gamePageStage.setTitle("5점 카드 트레이닝");
 
@@ -46,6 +47,7 @@ public class EndPopupController {
 			Main.setMusic("mainMusic", true, 1);
 			Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(root);
+			GamePageController.gamePageStage.setResizable(false);
 			GamePageController.gamePageStage.setScene(scene);
 			GamePageController.gamePageStage.setTitle("게임 고르기 페이지");
 

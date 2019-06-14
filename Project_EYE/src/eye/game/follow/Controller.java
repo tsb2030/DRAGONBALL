@@ -1,6 +1,5 @@
 package eye.game.follow;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,7 +17,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 //각각의 게임 들어가기 전까지 조작하는 컨트롤러
@@ -53,6 +51,7 @@ public class Controller implements Initializable {
 			Scene scene = new Scene(gameInfo);
 			scene.getStylesheets().add(getClass().getResource("game.css").toExternalForm()); // css 지정
 			Stage primaryStage = (Stage) korBtn.getScene().getWindow(); // 현재 윈도우 가져오기
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("순서대로 따라가기 - ㄱ to ㅎ");
 		} catch (Exception e) {
@@ -69,6 +68,7 @@ public class Controller implements Initializable {
 			Scene scene = new Scene(gameInfo);
 			scene.getStylesheets().add(getClass().getResource("game.css").toExternalForm()); // css 지정
 			Stage primaryStage = (Stage) engBtn.getScene().getWindow(); // 현재 윈도우 가져오기
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("순서대로 따라가기 - A to Z");
 		} catch (Exception e) {
@@ -85,6 +85,7 @@ public class Controller implements Initializable {
 			Scene scene = new Scene(gameInfo);
 			scene.getStylesheets().add(getClass().getResource("game.css").toExternalForm()); // css 지정
 			Stage primaryStage = (Stage) numBtn.getScene().getWindow(); // 현재 윈도우 가져오기
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("순서대로 따라가기 - 1 to 50");
 		} catch (Exception e) {
@@ -101,6 +102,7 @@ public class Controller implements Initializable {
 			Scene scene = new Scene(gameInfo);
 			scene.getStylesheets().add(getClass().getResource("intro.css").toExternalForm()); // css 지정
 			Stage primaryStage = (Stage) backBtn.getScene().getWindow(); // 현재 윈도우 가져오기
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("순서대로 따라가기");
 		} catch (Exception e) {
@@ -117,6 +119,7 @@ public class Controller implements Initializable {
 			Scene scene = new Scene(gameInfo);
 			scene.getStylesheets().add(getClass().getResource("game.css").toExternalForm()); // css 지정
 			Stage primaryStage = (Stage) nextBtn.getScene().getWindow(); // 현재 윈도우 가져오기
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("순서대로 따라가기 - 1 to 50");
 		} catch (Exception e) {
@@ -133,6 +136,7 @@ public class Controller implements Initializable {
 			Scene scene = new Scene(gameInfo);
 			scene.getStylesheets().add(getClass().getResource("intro.css").toExternalForm()); // css 지정
 			Stage primaryStage = (Stage) btnBefore.getScene().getWindow(); // 현재 윈도우 가져오기
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("순서대로 따라가기 - 1 to 50");
 		} catch (Exception e) {
@@ -158,6 +162,7 @@ public class Controller implements Initializable {
 					Stage primaryStage = (Stage) backBtn.getScene().getWindow();
 					scene.getStylesheets()
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					// TODO: handle exception

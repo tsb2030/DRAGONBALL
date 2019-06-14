@@ -632,23 +632,6 @@ public class setController implements Initializable {
 					clock.animation.stop();
 					clock = null;
 				}
-//				if (maintainRestEvent) {
-//					if (isRestStart == false && isGameStart == false) {
-//						// alarmPopup등장
-//						isPause = true;
-//						FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
-//						try {
-//							AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
-//							Scene scene = new Scene(alarmPopupPane);
-//							Stage stage = new Stage();
-//							stage.setScene(scene);
-//							stage.show();
-//						} catch (IOException e1) {
-//							e1.printStackTrace();
-//						}
-//						maintainRestEvent = false;
-//					}
-//				}
 
 				if (!((currnetTimeHour > startDisturbTime) && (currnetTimeHour < endDisturbTime))) {
 					// 알람 설정 주기를 설정하였는가?
@@ -665,6 +648,7 @@ public class setController implements Initializable {
 									AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
 									Scene scene = new Scene(alarmPopupPane);
 									Stage stage = new Stage();
+									stage.setResizable(false);
 									stage.setScene(scene);
 									stage.show();
 								} catch (IOException e1) {

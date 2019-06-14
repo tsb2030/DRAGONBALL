@@ -51,6 +51,7 @@ public class EndGamePopupController implements Initializable {
 					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			DodugeGameController.score = 0;
 			DodugeGameController.timeTime = 60;
+			DodugeGameController.dodugeStage.setResizable(false);
 			DodugeGameController.dodugeStage.setScene(scene);
 			DodugeGameController.dodugeStage.setTitle("DodugeGame");
 		} catch (Exception e) {
@@ -70,6 +71,7 @@ public class EndGamePopupController implements Initializable {
 			DodugeGameController.score = 0;
 			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(selectSpeedPage);
+			DodugeGameController.dodugeStage.setResizable(false);
 			DodugeGameController.dodugeStage.setScene(scene);
 			DodugeGameController.dodugeStage.setTitle("game_main_page");
 

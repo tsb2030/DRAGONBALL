@@ -46,6 +46,7 @@ public class LookAfarInfoController {
 		scene.getStylesheets().add(getClass().getResource("/eye/rest/view/rest.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
+		currentStage.setResizable(false);
 		currentStage.setScene(scene);
 		currentStage.show();
 	}
@@ -64,6 +65,7 @@ public class LookAfarInfoController {
 							.load(getClass().getResource("/eye/rest/view/interruptPopup.fxml"));
 					Scene scene = new Scene(interruptPopup);
 					Stage stage = new Stage();
+					stage.setResizable(false);
 					stage.setScene(scene);
 					stage.show();
 				} catch (IOException e1) {
@@ -86,6 +88,7 @@ public class LookAfarInfoController {
 				scene.getStylesheets().add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());
 				scene.getStylesheets()
 						.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+				currentStage.setResizable(false);
 				currentStage.setScene(scene);
 			}
 		}

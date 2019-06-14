@@ -862,6 +862,7 @@ public class GamePageController implements Initializable {
 					AnchorPane EndGamePopupPane = (AnchorPane) EndGamePopupLoader.load();
 					Scene EndGamePopupScene = new Scene(EndGamePopupPane);
 					Stage stage = new Stage();
+					stage.setResizable(false);
 					stage.setScene(EndGamePopupScene);
 					stage.show();
 					flag = true;

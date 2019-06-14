@@ -100,6 +100,7 @@ public class engGameController implements Initializable {
 					Scene scene = new Scene(gameInfo);
 					scene.getStylesheets().add(getClass().getResource("intro.css").toExternalForm()); // css 지정
 					Stage primaryStage = (Stage) btnBefore.getScene().getWindow(); // 현재 윈도우 가져오기
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 					primaryStage.setTitle("순서대로 따라가기 - A to Z");
 				} catch (Exception e) {
@@ -180,6 +181,7 @@ public class engGameController implements Initializable {
 					endGamePopupScene.getStylesheets().add(getClass()
 							.getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage stage = new Stage();
+					stage.setResizable(false);
 					stage.setScene(endGamePopupScene);
 					stage.show();
 				} catch (IOException e) {
@@ -281,6 +283,7 @@ public class engGameController implements Initializable {
 										endGamePopupScene.getStylesheets().add(getClass()
 												.getResource("/eye/main/controller/application.css").toExternalForm());
 										Stage stage = new Stage();
+										stage.setResizable(false);
 										stage.setScene(endGamePopupScene);
 										stage.show();
 									} catch (IOException e) {
@@ -434,6 +437,7 @@ public class engGameController implements Initializable {
 			// 다른창 띄우는 작업 .... 2
 			Scene anotherScene = new Scene(anotherPage);
 			Stage stage = new Stage();
+			stage.setResizable(false);
 			stage.setScene(anotherScene);
 			stage.show();
 			// 다른창 띄우는 작업 .... 2 끝.

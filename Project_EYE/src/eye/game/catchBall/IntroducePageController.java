@@ -95,6 +95,7 @@ public class IntroducePageController implements Initializable  {
 			Scene scene = new Scene(CatchBallGame);
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) easyButton.getScene().getWindow();  // ���� ������ ��������
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
 		} catch (Exception e) {
@@ -114,6 +115,7 @@ public class IntroducePageController implements Initializable  {
 			Scene scene = new Scene(CatchBallGame);
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) hardButton.getScene().getWindow();  // ���� ������ ��������
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
 		} catch (Exception e) {
@@ -133,6 +135,7 @@ public class IntroducePageController implements Initializable  {
 			Scene scene = new Scene(CatchBallGame);
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) normalButton.getScene().getWindow();  // ���� ������ ��������
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("CatchBallGame!");
 		} catch (Exception e) {

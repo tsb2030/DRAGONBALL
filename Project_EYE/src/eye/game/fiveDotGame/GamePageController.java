@@ -8,8 +8,9 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import eye.Music;
+import eye.db.AchievementDB;
+import eye.db.dbconn;
 import javafx.animation.RotateTransition;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -24,7 +25,6 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import eye.db.*;
 public class GamePageController implements Initializable {
 
 	dbconn db = new dbconn();
@@ -210,6 +210,7 @@ public class GamePageController implements Initializable {
 				try {
 					root = (Parent) fxmlloader.load();
 					Stage stage = new Stage();
+					stage.setResizable(false);
 					stage.setScene(new Scene(root));
 					stage.setTitle("운동 끝!");
 					stage.show();

@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="catchBallPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/game/catchBall/priorPage1.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchBall.IntroducePageController">
+<AnchorPane fx:id="catchBallPage" prefHeight="720.0" prefWidth="1280.0" stylesheets="/eye/game/catchBall/priorPage1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="eye.game.catchBall.IntroducePageController">
    <children>
        <VBox prefHeight="720.0" prefWidth="1280.0">
          <children>
@@ -38,7 +38,29 @@
             <Pane prefHeight="660.0" prefWidth="1280.0">
                <children>
                   <Line endX="150.0" layoutX="640.0" startX="-150.0" stroke="#707070" strokeWidth="3.0" />
-                  <Pane id="backBorder" layoutX="125.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" />
+                  <Pane id="backBorder" layoutX="125.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0">
+                     <children>
+                        <Pane id="shadow" fx:id="startButton" layoutX="589.0" layoutY="459.0" prefHeight="70.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="/image/redbox.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />
+                           </children>
+                        </Pane>
+                        <Pane id="shadow" fx:id="startButton" layoutX="161.0" layoutY="459.0" prefHeight="70.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="/image/redbox.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />
+                           </children>
+                        </Pane>
+                     </children></Pane>
                   <Label alignment="CENTER" layoutX="240.0" layoutY="127.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="캐치볼 트레이닝은 '히비노 사와코' 박사의" textAlignment="CENTER" textFill="#252525" /> 
                   <Label alignment="CENTER" layoutX="240.0" layoutY="187.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="'시선 이동 트레이닝' 에 기반을 둔 눈운동 게임입니다." textAlignment="CENTER" textFill="#252525" />
                   <Label alignment="CENTER" layoutX="240.0" layoutY="257.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="임의의 방향으로 움직이는 빨간색 공의 이동경로를 눈으로 쫓고 기억합니다." textAlignment="CENTER" textFill="#252525" />

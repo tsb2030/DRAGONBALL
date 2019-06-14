@@ -11,6 +11,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import eye.Music;
+import eye.db.dbconn;
 import eye.main.Main;
 import eye.set.controller.setController;
 import javafx.event.ActionEvent;
@@ -23,7 +24,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import eye.db.*;
 public class EndPopupController implements Initializable {
 
 	dbconn db = new dbconn();
@@ -52,6 +52,7 @@ public class EndPopupController implements Initializable {
 
 			GamePageController.bigScore = 0;
 			GamePageController.timeTime = 60;
+			GamePageController.dodugeStage.setResizable(false);
 			GamePageController.dodugeStage.setScene(scene);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -71,6 +72,7 @@ public class EndPopupController implements Initializable {
 			GamePageController.bigScore = 0;
 			Parent selectSpeedPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(selectSpeedPage);
+			GamePageController.dodugeStage.setResizable(false);
 			GamePageController.dodugeStage.setScene(scene);
 			GamePageController.dodugeStage.setTitle("game_main_page");
 

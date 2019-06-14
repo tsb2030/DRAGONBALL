@@ -89,6 +89,7 @@ public class restInterruptController implements Initializable {
 		Scene scene = new Scene(an);
 		scene.getStylesheets().add(getClass().getResource("/eye/rest/view/restMain.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+		mainController.currentStage.setResizable(false);
 		mainController.currentStage.setScene(scene);
 	}
 

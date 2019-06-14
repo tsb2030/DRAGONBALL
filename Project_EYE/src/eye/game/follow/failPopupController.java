@@ -25,6 +25,7 @@ public class failPopupController {
 				Scene scene = new Scene(gameInfo);
 				scene.getStylesheets().add(getClass().getResource("intro.css").toExternalForm()); // css 지정
 				Stage primaryStage = (Stage) restartPopUpBtn.getScene().getWindow(); // 현재 윈도우 가져오기
+				engGameController.currentStage.setResizable(false);
 				engGameController.currentStage.setScene(scene);
 				engGameController.currentStage.setTitle("A to Z Game");
 				primaryStage.close();
@@ -44,6 +45,7 @@ public class failPopupController {
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) closeBtn.getScene().getWindow();
 				scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+				engGameController.currentStage.setResizable(false);
 				engGameController.currentStage.setScene(scene);
 				engGameController.currentStage.setTitle("gameMainPage");
 				primaryStage.close();

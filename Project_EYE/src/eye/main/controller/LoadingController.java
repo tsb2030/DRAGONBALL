@@ -1,6 +1,5 @@
 package eye.main.controller;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -56,6 +55,7 @@ public class LoadingController implements Initializable{
 						scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 						Stage primaryStage = new Stage();
 						primaryStage.setScene(scene);
+						primaryStage.setResizable(false);
 						primaryStage.show();
 						acpane.getScene().getWindow().hide();
 					}

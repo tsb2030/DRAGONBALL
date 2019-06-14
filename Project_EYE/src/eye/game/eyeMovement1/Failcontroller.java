@@ -37,7 +37,7 @@ public class Failcontroller implements Initializable {
 			Main.setMusic("mainMusic", true, 1);
 			Parent MainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 			Scene scene = new Scene(MainPage);
-
+			Playcontroller.currentStage.setResizable(false);
 			Playcontroller.currentStage.setScene(scene);
 			Playcontroller.currentStage.setTitle("game_main_page");
 
@@ -58,7 +58,7 @@ public class Failcontroller implements Initializable {
 			effectMusic.start();
 			Parent root = FXMLLoader.load(getClass().getResource("Overview.fxml"));
 			Scene scene = new Scene(root);
-
+			Playcontroller.currentStage.setResizable(false);
 			Playcontroller.currentStage.setScene(scene);
 			Playcontroller.currentStage.setTitle("시선이동트레이닝1");
 

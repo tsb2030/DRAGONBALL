@@ -74,6 +74,7 @@ public class ClosedEyeRestController implements Initializable {
 							.load(getClass().getResource("/eye/rest/view/interruptPopup.fxml"));
 					Scene scene = new Scene(interruptPopup);
 					Stage stage = new Stage();
+					stage.setResizable(false);
 					stage.setScene(scene);
 					stage.show();
 				} catch (IOException e1) {
@@ -108,7 +109,7 @@ public class ClosedEyeRestController implements Initializable {
 	public class Clock extends Pane {
 
 		private Timeline animation;
-		private int timeTmp = 5;
+		private int timeTmp = 25;
 		private String S = "";
 		private boolean flag = false;
 
@@ -160,6 +161,7 @@ public class ClosedEyeRestController implements Initializable {
 //							endPopupScene.getStylesheets()
 //									.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 							Stage endPopupStage = new Stage();
+							endPopupStage.setResizable(false);
 							endPopupStage.setScene(endPopupScene);
 							endPopupStage.show();
 							flag = true;
@@ -199,6 +201,7 @@ public class ClosedEyeRestController implements Initializable {
 //						endPopupScene.getStylesheets()
 //								.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 						Stage endPopupStage = new Stage();
+						endPopupStage.setResizable(false);
 						endPopupStage.setScene(endPopupScene);
 						endPopupStage.show();
 						flag = true;

@@ -5,13 +5,12 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import eye.db.dbconn;
 import eye.main.Main;
-import eye.record.model.recordModel;
 import eye.record.model.timesModel;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -23,12 +22,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import eye.db.*;
 public class recordController implements Initializable{
 	dbconn db = new dbconn();
 
@@ -298,6 +295,7 @@ public class recordController implements Initializable{
 					scene.getStylesheets()
 					.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage primaryStage = (Stage) backBtn.getScene().getWindow();
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -444,6 +442,7 @@ public class recordController implements Initializable{
 			Scene.getStylesheets()
 			.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
 			Stage stage = new Stage();
+			stage.setResizable(false);
 			stage.setScene(Scene);
 			stage.show();
 
@@ -464,6 +463,7 @@ public class recordController implements Initializable{
 			Scene.getStylesheets()
 			.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
 			Stage stage = new Stage();
+			stage.setResizable(false);
 			stage.setScene(Scene);
 			stage.show();
 
@@ -486,6 +486,7 @@ public class recordController implements Initializable{
 			Scene.getStylesheets()
 			.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
 			Stage stage = new Stage();
+			stage.setResizable(false);
 			stage.setScene(Scene);
 			stage.show();
 			//
@@ -508,6 +509,7 @@ public class recordController implements Initializable{
 			Scene.getStylesheets()
 			.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
 			Stage stage = new Stage();
+			stage.setResizable(false);
 			stage.setScene(Scene);
 			stage.show();
 
@@ -529,6 +531,7 @@ public class recordController implements Initializable{
 			Scene.getStylesheets()
 			.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
 			Stage stage = new Stage();
+			stage.setResizable(false);
 			stage.setScene(Scene);
 			stage.show();
 
@@ -551,6 +554,7 @@ public class recordController implements Initializable{
 			.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
 			Stage stage = new Stage();
 			stage.setScene(Scene);
+			stage.setResizable(false);
 			stage.show();
 
 		} catch (IOException e1) {
@@ -567,6 +571,7 @@ public class recordController implements Initializable{
 			scene.getStylesheets()
 			.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) backBtn.getScene().getWindow();
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 
 		} catch (IOException e1) {
@@ -581,6 +586,7 @@ public class recordController implements Initializable{
 			scene.getStylesheets()
 			.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 			Stage primaryStage = (Stage) backBtn.getScene().getWindow();
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 		} catch (IOException e1) {
 		}

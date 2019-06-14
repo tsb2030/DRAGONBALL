@@ -42,6 +42,7 @@ public class korController implements Initializable {
 					Scene scene = new Scene(gameInfo);
 					scene.getStylesheets().add(getClass().getResource("intro.css").toExternalForm()); // css 지정
 					Stage primaryStage = (Stage) backBtn.getScene().getWindow(); // 현재 윈도우 가져오기
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 					primaryStage.setTitle("순서대로 따라가기");
 				} catch (Exception e) {
@@ -59,6 +60,7 @@ public class korController implements Initializable {
 			Scene scene = new Scene(gameInfo);
 			scene.getStylesheets().add(getClass().getResource("game.css").toExternalForm()); // css 지정
 			Stage primaryStage = (Stage) korNextBtn.getScene().getWindow(); // 현재 윈도우 가져오기
+			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("순서대로 따라가기 - ㄱ  to ㅎ");
 		} catch (Exception e) {

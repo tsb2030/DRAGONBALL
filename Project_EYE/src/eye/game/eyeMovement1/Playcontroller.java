@@ -46,7 +46,7 @@ public class Playcontroller implements Initializable {
 	int duration = 4;
 	int count = 0;
 	double i = 4;
-	int cyclecnt = 5;
+	int cyclecnt = 20;
 	int count2 = 0;
 	double tmp = 0;
 	public static boolean eyeAchievementNoviceValue = false;
@@ -171,7 +171,7 @@ public class Playcontroller implements Initializable {
 				count2++;
 			}
 			//운동 종료 및 도전과제 DB연동
-			if (count2 == 5 && tmp >= i - 0.015) {
+			if (count2 == 20 && tmp >= i - 0.015) {
 				eyeAchievementNoviceValue = true;
 				eyeAchievementFreshValue = true;
 				AchievementDB.DayPlaycount = true;

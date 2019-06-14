@@ -187,6 +187,8 @@ public class CatchballGameController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		timer = new Clock();
+		
+		
 
 		followCircle.setVisible(false);
 		catchCircle.setVisible(false);
@@ -206,6 +208,7 @@ public class CatchballGameController implements Initializable {
 					scene.getStylesheets()
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage primaryStage = (Stage) BackBtn.getScene().getWindow();
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -1517,7 +1520,7 @@ public class CatchballGameController implements Initializable {
 	public class Clock extends Pane {
 
 		private Timeline animation;
-		private int timeTmp = 60;
+		private int timeTmp = 30;
 		private String S = "";
 
 		public Clock() {

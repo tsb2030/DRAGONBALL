@@ -13,9 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -53,6 +51,7 @@ public class Explaincontroller implements Initializable {
 					Parent root = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
+					primaryStage.setResizable(false);
 					scene.getStylesheets()
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					primaryStage.setScene(scene);
@@ -74,6 +73,7 @@ public class Explaincontroller implements Initializable {
 					Parent root = FXMLLoader.load(getClass().getResource("Overview.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) ExplainPage.getScene().getWindow();
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 				}

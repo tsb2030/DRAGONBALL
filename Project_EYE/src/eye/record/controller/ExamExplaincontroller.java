@@ -48,6 +48,7 @@ public class ExamExplaincontroller implements Initializable{
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					scene.getStylesheets()
 					.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 				}
@@ -67,6 +68,7 @@ public class ExamExplaincontroller implements Initializable{
 					scene.getStylesheets()
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage primaryStage = (Stage) nextBtn.getScene().getWindow();
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					// TODO: handle exception
@@ -86,6 +88,7 @@ public class ExamExplaincontroller implements Initializable{
 					scene.getStylesheets()
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage primaryStage = (Stage) nextBtn2.getScene().getWindow();
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					// TODO: handle exception

@@ -12,7 +12,8 @@ import java.util.ResourceBundle;
 import com.jfoenix.controls.JFXButton;
 
 import eye.Music;
-import eye.main.Main;
+import eye.db.AchievementDB;
+import eye.db.dbconn;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.beans.property.DoubleProperty;
@@ -30,11 +31,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import eye.db.*;
 
 //숫자게임페이지에 달려있는 컨트롤러
 public class otfGameController implements Initializable {
@@ -111,6 +110,7 @@ public class otfGameController implements Initializable {
 					Scene scene = new Scene(gameInfo);
 					scene.getStylesheets().add(getClass().getResource("intro.css").toExternalForm()); // css 지정
 					Stage primaryStage = (Stage) btnBefore.getScene().getWindow(); // 현재 윈도우 가져오기
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 					primaryStage.setTitle("순서대로 따라가기 - 1 to 50");
 				} catch (Exception e) {
@@ -196,6 +196,7 @@ public class otfGameController implements Initializable {
 						endGamePopupScene.getStylesheets().add(getClass()
 								.getResource("/eye/main/controller/application.css").toExternalForm());
 						Stage stage = new Stage();
+						stage.setResizable(false);
 						stage.setScene(endGamePopupScene);
 						stage.show();
 					} catch (IOException e) {
@@ -299,6 +300,7 @@ public class otfGameController implements Initializable {
 										endGamePopupScene.getStylesheets().add(getClass()
 												.getResource("/eye/main/controller/application.css").toExternalForm());
 										Stage stage = new Stage();
+										stage.setResizable(false);
 										stage.setScene(endGamePopupScene);
 										stage.show();
 									} catch (IOException e) {
@@ -434,6 +436,7 @@ public class otfGameController implements Initializable {
 			// 다른창 띄우는 작업 .... 2
 			Scene anotherScene = new Scene(anotherPage);
 			Stage stage = new Stage();
+			stage.setResizable(false);
 			stage.setScene(anotherScene);
 			stage.show();
 			// 다른창 띄우는 작업 .... 2 끝.

@@ -1,12 +1,11 @@
 package eye.game.follow;
 
-import java.io.IOException;
-import eye.db.*;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
+import eye.db.dbconn;
 import eye.main.Main;
 import eye.set.controller.setController;
 import javafx.event.ActionEvent;
@@ -17,7 +16,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 //1to50 팝업창 컨트롤러 - 게임3개 다 사용가능할듯?
@@ -41,6 +39,7 @@ public class korPopupController implements Initializable{
 				Scene scene = new Scene(gameInfo);
 				scene.getStylesheets().add(getClass().getResource("intro.css").toExternalForm()); // css 지정
 				Stage primaryStage = (Stage) restartPopUpBtn.getScene().getWindow(); // 현재 윈도우 가져오기
+				korGameController.currentStage.setResizable(false);
 				korGameController.currentStage.setScene(scene);
 				korGameController.currentStage.setTitle("ㄱ to ㅎ Game");
 				primaryStage.close();
@@ -58,6 +57,7 @@ public class korPopupController implements Initializable{
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) closeBtn.getScene().getWindow();
 				scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+				korGameController.currentStage.setResizable(false);
 				korGameController.currentStage.setScene(scene);
 				korGameController.currentStage.setTitle("gameMainPage");
 				primaryStage.close();

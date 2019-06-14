@@ -1,12 +1,12 @@
 package eye.main;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import eye.Music;
+import eye.game.follow.otfGameController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,6 +28,7 @@ public class Main extends Application {
 			Parent root = FXMLLoader.load(getClass().getResource("view/loading.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 			
 			//introMusic 시작

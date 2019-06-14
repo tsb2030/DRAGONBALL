@@ -74,6 +74,7 @@ public class mainController implements Initializable {
 		scene.getStylesheets().add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm()); // css
 																													// 지정
 		Stage primaryStage = (Stage) main_record.getScene().getWindow(); // 현재 윈도우 가져오기
+		primaryStage.setResizable(false);
 		primaryStage.setScene(scene);
 	}
 

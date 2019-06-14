@@ -149,7 +149,7 @@ public class DodugeGameController implements Initializable {
 	public class Clock extends Pane {
 
 		private Timeline animation;
-		private int timeTmp = 60;
+		private int timeTmp = 30;
 		private String S = "";
 		private boolean flag = false;
 
@@ -172,6 +172,7 @@ public class DodugeGameController implements Initializable {
 				
 				clock.animation.stop();
 				dodugeStage = (Stage) TimerLabel.getScene().getWindow();
+				dodugeStage.setResizable(false);
 				FXMLLoader EndGamePopupLoader = new FXMLLoader(
 						Main.class.getResource("/eye/game/catchMole/EndGamePopup.fxml"));
 				try {
@@ -180,6 +181,7 @@ public class DodugeGameController implements Initializable {
 					EndGamePopupScene.getStylesheets()
 							.add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 					Stage stage = new Stage();
+					stage.setResizable(false);
 					stage.setScene(EndGamePopupScene);
 					stage.show();
 					flag = true;

@@ -47,7 +47,7 @@ public class Playcontroller implements Initializable {
 	int count = 0;
 	double tmp = 0;
 	double i = 4;
-	int cyclecnt = 5;
+	int cyclecnt = 20;
 	int count2 = 0;
 	public static boolean eyeAchievementFreshValue = false;
 
@@ -166,7 +166,7 @@ public class Playcontroller implements Initializable {
 				count2++;
 			}
 
-			if (count2 == 5 && tmp >= i - 0.015) {
+			if (count2 == 20 && tmp >= i - 0.015) {
 				AchievementDB.DayPlaycount = true;
 				eyeAchievementFreshValue = true;
 				aDB.ach();
@@ -196,6 +196,7 @@ public class Playcontroller implements Initializable {
 			//
 			Scene anotherScene = new Scene(anotherPage);
 			Stage stage = new Stage();
+			stage.setResizable(false);
 			stage.setScene(anotherScene);
 			stage.show();
 			//

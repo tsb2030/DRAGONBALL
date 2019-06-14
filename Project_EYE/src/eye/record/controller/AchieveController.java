@@ -1,14 +1,10 @@
 package eye.record.controller;
 
-import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormatSymbols;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import eye.db.AchievementDB;
 import eye.main.Main;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -17,7 +13,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -72,6 +67,7 @@ public class AchieveController implements Initializable {
 					scene.getStylesheets()
 							.add(getClass().getResource("/eye/record/view/recordDesign.css").toExternalForm());
 					Stage primaryStage = (Stage) backBtn.getScene().getWindow();
+					primaryStage.setResizable(false);
 					primaryStage.setScene(scene);
 				} catch (Exception e) {
 					e.printStackTrace();

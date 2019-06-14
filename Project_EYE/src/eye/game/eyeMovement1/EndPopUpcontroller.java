@@ -1,26 +1,16 @@
 package eye.game.eyeMovement1;
 
-import java.io.IOException;
-import java.net.URL;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.ResourceBundle;
 
 import eye.Music;
-import eye.game.eyeMovement1.Playcontroller;
-import eye.main.Main;
+import eye.db.dbconn;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import eye.db.*;
 public class EndPopUpcontroller {
 
 	dbconn db = new dbconn();

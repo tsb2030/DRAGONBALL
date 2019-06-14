@@ -50,11 +50,12 @@ public class EndGamePopupController implements Initializable {
 
 			// css
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-
+			CatchballGameController.currentStage.setResizable(false);
 			CatchballGameController.currentStage.setScene(scene);
 			CatchballGameController.currentStage.setTitle("CatchballGame");
 
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������
+			primaryStage.setResizable(false);
 			primaryStage.close();
 
 			CatchballGameController.bigScore = 0;
@@ -81,7 +82,7 @@ public class EndGamePopupController implements Initializable {
 			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
 
 			Stage primaryStage = (Stage) backGame.getScene().getWindow(); // ���� ������ ��������
-
+			primaryStage.setResizable(false);
 			CatchballGameController.bigScore = 0;
 
 			CatchballGameController.currentStage.setScene(scene);
