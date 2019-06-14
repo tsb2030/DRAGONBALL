@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -38,47 +37,42 @@
             <Pane prefHeight="660.0" prefWidth="1280.0">
                <children>
                   <Line endX="150.0" layoutX="640.0" startX="-150.0" stroke="#707070" strokeWidth="3.0" />
-                  <Pane id="backBorder" layoutX="125.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0">
-                     <children>
-                        <Pane id="shadow" fx:id="startButton" layoutX="589.0" layoutY="459.0" prefHeight="70.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="/image/redbox.png" />
-                                 </image>
-                              </ImageView>
-                              <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />
-                           </children>
-                        </Pane>
-                        <Pane id="shadow" fx:id="startButton" layoutX="161.0" layoutY="459.0" prefHeight="70.0" prefWidth="200.0">
-                           <children>
-                              <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="/image/redbox.png" />
-                                 </image>
-                              </ImageView>
-                              <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />
-                           </children>
-                        </Pane>
-                     </children></Pane>
+                  <Pane id="backBorder" layoutX="125.0" layoutY="80.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="1000.0" />
                   <Label alignment="CENTER" layoutX="240.0" layoutY="127.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="캐치볼 트레이닝은 '히비노 사와코' 박사의" textAlignment="CENTER" textFill="#252525" /> 
                   <Label alignment="CENTER" layoutX="240.0" layoutY="187.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="'시선 이동 트레이닝' 에 기반을 둔 눈운동 게임입니다." textAlignment="CENTER" textFill="#252525" />
                   <Label alignment="CENTER" layoutX="240.0" layoutY="257.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="임의의 방향으로 움직이는 빨간색 공의 이동경로를 눈으로 쫓고 기억합니다." textAlignment="CENTER" textFill="#252525" />
                   <Label alignment="CENTER" layoutX="240.0" layoutY="327.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="초록색 공으로 빨간색 공이 움직였던 이동경로를 쫓아갑니다." textAlignment="CENTER" textFill="#252525" />
-                  <Label alignment="CENTER" layoutX="240.0" layoutY="397.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="제한 시간이 다 되거나 일정 횟수가 틀릴 경우 게임이 종료됩니다." textAlignment="CENTER" textFill="#252525" />                
-                  <Button fx:id="easyButton" layoutX="425.0" layoutY="478.0" onAction="#easyButtonAction" prefHeight="30.0" prefWidth="100.0" text="Easy" textFill="BLACK" />
-				  <Button fx:id="normalButton" layoutX="575.0" layoutY="478.0" onAction="#normalButtonAction" prefHeight="30.0" prefWidth="100.0" text="Normal" textFill="BLACK" />
-				  <Button fx:id="hardButton" layoutX="725.0" layoutY="478.0" onAction="#hardButtonAction" prefHeight="30.0" prefWidth="100.0" text="Hard" textFill="BLACK" />
-                
-                  
-                  <Pane id="shadow" fx:id="startButton" layoutX="525.0" layoutY="539.0" prefHeight="70.0" prefWidth="200.0">
+                  <Label alignment="CENTER" layoutX="240.0" layoutY="397.0" prefHeight="50.0" prefWidth="800.0" styleClass="fontStyleL" text="제한 시간이 다 되거나 일정 횟수가 틀릴 경우 게임이 종료됩니다." textAlignment="CENTER" textFill="#252525" />
+                  <Pane id="shadow" fx:id="easyPane" layoutX="289.0" layoutY="545.0" onMouseClicked="#easyPaneClickEvent" prefHeight="70.0" prefWidth="200.0">
                      <children>
                         <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="/image/redbox.png" />
                            </image>
                         </ImageView>
-                        <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="다음" />
+                        <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="쉬움" />
+                     </children>
+                  </Pane>
+                  <Pane id="shadow" fx:id="hardPane" layoutX="747.0" layoutY="545.0" onMouseClicked="#hardPaneClickEvent" prefHeight="70.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/image/redbox.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="57.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="어려움" />
+                     </children>
+                  </Pane>
+                
+                  
+                  <Pane id="shadow" fx:id="normalPane" layoutX="525.0" layoutY="545.0" onMouseClicked="#normalPaneClickEvent" prefHeight="70.0" prefWidth="200.0">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/image/redbox.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="65.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fontStyleM" text="보통" />
                      </children>
                   </Pane>
                </children>

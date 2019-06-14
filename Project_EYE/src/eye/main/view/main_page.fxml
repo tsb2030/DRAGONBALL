@@ -44,5 +44,15 @@
 				<Font name="a소나무L" size="31.0" />
 			</font>
 		</Label>
+      <ImageView fx:id="alarmOnImageView" fitHeight="100.0" fitWidth="130.0" layoutX="1146.0" layoutY="26.0" onMouseClicked="#alarmImageViewClick" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="/image/alarmOn.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="alarmOffImageView" fitHeight="100.0" fitWidth="130.0" layoutX="1146.0" layoutY="26.0" onMouseClicked="#alarmImageViewClick" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="/image/alarmOff.png" />
+         </image>
+      </ImageView>
 	</children>
 </AnchorPane>

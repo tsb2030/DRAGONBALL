@@ -16,6 +16,7 @@ import com.jfoenix.controls.JFXToggleButton;
 
 import eye.Music;
 import eye.main.Main;
+import eye.main.controller.mainController;
 import javafx.animation.Animation.Status;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -99,6 +100,7 @@ public class setController implements Initializable {
 		mainPage = (Stage) BGMToggle.getScene().getWindow();
 		if (isPause == false) {
 			isStop = false;
+			mainController.doNotAlaram = 2;
 			Music effectMusic = new Music("setButtonClickEffect", false, 2);
 			effectMusic.start();
 			// 기존에 알람이 켜져 있다면 멈추는 구문
@@ -111,7 +113,8 @@ public class setController implements Initializable {
 					setController.clock = new Clock();
 				}
 			}
-
+			mainController.alarmOnImageView.setOpacity(1);
+			mainController.alarmOffImageView.setOpacity(0);
 			setController.clock = new Clock();
 			varStartDisturbTime = 8;// 기본 알람 방지 종료 시간 = 8(다음날)
 			varEndDisturbTime = 21;// 기본 알람 방지 시작 시간 = 9(저녁 9시)
@@ -144,6 +147,7 @@ public class setController implements Initializable {
 			Music effectMusic = new Music("setButtonClickEffect", false, 2);
 			effectMusic.start();
 			isStop = false;
+			mainController.doNotAlaram = 2;
 			System.out.println("submit");
 			// 기존에 알람이 켜져 있다면 멈추는 구문
 			if (setController.clock != null) {
@@ -152,7 +156,9 @@ public class setController implements Initializable {
 					setController.clock = null;
 				}
 			}
-
+			mainController.alarmOnImageView.setOpacity(1);
+			mainController.alarmOffImageView.setOpacity(0);
+			
 			if (!isStartComboboxSet) // 기본 알람 방지 종료 시간 = 8(다음날)
 				varStartDisturbTime = 8;
 			if (!isEndComboboxSet) // 기본 알람 방지 시작 시간 = 9(저녁 9시)
@@ -631,6 +637,9 @@ public class setController implements Initializable {
 				if (isStop == true) {
 					clock.animation.stop();
 					clock = null;
+
+					mainController.alarmOnImageView.setVisible(false);
+					mainController.alarmOffImageView.setVisible(true);
 				}
 
 				if (!((currnetTimeHour > startDisturbTime) && (currnetTimeHour < endDisturbTime))) {

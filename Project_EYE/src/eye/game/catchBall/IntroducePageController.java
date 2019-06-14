@@ -1,12 +1,8 @@
 package eye.game.catchBall;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 
 import eye.Music;
 import eye.main.Main;
@@ -21,128 +17,118 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class IntroducePageController implements Initializable  {
+public class IntroducePageController implements Initializable {
 
 	@FXML
-	AnchorPane gamePage,catchBallPage,gameMainPage;
+	AnchorPane gamePage, catchBallPage, gameMainPage;
 
 	@FXML
 	Pane startButton;
 
-    @FXML
-    ImageView backButton;
-    
-    @FXML
-    Button easyButton, normalButton, hardButton;
+	@FXML
+	ImageView backButton;
 
-    public static double gameSpeed = 0.0;	//second
+	@FXML
+	Button easyButton, normalButton, hardButton;
 
-    @Override
-   	public void initialize(URL location, ResourceBundle resources) {
-    	System.out.println("java version: "+System.getProperty("java.version"));
+	public static double gameSpeed = 0.0; // second
+	@FXML
+	private Pane easyPane;
+
+	@FXML
+	private Pane hardPane;
+
+	@FXML
+	private Pane normalPane;
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		System.out.println("java version: " + System.getProperty("java.version"));
 		System.out.println("javafx.version: " + System.getProperty("javafx.version"));
-    	startButton.setOnMouseClicked(new EventHandler<Event>() {
 
-   			@Override
-   			public void handle(Event event) {
-   				try {
-   					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
-   					effectMusic.start();
-   					
-   					gamePage = FXMLLoader.load(getClass().getResource("CatchBallGame.fxml"));
-   				} catch (IOException e) {
-   					e.printStackTrace();
-   				}
-   				
-   				catchBallPage.getChildren().setAll(gamePage);
-   			}
-   		});
-   		
-   		backButton.setOnMouseClicked(new EventHandler<Event>() {
-   			@Override
-   			public void handle(Event event) {
-   				try {
-   					setController.isGameStart = false;
-   					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
-   					effectMusic.start();
-   					
+		backButton.setOnMouseClicked(new EventHandler<Event>() {
+			@Override
+			public void handle(Event event) {
+				try {
+					setController.isGameStart = false;
+					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+					effectMusic.start();
+
 					Main.setMusic("mainMusic", true, 1);
-   					gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
-   				} catch (IOException  e) {
-   					// TODO Auto-generated catch block
-   					e.printStackTrace();
-   				}
-   				
-   				catchBallPage.getChildren().setAll(gameMainPage);
-   			}
-   		});
-   		
-   	}
-    
-    @FXML
-    void easyButtonAction(ActionEvent event) {
-    	gameSpeed = 5;
-    	CatchballGameController.bigScore = 0;
-    	try {
-			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
-			effectMusic.start();
-			
-    		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
-			Scene scene = new Scene(CatchBallGame);
-			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-			Stage primaryStage = (Stage) easyButton.getScene().getWindow();  // ���� ������ ��������
-			primaryStage.setResizable(false);
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("CatchBallGame!");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    }
-    
-    @FXML
-    void normalButtonAction(ActionEvent event) {
-    	gameSpeed = 4;
-    	CatchballGameController.bigScore = 0;
-    	try {
-			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
-			effectMusic.start();
-			
-    		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
-			Scene scene = new Scene(CatchBallGame);
-			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-			Stage primaryStage = (Stage) hardButton.getScene().getWindow();  // ���� ������ ��������
-			primaryStage.setResizable(false);
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("CatchBallGame!");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    }
-    
-    @FXML
-    void hardButtonAction(ActionEvent event) {
-    	gameSpeed = 3;
-    	CatchballGameController.bigScore = 0;
-    	try {
-			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
-			effectMusic.start();
-			
-    		Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml"));  // �ҷ��� ������ ����
-			Scene scene = new Scene(CatchBallGame);
-			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
-			Stage primaryStage = (Stage) normalButton.getScene().getWindow();  // ���� ������ ��������
-			primaryStage.setResizable(false);
-			primaryStage.setScene(scene);
-			primaryStage.setTitle("CatchBallGame!");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    }
+					gameMainPage = FXMLLoader.load(getClass().getResource("/eye/game/view/game_main_page.fxml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
-   
+				catchBallPage.getChildren().setAll(gameMainPage);
+			}
+		});
 
+	}
+
+	@FXML
+	void easyPaneClickEvent(MouseEvent event) {
+		gameSpeed = 5;
+		CatchballGameController.bigScore = 0;
+		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
+
+			Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml")); // �ҷ��� ������ ����
+			Scene scene = new Scene(CatchBallGame);
+			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+			Stage primaryStage = (Stage) easyPane.getScene().getWindow(); // ���� ������ ��������
+			primaryStage.setResizable(false);
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("CatchBallGame!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void hardPaneClickEvent(MouseEvent event) {
+		gameSpeed = 3;
+		CatchballGameController.bigScore = 0;
+		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
+
+			Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml")); // �ҷ��� ������ ����
+			Scene scene = new Scene(CatchBallGame);
+			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+			Stage primaryStage = (Stage) easyPane.getScene().getWindow(); // ���� ������ ��������
+			primaryStage.setResizable(false);
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("CatchBallGame!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@FXML
+	void normalPaneClickEvent(MouseEvent event) {
+		gameSpeed = 4;
+		CatchballGameController.bigScore = 0;
+		try {
+			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
+			effectMusic.start();
+
+			Parent CatchBallGame = FXMLLoader.load(getClass().getResource("CatchballGame.fxml")); // �ҷ��� ������ ����
+			Scene scene = new Scene(CatchBallGame);
+			scene.getStylesheets().add(getClass().getResource("/eye/main/controller/application.css").toExternalForm());
+			Stage primaryStage = (Stage) easyPane.getScene().getWindow(); // ���� ������ ��������
+			primaryStage.setResizable(false);
+			primaryStage.setScene(scene);
+			primaryStage.setTitle("CatchBallGame!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

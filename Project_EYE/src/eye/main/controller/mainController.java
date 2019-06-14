@@ -6,12 +6,14 @@ import java.util.ResourceBundle;
 
 import eye.Music;
 import eye.main.Main;
+import eye.set.controller.setController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -22,15 +24,41 @@ public class mainController implements Initializable {
 
 	public static Stage currentStage;
 	// 현재 페이인 mainPage와 교체할 페이지인 gameMainPage를 미리 선언
+
+	public static boolean isAlarmStart = false;
+	public static int doNotAlaram = 1;
+	
 	@FXML
 	private AnchorPane gameMainPage, mainPage, restMainPage, setMainPage;
 
 	@FXML
 	private Button main_record, main_relax;
 
+	@FXML
+	public static ImageView alarmOnImageView;
+
+	@FXML
+	public static ImageView alarmOffImageView;
+
+	@FXML
+	void alarmImageViewClick(MouseEvent event) {
+		//알람을 설정하지 않았거나 setController.isStop이 true일 경우
+		if ((doNotAlaram == 1) || (setController.isStop)) {
+			goSet();
+			//화면 전환
+		}else {
+			alarmOnImageView.setVisible(true);
+			alarmOffImageView.setVisible(false);
+			setController.isPause = false;
+			setController.isStop = true;
+		}
+	}
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		// 알람 이미지를 어떤 것을 보이게 할 것인지?
+//		alarmOnImageView.setOpacity(0);
 	}
 
 	// 게임 버튼을 눌렀을 때 동작할 메소드
@@ -64,7 +92,7 @@ public class mainController implements Initializable {
 			Main.setMusic("mainMusic", true, 1);
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
-			
+
 			recordPage = FXMLLoader.load(getClass().getResource("/eye/record/view/recordMain.fxml"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -92,7 +120,7 @@ public class mainController implements Initializable {
 			Main.setMusic("mainMusic", true, 1);
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
-			
+
 			// 교체할 페이지인 rest_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
 			restMainPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/rest_main_page.fxml"));
 		} catch (IOException e) {
@@ -116,7 +144,7 @@ public class mainController implements Initializable {
 			Main.setMusic("mainMusic", true, 1);
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
-			
+
 			// 교체할 페이지인 rest_main_page.fxml를 가져와서 gameMainPage에 넣어준다.
 			restMainPage = FXMLLoader.load(getClass().getResource("/eye/set/view/setOverview.fxml"));
 		} catch (IOException e) {
