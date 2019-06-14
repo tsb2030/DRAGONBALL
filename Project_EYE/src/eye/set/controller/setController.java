@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
@@ -64,7 +63,7 @@ public class setController implements Initializable {
 	boolean effectFlag = false;
 	boolean flag = false;// 게임이 진행 중인지 받아올 변수
 	boolean tomarrowFlag = false;
-	boolean isStartComboboxSet = false;	//콤보박스 세팅을 하고 확인을 눌렀는가?
+	boolean isStartComboboxSet = false; // 콤보박스 세팅을 하고 확인을 눌렀는가?
 	boolean isEndComboboxSet = false;
 
 	public static boolean isPause = false; // 현재 pause상태인지?
@@ -123,7 +122,7 @@ public class setController implements Initializable {
 			startDisturbTime = varStartDisturbTime;
 			endDisturbTime = varEndDisturbTime;
 
-			//창을 이전 페이지(main)페이지로 가게 함
+			// 창을 이전 페이지(main)페이지로 가게 함
 			Main.setMusic("introMusic", true, 1);
 			Parent mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 			ExplainPage.getChildren().setAll(mainPage);
@@ -137,7 +136,7 @@ public class setController implements Initializable {
 
 	}
 
-	//확인 버튼 액션 이벤트
+	// 확인 버튼 액션 이벤트
 	@FXML
 	void submit(MouseEvent event) throws IOException {
 		mainPage = (Stage) BGMToggle.getScene().getWindow();
@@ -158,7 +157,7 @@ public class setController implements Initializable {
 				varStartDisturbTime = 8;
 			if (!isEndComboboxSet) // 기본 알람 방지 시작 시간 = 9(저녁 9시)
 				varEndDisturbTime = 21;
-			if (restCycle == 0) // 기본 알람 주기 = 3시간
+			if (restCycle == 0) // 기본 알람 주기 = 30분
 				restCycle = 1;
 			if (restType == 0) // 없으면 1 = 짧음
 				restType = 1;
@@ -182,7 +181,7 @@ public class setController implements Initializable {
 
 	}
 
-	//backButton Action
+	// backButton Action
 	@FXML
 	void backButtonAction(MouseEvent event) throws IOException {
 		if (isPause == false) {
@@ -214,7 +213,9 @@ public class setController implements Initializable {
 		case 1:
 			// 휴식 페이지 1번을 부르는 기능! 눈꼭 감기
 			restList.add(1);
-
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic", true, 1);
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
@@ -222,6 +223,9 @@ public class setController implements Initializable {
 		case 2:
 			// 휴식 페이지 2번을 부르는 기능! 멀리보기
 			restList.add(2);
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic", true, 1);
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/LookAfarInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
@@ -229,6 +233,9 @@ public class setController implements Initializable {
 		case 3:
 			// 휴식 페이지 1번을 부르는 기능! 눈 마사지
 			restList.add(3);
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic2", true, 1);
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/EyeMassageInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
@@ -236,14 +243,20 @@ public class setController implements Initializable {
 		case 4:
 			// 휴식 페이지 1번을 부르는 기능! 눈 굴리기
 			restList.add(4);
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic2", true, 1);
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/EyeRollingInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
 			break;
 		case 5:
-			// 휴식 페이지 1번을 부르는 기능! 눈 꼭 감기
+			// 휴식 페이지 1번을 부르는 기능! 눈 온찜질
 			restList.add(5);
-			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic2", true, 1);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/WarmEyeInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
 			break;
@@ -280,7 +293,9 @@ public class setController implements Initializable {
 		case 1:
 			// 휴식 페이지 1번을 부르는 기능! 눈꼭 감기
 			restList.add(1);
-
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic1", true, 1);
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
@@ -288,6 +303,9 @@ public class setController implements Initializable {
 		case 2:
 			// 휴식 페이지 2번을 부르는 기능! 멀리보기
 			restList.add(2);
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic1", true, 1);
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/LookAfarInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
@@ -295,6 +313,9 @@ public class setController implements Initializable {
 		case 3:
 			// 휴식 페이지 1번을 부르는 기능! 눈 마사지
 			restList.add(3);
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic2", true, 1);
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/EyeMassageInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
@@ -302,14 +323,20 @@ public class setController implements Initializable {
 		case 4:
 			// 휴식 페이지 1번을 부르는 기능! 눈 굴리기
 			restList.add(4);
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic2", true, 1);
 			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/EyeRollingInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
 			break;
 		case 5:
-			// 휴식 페이지 1번을 부르는 기능! 눈 꼭 감기
+			// 휴식 페이지 1번을 부르는 기능! 눈 온찜질
 			restList.add(5);
-			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
+			// 음악 바꾸기
+			if (restList.size() == 1)
+				Main.setMusic("restMusic2", true, 1);
+			parent = FXMLLoader.load(Main.class.getResource("/eye/rest/view/WarmEyeInfo.fxml"));
 			scene = new Scene(parent);
 			mainPage.setScene(scene);
 			break;
@@ -334,7 +361,7 @@ public class setController implements Initializable {
 		}
 	}
 
-	//짧은 버튼 눌렀을 경우 type지정
+	// 짧은 버튼 눌렀을 경우 type지정
 	@FXML
 	void restTypeIsShort(MouseEvent event) {
 		Music effectMusic = new Music("setButtonClickEffect", false, 2);
@@ -346,7 +373,7 @@ public class setController implements Initializable {
 
 	}
 
-	//긴 버튼을 눌렀을 경우 type지정
+	// 긴 버튼을 눌렀을 경우 type지정
 	@FXML
 	void restTypeIsLong(MouseEvent event) {
 		Music effectMusic = new Music("setButtonClickEffect", false, 2);
@@ -358,7 +385,7 @@ public class setController implements Initializable {
 
 	}
 
-	//보통 버튼을 눌렀을 경우 type지정
+	// 보통 버튼을 눌렀을 경우 type지정
 	@FXML
 	void restTypeIsRotate(MouseEvent event) {
 		Music effectMusic = new Music("setButtonClickEffect", false, 2);
@@ -423,15 +450,14 @@ public class setController implements Initializable {
 		effectToggle.setToggleLineColor(firstEffectLUnToggleLineColor);
 	}
 
-	//초기화 할때 사용하는 메소드
+	// 초기화 할때 사용하는 메소드
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// 처음에 켜진 상태이기 때문에 바꿈..
 		setToggleColors();
 		setToggleLocation();
-		//토글 위치 검사 함수
-		
-		
+		// 토글 위치 검사 함수
+
 		for (int i = 0; i < 24; i++) {
 			timeList.add(i);
 		}
@@ -444,17 +470,17 @@ public class setController implements Initializable {
 		// 실행주기 간격 콤보박스에 timeInterval배열 값들 추가
 		combobox3.setItems(intervalList);
 	}
-	
-	//토글위치 재조정 함수
+
+	// 토글위치 재조정 함수
 	public void setToggleLocation() {
-		if(Music.BGMFlag == false) {
+		if (Music.BGMFlag == false) {
 			BGMToggle.fire();
 		}
-		if(Music.effectFlag == false) {
+		if (Music.effectFlag == false) {
 			effectToggle.fire();
 		}
 	}
-	
+
 	// BGMToggle
 	@FXML
 	void BGMToggleAction(ActionEvent event)
@@ -474,7 +500,6 @@ public class setController implements Initializable {
 				BGMFlag = false;
 			}
 		}
-
 	}
 
 	// effectToggle
@@ -534,8 +559,7 @@ public class setController implements Initializable {
 
 	}
 
-	
-	//입력된 값에 따라 integer값을 restCycle에 저장해 둔다.
+	// 입력된 값에 따라 integer값을 restCycle에 저장해 둔다.
 	public void findOne(String s) {
 		switch (s) {
 		case "30분":
@@ -574,7 +598,7 @@ public class setController implements Initializable {
 		}
 	}
 
-	//pause Button
+	// pause Button
 	public void pause() {
 		Music effectMusic = new Music("setButtonClickEffect", false, 2);
 		effectMusic.start();
@@ -582,7 +606,7 @@ public class setController implements Initializable {
 		ExplainPage.setOpacity(0.45);
 	}
 
-	//타이머
+	// 타이머
 	public class Clock extends Pane {
 
 		int currentDateDay = currentDate.getDayOfMonth();
@@ -603,36 +627,36 @@ public class setController implements Initializable {
 				System.out.println("방해 시작 시각: " + startDisturbTime);
 				System.out.println("방해 종료 시각: " + endDisturbTime);
 				System.out.println("현재 초 : " + currentTime.getSecond());
-				System.out.println("알람 시작 초 : " + (currentTime.getSecond() + restCycle * 3));
+				System.out.println("알람 시작 초 : " + (currentTime.getSecond() + restCycle * 10));
 				if (isStop == true) {
 					clock.animation.stop();
 					clock = null;
 				}
-				if (maintainRestEvent) {
-					if (isRestStart == false && isGameStart == false) {
-						// alarmPopup등장
-						isPause = true;
-						FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
-						try {
-							AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
-							Scene scene = new Scene(alarmPopupPane);
-							Stage stage = new Stage();
-							stage.setScene(scene);
-							stage.show();
-						} catch (IOException e1) {
-							e1.printStackTrace();
-						}
-						maintainRestEvent = false;
-					}
-				}
-				
+//				if (maintainRestEvent) {
+//					if (isRestStart == false && isGameStart == false) {
+//						// alarmPopup등장
+//						isPause = true;
+//						FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/eye/set/view/alarmPopup.fxml"));
+//						try {
+//							AnchorPane alarmPopupPane = (AnchorPane) fxmlLoader.load();
+//							Scene scene = new Scene(alarmPopupPane);
+//							Stage stage = new Stage();
+//							stage.setScene(scene);
+//							stage.show();
+//						} catch (IOException e1) {
+//							e1.printStackTrace();
+//						}
+//						maintainRestEvent = false;
+//					}
+//				}
+
 				if (!((currnetTimeHour > startDisturbTime) && (currnetTimeHour < endDisturbTime))) {
 					// 알람 설정 주기를 설정하였는가?
 					if (restCycle != 0) {
 						// 현재 휴식 프로그램을 실행 중인가? 설정 안했으면 false
 						System.out.println("flag가 false면알람 주기 시작" + flag);
 						if (isRestStart == false && isGameStart == false) {
-							if (timeTmp % (restCycle * 10) == 0) {
+							if (timeTmp == (restCycle * 10)) {
 								// alarmPopup등장
 								isPause = true;
 								FXMLLoader fxmlLoader = new FXMLLoader(
@@ -652,13 +676,20 @@ public class setController implements Initializable {
 						}
 					}
 				}
+				if (timeTmp == (restCycle * 10))
+					timeTmp -= (restCycle * 10);
+				System.out.println("현재timeTmp ========== " + timeTmp);
+
 			}));
 			animation.setCycleCount(Timeline.INDEFINITE);
 			animation.play();
 		}
 
 		private void timeLabel() {
-			timeTmp++;
+			if (isRestStart == false && isGameStart == false) {
+				timeTmp++;
+			}
+
 		}
 
 		public int getTime() {

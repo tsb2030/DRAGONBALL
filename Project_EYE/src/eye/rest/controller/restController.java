@@ -60,11 +60,11 @@ public class restController implements Initializable {
 			@Override
 			public void handle(Event event) {
 				try {
+					Main.setMusic("introMusic", true, 1);
 					Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 					effectMusic.start();
 					mainPage = FXMLLoader.load(getClass().getResource("/eye/main/view/main_page.fxml"));
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -82,7 +82,7 @@ public class restController implements Initializable {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기
-			Main.setMusic("mainMusic", true, 1);
+			Main.setMusic("restMusic", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
 			closedEyeInfoPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/ClosedEyeInfo.fxml"));
 		} catch (IOException e) {
@@ -100,7 +100,7 @@ public class restController implements Initializable {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기
-			Main.setMusic("mainMusic", true, 1);
+			Main.setMusic("restMusic", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
 			lookAfarInfoPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/LookAfarInfo.fxml"));
 		} catch (IOException e) {
@@ -118,7 +118,7 @@ public class restController implements Initializable {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기
-			Main.setMusic("mainMusic", true, 1);
+			Main.setMusic("restMusic2", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
 			eyeMassageInfoPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/EyeMassageInfo.fxml"));
 		} catch (IOException e) {
@@ -136,7 +136,7 @@ public class restController implements Initializable {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기
-			Main.setMusic("mainMusic", true, 1);
+			Main.setMusic("restMusic2", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
 			eyeRollingInfoPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/EyeRollingInfo.fxml"));
 		} catch (IOException e) {
@@ -154,7 +154,7 @@ public class restController implements Initializable {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
 			// 음악 바꾸기
-			Main.setMusic("mainMusic", true, 1);
+			Main.setMusic("restMusic2", true, 1);
 			// 교체할 페이지인 ClosedEyeIntro.fxml를 가져와서 restMainPage에 넣어준다.
 			warmEyeInfoPage = FXMLLoader.load(getClass().getResource("/eye/rest/view/WarmEyeInfo.fxml"));
 		} catch (IOException e) {

@@ -8,9 +8,10 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import eye.Music;
+import eye.db.AchievementDB;
+import eye.db.dbconn;
 import eye.main.Main;
 import eye.main.controller.mainController;
-import eye.rest.controller.ClosedEyeRestController.Clock;
 import eye.set.controller.setController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -26,7 +27,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import eye.db.*;
+
 public class EyeMassageRestController implements Initializable {
 	dbconn db = new dbconn();
 	AchievementDB aDB = new AchievementDB();
@@ -34,6 +35,7 @@ public class EyeMassageRestController implements Initializable {
 	public static Stage currentStage;
 
 	public static boolean isPause = false;
+	public static boolean isRestart = false;
 
 	public static int timeTime;
 
@@ -62,9 +64,8 @@ public class EyeMassageRestController implements Initializable {
 	@FXML
 	private Pane mainPanel;
 
-	@FXML   /* 눈 마사지 실행 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
+	@FXML /* 눈 마사지 실행 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
 	void goRestMainPage2(MouseEvent event) {
-		clock.animation.stop();
 		if (isPause == false) {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
@@ -83,6 +84,7 @@ public class EyeMassageRestController implements Initializable {
 				}
 			} else {
 				try {
+					clock.animation.stop();
 					setController.isGameStart = false;
 					setController.isRestStart = false;
 					// 음악 바꾸기
@@ -102,6 +104,9 @@ public class EyeMassageRestController implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
 		clock = new Clock();
+		if (isRestart) {
+			clock.animation.play();
+		}
 	}
 
 	public class Clock extends Pane {
@@ -126,8 +131,11 @@ public class EyeMassageRestController implements Initializable {
 		}
 
 		private void timeLabels() throws IOException {
-			if (timeTmp > 0)
-				timeTmp--;
+			if (!isPause)
+				if (timeTmp > 0) {
+					timeTmp--;
+				}
+					
 			timeTime = timeTmp;
 			S = timeTmp + "";
 			timeLabel.setText(S);
@@ -136,17 +144,17 @@ public class EyeMassageRestController implements Initializable {
 				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
 				Date currentTime = new Date();
 				String cTime = sDateForm.format(currentTime);
-				
+
 				try {
 					db.insertTimes("eyeMassageRest", cTime);
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				//휴식카운트 증가
-				AchievementDB.DayRestcount= true;
+				// 휴식카운트 증가
+				AchievementDB.DayRestcount = true;
 				aDB.ach();
-				
+
 				// 알람에 의한 종료인가?
 				if (setController.isRestStart == true) {
 					// 휴식 알람으로 설정했던 횟수를 모두 마쳤는가?

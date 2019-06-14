@@ -8,9 +8,10 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import eye.Music;
+import eye.db.AchievementDB;
+import eye.db.dbconn;
 import eye.main.Main;
 import eye.main.controller.mainController;
-import eye.rest.controller.EyeRollingRestcontroller.Clock;
 import eye.set.controller.setController;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -26,7 +27,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import eye.db.*;
 
 public class LookAfarRestController implements Initializable {
 	dbconn db = new dbconn();
@@ -35,6 +35,7 @@ public class LookAfarRestController implements Initializable {
 	public static Stage currentStage;
 
 	public static boolean isPause = false;
+	public static boolean isRestart = false;
 
 	public static int timeTime;
 
@@ -63,9 +64,8 @@ public class LookAfarRestController implements Initializable {
 	@FXML
 	private Pane mainPanel;
 
-	@FXML  /* 멀리 보기 실행 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
+	@FXML /* 멀리 보기 실행 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
 	void goRestMainPage2(MouseEvent event) {
-		clock.animation.stop();
 		if (isPause == false) {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
@@ -83,6 +83,7 @@ public class LookAfarRestController implements Initializable {
 					e1.printStackTrace();
 				}
 			} else {
+				clock.animation.stop();
 				try {
 					setController.isGameStart = false;
 					setController.isRestStart = false;
@@ -112,7 +113,6 @@ public class LookAfarRestController implements Initializable {
 					timeLabels();
 
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}));
@@ -121,8 +121,11 @@ public class LookAfarRestController implements Initializable {
 		}
 
 		private void timeLabels() throws IOException {
-			if (timeTmp > 0)
-				timeTmp--;
+			if (!isPause)
+				if (timeTmp > 0) {
+					timeTmp--;
+				}
+					
 			timeTime = timeTmp;
 			S = timeTmp + "";
 			timeLabel.setText(S);
@@ -135,7 +138,6 @@ public class LookAfarRestController implements Initializable {
 				try {
 					db.insertTimes("lookAfarRest", cTime);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 
@@ -210,7 +212,9 @@ public class LookAfarRestController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		clock = new Clock();
+		if (isRestart) {
+			clock.animation.play();
+		}
 	}
 }

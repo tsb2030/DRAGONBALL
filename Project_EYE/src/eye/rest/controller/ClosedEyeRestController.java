@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import eye.Music;
+import eye.db.dbconn;
 import eye.main.Main;
 import eye.main.controller.mainController;
 import eye.set.controller.setController;
@@ -17,7 +18,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -26,10 +26,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import eye.db.*;
+
 public class ClosedEyeRestController implements Initializable {
 	dbconn db = new dbconn();
-	
+
 	@FXML
 	private AnchorPane closedEyeRestPage;
 
@@ -54,15 +54,15 @@ public class ClosedEyeRestController implements Initializable {
 	public static Stage currentStage;
 
 	public static boolean isPause = false;
+	public static boolean isRestart = false;
 
 	public static int timeTime;
 
-	public Clock clock;
+	public static Clock clock;
 	AnchorPane restMainPage;
 
-	@FXML    /* 눈 꼭 감기 실행 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
+	@FXML /* 눈 꼭 감기 실행 페이지에서 뒤로가기 누르면 휴식 메인 페이지로 이동 */
 	void goRestMainPage2(MouseEvent event) {
-		clock.animation.stop();
 		if (isPause == false) {
 			Music effectMusic = new Music("generalMouseClickedEffect", false, 2);
 			effectMusic.start();
@@ -81,6 +81,7 @@ public class ClosedEyeRestController implements Initializable {
 				}
 			} else {
 				try {
+					clock.animation.stop();
 					setController.isGameStart = false;
 					setController.isRestStart = false;
 					// 음악 바꾸기
@@ -98,8 +99,10 @@ public class ClosedEyeRestController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		clock = new Clock();
+		if (isRestart == true) {
+			clock.animation.play();
+		}
 	}
 
 	public class Clock extends Pane {
@@ -115,7 +118,6 @@ public class ClosedEyeRestController implements Initializable {
 					timeLabels();
 
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}));
@@ -124,8 +126,11 @@ public class ClosedEyeRestController implements Initializable {
 		}
 
 		private void timeLabels() throws IOException {
-			if (timeTmp > 0)
-				timeTmp--;
+			if (!isPause)
+				if (timeTmp > 0) {
+					timeTmp--;
+				}
+
 			timeTime = timeTmp;
 			S = timeTmp + "";
 			timeLabel.setText(S);
@@ -134,11 +139,10 @@ public class ClosedEyeRestController implements Initializable {
 				SimpleDateFormat sDateForm = new SimpleDateFormat("yyyy/MM/dd");
 				Date currentTime = new Date();
 				String cTime = sDateForm.format(currentTime);
-				
+
 				try {
 					db.insertTimes("ClosedEyeRest", cTime);
 				} catch (SQLException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				// 알람에 의한 종료인가?

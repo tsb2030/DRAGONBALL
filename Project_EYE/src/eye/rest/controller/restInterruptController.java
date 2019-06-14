@@ -36,14 +36,24 @@ public class restInterruptController implements Initializable {
 		effectMusic.start();
 		ClosedEyeInfoController.isPause = false;
 		ClosedEyeRestController.isPause = false;
+		ClosedEyeRestController.isRestart = true;
+		
 		EyeMassageInfoController.isPause = false;
 		EyeMassageRestController.isPause = false;
+		EyeMassageRestController.isRestart = true;
+		
 		EyeRollingInfoController.isPause = false;
 		EyeRollingRestcontroller.isPause = false;
+		EyeRollingRestcontroller.isRestart = true;
+		
 		LookAfarInfoController.isPause = false;
 		LookAfarRestController.isPause = false;
+		LookAfarRestController.isRestart = true;
+		
 		WarmEyeInfoController.isPause = false;
 		WarmEyeRestController.isPause = false;
+		WarmEyeRestController.isRestart = true;
+		
 		mainController.currentStage.setOpacity(1.0);
 
 		Stage stage = (Stage) alarmOutButton.getScene().getWindow();
