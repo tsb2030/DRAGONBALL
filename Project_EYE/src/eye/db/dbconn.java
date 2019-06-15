@@ -417,7 +417,7 @@ public class dbconn {
 					Date currentTime = new Date();
 					Calendar cal = Calendar.getInstance();
 					cal.setTime(currentTime);
-					cal.add(Calendar.DATE,-7);
+					cal.add(Calendar.DATE,-6);
 					String before = sDateForm.format(cal.getTime());
 					String now = sDateForm.format(currentTime);
 					System.out.println("7일 전 = "+before+" 현재 = "+now);
@@ -482,7 +482,7 @@ public class dbconn {
 					Date currentTime = new Date();
 					Calendar cal = Calendar.getInstance();
 					cal.setTime(currentTime);
-					cal.add(Calendar.DATE,-30);
+					cal.add(Calendar.DATE,-29);
 					String before = sDateForm.format(cal.getTime());
 					String now = sDateForm.format(currentTime);
 					System.out.println("30일 전 = "+before+" 현재 = "+now);

@@ -154,6 +154,9 @@ public class recordController implements Initializable{
 		Double zigavg = ((Double)zigCorNum/(Double)zigzagTotNum)*100;
 		zigWinAvg = Double.toString(zigavg);
 		System.out.println("지그재그 승률 = "+zigWinAvg);
+		if(zigWinAvg.equals("NaN")) {
+			zigWinningAvg.setText("0%");
+		}else
 		zigWinningAvg.setText(zigWinAvg+" %");
 
 		// 뫼비우스 전체 게임 횟수 가져오기
@@ -181,7 +184,10 @@ public class recordController implements Initializable{
 		Double mobiusTotNum = Double.parseDouble(mobiusTot);
 		Double mobavg = ((Double)mobCorNum/(Double)mobiusTotNum)*100;
 		mobWinAvg = Double.toString(mobavg);
-		mobWinningAvg.setText(mobWinAvg);
+		if(mobWinAvg.equals("NaN")) {
+			mobWinningAvg.setText("0%");
+		}else
+		mobWinningAvg.setText(mobWinAvg+" %");
 
 		// 5점 카드 트레이닝 전체 게임 횟수 가져오기
 		try {
@@ -317,7 +323,7 @@ public class recordController implements Initializable{
 		System.out.println("출력");
 		for(int i =0;i<exer.size();i++) {
 			timesModel rcm = exer.get(i);
-			System.out.println("date = "+rcm.getDate()+" num = "+rcm.getCnt());
+			System.out.println("date = "+rcm.getDate()+" num = "+rcm.getCnt()+" size = "+exer.size());
 			weekDays[i]=rcm.getDate();
 			aWeekGameData[i] = rcm.getCnt();
 		}
