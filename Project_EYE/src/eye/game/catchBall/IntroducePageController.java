@@ -46,7 +46,7 @@ public class IntroducePageController implements Initializable {
 	@FXML
 	private Pane normalPane;
 
-	@Override
+	@Override// 초기화 할 때 실행
 	public void initialize(URL location, ResourceBundle resources) {
 		System.out.println("java version: " + System.getProperty("java.version"));
 		System.out.println("javafx.version: " + System.getProperty("javafx.version"));
@@ -72,7 +72,7 @@ public class IntroducePageController implements Initializable {
 
 	}
 
-	@FXML
+	@FXML	//쉬움 난이도
 	void easyPaneClickEvent(MouseEvent event) {
 		gameSpeed = 5;
 		CatchballGameController.bigScore = 0;
@@ -92,7 +92,7 @@ public class IntroducePageController implements Initializable {
 		}
 	}
 
-	@FXML
+	@FXML//어려움 난이도
 	void hardPaneClickEvent(MouseEvent event) {
 		gameSpeed = 3;
 		CatchballGameController.bigScore = 0;
@@ -112,7 +112,7 @@ public class IntroducePageController implements Initializable {
 		}
 	}
 
-	@FXML
+	@FXML		//보통난이도
 	void normalPaneClickEvent(MouseEvent event) {
 		gameSpeed = 4;
 		CatchballGameController.bigScore = 0;

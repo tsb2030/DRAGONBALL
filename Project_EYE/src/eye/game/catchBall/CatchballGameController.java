@@ -416,36 +416,7 @@ public class CatchballGameController implements Initializable {
 		colorCount = 0;
 		catchCircle.setFill(firstColor);
 
-		// catchBall이 부르르르 떨림
-//		PathTransition pathTransition = new PathTransition(Duration.millis(10000), catchCircle);
-//
-//		Path path = new Path();
-//		path.getElements().add(new LineTo(currentX - 2, currentY - 2));
-//		path.getElements().add(new LineTo(currentX + 2, currentY + 2));
-//		path.getElements().add(new LineTo(currentX - 2, currentY + 2));
-//		path.getElements().add(new LineTo(currentX + 2, currentY - 2));
-//
-//		ScaleTransition scaleTransition = new ScaleTransition();
-//		scaleTransition.setDuration(Duration.millis(5000)); // 0.25초
-//		scaleTransition.setNode(catchCircle);
-//		scaleTransition.setCycleCount(1);
-//		scaleTransition.setToX(1);
-//		scaleTransition.setToY(1);
-//		scaleTransition.play();
-//		pathTransition.setPath(path);
-//		pathTransition.play();
 	}
-
-	// 시간 초과까지 무사히 완료했을 때 이벤트
-	public void allStageSuccesEvent() {
-
-	}
-
-	// 삼진 아웃 되었을때 이벤트
-	public void allStageFailEvent() {
-
-	}
-
 
 	// catchBall을 움직이게 하는 키 이벤트 메소드
 	@FXML
